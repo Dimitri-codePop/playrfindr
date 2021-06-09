@@ -2,7 +2,7 @@
 import React from 'react';
 // == Import
 import NavBar from 'src/components/Navbar';
-import './styles.css';
+import './style.scss';
 
 // == Composant
 const App = () => (

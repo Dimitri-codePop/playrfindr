@@ -38,7 +38,7 @@ export default function Mobile({ handleNavBarSearch }) {
 
   const classnames = toggleMenu ? 'navbar__list' : 'navbar__list navbar__list-ishidden';
   return (
-  <div className="navbar">
+  <nav className="navbar">
     <FontAwesomeIcon icon={faBars} onClick={toggleNavbar} className="navbar__toggler" />
     <ul className={classnames}>  
       <NavLink
@@ -72,35 +72,41 @@ export default function Mobile({ handleNavBarSearch }) {
         <FontAwesomeIcon icon={faUser} />  Mon Profil
       </NavLink>
     </ul>
-    <h1 className="navbar__title">
       {toggleSearch ? (
         <>
-          <Link
-            to="/"
-            key="Accueil"
-            onClick={() => {setToggleMenu(false)}}
-          >
-            <span> 
-              Playr 
-            </span>
-            <span>
-              Findr
-            </span>
-          </Link>
+          <h1 className="navbar__title">
+            <Link
+              to="/"
+              key="Accueil"
+              onClick={() => {setToggleMenu(false)}}
+            >
+              <span> 
+                Playr 
+              </span>
+              <span>
+                Findr
+              </span>
+            </Link>
+          </h1>
         </>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="search"
-              placeholder="Entrez votre recherche"
-              onChange={changeField}
-              value={navBarSearchValue}></input>
+          <form onSubmit={handleSubmit} className="navbar__search-form">
+            <fieldset>
+              <legend>Rechercher</legend>
+              <input
+                type="text"
+                name="search"
+                className="navbar__search-form--input"
+                placeholder="Entrez votre recherche"
+                onChange={changeField}
+                value={navBarSearchValue}>
+              </input>
+              <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch} className=""/> </button>
+            </fieldset>
           </form>
         )}
-    </h1>
     <FontAwesomeIcon icon={faSearch} onClick={toggleSearchBar} className="navbar__search" />
-  </div>
+  </nav>
 );
 }
 

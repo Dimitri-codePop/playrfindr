@@ -54,4 +54,27 @@
     font-weight: bold;
     border-bottom: 1px solid v.$alternate;
   }
+  &__search-form {
+    align-self: center;
+    height: 3rem;
+    width:230px
+  }
+  &__search-form--input {
+    height: 100%;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    width: 190px;
+    background-color: v.$fourth;
+    color: white;
+    &:focus {
+      border-bottom: 2px solid v.$alternate;
+    }
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+}
+fieldset {
+  border: 1px solid v.$primary;
+  color: v.$alternate;
 }
