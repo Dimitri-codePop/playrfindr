@@ -1,4 +1,6 @@
+const client = require ('../client');
 const CoreModel = require('./coreModel');
+
 
 class GameModel extends CoreModel {
 
@@ -20,6 +22,22 @@ class GameModel extends CoreModel {
         super(obj);
     }
 
+    static async findAllRandom () {
+        const result = await client.query(`
+            SELECT 
+                game.*
+            FROM ${this.tableName}
+            ORDER BY random()
+            LIMIT 5
+         `);
+
+        const instanceList = [];
+
+        for (const row of result.rows) {
+            instanceList.push(new this(row));
+        }
+        return instanceList;
+    }
 }
 
 module.exports = GameModel;
