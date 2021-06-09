@@ -45,7 +45,7 @@ class CoreModel {
      * @param {object} options objet contenant des parmaètres de filtrage
      * @returns {object[]} Liste d'es 'instances
      */
-    static async find() {
+    static async findAll() {
         const result = await client.query(`SELECT * FROM ${this.tableName} WHERE deleted_at IS NULL`);
         
         const instanceList = [];
