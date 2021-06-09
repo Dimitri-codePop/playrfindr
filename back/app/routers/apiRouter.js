@@ -12,12 +12,20 @@ const router = express.Router();
 router.get('/', mainController.getAll);
 /**
     * Route des jeux
-    * @route GET /
+    * @route GET /jeux
     * @returns {Game[]} 200 - La liste des jeux
     * @returns {Error} 500 - Une erreur serveur
     */
 router.get('/jeux', gameController.getAllGames);
 
+/**
+    * Un auteur
+    * @route GET /jeu/{id}
+    * @param {number} id - Identifiant du jeu
+    * @returns {Game.model} 200 - Le Jeu
+    * @returns {Error} 500 - Une erreur serveur
+    */
 
+router.get('/jeu/:id(\\d+)', gameController.getOne);
 
 module.exports = router;
