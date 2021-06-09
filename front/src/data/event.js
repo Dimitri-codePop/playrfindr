@@ -3,7 +3,8 @@ export default {
   "event": [
     {
       "id": 1,
-      "content": "Petite soirée jeu à mon appart",
+      "label": "Petite soirée jeu à mon appart",
+      "content": "Soirée jeux, ou on pourra jouer à pleins de jeux différents",
       "date": "2021-06-09 19:00:00",
       "lieu": 75,
       "nb_maxplayer": 5,
@@ -11,7 +12,8 @@ export default {
     },
     {
       "id": 1,
-      "content": "Aprem jeu au parc de la villette",
+      "label": "Jeux aux parc",
+      "content": "Aprem jeu au parc de la villette pour jouer à Carcassonne et Nidavellir",
       "date": "2021-06-12 15:00:00",
       "lieu": 31,
       "nb_maxplayer": 4,

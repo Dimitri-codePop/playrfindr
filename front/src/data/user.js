@@ -12,6 +12,7 @@ export default {
       "departement": 75,
       "theme":["Animaux"],
       "category":["Déduction"],
+      "games":["Abyss", "Nidavellir"],
       "event":[1],
     },
     {
@@ -25,6 +26,7 @@ export default {
       "departement": 64,
       "theme":["Exploration"],
       "category":["Jeu de plateau", "Pioche"],
+      "games":["Dracula Fiesta", "Cryptide"],
       "event":[],
     },
     {
@@ -38,6 +40,7 @@ export default {
       "departement": 75,
       "theme":["Fantastique", "Médiéval"],
       "category":["Enchères"],
+      "games":["Dracula Fiesta", "Cryptide"],
       "event":[1],
     },
     {
@@ -51,6 +54,7 @@ export default {
       "departement": 31,
       "theme":["Fantastique"],
       "category":["Jeu de plateau"],
+      "games":["Abyss"],
       "event":[2],
     },
     {
@@ -64,6 +68,7 @@ export default {
       "departement": 31,
       "theme":["Horreur"],
       "category":["Draft"],
+      "games":["Abyss", "Cryptide", "Carcassonne", "Nidavellir"],
       "event":[2],
     },
   ]
