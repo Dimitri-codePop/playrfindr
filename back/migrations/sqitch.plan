@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=PlayrFindr
+
+init 2021-06-09T07:09:38Z Dimitri Martin <dimmartin32@gmail.com> # Mise en place de la structure de la bdd
