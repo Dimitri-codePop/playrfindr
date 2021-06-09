@@ -1,0 +1,76 @@
+.profil {
+  &__section1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px;
+    height: 240px;
+  }
+
+  &__image {
+    max-height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__name {
+    display: flex;
+    justify-content: space-between;
+    &__content {
+      color: white;
+      font-size: 30px;
+    }
+    &__envelop {
+      color: white;
+      font-size: 30px;
+    }
+  }
+
+  &__email {
+    color: lightgrey;
+  }
+
+  &__dpt {
+    display: flex;
+
+    &__title {
+      margin-right: 50px;
+    }
+
+    &__content {
+      color: lightgrey;
+      font-weight: bold;
+    }
+  }
+
+  &__themetitle {
+    margin-top: 20px;
+    color: rgb(230, 149, 44);
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__tag {
+    display: flex;
+    justify-content: space-evenly;
+
+    &__cat {
+      background-color: orangered;
+      width: fit-content;
+      padding: .5rem;
+      border: 1px solid black;
+      border-radius: .5rem;
+    }
+
+    &__theme {
+      background-color: rgb(17, 161, 49);
+      width: fit-content;
+      padding: .5rem;
+      border: 1px solid black;
+      border-radius: .5rem;
+    }
+  }
+}

@@ -1,17 +1,22 @@
-// == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-// == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import Profil from 'src/containers/Profil';
 
-// == Composant
-const App = () => (
-  <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-  </div>
-);
+import './style.scss';
 
-// == Export
+function App() {
+
+  return (
+    <div className="app">
+      <Switch>
+        <Route path="/profil/:id">
+          <Profil />
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+
+
 export default App;
