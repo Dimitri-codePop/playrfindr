@@ -1,0 +1,57 @@
+@use 'src/styles/vars' as v;
+
+.navbar {
+  border-bottom: 2px solid v.$alternate;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 1rem;
+  padding: 0.6rem 0rem;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  &__toggler {
+    align-self: center;
+    color: v.$alternate;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  &__search {
+    color: v.$alternate;
+    align-self: center;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  &__title {
+    display: flex;
+    font-size: 2rem;
+    color: v.$alternate;
+    font-weight: bold;
+  }
+
+  &__list {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 50%;
+    height: 150px;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    opacity: 1;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+    &-ishidden{
+      opacity: 0;
+      height: 0;
+    }
+  }
+  &__items {
+    padding: 0.3rem;
+    color: v.$alternate;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid v.$alternate;
+  }
+}
