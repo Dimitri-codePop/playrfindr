@@ -1,0 +1,29 @@
+@use 'src/styles/vars' as v;
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: v.$alternate;
+}
+
+.footer__title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: v.$primary;
+}
+
+.footer__grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__brands-icons {
+  font-size: 1.3rem;
+  margin: 0.2rem;
+}
