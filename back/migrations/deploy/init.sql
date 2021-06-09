@@ -126,7 +126,6 @@ CREATE TABLE "author_has_game" (
     "deleted_at"timestamptz
 );
 
-
 CREATE TABLE "user_has_game" (
     "user_id" int NOT NULL REFERENCES "user"("id"),
     "game_id" int NOT NULL REFERENCES "game"("id"),
