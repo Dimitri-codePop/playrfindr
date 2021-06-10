@@ -14,8 +14,8 @@ const port = process.env.PORT || `3000`;
 let options = {
    swaggerDefinition: {
        info: {
-           description: 'Cette api permet de gérer une bibliothèque',
-           title: 'My Bookshelf',
+           description: 'Cette api permet de gérer une bibliothèque de jeux',
+           title: 'PlayrFindr',
            version: '1.0.0',
        },
        host: 'localhost:3000',

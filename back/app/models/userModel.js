@@ -1,3 +1,4 @@
+const client = require('../client');
 const CoreModel = require('./coreModel');
 
 class UserModel extends CoreModel {
@@ -16,6 +17,11 @@ class UserModel extends CoreModel {
 
     constructor(obj){
         super(obj);
+    }
+
+    static async findOne(email){
+        const result = await client.query(`SELECT * FROM "user" WHERE email = $1`, [email]);
+        return result.rows[0];
     }
 
 }
