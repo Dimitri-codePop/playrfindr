@@ -77,7 +77,6 @@ class CoreModel {
     async insert() {
 
         const preparedQuery = {
-
             text: `
                 SELECT * FROM add_${this.constructor.tableName}($1)
             `,
