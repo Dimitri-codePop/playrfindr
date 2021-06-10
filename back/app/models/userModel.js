@@ -20,7 +20,7 @@ class UserModel extends CoreModel {
     }
 
     static async findOne(email){
-        const result = await client.query(`SELECT * FROM "user" WHERE email = $1`, [email]);
+        const result = await client.query(`SELECT "user".*, "department"."label", "department"."number" FROM "user" join department on "user"."department_id" = "department"."id" WHERE email = $1`, [email]);
         return result.rows[0];
     }
 

@@ -51,14 +51,17 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
 
-            console.log(req.body);
+            
 
         if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
         }
         const user = await UserModel.findOne(email);
 
-    
+            if(!user){
+                console.log(user);
+                return res.status(400).json({error : 'This resource doesn"t exists.'})
+            }
 
         const validPwd = await bcrypt.compare(password, user.password);
 
@@ -67,6 +70,7 @@ module.exports = {
           error: "Ce n'est pas le bon mot de passe."
             });
         }
+        console.log(user);
 
         if(validPwd){
             return res.status(200).json({
@@ -76,7 +80,8 @@ module.exports = {
                 email: user.email,
                 birthdate: user.birthdate,
                 picture: user.picture,
-                department: user.department_id,
+                department_number: user.number,
+                department_label: user.label,
                 token: jwt.generateTokenForUser(user)
             })
         }
