@@ -52,7 +52,6 @@ CREATE TABLE "message" (
     "deleted_at"timestamptz
 );
 
-
 CREATE TABLE "event" (
     "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "label" text NOT NULL,

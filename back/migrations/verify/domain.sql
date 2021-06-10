@@ -1,4 +1,4 @@
--- Verify PlayrFindr:function_game on pg
+-- Verify PlayrFindr:domain on pg
 
 BEGIN;
 

@@ -2,4 +2,4 @@
 %project=PlayrFindr
 
 init 2021-06-09T07:09:38Z Dimitri Martin <dimmartin32@gmail.com> # Mise en place de la structure de la bdd
-function_game 2021-06-09T15:04:28Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de fonction sql pour les jeux avec categories et themes
+domain 2021-06-10T06:49:19Z Dimitri Martin <dimmartin32@gmail.com> # Ajout des domaines sql
