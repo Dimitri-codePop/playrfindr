@@ -1,0 +1,11 @@
+### resource not found
+GET http://localhost:4000/api/null
+
+### Page d'acceuil
+GET http://localhost:4000/api
+
+### Récupération de tout les jeux
+GET http://localhost:4000/api/jeux
+
+### Récupération d'un jeu
+GET http://localhost:4000/api/jeu/1
