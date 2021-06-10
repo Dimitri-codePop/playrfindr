@@ -36,7 +36,7 @@ Card.propTypes = {
   picture: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   number: PropTypes.number.isRequired,
-  star: PropTypes.string.isRequired,
+  star: PropTypes.object.isRequired,
 };
 
 Card.defaultProps = {

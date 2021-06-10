@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Card from './Card';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Modal from 'react-modal';
+
+import Card from './Card';
+import Login from 'src/components/Home/Modals/Login';
+import Signup from 'src/components/Home/Modals/Signup';
+
 import { 
   faAngleDoubleRight,
   faStar,
@@ -13,8 +17,20 @@ import './style.scss';
 
 import accueil from 'src/assets/accueil.png'
 import games from '../../data/game';
+
 export default function Home() {
-  console.log(games)
+  const [loginIsHidden, setLoginIsHidden] = useState(false);
+  const [signupIsHidden, setSignupIsHidden] = useState(false);
+  const handleModalLogin = () => {
+    console.log("j'ai cliqué sur login");
+    setLoginIsHidden(!loginIsHidden);
+  }
+  const handleModalSignup = () => {
+    console.log("j'ai cliqué ici");
+    setLoginIsHidden(!loginIsHidden);
+  }
+  
+
   const gameList = games.game.map((game, i) => {
     return (<Card 
       star={faStar}
@@ -35,8 +51,8 @@ export default function Home() {
             PlayRfindR est une plateforme qui facilite la mise en relation de plusieurs 
             jouers afin qu'ils se retrouvent autour d'un jeu de société
           </span>
-          <button type="button" className="btn btn-login" id="modal_login">Connexion<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
-          <button type="button" className="btn btn-signup" id="modal_signup">Inscription<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
+          <button type="button" onClick={handleModalLogin} className="btn btn-login" id="modal_login">Connexion<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
+          <button type="button" onClick={handleModalSignup} className="btn btn-signup" id="modal_signup">Inscription<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
         </div>
       </div>
       <section className="home__top">
@@ -47,6 +63,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {loginIsHidden && (<Login 
+        loginIsHidden = {loginIsHidden}
+        setLoginIsHidden = {setLoginIsHidden}
+      />)}
+      {signupIsHidden && (<Signup 
+        signupIsHidden = {signupIsHidden}
+        setSignupIsHidden = {setSignupIsHidden}
+      />)}
     </div>
   );
 }

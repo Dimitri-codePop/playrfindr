@@ -1,0 +1,16 @@
+@use 'src/styles/vars' as v;
+
+.field {
+  &__input {
+    width: 100%;
+    margin-bottom: v.$gutter / 2;
+    border: 1px solid v.$grey;
+    border-bottom: 2px solid v.$grey;
+    padding: v.$gutter / 2;
+    border-radius: 5px;
+    &:focus {
+      border-bottom: 2px solid v.$primary;
+    }
+  }
+}
+

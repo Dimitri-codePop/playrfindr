@@ -10,6 +10,7 @@
   padding: 0.6rem 0rem;
   height: 50px;
   display: flex;
+  z-index: 1;
   justify-content: space-between;
   &__toggler {
     align-self: center;

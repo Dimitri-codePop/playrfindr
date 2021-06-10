@@ -10,7 +10,7 @@
   overflow-x: hidden;
   &__accueil__container {
     position: relative;
-    z-index: -1;
+    z-index: 0;
   }
   &__accueil-img {
     width: 400%;
@@ -52,6 +52,7 @@
       padding: 1rem 0rem;
       color:v.$grey;
       font-weight: bold;
+      z-index: 1;
       border-bottom: 2px solid v.$grey;
     }
   }
