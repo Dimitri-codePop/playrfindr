@@ -26,7 +26,9 @@
   &__title {
     display: flex;
     font-size: 2rem;
-    color: v.$alternate;
+    & span {
+      color: v.$alternate !important;
+    }
     font-weight: bold;
   }
 
@@ -45,6 +47,8 @@
     &-ishidden{
       opacity: 0;
       height: 0;
+      left: -50%;
+
     }
   }
   &__items {
