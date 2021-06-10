@@ -11,7 +11,6 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
             const birthdate = req.body.birthdate;
-            const is_admin = req.body.is_admin;
             const department_id = req.body.department_id;
 
             if(firstname === null || lastname === null || email === null || password === null || birthdate === null ) {
@@ -33,19 +32,17 @@ module.exports = {
                 email,
                 password: encryptedPassword,
                 birthdate,
-                is_admin,
                 department_id})
 
                 await user.insert();
         } catch (error) {
-            console.trace(error);
 
-            if (error.code === '23505') {
+            if (error.code == '23505') {
                 error = `This resource already exists.`;
             } else {
                 error = `A server error occured, please retry later.`;
             }
-            response.json({ error });
+            res.json({ error });
         }
     },
 
@@ -54,12 +51,14 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
 
-        if(email === null || password === null){
+            console.log(req.body);
+
+        if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
         }
         const user = await UserModel.findOne(email);
 
-        
+    
 
         const validPwd = await bcrypt.compare(password, user.password);
 
@@ -81,11 +80,10 @@ module.exports = {
                 token: jwt.generateTokenForUser(user)
             })
         }
-
         } catch (error) {
             console.trace(error);
             console.log(error);   
-            response.json({ error });
+            res.json({ error });
         }
         
     }

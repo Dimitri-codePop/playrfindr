@@ -14,13 +14,12 @@ GET http://localhost:4000/api/jeu/1
 ### Ajout d'un utilisateur
 POST http://localhost:4000/api/inscription
 Content-Type: application/json
-
 {
-    "firstname": "Dimitri",
-    "lastname": "Martinio",
-    "email": "dimmartino@gmail.com",
-    "password": "123456",
-    "passwordConfirm": "134ez56",
+    "firstname": "Dominique",
+    "lastname": "Roux",
+    "email": "aeerra@gmail.com",
+    "password": "123456789",
+    "passwordConfirm": "123456789",
     "birthdate": "1995-07-18",
     "department_id": 65
 }
@@ -30,6 +29,7 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dim@gmail.com",
-    "password": "123456ae"
+    "email": null,
+    "password": null
+ 
 }
