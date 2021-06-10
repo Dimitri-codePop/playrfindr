@@ -8,6 +8,7 @@ module.exports = {
             if(!games){
                 return next();
             }
+            
             response.json({ data: games.map(game => game.dataValues)});
         } catch (error) {
             console.trace(error);
