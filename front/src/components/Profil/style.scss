@@ -1,7 +1,9 @@
-.profil {
-  width: 100vw;
-  background-color: #37568f;
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
+@media (min-width: 1200px) {
+  .profil {
+    width: 100vw;
+    background-color: #37568f;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
 }

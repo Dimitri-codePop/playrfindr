@@ -1,55 +1,124 @@
-.profil {
-  &__section2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0 4rem;
-  }
-
-  &__ludo {
-
-    &__title {
+@media (min-width: 1200px) {
+  .profil {
+    &__section2 {
       display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &__content {
-        margin-right: 30px;
-        color: rgb(230, 149, 44);
-        font-weight: bold;
-        font-size: 20px;
-      }
-
-      &__search {
-        padding: .4rem;
-        border-radius: 1rem;
-        border: none;
-        width: fit-content;
-      }
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin: 0 4rem;
     }
 
-    &__games {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem 0;
+    &__ludo {
 
-      &__content {
+      &__title {
         display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__content {
+          margin-right: 30px;
+          color: rgb(230, 149, 44);
+          font-weight: bold;
+          font-size: 20px;
+        }
+
+        &__search {
+          padding: .4rem;
+          border-radius: 1rem;
+          border: none;
+          width: fit-content;
+        }
+      }
+
+      &__games {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+
+        &__content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 20%;
+        }
+
+        &__pic {
+          width: 100%;
+        }
+      }
+    }
+    &__plus {
+      align-self: center;
+      font-size: 2rem;
+      color: orange;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .profil {
+    &__section2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    &__ludo {
+
+      &__title {
+        display: flex;
+        justify-content: center;
         flex-direction: column;
         align-items: center;
-        width: 20%;
+
+        &__content {
+          color: rgb(230, 149, 44);
+          font-weight: bold;
+          font-size: 20px;
+          text-align: center;
+          text-shadow: 0 0 5px black;
+          margin-bottom: 1rem;
+        }
+
+        &__search {
+          padding: .4rem;
+          border-radius: 1rem;
+          border: none;
+          width: fit-content;
+          box-shadow: 0 0 5px black;
+          width: 130px;
+        }
       }
 
-      &__pic {
-        width: 100%;
+      &__games {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+
+        &__content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 50%;
+          padding: 1rem 0;
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.493);
+        }
+
+        &__pic {
+          width: 80%;
+          margin-bottom: 1rem;
+        }
       }
     }
+    &__plus {
+      align-self: center;
+      font-size: 2rem;
+      color: orange;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
   }
-  &__plus {
-    align-self: center;
-    font-size: 2rem;
-    color: orange;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
+  
 }
