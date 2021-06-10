@@ -31,13 +31,17 @@ export default function Web({ handleNavBarSearch }) {
   return (
     <nav className="navbar__web">
       <>
-      <div className="navbar__web__logo-container">
-        <img src={Logo} alt="logo site web" className="navbar__web__logo"/>
-        <h1 className="navbar__web__title">
-          <span> PlayR </span>
-          <span> FindR </span>
-        </h1>
-      </div>
+        <Link
+          to="/"
+          key="Accueil"
+          className="navbar__web__logo-container"
+        >
+          <img src={Logo} alt="logo site web" className="navbar__web__logo"/>
+          <h1 className="navbar__web__title">
+            <span> PlayR </span>
+            <span> FindR </span>
+          </h1>
+        </Link>
       <form onSubmit={handleSubmit} className="navbar__search-form">
       <fieldset>
         <legend>Rechercher</legend>

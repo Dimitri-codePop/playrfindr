@@ -12,15 +12,18 @@
   justify-content: space-between;
   
   &__logo {
-    width: 100px;
-    height: 100px;
+    align-self: center;
+    width: 60px;
+    height: 60px;
   }
   &__title {
     display: flex;
     flex-direction: column;
     align-self: center;
     font-size: 2rem;
-    color: v.$alternate;
+    & span {
+      color: v.$primary !important;
+    }
     font-weight: bold;
   }
   &__buttons {
@@ -31,6 +34,7 @@
     border-radius: 5px;
     align-self: center;
     margin: 0 0.6rem;
+    font-size: 1.1rem;
   }
   &__profil-circle {
     border: 1px solid v.$primary;
@@ -44,6 +48,7 @@
     color: v.$primary;
   }
 }
+
 .navbar__web__button-container {
   align-self: center;
   display: flex;
@@ -57,4 +62,5 @@
 
 .navbar__web__logo-container {
   display: flex;
+  align-items: center;
 }
