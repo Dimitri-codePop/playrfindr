@@ -17,19 +17,19 @@ export default function Footer() {
     <footer>
       <div className="footer__grid">
         <h2 className="footer__title">Support</h2>
-        <Link exact to="/contact">
+        <Link to="/contact">
         <span>Contactez-nous</span>
         </Link>
-        <Link exact to="/faq">
+        <Link to="/faq">
         <span>FAQ</span>
         </Link>
       </div>
       <div className="footer__grid">
         <h2 className="footer__title">A propos</h2>
-        <Link exact to="/cgu">
+        <Link to="/cgu">
         <span>CGU</span>
         </Link>
-        <Link exact to="/legals">
+        <Link to="/legals">
         <span>Mentions légales</span>
         </Link>
         <span><FontAwesomeIcon icon={faCopyright} /> PlayrFindr</span>
