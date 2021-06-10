@@ -11,7 +11,7 @@ export default function Navbar() {
   useEffect(() => {
     const changeWidth = () => {
       setWidth(window.innerWidth);
-      if (window.innerWidth > 1200) {
+      if (window.innerWidth > 960) {
         setToggleMenu(false);
         setWidth(window.innerWidth);
       }
@@ -21,7 +21,7 @@ export default function Navbar() {
       }
     };
   
-    if (window.innerWidth > 1200) {
+    if (window.innerWidth > 960) {
       setToggleMenu(false);
       setWidth(window.innerWidth);
     }

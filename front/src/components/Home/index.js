@@ -1,15 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Card from './Card';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faAngleDoubleRight
-  } from '@fortawesome/free-solid-svg-icons'
+  faAngleDoubleRight,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons';
 
 import './style.scss';
+
 import accueil from 'src/assets/accueil.png'
+import games from '../../data/game';
 export default function Home() {
+  console.log(games)
+  const gameList = games.game.map((game, i) => {
+    return (<Card 
+      star={faStar}
+      number= {i+1}
+      id={game.id}
+      label={game.label}
+      picture={game.picture}
+      key={game.label}
+    />)
+  });
   return (
     <div className="home">
       <div className="home__accueil__container">
@@ -25,7 +40,12 @@ export default function Home() {
         </div>
       </div>
       <section className="home__top">
-
+        <div className="home__top-container">
+          <h2 className="home__top-title">Les jeux tendances :</h2>
+          <div className="home__top-cards">
+              {gameList}
+          </div>
+        </div>
       </section>
     </div>
   );
