@@ -15,24 +15,24 @@ import './style.scss';
 export default function Footer() {
   return (
     <footer>
+      <div class="footer__grid">
+        <h2 className="footer__title">Support</h2>
+        <span>Contactez-nous</span>
+        <span>FAQ</span>
+      </div>
+      <div class="footer__grid">
+        <h2 className="footer__title">A propos</h2>
+        <span>CGU</span>
+        <span>Mentions légales</span>
+        <span><FontAwesomeIcon icon={faCopyright} /> PlayrFindr</span>
+      </div>
       <div class="footer__grid"> 
-        <h2 className="footer__title">Réseaux</h2>
+        <h2 className="footer__title">Retrouvez nous</h2>
         <div>
         <FontAwesomeIcon icon={faFacebookSquare} className="footer__brands-icons"/>
         <FontAwesomeIcon icon={faInstagramSquare} className="footer__brands-icons"/>
         <FontAwesomeIcon icon={faTwitterSquare} className="footer__brands-icons"/>
         </div>
-      </div>
-      <div class="footer__grid">
-        <h2 className="footer__title">
-          <FontAwesomeIcon icon={faCopyright} /> PlayrFindr
-        </h2>
-      </div>
-      <div class="footer__grid">
-        <h2 className="footer__title">A propos</h2>
-        <span>Contact</span>
-        <span>CGU</span>
-        <span>Mentions légales</span>
       </div>
     </footer>
   );
