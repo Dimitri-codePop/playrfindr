@@ -70,6 +70,7 @@ module.exports = {
           error: "Ce n'est pas le bon mot de passe."
             });
         }
+        console.log(user);
 
         if(validPwd){
             return res.status(200).json({
@@ -79,7 +80,8 @@ module.exports = {
                 email: user.email,
                 birthdate: user.birthdate,
                 picture: user.picture,
-                department: user.department_id,
+                department_number: user.number,
+                department_label: user.label,
                 token: jwt.generateTokenForUser(user)
             })
         }
