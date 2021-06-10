@@ -51,14 +51,17 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
 
-            console.log(req.body);
+            
 
         if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
         }
         const user = await UserModel.findOne(email);
 
-    
+            if(!user){
+                console.log(user);
+                return res.status(400).json({error : 'This resource doesn"t exists.'})
+            }
 
         const validPwd = await bcrypt.compare(password, user.password);
 
