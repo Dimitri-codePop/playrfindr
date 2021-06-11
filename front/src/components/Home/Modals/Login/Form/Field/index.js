@@ -5,7 +5,7 @@ import './styles.scss';
 
 export default function Field({ type, name, placeholder, value, onChangeValue }) {
   const handleOnChange = (event) => {
-    onChangeValue(event.target.value);
+    onChangeValue(event.target.value, name);
   };
 
   return (
