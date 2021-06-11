@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import './style.scss';
-import Form from 'src/components/Home/Modals/Login/Form';
+import Form from 'src/containers/Home/Modals/Login/Form';
 
-export default function Login({ loginIsHidden, setLoginIsHidden}) {
-  // const [loginIsHidden, setLogginIsHidden] = useState(false);
+export default function Login({ 
+  loginIsHidden, 
+  setLoginIsHidden,
+}) {
   Modal.setAppElement('#root')
   
   const customStyles = {
@@ -19,7 +21,7 @@ export default function Login({ loginIsHidden, setLoginIsHidden}) {
     }
   };
 
- function afterOpenModal() {
+  function afterOpenModal() {
     // references are now sync'd and can be accessed.
   }
 
@@ -37,7 +39,9 @@ export default function Login({ loginIsHidden, setLoginIsHidden}) {
         style={customStyles}
         contentLabel="Connexion"
       >
-        <Form closeModal={closeModal}/>
+        <Form 
+        closeModal={closeModal}
+        />
       </Modal>
     </div>
 );

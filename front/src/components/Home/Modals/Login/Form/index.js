@@ -5,12 +5,15 @@ import Field from 'src/components/Home/Modals/Login/Form/Field';
 import './style.scss';
 
 export default function Form({
-  onSubmitUserLogin,
-  closeModal
+  handleLogin,
+  closeModal,
+  changeField,
+  email,
+  password,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmitUserLogin();
+    handleLogin();
   };
 
   return (
@@ -21,11 +24,15 @@ export default function Form({
           type="email"
           name="email"
           placeholder="Email"
+          onChangeValue={changeField}
+          value={email}
         />
         <Field
           type="password"
           name="password"
           placeholder="Mot de passe"
+          onChangeValue={changeField}
+          value={password}
         />
         <button type="submit" className="form__login-button">Envoyer</button>
       </form>

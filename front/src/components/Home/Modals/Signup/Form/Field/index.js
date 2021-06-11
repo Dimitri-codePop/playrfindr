@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-export default function Field({ type, name, placeholder, value, onChangeValue }) {
+export default function Field({ type, name, placeholder, value, onChange }) {
   const handleOnChange = (event) => {
-    onChangeValue(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
