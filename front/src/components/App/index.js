@@ -4,6 +4,8 @@ import React from 'react';
 import NavBar from 'src/components/Navbar';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home'
+import Jeux from 'src/containers/Jeux';
+import Jeu from 'src/containers/Jeu';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 
@@ -14,6 +16,15 @@ const App = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route 
+        exact
+        path="/jeux">
+        <Jeux />
+      </Route>
+      <Route 
+        path="/jeu/:id">
+        <Jeu />
       </Route>
     </Switch>
     <Footer />
