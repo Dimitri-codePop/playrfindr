@@ -7,6 +7,7 @@ import './style.scss';
 
 export default function Signup({ signupIsHidden, setSignupIsHidden }) {
   Modal.setAppElement('#root')
+
   
   const customStyles = {
     content : {
