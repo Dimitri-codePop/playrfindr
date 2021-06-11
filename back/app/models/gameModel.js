@@ -56,7 +56,7 @@ class GameModel extends CoreModel {
         for (const row of result.rows) {
             instanceList.push(new this(row));
         }
-        console.log(instanceList);
+        
         return instanceList;
     }
 

@@ -17,16 +17,13 @@ module.exports = {
     },
     async getOne(request, response, next){
         try {
-            console.log(request.params.id);
             const  game = await GameModel.findOneGame(request.params.id);
 
-            console.log(game);
             if(!game){
                 return next();
             }
 
-
-            response.json({ data: game});
+            response.status(200).json({ data: game});
         } catch (error) {
             console.trace(error);
             response.json({ error });

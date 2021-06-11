@@ -1,6 +1,7 @@
 const express = require('express');
 
 const schemas = require('../validations/schema');
+const errorController = require('../controllers/errorController');
 const mainController = require('../controllers/mainController');
 const gameController = require('../controllers/gameController');
 const userController = require('../controllers/userController');
@@ -52,10 +53,30 @@ router.route('/connexion')
   /**
     * Récuperer un utilisateur
     * @route POST /inscription
-    * @param {UserInput.model} User.body.required - Un objet contenant les informations d'un auteur
+    * @param {UserInput.model} User.body.required - Un objet contenant les informations d'un utilisateur
     * @returns {User} 200 - L'utilisateur récupérer
     * @returns {Error} 500 - Utilisateur n'existe pas
     */
     .post(userController.login);
 
+
+router.route('/profil/:id(\\d+)')
+    /**
+      * Récuperer un utilisateur
+      * @route GET /profil/:id
+      * @param {UserInput.model} User.params.required - Un objet contenant les informations de l'utilisateur
+      * @returns {User} 200 - L'utilisateur récupérer
+      * @returns {Error} 500 - Utilisateur n'existe pas
+      */
+      .get(userController.getOneProfil)
+
+
+      .patch(userController.updateProfil)
+      
+      .delete(userController.deleteProfil)
+    ;
+
+
+
+router.use(errorController.ressourceNotFound);
 module.exports = router;
