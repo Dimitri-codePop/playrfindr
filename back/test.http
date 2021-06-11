@@ -16,9 +16,9 @@ POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Dominique",
-    "lastname": "Roux",
-    "email": "dominiqueroux@gmail.com",
+    "firstname": "Dimitri",
+    "lastname": "Guillon",
+    "email": "guillon@gmail.com",
     "password": "123456789",
     "passwordConfirm": "123456789",
     "birthdate": "1995-07-18",

@@ -35,6 +35,7 @@ module.exports = {
                 department_id})
 
                 await user.insert();
+                return res.json({data: user})
         } catch (error) {
 
             if (error.code == '23505') {
@@ -56,6 +57,7 @@ module.exports = {
         if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
         }
+
         const user = await UserModel.findOne(email);
 
             if(!user){
