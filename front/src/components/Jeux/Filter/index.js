@@ -7,12 +7,16 @@ import themesData from 'src/data/theme'
 
 import './style.scss';
 
-export default function Filter() {
+export default function Filter({handleChangeTheme, handleChangeCat}) {
   const categories = categoriesData.category;
   const themes = themesData.theme;
 
-  const handleChange = (event) => {
-    console.log(event.target.name)
+  const handleOnChangeTheme = (event) => {
+    handleChangeTheme(event.target.name);
+  };
+
+  const handleOnChangeCat = (event) => {
+    handleChangeCat(event.target.name);
   };
 
   const themesList = themes.map((theme) => (
@@ -24,7 +28,7 @@ export default function Filter() {
             type="checkbox" 
             id={theme.label} 
             name={theme.label}
-            onChange={handleChange}
+            onChange={handleOnChangeTheme}
           />
           {theme.label}</label>
       </div>
@@ -39,7 +43,7 @@ export default function Filter() {
             type="checkbox" 
             id={cat.label} 
             name={cat.label}
-            onChange={handleChange}
+            onChange={handleOnChangeCat}
           />
           {cat.label}</label>
       </div>

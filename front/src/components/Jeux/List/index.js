@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Proptypes from 'prop-types'
 import gamesData from 'src/data/game';
 import { Link } from 'react-router-dom';
+import { getSpec } from 'src/selectors/find';
 
 import './style.scss';
 
-export default function List() {
+export default function List({games}) {
 
-  const games = gamesData.game;
   const gameItem = games.map((game) => (
-          <article className="card">
+          <article className="card" key={game.id}>
             <img className="card-img" src={game.picture} alt={game.label} />
             <div className="card-content">
             <h2 className="card-title">{game.label}</h2>

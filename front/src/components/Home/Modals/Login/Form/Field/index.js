@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.scss';
+import './style.scss';
 
 export default function Field({ type, name, placeholder, value, onChangeValue }) {
   const handleOnChange = (event) => {
