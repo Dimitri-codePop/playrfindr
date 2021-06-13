@@ -170,5 +170,12 @@ module.exports = {
             console.trace(error);
             response.json({ error });
         }
+    },
+    async getOneCollection(req, res, next){
+        try {
+            
+        } catch (error) {
+            
+        }
     }
 };

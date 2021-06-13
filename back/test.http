@@ -4,14 +4,23 @@ GET http://localhost:4000/api/null
 ### Page d'acceuil
 GET http://localhost:4000/api
 
-### Récupération de tout les jeux
+### Récupération de tout les jeux avec les themes et catégories
 GET http://localhost:4000/api/jeux
+
+### Récupération de tout les jeux
+GET http://localhost:4000/api/games
+
+### Récupération de tout les themes
+GET http://localhost:4000/api/themes
+
+### Récupération de toute les categories
+GET http://localhost:4000/api/categories
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/1
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/69
+GET http://localhost:4000/api/profil/72
 
 ### Ajout d'un utilisateur
 POST http://localhost:4000/api/inscription

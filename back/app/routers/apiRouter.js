@@ -4,6 +4,8 @@ const schemas = require('../validations/schema');
 const errorController = require('../controllers/errorController');
 const mainController = require('../controllers/mainController');
 const gameController = require('../controllers/gameController');
+const themeController = require('../controllers/themeController');
+const categoryController = require('../controllers/categoryController');
 const userController = require('../controllers/userController');
 const validate = require('../validations/validate');
 
@@ -16,7 +18,7 @@ router.route('/')
     * @returns {Game[]} 200 - La liste des jeux random
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get( mainController.getAll);
+   .get( mainController.getAllRandom);
 
 
 router.route('/jeux')
@@ -26,7 +28,7 @@ router.route('/jeux')
     * @returns {Game[]} 200 - La liste des jeux
     * @returns {Error} 500 - Une erreur serveur
     */
-    .get(gameController.getAllGames);
+    .get(gameController.getAllGamesAndThemesAndCat);
 
 router.route('/jeu/:id(\\d+)')
 /**
@@ -71,12 +73,18 @@ router.route('/profil/:id(\\d+)')
       .get(userController.getOneProfil)
 
 
-      .patch(userController.updateProfil)
+      .patch(validate.body(schemas.userUpdateSchema),userController.updateProfil)
       
-      .delete(userController.deleteProfil)
-    ;
+      .delete(userController.deleteProfil);
 
 
+/* router.route('/collection')
+    .get(userController.getOneCollection); */
+    
+
+router.get('/games', gameController.getAll);
+router.get('/themes', themeController.getAll);
+router.get('/categories', categoryController.getAll);
 
 router.use(errorController.ressourceNotFound);
 module.exports = router;

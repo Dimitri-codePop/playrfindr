@@ -1,7 +1,7 @@
 const GameModel = require('../models/gameModel');
 
 module.exports = {
-    async getAll(_, response, next){
+    async getAllRandom(_, response, next){
         try {
             const games = await GameModel.findAllRandom();
 
