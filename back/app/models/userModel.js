@@ -10,7 +10,10 @@ class UserModel extends CoreModel {
         'password',
         'picture',
         'birthdate',
-        'department_id'
+        'department_id',
+        'is_admin',
+        'theme_id',
+        'category_id'
     ];
 
     static tableName = 'user';
@@ -24,6 +27,12 @@ class UserModel extends CoreModel {
         return result.rows[0];
     }
 
+    static async findOneProfil(id){
+        const result = await client.query(`
+        SELECT * FROM "user_profile" WHERE id = $1;`, [id]);
+
+        return result.rows[0];
+    }
 }
 
 module.exports = UserModel;

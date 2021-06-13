@@ -10,6 +10,8 @@ GET http://localhost:4000/api/jeux
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/1
 
+### Récupération d'un utilisateur
+GET http://localhost:4000/api/profil/69
 
 ### Ajout d'un utilisateur
 POST http://localhost:4000/api/inscription
@@ -17,12 +19,15 @@ Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Guillon",
-    "email": "guillon@gmail.com",
-    "password": "123456789",
-    "passwordConfirm": "123456789",
+    "lastname": "Guillo",
+    "email": "dimitriguillon@gmail.com",
+    "password": "36Flip93",
+    "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
-    "department_id": 36
+    "department_id": 36,
+    "is_admin": true,
+    "theme_id": [1, 6],
+    "category_id": [2, 9]
 }
 
 ### Récuperation d'un utilisateur
@@ -30,7 +35,19 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dominiqueroux@gmail.com",
-    "password": "123456789"
+    "email": "dimitriguillon@gmail.com",
+    "password": "36Flip93"
  
 }
+
+
+### Update d'un utilisateur
+PATCH http://localhost:4000/api/profil/72
+Content-Type: application/json
+
+{
+    "is_admin": true
+}
+
+### delete d'un utilisateur
+DELETE http://localhost:4000/api/profil/72
