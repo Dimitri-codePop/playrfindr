@@ -19,7 +19,10 @@ const updateSchema = Joi.object({
     email: Joi.string().email({ tlds: { allow: false } }).length(2),
     birthdate: Joi.date().max('now'),
     password: Joi.string().min(6),
-    department_id: Joi.number().integer()
+    department_id: Joi.number().integer(),
+    is_admin:Joi.boolean(),
+    theme_id: Joi.array().items(Joi.number().integer()).min(1),
+    category_id: Joi.array().items(Joi.number().integer()).min(1)
 }).required();
 
 module.exports = { insertSchema, updateSchema };
