@@ -25,7 +25,7 @@ export default function List({games}) {
 
   return(
       <div className="games__list">
-        <h1 className="games__list--title">Tout les jeux</h1>
+        <h1 className="games__list--title">Tous les jeux</h1>
         <div className="games__list--cards">
           {gameItem}
         </div>

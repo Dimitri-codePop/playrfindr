@@ -20,7 +20,7 @@ export default function Filter({handleChangeTheme, handleChangeCat}) {
   };
 
   const themesList = themes.map((theme) => (
-      <div key={theme.id}>
+      <div key={theme.id} className="games__filter__results__items">
         <label 
           htmlFor={theme.label}
         >
@@ -29,13 +29,14 @@ export default function Filter({handleChangeTheme, handleChangeCat}) {
             id={theme.label} 
             name={theme.label}
             onChange={handleOnChangeTheme}
+            className="games__filter__results__input" 
           />
           {theme.label}</label>
       </div>
   ))
 
   const categoryList = categories.map((cat) => (
-      <div key={cat.id}>
+      <div key={cat.id} className="games__filter__results__items">
         <label 
           htmlFor={cat.label}
         >
@@ -44,6 +45,7 @@ export default function Filter({handleChangeTheme, handleChangeCat}) {
             id={cat.label} 
             name={cat.label}
             onChange={handleOnChangeCat}
+            className="games__filter__results__input" 
           />
           {cat.label}</label>
       </div>
