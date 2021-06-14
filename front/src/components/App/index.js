@@ -12,7 +12,7 @@ import Profil from 'src/containers/Profil';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 import Loading from './Loading';
-
+import PropTypes from 'prop-types';
 // == Composant
 export default function App({
   topConnect, 

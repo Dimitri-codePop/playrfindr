@@ -2,18 +2,21 @@ import {
   SAVE_USER,
   CHANGE_VALUE_LOGIN,
   CHANGE_VALUE_SIGNUP,
+  CHANGE_VALUE_SIGNUP_SELECT,
 } from 'src/actions/user';
 
 
 const initialState = {
   email: '',
   password: '',
-  confirmPassword: '',
+  passwordConfirm: '',
   departement: '',
   id: '',
   firstname: '',
   lastname: '',
-
+  departement: '',
+  themes: [],
+  categories: [],
   isLogged: false,
 
 };
@@ -38,13 +41,36 @@ const reducer = (state = initialState, action = {}) => {
         email: state.login.email,
         id: action.id,
         password: '',
-        confirmPassword: '',
+        passwordConfirm: '',
       };
     case CHANGE_VALUE_SIGNUP: {
       return {
         ...state,
         [action.key]: action.value,
       };
+    }
+    case CHANGE_VALUE_SIGNUP_SELECT: {
+      let newState= {
+        ...state,
+      };
+      if (!state[action.key].length) {
+        return (
+          newState = {
+            ...state,
+            [action.key]: [...state[action.key], action.value],
+          }
+        )
+      } else if (!state[action.key].includes(action.value)) {
+        return (
+          newState = {
+            ...state, 
+            [action.key]: [...state[action.key], action.value],
+          }
+        )
+      }
+      return {
+        ...newState,
+      }
     }
     default:
       return state;

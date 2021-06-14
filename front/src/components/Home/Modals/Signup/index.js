@@ -22,12 +22,6 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
     }
   };
 
-function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    const subtitle= document.querySelector('.titleModal');
-    subtitle.style.color = '#f00';
-  }
-
   function closeModal(){
     setSignupIsHidden(!signupIsHidden);
   }
@@ -38,7 +32,6 @@ function afterOpenModal() {
       <Modal
         bodyOpenClassName={"signup"}
         isOpen={signupIsHidden}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Inscription"
