@@ -78,8 +78,8 @@ router.route('/profil/:id(\\d+)')
       .delete(userController.deleteProfil);
 
 
-/* router.route('/collection')
-    .get(userController.getOneCollection); */
+router.route('/profil/:id/collection')
+    .get(userController.getOneCollection); 
     
 
 router.get('/games', gameController.getAll);
