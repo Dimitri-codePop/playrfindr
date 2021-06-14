@@ -33,7 +33,6 @@ module.exports = {
     async getOne(req, res, next){
         try {
             const  game = await GameModel.findOneGame(req.params.id);
-
             if(!game){
                 return next();
             }

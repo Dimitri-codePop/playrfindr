@@ -93,7 +93,8 @@ router.route('/profil/:user_id/collection/:game_id')
 
 
 router.route('/event')
-    .get(eventController.getAll);
+    .get(eventController.getAll)
+    .post(validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 
 router.get('/games', gameController.getAll);

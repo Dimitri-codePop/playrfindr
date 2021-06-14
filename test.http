@@ -26,6 +26,9 @@ GET http://localhost:4000/api/event
 ### Récupération des départements
 GET http://localhost:4000/api/departements
 
+### Récupération des départements
+GET https://playrfindr.herokuapp.com/api/departements
+
 ### Récupération d'un jeu
 GET https://playrfindr.herokuapp.com/api/jeu/1
 
@@ -33,7 +36,7 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 GET https://playrfindr.herokuapp.com/api/profil/36
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/75
+GET http://localhost:4000/api/profil/77
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/1/collection
@@ -54,6 +57,37 @@ Content-Type: application/json
     "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
+### Ajout d'un utilisateur
+
+POST http://localhost:4000/api/inscription
+Content-Type: application/json
+
+{
+    "firstname": "Dimitri",
+    "lastname": "Guillon",
+    "email": "Dimguillon@gmail.com",
+    "password": "36Flip93",
+    "passwordConfirm": "36Flip93",
+    "birthdate": "1995-07-18",
+    "department_id": 36,
+    "is_admin": true,
+    "theme_id": [1, 6, 2],
+    "category_id": [2, 9, 12]
+}
+
+### Ajout d'un evenement
+POST http://localhost:4000/api/event
+Content-Type: application/json
+
+{
+    "label": "Partie de Saboteur",
+    "content": "Petite partie de Saboteur",
+    "date": "2021-09-10",
+    "location": "20, rue de la monnaie 59800 Lille",
+    "max_player": 2,
+    "user_id": 75
+}
+
 
 ### Récuperation d'un utilisateur
 POST https://playrfindr.herokuapp.com/api/connexion

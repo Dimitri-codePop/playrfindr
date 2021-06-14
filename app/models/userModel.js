@@ -34,6 +34,13 @@ class UserModel extends CoreModel {
         return result.rows[0];
     }
 
+    static async findOneProfilGame(id){
+        const result = await client.query(`
+        SELECT * FROM "user_game" WHERE id = $1;`, [id]);
+
+        return result.rows[0];
+    }
+
     static async findCollection(id){
         const result = await client.query(`
         SELECT * FROM "user_collection" WHERE id = $1;`, [id]);
