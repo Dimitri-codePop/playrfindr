@@ -14,10 +14,11 @@ import './style.scss';
 import Loading from './Loading';
 
 // == Composant
-export default function App({topConnect, loading}) {
+export default function App({topConnect, loadTypes, loading}) {
 
 useEffect(() => {
-topConnect()
+topConnect();
+loadTypes();
 }, []);
 
 if (loading) {
@@ -50,5 +51,7 @@ return (
 }
 
 App.protoTypes = {
-
+topConnect: PropTypes.func.isRequired,
+loadTypes: PropTypes.func.isRequired,
+loading: PropTypes.bool.isRequired,
 };

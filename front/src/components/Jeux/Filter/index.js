@@ -11,16 +11,10 @@ import './style.scss';
 export default function Filter({
   handleChangeTheme,
   handleChangeCat,
-  loadTypes,
   loading,
   categories,
   themes,
 }) {
-
-
-  useEffect(() => {
-    loadTypes();
-  }, []);
 
   console.log(`categoriescomp`, categories);
   console.log(`themescomp`, themes);
