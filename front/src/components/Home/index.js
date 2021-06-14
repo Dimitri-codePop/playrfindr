@@ -27,7 +27,7 @@ export default function Home() {
   }
   const handleModalSignup = () => {
     console.log("j'ai cliqué ici");
-    setLoginIsHidden(!loginIsHidden);
+    setSignupIsHidden(!signupIsHidden);
   }
   
 

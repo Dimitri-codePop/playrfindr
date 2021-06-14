@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Field from 'src/components/Home/Modals/Login/Form/Field';
+import Field from 'src/components/Home/Modals/Signup/Form/Field';
 
 import './style.scss';
 
 export default function Form({
-  onSubmitUserLogin,
+  changefieldSignup,
+  handleSignup,
+  email,
+  firstname,
+  lastname,
+  password,
+  departement,
+  confirmpassword,
   closeModal
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmitUserLogin();
+    handleSignup();
   };
 
   return (
@@ -21,16 +28,22 @@ export default function Form({
           type="email"
           name="email"
           placeholder="Email"
+          onChange={changefieldSignup}
+          value={email}
         />
         <Field
           type="text"
           name="firstname"
           placeholder="Prénom"
+          onChange={changefieldSignup}
+          value={firstname}
         />
         <Field
           type="text"
           name="lastname"
           placeholder="Nom de famille"
+          onChange={changefieldSignup}
+          value={lastname}
         />
         <select name="departement" id="departement" className="field__input">
             <option value="">--Choisissez votre département--</option>
@@ -65,11 +78,15 @@ export default function Form({
           type="password"
           name="password"
           placeholder="Mot de passe"
+          onChange={changefieldSignup}
+          value={password}
         />
         <Field
           type="password"
           name="passwordConfirm"
           placeholder="Confirmez votre Mot de passe"
+          onChange={changefieldSignup}
+          value={confirmpassword}
         />
         <button type="submit" className="form__login-button">Envoyer</button>
       </form>
@@ -78,6 +95,6 @@ export default function Form({
 }
 
 Form.propTypes = {
-  onSubmitUserLogin: PropTypes.func.isRequired,
+
   onCloseModal: PropTypes.func.isRequired,
 };

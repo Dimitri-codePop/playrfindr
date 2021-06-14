@@ -1,7 +1,22 @@
 const GameModel = require('../models/gameModel');
 
 module.exports = {
-    async getAllGames(_, response, next){
+    async getAll(_, res, next) {
+        try {
+            const games = await GameModel.findAll();
+
+            if(!games){
+                return next();
+            }
+            
+            res.json({ data: games.map(game => game.dataValues)});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
+
+    async getAllGamesAndThemesAndCat(_, res, next){
         try {
             const games = await GameModel.findAllGamesWithCatAndTheme();
 
@@ -9,27 +24,24 @@ module.exports = {
                 return next();
             }
             
-            response.json({ data: games.map(game => game.dataValues)});
+            res.json({ data: games.map(game => game.dataValues)});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     },
-    async getOne(request, response, next){
+    async getOne(req, res, next){
         try {
-            console.log(request.params.id);
-            const  game = await GameModel.findOneGame(request.params.id);
+            const  game = await GameModel.findOneGame(req.params.id);
 
-            console.log(game);
             if(!game){
                 return next();
             }
 
-
-            response.json({ data: game});
+            res.status(200).json({ data: game});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import Form from 'src/components/Home/Modals/Signup/Form';
+import Form from 'src/containers/Home/Modals/Signup/Form';
 
 import './style.scss';
 
@@ -22,7 +22,7 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
     }
   };
 
- function afterOpenModal() {
+function afterOpenModal() {
     // references are now sync'd and can be accessed.
     const subtitle= document.querySelector('.titleModal');
     subtitle.style.color = '#f00';
@@ -36,11 +36,12 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
   return (
     <div>
       <Modal
+        bodyOpenClassName={"signup"}
         isOpen={signupIsHidden}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Connexion"
+        contentLabel="Inscription"
       >
         <Form closeModal={closeModal}/>
       </Modal>
