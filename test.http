@@ -33,13 +33,19 @@ GET https://playrfindr.herokuapp.com/api/departements
 GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/36
+GET https://playrfindr.herokuapp.com/api/profil/3
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/77
 
 ### Récupération de la collection d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/1/collection
+GET https://playrfindr.herokuapp.com/api/profil/1/collection
+
+### Ajout d'un jeu a une collection
+POST http://localhost:4000/api/profil/75/collection/6
+
+### Ajout d'un jeu a une collection
+POST https://playrfindr.herokuapp.com/api/profil/1/collection/2
 
 ### Ajout d'un utilisateur
 POST https://playrfindr.herokuapp.com/api/inscription
@@ -48,9 +54,9 @@ Content-Type: application/json
 {
     "firstname": "Dimitri",
     "lastname": "Guillon",
-    "email": "guillon@gmail.com",
-    "password": "36Flip93",
-    "passwordConfirm": "36Flip93",
+    "email": "Dimitriguillon@gmail.com",
+    "password": "123456",
+    "passwordConfirm": "123456",
     "birthdate": "1995-07-18",
     "department_id": 36,
     "is_admin": true,
@@ -89,8 +95,32 @@ Content-Type: application/json
 }
 
 
+### Ajout d'un evenement
+POST https://playrfindr.herokuapp.com/api/event
+Content-Type: application/json
+
+{
+    "label": "Partie de Saboteur",
+    "content": "Petite partie de Saboteur",
+    "date": "2021-09-10",
+    "location": "20, rue de la monnaie 59800 Lille",
+    "max_player": 2,
+    "user_id": 2
+}
+
+
 ### Récuperation d'un utilisateur
 POST https://playrfindr.herokuapp.com/api/connexion
+Content-Type: application/json
+
+{
+    "email": "Dimitriguillon@gmail.com",
+    "password": "123456"
+ 
+}
+
+### Récuperation d'un utilisateur
+POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
@@ -98,12 +128,6 @@ Content-Type: application/json
     "password": "36Flip93"
  
 }
-
-
-### Ajout d'un jeu a une collection
-POST http://localhost:4000/api/profil/75/collection/6
-
-
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/72
@@ -119,3 +143,6 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 ### Delete d'un jeux d'une collection
 DELETE http://localhost:4000/api/profil/75/collection/6
+
+### Delete d'un jeux d'une collection
+DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6
