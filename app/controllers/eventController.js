@@ -1,6 +1,5 @@
 const EventModel = require ('../models/eventModel');
 
-
 module.exports = {
 
     async getAll(_, res, next) {
@@ -16,5 +15,15 @@ module.exports = {
             res.json({ error });
         }
         
+    },
+    async addEvent(req, res){
+        try {
+            const event = new EventModel(req.body);
+            await event.insert();
+            return res.json({data: event});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
     }
 }

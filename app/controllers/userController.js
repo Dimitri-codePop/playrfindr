@@ -107,12 +107,17 @@ module.exports = {
         try {   
             
             const user = await UserModel.findOneProfil(req.params.id);
+            let userGame = await UserModel.findOneProfilGame(req.params.id);
 
             if(!user){
                 return next();
             }
          
-            res.status(200).json({ 
+            if(userGame === undefined){
+                userGame = [];
+            }
+
+            return res.status(200).json({ 
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -122,7 +127,8 @@ module.exports = {
                 game: user.game,
                 theme: user.theme,
                 category: user.category,
-                department: user.department
+                department: user.department,
+                game: userGame.label
             })
         } catch (error) {
             console.trace(error);
