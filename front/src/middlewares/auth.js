@@ -12,11 +12,12 @@ const login = (store) => (next) => async (action) => {
       })
       .then((response) => {
         const {
-          firstName,
-          lastName,
+          firstname,
+          lastname,
           email,
-          departement,
+          departement_id,
           id,
+          
         } = response.data.user;
         const { isLogged } = response.data;
         const saveUserAction = saveUser(id, email, departement, isLogged, firstName, lastName);
