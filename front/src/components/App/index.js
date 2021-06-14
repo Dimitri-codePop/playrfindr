@@ -28,6 +28,7 @@ const App = () => (
       <Route 
         path="/jeu/:id">
         <Jeu />
+      </Route>
       <Route path="/profil/:id">
         <Profil />
       </Route>

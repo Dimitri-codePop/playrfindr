@@ -2,6 +2,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const LOGIN = 'LOGIN';
 export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_SIGNUP = 'CHANGE_VALUE_SIGNUP';
+export const SIGN_UP = 'SIGN_UP';
 
 export const saveUser = (id, departement, email, logged, firstName, lastName) => ({
   type: SAVE_USER,
