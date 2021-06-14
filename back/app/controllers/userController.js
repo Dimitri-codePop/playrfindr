@@ -122,7 +122,7 @@ module.exports = {
                 game: user.game,
                 theme: user.theme,
                 category: user.category,
-                department: user.number
+                department: user.department
             })
         } catch (error) {
             console.trace(error);
@@ -173,9 +173,16 @@ module.exports = {
     },
     async getOneCollection(req, res, next){
         try {
+            const user = await UserModel.findCollection(req.params.id);
+
+            if(!user){
+                return res.json({error: 'Votre collection est vide'});
+            }
             
+            return res.json({data: user});
         } catch (error) {
-            
+            console.trace(error);
+            response.json({ error });
         }
     }
 };

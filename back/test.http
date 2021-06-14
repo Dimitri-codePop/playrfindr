@@ -20,7 +20,10 @@ GET http://localhost:4000/api/categories
 GET http://localhost:4000/api/jeu/1
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/72
+GET http://localhost:4000/api/profil/74
+
+### Récupération de la collection d'un utilisateur
+GET http://localhost:4000/api/profil/75/collection
 
 ### Ajout d'un utilisateur
 POST http://localhost:4000/api/inscription
@@ -28,8 +31,8 @@ Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Guillo",
-    "email": "dimitriguillon@gmail.com",
+    "lastname": "Guillon",
+    "email": "dimguillon@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
@@ -55,8 +58,9 @@ PATCH http://localhost:4000/api/profil/72
 Content-Type: application/json
 
 {
-    "is_admin": true
+    "lastname": "Martin"
 }
 
 ### delete d'un utilisateur
 DELETE http://localhost:4000/api/profil/72
+
