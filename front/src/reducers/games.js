@@ -5,6 +5,7 @@ import { getSpec, addOrRemove } from 'src/selectors/find';
 import {
   CHANGE_THEME,
   CHANGE_CATEGORY,
+  SAVE_TOP_GAMES,
   SAVE_TYPES,
 } from 'src/actions/games';
 
@@ -17,6 +18,7 @@ const initialState = {
   goodGames: game,
   checked: '',
   loading: true,
+  topTendances: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -39,6 +41,12 @@ const reducer = (state = initialState, action = {}) => {
           catSearch: newCat,
           goodGames: getSpec(state.themeSearch, state.catSearch, state.gamesInit),
         };
+      case SAVE_TOP_GAMES:
+        return {
+          ...state,
+          topTendances: [...action.topTendances],
+          loading: false,
+        }
       case SAVE_TYPES:
         return {
           ...state,
