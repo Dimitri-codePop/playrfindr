@@ -13,6 +13,8 @@ export default function Form({
   password,
   categories,
   themes,
+  birthdate,
+  departements,
   departement,
   passwordConfirm,
   selectCat,
@@ -24,6 +26,11 @@ export default function Form({
     event.preventDefault();
     handleSignup();
   };
+  const listDepartements = departements.map((departement, i) => {
+    return (
+      <option value={departement.dataValues.id} key={i} >{departement.dataValues.label}</option>
+    )
+  })
   const listCategories = categories.map((category, i) => {
     return (
       <option value={category.id} key={i} >{category.label}</option>
@@ -38,6 +45,8 @@ export default function Form({
     console.log(event.target.value, event.target.name )
     changeSelectField(event.target.value, event.target.name)
   }
+  console.log('ici', departement);
+  console.log('ici', birthdate);
   return (
     <>
       <button onClick={closeModal}>close</button>
@@ -63,8 +72,16 @@ export default function Form({
           onChange={changefieldSignup}
           value={lastname}
         />
+        <Field
+          type="date"
+          name="birthdate"
+          placeholder="Date de naissance"
+          onChange={changefieldSignup}
+          value={birthdate}
+        />
         <select name="departement" id="departement" onChange={handlechangeSelect} className="field__input">
             <option value="">--Choisissez votre département--</option>
+            {listDepartements}
         </select>
         <label htmlFor="categories"> Vos catégories préférés :</label>
         <select name="categories" id="categories" onChange={handlechangeSelect} className="field__input">
@@ -105,7 +122,7 @@ Form.propTypes = {
   password: PropTypes.string.isRequired,
   categories: PropTypes.array,
   themes: PropTypes.array,
-  departement: PropTypes.array,
+  departements: PropTypes.array,
   passwordConfirm: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   selectCat: PropTypes.array,

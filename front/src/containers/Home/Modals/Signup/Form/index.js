@@ -12,6 +12,9 @@ const mapStateToProps = (state) => ({
   themes: state.games.themes,
   selectThemes: state.user.themes,
   selectCat: state.user.categories,
+  departements: state.user.departements,
+  departement: state.user.departement,
+  birthdate: state.user.birthdate,
 });
 
 const mapDispatchToProps = (dispatch) => ({

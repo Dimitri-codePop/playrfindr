@@ -35,9 +35,19 @@ export const signUp = () => ({
 });
 
 export const CHANGE_VALUE_SIGNUP_SELECT = 'CHANGE_VALUE_SIGNUP_SELECT';
-
 export const changeSelectField = (value, key) => ({
   type: CHANGE_VALUE_SIGNUP_SELECT,
   value,
   key,
+})
+
+export const FETCH_DEPARTEMENTS = 'FETCH_DEPARTEMENTS';
+export const fetchDepartements = () => ({
+  type: FETCH_DEPARTEMENTS,
+})
+
+export const SAVE_DEPARTEMENTS = 'SAVE_DEPARTEMENTS';
+export const saveDepartements = (value) => ({
+  type: SAVE_DEPARTEMENTS,
+  value,
 })

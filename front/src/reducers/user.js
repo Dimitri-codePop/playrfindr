@@ -3,6 +3,7 @@ import {
   CHANGE_VALUE_LOGIN,
   CHANGE_VALUE_SIGNUP,
   CHANGE_VALUE_SIGNUP_SELECT,
+  SAVE_DEPARTEMENTS,
 } from 'src/actions/user';
 
 
@@ -10,13 +11,14 @@ const initialState = {
   email: '',
   password: '',
   passwordConfirm: '',
-  departement: '',
+  departements: [],
   id: '',
   firstname: '',
   lastname: '',
   departement: '',
   themes: [],
   categories: [],
+  birthdate: '',
   isLogged: false,
 
 };
@@ -43,6 +45,11 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         passwordConfirm: '',
       };
+    case SAVE_DEPARTEMENTS:
+      return {
+        ...state,
+        departements: [...state.departements, ...action.value],
+      }
     case CHANGE_VALUE_SIGNUP: {
       return {
         ...state,
@@ -57,14 +64,14 @@ const reducer = (state = initialState, action = {}) => {
         return (
           newState = {
             ...state,
-            [action.key]: [...state[action.key], action.value],
+            [action.key]: [...state[action.key], Number(action.value)],
           }
         )
-      } else if (!state[action.key].includes(action.value)) {
+      } else if (!state[action.key].includes(Number(action.value))) {
         return (
           newState = {
             ...state, 
-            [action.key]: [...state[action.key], action.value],
+            [action.key]: [...state[action.key], Number(action.value)],
           }
         )
       }
