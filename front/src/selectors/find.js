@@ -51,3 +51,8 @@ export function addOrRemove(array, value) {
   }
   return array
 }
+
+export function FindGoodGame (base, id) {
+  const found = base.find(element => element.id == id)
+  return found;
+}
