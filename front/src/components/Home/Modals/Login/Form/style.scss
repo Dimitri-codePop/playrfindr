@@ -1,0 +1,25 @@
+@use 'src/styles/vars' as v;
+
+.form__login {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 1.2rem;
+  width:200px;
+  &-input {
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin: .2rem 0;
+  }
+  &-button {
+    margin: 0.2rem 0;
+    background-color: #662AD8;
+    height: 35px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+}
