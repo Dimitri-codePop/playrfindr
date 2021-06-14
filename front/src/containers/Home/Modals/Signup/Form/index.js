@@ -8,6 +8,8 @@ const mapStateToProps = (state) => ({
   lastname: state.user.lastname,
   password: state.user.password,
   confirmpassword: state.user.confirmpassword,
+  categories: state.games.categories,
+  themes: state.games.themes,
 });
 
 const mapDispatchToProps = (dispatch) => ({

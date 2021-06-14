@@ -11,6 +11,8 @@ export default function Form({
   firstname,
   lastname,
   password,
+  categories,
+  themes,
   departement,
   confirmpassword,
   closeModal
@@ -95,6 +97,15 @@ export default function Form({
 }
 
 Form.propTypes = {
-
+  changefieldSignup: PropTypes.func.isRequired,
+  handleSignup: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  categories: PropTypes.string.isRequired,
+  themes: PropTypes.string.isRequired,
+  departement: PropTypes.string.isRequired,
+  confirmpassword: PropTypes.string.isRequired,
   onCloseModal: PropTypes.func.isRequired,
 };

@@ -18,7 +18,9 @@ import './style.scss';
 import accueil from 'src/assets/accueil.png'
 // import games from '../../data/game';
 
-export default function Home({ topTendances }) {
+export default function Home({ 
+    topTendances,
+  }) {
   const [loginIsHidden, setLoginIsHidden] = useState(false);
   const [signupIsHidden, setSignupIsHidden] = useState(false);
   const handleModalLogin = () => {

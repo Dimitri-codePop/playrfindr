@@ -14,7 +14,11 @@ import './style.scss';
 import Loading from './Loading';
 
 // == Composant
-export default function App({topConnect, loadTypes, loading}) {
+export default function App({
+  topConnect, 
+  loadTypes, 
+  loading,
+}) {
 
 useEffect(() => {
 topConnect();
