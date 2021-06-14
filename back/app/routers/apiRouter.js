@@ -6,6 +6,7 @@ const mainController = require('../controllers/mainController');
 const gameController = require('../controllers/gameController');
 const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
+const eventController = require('../controllers/eventController');
 const userController = require('../controllers/userController');
 const validate = require('../validations/validate');
 
@@ -81,6 +82,11 @@ router.route('/profil/:id(\\d+)')
 router.route('/profil/:id/collection')
     .get(userController.getOneCollection); 
     
+
+
+router.route('/event')
+    .get(eventController.getAll);
+
 
 router.get('/games', gameController.getAll);
 router.get('/themes', themeController.getAll);
