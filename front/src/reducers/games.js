@@ -6,9 +6,12 @@ import {
   CHANGE_THEME,
   CHANGE_CATEGORY,
   SAVE_TOP_GAMES,
+  SAVE_TYPES,
 } from 'src/actions/games';
 
 const initialState = {
+  categories: [],
+  themes: [],
   themeSearch: [],
   catSearch: [],
   gamesInit: game,
@@ -44,6 +47,13 @@ const reducer = (state = initialState, action = {}) => {
           topTendances: [...action.topTendances],
           loading: false,
         }
+      case SAVE_TYPES:
+        return {
+          ...state,
+          categories: [...action.categories],
+          themes: [...action.themes],
+          loading: false,
+        };
     default:
       return state;
   }
