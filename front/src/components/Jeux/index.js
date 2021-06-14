@@ -14,12 +14,7 @@ export default function Jeux({
 }) {
 
   console.log(games);
-  /*const setUpCheck = (event) => {
-    setChecked(event);
-    console.log(checked);
-  }*/
   
-  //check={setUpCheck}
   return(
     <main className="games">
       < Filter 

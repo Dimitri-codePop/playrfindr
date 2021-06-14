@@ -58,29 +58,29 @@ module.exports = {
 
     async login (req, res) {
         try {
+            
             const email = req.body.email;
             const password = req.body.password;
 
-            
 
-        if(email == null || password == null){
+            if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
-        }
-
-        const user = await UserModel.findOne(email);
-
-            if(!user){
-            
-                return res.status(400).json({error : 'This resource doesn"t exists.'})
             }
 
-        const validPwd = await bcrypt.compare(password, user.password);
+            const user = await UserModel.findOne(email);
+            
+            if(!user){
+            
+                return res.status(400).json({error : 'This resource doesn"t exists.'});
+            }
 
-        if (!validPwd) {
-            return res.json({
-          error: "Ce n'est pas le bon mot de passe."
-            });
-        }
+            const validPwd = await bcrypt.compare(password, user.password);
+
+            if (!validPwd) {
+                return res.json({
+                    error: "Ce n'est pas le bon mot de passe."
+                });
+            }
         
 
         if(validPwd){
@@ -99,7 +99,7 @@ module.exports = {
         } catch (error) {
             console.trace(error);
                 error = `A server error occured, please retry later.`;
-                response.json({ error });
+                res.json({ error });
         }
         
     },

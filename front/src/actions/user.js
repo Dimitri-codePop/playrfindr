@@ -4,9 +4,15 @@ export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_SIGNUP = 'CHANGE_VALUE_SIGNUP';
 export const SIGN_UP = 'SIGN_UP';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 0387be0d707eee7e1146e7028ccbc45019612f44
+=======
+
+=======
+>>>>>>> 3c8310a17d291735b055793306837692a0137e53
+>>>>>>> 4cec01d0b0698a32d55749278a22295c7d6a27d9
 
 export const saveUser = (id, departement, email, logged, firstName, lastName) => ({
   type: SAVE_USER,
