@@ -8,7 +8,9 @@ const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
 const eventController = require('../controllers/eventController');
 const userController = require('../controllers/userController');
+const departmentController = require('../controllers/departmentController');
 const validate = require('../validations/validate');
+
 
 const router = express.Router();
 
@@ -39,7 +41,7 @@ router.route('/jeu/:id(\\d+)')
     * @returns {Game.model} 200 - Le Jeu
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get(gameController.getOne)
+   .get(gameController.getOne);
 
 
 router.route('/inscription')
@@ -80,7 +82,13 @@ router.route('/profil/:id(\\d+)')
 
 
 router.route('/profil/:id/collection')
-    .get(userController.getOneCollection); 
+    .get(userController.getOneCollection);
+
+
+
+router.route('/profil/:user_id/collection/:game_id')
+    .post(userController.addGames)
+    .delete(userController.deleteGames); 
     
 
 
@@ -89,6 +97,7 @@ router.route('/event')
 
 
 router.get('/games', gameController.getAll);
+router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);
 router.get('/categories', categoryController.getAll);
 

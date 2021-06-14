@@ -1,62 +1,78 @@
 ### resource not found
-GET http://localhost:4000/api/null
+GET https://playrfindr.herokuapp.com/api/null
 
 ### Page d'acceuil
-GET http://localhost:4000/api
+GET https://playrfindr.herokuapp.com/api/
 
 ### Récupération de tout les jeux avec les themes et catégories
-GET http://localhost:4000/api/jeux
+GET https://playrfindr.herokuapp.com/api/jeux
 
 ### Récupération de tout les jeux
-GET http://localhost:4000/api/games
+GET https://playrfindr.herokuapp.com/api/games
 
 ### Récupération de tout les themes
-GET http://localhost:4000/api/themes
+GET https://playrfindr.herokuapp.com/api/themes
 
 ### Récupération de toute les categories
-GET http://localhost:4000/api/categories
+GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
+GET https://playrfindr.herokuapp.com/api/event
+
+
+### Récupération d'un événement
 GET http://localhost:4000/api/event
 
+### Récupération des départements
+GET http://localhost:4000/api/departements
+
 ### Récupération d'un jeu
-GET http://localhost:4000/api/jeu/1
+GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/74
+GET https://playrfindr.herokuapp.com/api/profil/36
+
+### Récupération d'un utilisateur
+GET http://localhost:4000/api/profil/75
 
 ### Récupération de la collection d'un utilisateur
-GET http://localhost:4000/api/profil/75/collection
+GET https://playrfindr.herokuapp.com/api/1/collection
 
 ### Ajout d'un utilisateur
-POST http://localhost:4000/api/inscription
+POST https://playrfindr.herokuapp.com/api/inscription
 Content-Type: application/json
 
 {
     "firstname": "Dimitri",
     "lastname": "Guillon",
-    "email": "dimguillon@gmail.com",
+    "email": "guillon@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
     "department_id": 36,
     "is_admin": true,
-    "theme_id": [1, 6],
-    "category_id": [2, 9]
+    "theme_id": [1, 6, 2],
+    "category_id": [2, 9, 12]
 }
 
 ### Récuperation d'un utilisateur
-POST http://localhost:4000/api/connexion
+POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimitriguillon@gmail.com",
+    "email": "dimguillon@gmail.com",
     "password": "36Flip93"
  
 }
 
+
+### Ajout d'un jeu a une collection
+POST http://localhost:4000/api/profil/75/collection/6
+
+
+
 ### Update d'un utilisateur
-PATCH http://localhost:4000/api/profil/72
+PATCH https://playrfindr.herokuapp.com/api/profil/72
 Content-Type: application/json
 
 {
@@ -64,4 +80,8 @@ Content-Type: application/json
 }
 
 ### delete d'un utilisateur
-DELETE http://localhost:4000/api/profil/72
+DELETE https://playrfindr.herokuapp.com/api/profil/72
+
+
+### Delete d'un jeux d'une collection
+DELETE http://localhost:4000/api/profil/75/collection/6

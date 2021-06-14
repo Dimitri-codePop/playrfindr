@@ -184,5 +184,24 @@ module.exports = {
             console.trace(error);
             response.json({ error });
         }
+    }, 
+    async addGames(req, res){
+        try {
+            const user = await UserModel.insertCollection(req.params.user_id, req.params.game_id);
+            return res.json({user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+        
+    },
+    async deleteGames(req, res){
+        try {
+            const user = await UserModel.deleteGames(req.params.user_id, req.params.game_id);
+            return res.json({message: 'Jeux enlevé', user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
     }
 };

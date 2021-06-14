@@ -5,13 +5,12 @@ module.exports = {
 
     async getAll(_, res, next) {
         try {
-            const events = await EventModel.findAll();
+            const events = await EventModel.findAllEvent();
 
             if(!events){
                 return next();
             }
-            
-            res.json({ data: events.map(event => event.dataValues)});
+            return res.json({ data: events.map(event => event) });
         } catch (error) {
             console.trace(error);
             res.json({ error });
