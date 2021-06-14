@@ -51,11 +51,11 @@
 
     &__noresults {
       transition: all ease 0.5s;
-      transform: translateX(-150px);
+      transform: translateX(-200px);
     }
   }
   .on {
-    transform: translateX(-150px);
+    transform: translateX(-200px);
     transition: all ease 1s;
   }
   
