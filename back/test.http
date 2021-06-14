@@ -1,0 +1,66 @@
+### resource not found
+GET http://localhost:4000/api/null
+
+### Page d'acceuil
+GET http://localhost:4000/api
+
+### Récupération de tout les jeux avec les themes et catégories
+GET http://localhost:4000/api/jeux
+
+### Récupération de tout les jeux
+GET http://localhost:4000/api/games
+
+### Récupération de tout les themes
+GET http://localhost:4000/api/themes
+
+### Récupération de toute les categories
+GET http://localhost:4000/api/categories
+
+### Récupération d'un jeu
+GET http://localhost:4000/api/jeu/1
+
+### Récupération d'un utilisateur
+GET http://localhost:4000/api/profil/74
+
+### Récupération de la collection d'un utilisateur
+GET http://localhost:4000/api/profil/75/collection
+
+### Ajout d'un utilisateur
+POST http://localhost:4000/api/inscription
+Content-Type: application/json
+
+{
+    "firstname": "Dimitri",
+    "lastname": "Guillon",
+    "email": "dimguillon@gmail.com",
+    "password": "36Flip93",
+    "passwordConfirm": "36Flip93",
+    "birthdate": "1995-07-18",
+    "department_id": 36,
+    "is_admin": true,
+    "theme_id": [1, 6],
+    "category_id": [2, 9]
+}
+
+### Récuperation d'un utilisateur
+POST http://localhost:4000/api/connexion
+Content-Type: application/json
+
+{
+    "email": "dimitriguillon@gmail.com",
+    "password": "36Flip93"
+ 
+}
+
+
+### Update d'un utilisateur
+PATCH http://localhost:4000/api/profil/72
+Content-Type: application/json
+
+{
+    "lastname": "Martin"
+}
+
+### delete d'un utilisateur
+DELETE http://localhost:4000/api/profil/72
+
