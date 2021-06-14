@@ -4,6 +4,7 @@ import React from 'react';
 import NavBar from 'src/components/Navbar';
 import Footer from 'src/components/Footer';
 import Home from 'src/components/Home'
+import Profil from 'src/containers/Profil';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 
@@ -15,10 +16,12 @@ const App = () => (
       <Route exact path="/">
         <Home />
       </Route>
+      <Route path="/profil/:id">
+        <Profil />
+      </Route>
     </Switch>
     <Footer />
   </div>
 );
 
-// == Export
 export default App;

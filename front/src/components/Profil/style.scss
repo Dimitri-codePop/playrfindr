@@ -1,0 +1,10 @@
+@use 'src/styles/vars';
+
+@media (min-width: 1200px) {
+  .profil {
+    width: 100vw;
+    background-color: vars.$light;
+    display: flex;
+    flex-direction: column;
+  }
+}
