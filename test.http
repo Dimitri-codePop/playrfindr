@@ -36,7 +36,7 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 GET https://playrfindr.herokuapp.com/api/profil/3
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/77
+GET http://localhost:4000/api/profil/2
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/1/collection
