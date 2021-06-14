@@ -1,19 +1,30 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // == Import
 import NavBar from 'src/components/Navbar';
 import Footer from 'src/components/Footer';
-import Home from 'src/components/Home'
+import Home from 'src/containers/Home'
 import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
 
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
+import Loading from './Loading';
 
 // == Composant
-const App = () => (
+export default function App({topConnect, loading}) {
+
+useEffect(() => {
+topConnect()
+}, []);
+
+if (loading) {
+  return <Loading />;
+}
+
+return (
   <div className="app">
     <NavBar />
     <Switch>
@@ -36,5 +47,8 @@ const App = () => (
     <Footer />
   </div>
 );
+}
 
-export default App;
+App.protoTypes = {
+
+};

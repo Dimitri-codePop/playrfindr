@@ -16,9 +16,9 @@ import {
 import './style.scss';
 
 import accueil from 'src/assets/accueil.png'
-import games from '../../data/game';
+// import games from '../../data/game';
 
-export default function Home() {
+export default function Home({ topTendances }) {
   const [loginIsHidden, setLoginIsHidden] = useState(false);
   const [signupIsHidden, setSignupIsHidden] = useState(false);
   const handleModalLogin = () => {
@@ -29,9 +29,8 @@ export default function Home() {
     console.log("j'ai cliqué ici");
     setSignupIsHidden(!signupIsHidden);
   }
-  
-
-  const gameList = games.game.map((game, i) => {
+  console.log(topTendances);
+  const gameList = topTendances.map((game, i) => {
     return (<Card 
       star={faStar}
       number= {i+1}
@@ -76,5 +75,10 @@ export default function Home() {
 }
 
 Home.propTypes = {
+topTendances: PropTypes.array,
+};
 
+
+Home.defaultProps = {
+  topTendances: [],
 };
