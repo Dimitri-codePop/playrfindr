@@ -243,7 +243,7 @@ INSERT INTO "user_has_category"("user_id", "category_id") VALUES
 (1,7),
 (1,5),
 (1,4),
-(1,10)
+(1,10),
 (2,11),
 (2,2),
 (2,3),

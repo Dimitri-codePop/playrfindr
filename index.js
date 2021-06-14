@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const apiRouter = require('./app/routers/apiRouter');
+const cors = require ('cors');
 
 const app = express();
 
@@ -33,6 +34,8 @@ let options = {
 expressSwagger(options);
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use('/api', apiRouter);
 
