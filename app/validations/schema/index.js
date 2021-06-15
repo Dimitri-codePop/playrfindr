@@ -3,4 +3,9 @@ const {
     updateSchema: userUpdateSchema,
 }  = require('./userSchema');
 
-module.exports = { userInsertSchema,  userUpdateSchema};
+const { 
+    insertSchema: eventInsertSchema, 
+    updateSchema: eventUpdateSchema,
+}  = require('./eventSchema');
+
+module.exports = { userInsertSchema,  userUpdateSchema, eventInsertSchema, eventUpdateSchema};

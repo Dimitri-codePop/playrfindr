@@ -1,45 +1,130 @@
 ### resource not found
-GET http://localhost:4000/api/null
+GET https://playrfindr.herokuapp.com/api/null
 
 ### Page d'acceuil
-GET http://localhost:4000/api
+GET https://playrfindr.herokuapp.com/api/
 
 ### Récupération de tout les jeux avec les themes et catégories
-GET http://localhost:4000/api/jeux
+GET https://playrfindr.herokuapp.com/api/jeux
 
 ### Récupération de tout les jeux
-GET http://localhost:4000/api/games
+GET https://playrfindr.herokuapp.com/api/games
 
 ### Récupération de tout les themes
-GET http://localhost:4000/api/themes
+GET https://playrfindr.herokuapp.com/api/themes
 
 ### Récupération de toute les categories
-GET http://localhost:4000/api/categories
+GET https://playrfindr.herokuapp.com/api/categories
+
+### Récupération de tout les evenements
+GET https://playrfindr.herokuapp.com/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
+
+### Récupération d'un événement
+GET http://localhost:4000/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+
+
+### Récupération des départements
+GET http://localhost:4000/api/departements
+
+### Récupération des départements
+GET https://playrfindr.herokuapp.com/api/departements
 
 ### Récupération d'un jeu
-GET http://localhost:4000/api/jeu/1
+GET https://playrfindr.herokuapp.com/api/jeu/1
+
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/74
+GET https://playrfindr.herokuapp.com/api/profil/3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
+
+### Récupération d'un utilisateur
+GET http://localhost:4000/api/profil/3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 
 ### Récupération de la collection d'un utilisateur
-GET http://localhost:4000/api/profil/75/collection
+GET https://playrfindr.herokuapp.com/api/profil/3/collection
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+
+### Ajout d'un jeu a une collection
+POST http://localhost:4000/api/profil/3/collection/1
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+
+### Ajout d'un jeu a une collection
+POST https://playrfindr.herokuapp.com/api/profil/3/collection/2
 
 ### Ajout d'un utilisateur
+POST https://playrfindr.herokuapp.com/api/inscription
+Content-Type: application/json
+
+{
+    "firstname": "Dimitri",
+    "lastname": "Guillon",
+    "email": "Dimitriguillon@gmail.com",
+    "password": "123456",
+    "passwordConfirm": "123456",
+    "birthdate": "1995-07-18",
+    "department_id": 36,
+    "is_admin": true,
+    "theme_id": [1, 6, 2],
+    "category_id": [2, 9, 12]
+}
+### Ajout d'un utilisateur
+
 POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
     "firstname": "Dimitri",
     "lastname": "Guillon",
-    "email": "dimguillon@gmail.com",
+    "email": "Dimguillon@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
     "department_id": 36,
     "is_admin": true,
-    "theme_id": [1, 6],
-    "category_id": [2, 9]
+    "theme_id": [1, 6, 2],
+    "category_id": [2, 9, 12]
+}
+
+### Ajout d'un evenement
+POST http://localhost:4000/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+Content-Type: application/json
+
+{
+    "label": "Partie de Saboteur",
+    "content": "Petite partie de Saboteur",
+    "date": "2021-09-10",
+    "location": "20, rue de la monnaie 59800 Lille",
+    "max_player": 2,
+    "user_id": 75
+}
+
+
+### Ajout d'un evenement
+POST https://playrfindr.herokuapp.com/api/event
+Content-Type: application/json
+
+{
+    "label": "Partie de Saboteur",
+    "content": "Petite partie de Saboteur",
+    "date": "2021-09-10",
+    "location": "20, rue de la monnaie 59800 Lille",
+    "max_player": 2,
+    "user_id": 2
+}
+
+
+### Récuperation d'un utilisateur
+POST https://playrfindr.herokuapp.com/api/connexion
+Content-Type: application/json
+
+{
+    "email": "Dimitriguillon@gmail.com",
+    "password": "123456"
+ 
 }
 
 ### Récuperation d'un utilisateur
@@ -47,14 +132,13 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimitriguillon@gmail.com",
+    "email": "dimguillon@gmail.com",
     "password": "36Flip93"
  
 }
 
-
 ### Update d'un utilisateur
-PATCH http://localhost:4000/api/profil/72
+PATCH https://playrfindr.herokuapp.com/api/profil/3
 Content-Type: application/json
 
 {
@@ -62,5 +146,12 @@ Content-Type: application/json
 }
 
 ### delete d'un utilisateur
-DELETE http://localhost:4000/api/profil/72
+DELETE https://playrfindr.herokuapp.com/api/profil/72
 
+
+### Delete d'un jeux d'une collection
+DELETE http://localhost:4000/api/profil/3/collection/6
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+
+### Delete d'un jeux d'une collection
+DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6

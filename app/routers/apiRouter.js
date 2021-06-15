@@ -6,8 +6,12 @@ const mainController = require('../controllers/mainController');
 const gameController = require('../controllers/gameController');
 const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
+const eventController = require('../controllers/eventController');
 const userController = require('../controllers/userController');
+const departmentController = require('../controllers/departmentController');
+const authorisation = require ('../middleware/authMiddleware');
 const validate = require('../validations/validate');
+
 
 const router = express.Router();
 
@@ -38,7 +42,7 @@ router.route('/jeu/:id(\\d+)')
     * @returns {Game.model} 200 - Le Jeu
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get(gameController.getOne)
+   .get(authorisation, gameController.getOne);
 
 
 router.route('/inscription')
@@ -70,19 +74,32 @@ router.route('/profil/:id(\\d+)')
       * @returns {User} 200 - L'utilisateur récupérer
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
-      .get(userController.getOneProfil)
+      .get(authorisation,userController.getOneProfil)
 
 
-      .patch(validate.body(schemas.userUpdateSchema),userController.updateProfil)
+      .patch(authorisation,validate.body(schemas.userUpdateSchema),userController.updateProfil)
       
-      .delete(userController.deleteProfil);
+      .delete(authorisation, userController.deleteProfil);
 
 
 router.route('/profil/:id/collection')
-    .get(userController.getOneCollection); 
+    .get(authorisation, userController.getOneCollection);
+
+
+
+router.route('/profil/:user_id/collection/:game_id')
+    .post(authorisation, userController.addGames)
+    .delete(authorisation, userController.deleteGames); 
     
 
+
+router.route('/event')
+    .get(authorisation, eventController.getAll)
+    .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
+
+
 router.get('/games', gameController.getAll);
+router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);
 router.get('/categories', categoryController.getAll);
 

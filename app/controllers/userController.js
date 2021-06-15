@@ -58,33 +58,34 @@ module.exports = {
 
     async login (req, res) {
         try {
+            let isLogged = false;
             const email = req.body.email;
             const password = req.body.password;
 
-            
 
-        if(email == null || password == null){
+            if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
-        }
-
-        const user = await UserModel.findOne(email);
-
-            if(!user){
-            
-                return res.status(400).json({error : 'This resource doesn"t exists.'})
             }
 
-        const validPwd = await bcrypt.compare(password, user.password);
+            const user = await UserModel.findOne(email);
+            
+            if(!user){
+            
+                return res.status(400).json({error : 'This resource doesn"t exists.'});
+            }
 
-        if (!validPwd) {
-            return res.json({
-          error: "Ce n'est pas le bon mot de passe."
-            });
-        }
+            const validPwd = await bcrypt.compare(password, user.password);
+
+            if (!validPwd) {
+                return res.json({
+                    error: "Ce n'est pas le bon mot de passe."
+                });
+            }
         
 
-        if(validPwd){
-            return res.status(200).json({
+            if(validPwd){
+                isLogged = true;
+                return res.status(200).json({
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -93,26 +94,31 @@ module.exports = {
                 picture: user.picture,
                 department_number: user.number,
                 department_label: user.label,
-                token: jwt.generateTokenForUser(user)
+                token: jwt.generateTokenForUser(user),
+                isLogged
             })
         }
         } catch (error) {
             console.trace(error);
                 error = `A server error occured, please retry later.`;
-                response.json({ error });
+                res.json({ error });
         }
         
     },
     async getOneProfil(req, res, next){
         try {   
-            
-            const user = await UserModel.findOneProfil(req.params.id);
+            const user = await UserModel.findOneProfil(req.user.userId);
+            let userGame = await UserModel.findOneProfilGame(req.user.userId);
 
             if(!user){
                 return next();
             }
          
-            res.status(200).json({ 
+            if(userGame === undefined){
+                userGame = [];
+            }
+
+            return res.status(200).json({ 
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -122,7 +128,8 @@ module.exports = {
                 game: user.game,
                 theme: user.theme,
                 category: user.category,
-                department: user.department
+                department: user.department,
+                game: userGame.label
             })
         } catch (error) {
             console.trace(error);
@@ -133,7 +140,7 @@ module.exports = {
 
     async updateProfil(req, res) {
         try {
-            const user = await UserModel.findByPk(req.params.id);
+            const user = await UserModel.findByPk(req.user.userId);
             
             if (!user) {
                 return next();
@@ -157,7 +164,8 @@ module.exports = {
     },
     async deleteProfil(req, res, next){
         try {
-            const user = await UserModel.findByPk(req.params.id);
+            
+            const user = await UserModel.findByPk(req.user.userId);
 
             if(!user){
                 return next();
@@ -173,7 +181,7 @@ module.exports = {
     },
     async getOneCollection(req, res, next){
         try {
-            const user = await UserModel.findCollection(req.params.id);
+            const user = await UserModel.findCollection(req.user.userId);
 
             if(!user){
                 return res.json({error: 'Votre collection est vide'});
@@ -183,6 +191,26 @@ module.exports = {
         } catch (error) {
             console.trace(error);
             response.json({ error });
+        }
+    },
+
+    async addGames(req, res){
+        try {
+            const user = await UserModel.insertCollection(req.user.userId, req.params.game_id);
+            return res.json({user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+        
+    },
+    async deleteGames(req, res){
+        try {
+            const user = await UserModel.deleteGames(req.user.userId, req.params.game_id);
+            return res.json({message: 'Jeux enlevé', user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
         }
     }
 };

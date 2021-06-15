@@ -34,9 +34,29 @@ class UserModel extends CoreModel {
         return result.rows[0];
     }
 
+    static async findOneProfilGame(id){
+        const result = await client.query(`
+        SELECT * FROM "user_game" WHERE id = $1;`, [id]);
+
+        return result.rows[0];
+    }
+
     static async findCollection(id){
         const result = await client.query(`
         SELECT * FROM "user_collection" WHERE id = $1;`, [id]);
+        return result.rows[0];
+    }
+
+    static async insertCollection(user_id, game_id){
+        console.log(user_id, game_id);
+       const result =  await client.query(`INSERT INTO "user_has_game" ("user_id", "game_id") VALUES ($1, $2) RETURNING *`, [user_id, game_id]);
+       return result.rows[0];
+    }
+
+
+    static async deleteGames(user_id, game_id) {
+        
+        const result = await client.query(`delete from "user_has_game" where "user_id" = $1 and "game_id" = $2`, [user_id, game_id]);
         return result.rows[0];
     }
 }

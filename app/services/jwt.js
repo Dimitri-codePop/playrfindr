@@ -1,14 +1,16 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SIGN_SECRET = '0sjaocifjzpldze63kjd96feucnzqndhc00kfjdel63c4sd887d42d'
+const JWT_SIGN_SECRET = process.env.TOKEN_SECRET;
 
 module.exports = {
     generateTokenForUser (userData){
-        return jwt.sign({
+        return jwt.sign(
+            {
             userId: userData.id,
             isAdmin: userData.is_admin
         },
-        JWT_SIGN_SECRET, {
+        JWT_SIGN_SECRET, 
+        {
             expiresIn: '1h'
         })
     }
