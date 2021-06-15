@@ -82,12 +82,12 @@ router.route('/profil/:id(\\d+)')
       .delete(authorisation, userController.deleteProfil);
 
 
-router.route('/profil/:id/collection')
+router.route('/profil/:id(\\d+)/collection')
     .get(authorisation, userController.getOneCollection);
 
 
 
-router.route('/profil/:user_id/collection/:game_id')
+router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
     .post(authorisation, userController.addGames)
     .delete(authorisation, userController.deleteGames); 
     
@@ -96,6 +96,10 @@ router.route('/profil/:user_id/collection/:game_id')
 router.route('/event')
     .get(authorisation, eventController.getAll)
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
+
+router.route('/event/:id(\\d+)')
+    .get(authorisation, eventController.getOneEvent)
+    .post(authorisation, eventController.participationEvent);
 
 
 router.get('/games', gameController.getAll);
