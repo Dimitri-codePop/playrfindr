@@ -16,6 +16,17 @@ export const changeCat = (category) => ({
   category,
 });
 
+export const SAVE_TOP_GAMES = 'SAVE_TOP_GAMES'
+export const saveTopTendances = (value) => ({
+  type: SAVE_TOP_GAMES,
+  topTendances: value,
+})
+
+export const FETCH_TOP_GAMES = 'FETCH_TOP_GAMES' 
+export const fetchTopTendances = () => ({
+  type: FETCH_TOP_GAMES,
+})
+
 export const fetchTypes = () => ({
   type: FETCH_TYPES,
 });

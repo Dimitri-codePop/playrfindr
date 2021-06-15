@@ -14,6 +14,8 @@ export default function Form({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
+    closeModal();
+    //setLoginIsHidden(!loginIsHidden)
   };
 
   return (
@@ -41,6 +43,9 @@ export default function Form({
 }
 
 Form.propTypes = {
-  onSubmitUserLogin: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };

@@ -9,10 +9,10 @@ import './style.scss';
 export default function Filter({
   handleChangeTheme,
   handleChangeCat,
+  loading,
   categories,
   themes,
 }) {
-
   //const categories = categoriesData.category;
   //const themes = themesData.theme;
 

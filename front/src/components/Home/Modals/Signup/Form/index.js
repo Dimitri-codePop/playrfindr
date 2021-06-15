@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 
@@ -11,15 +11,43 @@ export default function Form({
   firstname,
   lastname,
   password,
+  categories,
+  themes,
+  birthdate,
+  departements,
   departement,
-  confirmpassword,
+  passwordConfirm,
+  selectCat,
+  selectThemes,
+  changeSelectField,
   closeModal
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSignup();
+    closeModal();
   };
-
+  const listDepartements = departements.map((departement, i) => {
+    return (
+      <option value={departement.dataValues.id} key={i} >{departement.dataValues.label}</option>
+    )
+  })
+  const listCategories = categories.map((category, i) => {
+    return (
+      <option value={category.id} key={i} >{category.label}</option>
+    )
+  });
+  const listThemes = themes.map((themes, i) => {
+    return (
+      <option value={themes.id} key={i} >{themes.label}</option>
+    )
+  });
+  const handlechangeSelect = (event) => {
+    console.log(event.target.value, event.target.name )
+    changeSelectField(event.target.value, event.target.name)
+  }
+  console.log('ici', departement);
+  console.log('ici', birthdate);
   return (
     <>
       <button onClick={closeModal}>close</button>
@@ -45,34 +73,26 @@ export default function Form({
           onChange={changefieldSignup}
           value={lastname}
         />
-        <select name="departement" id="departement" className="field__input">
+        <Field
+          type="date"
+          name="birthdate"
+          placeholder="Date de naissance"
+          onChange={changefieldSignup}
+          value={birthdate}
+        />
+        <select name="departement" id="departement" onChange={handlechangeSelect} className="field__input">
             <option value="">--Choisissez votre département--</option>
-            <option value="59">Nord</option>
-            <option value="59">Nord</option>
-            <option value="59">Nord</option>
-            <option value="59">Nord</option>
-            <option value="59">Nord</option>
-            <option value="59">Nord</option>
+            {listDepartements}
         </select>
-        <label htmlFor="category"> Vos catégories préférés :</label>
-        <select name="category" id="category" className="field__input">
+        <label htmlFor="categories"> Vos catégories préférés :</label>
+        <select name="categories" id="categories" onChange={handlechangeSelect} className="field__input">
             <option value="">--Choisissez vos catégories--</option>
-            <option value="59">Jeux de plateaux</option>
-            <option value="59">Jeux de plateaux</option>
-            <option value="59">Jeux de plateaux</option>
-            <option value="59">Jeux de plateaux</option>
-            <option value="59">Jeux de plateaux</option>
-            <option value="59">Jeux de plateaux</option>
+            {listCategories}
         </select>
-        <label htmlFor="theme"> Vos thèmes préférés :</label>
-        <select name="theme" id="theme" className="field__input">
+        <label htmlFor="themes"> Vos thèmes préférés :</label>
+        <select name="themes" id="theme" onChange={handlechangeSelect} className="field__input">
             <option value="">--Choisissez vos thèmes--</option>
-            <option value="59">Fantastiques</option>
-            <option value="59">Fantastiques</option>
-            <option value="59">Fantastiques</option>
-            <option value="59">Fantastiques</option>
-            <option value="59">Fantastiques</option>
-            <option value="59">Fantastiques</option>
+            {listThemes}
         </select>
         <Field
           type="password"
@@ -86,7 +106,7 @@ export default function Form({
           name="passwordConfirm"
           placeholder="Confirmez votre Mot de passe"
           onChange={changefieldSignup}
-          value={confirmpassword}
+          value={passwordConfirm}
         />
         <button type="submit" className="form__login-button">Envoyer</button>
       </form>
@@ -95,6 +115,24 @@ export default function Form({
 }
 
 Form.propTypes = {
+  changefieldSignup: PropTypes.func.isRequired,
+  handleSignup: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  categories: PropTypes.array,
+  themes: PropTypes.array,
+  departements: PropTypes.array,
+  passwordConfirm: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  selectCat: PropTypes.array,
+  selectThemes: PropTypes.array,
+  changeSelectField: PropTypes.func.isRequired,
+};
 
-  onCloseModal: PropTypes.func.isRequired,
+Form.defaultProps = {
+  departement: [],
+  selectCat: [],
+  selectThemes: [],
 };
