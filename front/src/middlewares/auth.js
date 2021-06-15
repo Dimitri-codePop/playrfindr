@@ -11,16 +11,20 @@ const login = (store) => (next) => async (action) => {
         password: state.user.password,
       })
       .then((response) => {
+        console.log(response);
         const {
           firstname,
           lastname,
           email,
-          departement_id,
           id,
+          birthdate,
+          token,
+          department_number,
+          department_label
           
         } = response.data.user;
         const { isLogged } = response.data;
-        const saveUserAction = saveUser(id, email, departement, isLogged, firstName, lastName);
+        const saveUserAction = saveUser(id,token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
         store.dispatch(saveUserAction);
       })
       .catch((error) => console.log(`error`, error));
