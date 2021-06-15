@@ -7,7 +7,6 @@ const categories = (store) => (next) => (action) => {
       let saveCategories;
       axios.get('https://playrfindr.herokuapp.com/api/categories')
         .then((response) => {
-          console.log(`categories`, response.data.data);
 
           saveCategories = response.data.data;
         })
@@ -17,9 +16,7 @@ const categories = (store) => (next) => (action) => {
       
       axios.get('https://playrfindr.herokuapp.com/api/themes')
         .then((response) => {
-          console.log(`themes`, response.data.data);
-          console.log(`saveCategories`, saveCategories);
-
+          
           const saveType = saveTypes(response.data.data, saveCategories);
           store.dispatch(saveType);
         })

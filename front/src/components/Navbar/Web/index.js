@@ -60,7 +60,7 @@ export default function Web({ handleNavBarSearch }) {
         <Link to="/jeux">
           <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>
         </Link>
-        <Link to="/event">
+        <Link to="/events">
           <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
         </Link>
         <Link to="/profil/:id">

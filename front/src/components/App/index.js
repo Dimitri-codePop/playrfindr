@@ -8,6 +8,8 @@ import Home from 'src/containers/Home'
 import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
+import Events from 'src/containers/Events';
+import Proptypes from 'prop-types';
 
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
@@ -48,14 +50,17 @@ return (
       <Route path="/profil/:id">
         <Profil />
       </Route>
+      <Route path="/events">
+        <Events />
+      </Route>
     </Switch>
     <Footer />
   </div>
 );
 }
 
-App.protoTypes = {
-topConnect: PropTypes.func.isRequired,
-loadTypes: PropTypes.func.isRequired,
-loading: PropTypes.bool.isRequired,
+App.propTypes = {
+topConnect: Proptypes.func.isRequired,
+loadTypes: Proptypes.func.isRequired,
+loading: Proptypes.bool.isRequired,
 };
