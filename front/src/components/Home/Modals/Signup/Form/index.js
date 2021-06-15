@@ -25,6 +25,7 @@ export default function Form({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSignup();
+    closeModal();
   };
   const listDepartements = departements.map((departement, i) => {
     return (

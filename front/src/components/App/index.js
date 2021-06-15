@@ -56,7 +56,7 @@ return (
 );
 }
 
-App.protoTypes = {
+App.propTypes = {
 topConnect: PropTypes.func.isRequired,
 loadTypes: PropTypes.func.isRequired,
 loadDepartements: PropTypes.func.isRequired,
