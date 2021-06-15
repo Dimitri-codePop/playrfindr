@@ -40,11 +40,11 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0ou6
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0oababab
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection

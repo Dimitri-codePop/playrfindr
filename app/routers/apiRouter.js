@@ -100,6 +100,8 @@ router.route('/event')
 router.route('/event/:id(\\d+)')
     .get(authorisation, eventController.getOneEvent)
     .post(authorisation, eventController.participationEvent);
+    //.patch(authorisation,eventController.removeParticipant)
+    //.delete(authorisation,eventController.removeEvent);
 
 
 router.get('/games', gameController.getAll);

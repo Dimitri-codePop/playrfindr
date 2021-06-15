@@ -38,7 +38,6 @@ class EventModel extends CoreModel {
         WHERE "event"."id" = $1
         GROUP BY "event"."id",  "user_has_event"."user_id", "user_has_event"."event_id", "user"."id", "department"."id"
         `, [event_id]);
-        
         return result.rows;
     }
 
