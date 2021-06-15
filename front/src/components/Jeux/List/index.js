@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Proptypes from 'prop-types'
 import gamesData from 'src/data/game';
 import { Link } from 'react-router-dom';

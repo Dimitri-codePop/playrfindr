@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Proptypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import categoriesData from 'src/data/category';
-import themesData from 'src/data/theme'
+
 
 import './style.scss';
 
-export default function Filter({handleChangeTheme, handleChangeCat}) {
-  const categories = categoriesData.category;
-  const themes = themesData.theme;
+export default function Filter({
+  handleChangeTheme,
+  handleChangeCat,
+  loading,
+  categories,
+  themes,
+}) {
+  //const categories = categoriesData.category;
+  //const themes = themesData.theme;
 
   const handleOnChangeTheme = (event) => {
     handleChangeTheme(event.target.name);
