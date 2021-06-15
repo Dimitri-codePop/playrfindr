@@ -35,7 +35,7 @@ expressSwagger(options);
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors("*"));
 
 app.use('/api', apiRouter);
 

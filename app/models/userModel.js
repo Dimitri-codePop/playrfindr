@@ -48,7 +48,7 @@ class UserModel extends CoreModel {
     }
 
     static async insertCollection(user_id, game_id){
-        console.log(user_id, game_id);
+        
        const result =  await client.query(`INSERT INTO "user_has_game" ("user_id", "game_id") VALUES ($1, $2) RETURNING *`, [user_id, game_id]);
        return result.rows[0];
     }

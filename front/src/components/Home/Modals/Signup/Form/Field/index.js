@@ -5,7 +5,7 @@ import './styles.scss';
 
 export default function Field({ type, name, placeholder, value, onChange }) {
   const handleOnChange = (event) => {
-    onChange(event.target.value);
+    onChange(event.target.value, name);
   };
 
   return (
@@ -28,7 +28,7 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChangeValue: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 Field.defaultProps = {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
-import { fetchTopTendances, fetchTypes } from '../../actions/games';
-
+import { fetchTopTendances, fetchTypes} from 'src/actions/games';
+import { fetchDepartements } from 'src/actions/user';
 const mapStateToProps = (state) => ({
   loading: state.games.loading,
 });
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   loadTypes: () => {
     dispatch(fetchTypes());
   },
+  loadDepartements: () => {
+    dispatch(fetchDepartements())
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
