@@ -8,18 +8,21 @@ import {
 
 
 const initialState = {
-  email: '',
-  password: '',
-  passwordConfirm: '',
-  departements: [],
   id: '',
+  email: '',
   firstname: '',
   lastname: '',
+  password: '',
+  passwordConfirm: '',
+  birthdate: '',
+  department_number: '',
+  department_label: '',
+  token: '',
+  isLogged: false,
   departement: '',
+  departements: [],
   themes: [],
   categories: [],
-  birthdate: '',
-  isLogged: false,
 
 };
 
@@ -36,14 +39,17 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        isLogged: action.logged,
-        departement: action.departement,
+        token: action.token,
+        id: action.id,
+        department_label: action.department_label,
+        department_number: action.department_number,
+        birthdate: action.birthdate,
         firstname: action.firstname,
         lastname: action.lastname,
-        email: state.login.email,
-        id: action.id,
+        email: action.email,
         password: '',
         passwordConfirm: '',
+        isLogged: action.logged,
       };
     case SAVE_DEPARTEMENTS:
       return {

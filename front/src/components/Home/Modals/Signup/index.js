@@ -36,7 +36,11 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
         style={customStyles}
         contentLabel="Inscription"
       >
-        <Form closeModal={closeModal}/>
+        <Form 
+        closeModal={closeModal}
+        setSignupIsHidden={setSignupIsHidden}
+        signupIsHidden={signupIsHidden}
+        />
       </Modal>
     </div>
   );

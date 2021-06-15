@@ -14,6 +14,8 @@ export default function Form({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
+    closeModal();
+    //setLoginIsHidden(!loginIsHidden)
   };
 
   return (
