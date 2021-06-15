@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Proptypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import categoriesData from 'src/data/category';
-import themesData from 'src/data/theme'
-import Loading from 'src/components/Loading';
+
 
 import './style.scss';
 
@@ -15,10 +13,6 @@ export default function Filter({
   categories,
   themes,
 }) {
-
-  console.log(`categoriescomp`, categories);
-  console.log(`themescomp`, themes);
-
   //const categories = categoriesData.category;
   //const themes = themesData.theme;
 
@@ -73,10 +67,6 @@ export default function Filter({
 
   const list = open ? "games__filter__results" : "games__filter__noresults"
 
-
-  if (loading) {
-    return <Loading />;
-  }
   return(
       <div className="games__filter">
         <div className="games__filter--toggle">

@@ -2,10 +2,11 @@ import { FETCH_TYPES, saveTypes } from 'src/actions/games';
 import { FETCH_DEPARTEMENTS, saveDepartements } from 'src/actions/user'
 import axios from 'axios';
 
-const categories = (store) => (next) => (action) => {
+const types = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TYPES: {
       let saveCategories;
+      let saveThemes;
       axios.get('https://playrfindr.herokuapp.com/api/categories')
         .then((response) => {
           saveCategories = response.data.data;
@@ -16,7 +17,13 @@ const categories = (store) => (next) => (action) => {
       
       axios.get('https://playrfindr.herokuapp.com/api/themes')
         .then((response) => {
-          const saveType = saveTypes(response.data.data, saveCategories);
+          saveThemes = response.data.data;
+        })       
+        .catch((error) => console.log(`error`, error));
+      
+      axios.get('https://playrfindr.herokuapp.com/api/jeux')
+        .then((response) => {
+          const saveType = saveTypes(response.data.data, saveCategories, saveThemes);
           store.dispatch(saveType);
         })
         
@@ -37,4 +44,4 @@ const categories = (store) => (next) => (action) => {
   }
 };
 
-export default categories;
+export default types;
