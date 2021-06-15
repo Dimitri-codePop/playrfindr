@@ -8,6 +8,8 @@ import Home from 'src/containers/Home'
 import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
+import Events from 'src/containers/Events';
+import Proptypes from 'prop-types';
 
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
@@ -49,6 +51,9 @@ return (
       </Route>
       <Route path="/profil/:id">
         <Profil />
+      </Route>
+      <Route path="/events">
+        <Events />
       </Route>
     </Switch>
     <Footer />
