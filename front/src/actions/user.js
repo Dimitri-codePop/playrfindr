@@ -3,10 +3,6 @@ export const LOGIN = 'LOGIN';
 export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_SIGNUP = 'CHANGE_VALUE_SIGNUP';
 export const SIGN_UP = 'SIGN_UP';
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c8310a17d291735b055793306837692a0137e53
 
 export const saveUser = (id, departement, email, logged, firstName, lastName) => ({
   type: SAVE_USER,
@@ -36,4 +32,22 @@ export const changeValueSignup = (value, key) => ({
 
 export const signUp = () => ({
   type: SIGN_UP,
+});
+
+export const CHANGE_VALUE_SIGNUP_SELECT = 'CHANGE_VALUE_SIGNUP_SELECT';
+export const changeSelectField = (value, key) => ({
+  type: CHANGE_VALUE_SIGNUP_SELECT,
+  value,
+  key,
+});
+
+export const FETCH_DEPARTEMENTS = 'FETCH_DEPARTEMENTS';
+export const fetchDepartements = () => ({
+  type: FETCH_DEPARTEMENTS,
+});
+
+export const SAVE_DEPARTEMENTS = 'SAVE_DEPARTEMENTS';
+export const saveDepartements = (value) => ({
+  type: SAVE_DEPARTEMENTS,
+  value,
 });

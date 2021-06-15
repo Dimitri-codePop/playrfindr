@@ -35,7 +35,19 @@ expressSwagger(options);
 
 app.use(express.json());
 
-app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  
+    // response to preflight request
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(200);
+    }
+    else {
+      next();
+    }
+  });
 
 app.use('/api', apiRouter);
 
