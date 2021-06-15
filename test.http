@@ -4,6 +4,10 @@ GET https://playrfindr.herokuapp.com/api/null
 ### Page d'acceuil
 GET https://playrfindr.herokuapp.com/api/
 
+### Page d'acceuil
+GET http://localhost:4000/api/
+
+
 ### Récupération de tout les jeux avec les themes et catégories
 GET https://playrfindr.herokuapp.com/api/jeux
 
