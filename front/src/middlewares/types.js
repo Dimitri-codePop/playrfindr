@@ -5,9 +5,15 @@ import axios from 'axios';
 const types = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TYPES: {
+      const state = store.getState();
       let saveCategories;
-      let saveThemes;
-      axios.get('https://playrfindr.herokuapp.com/api/categories')
+      axios.get('https://playrfindr.herokuapp.com/api/categories',{
+        headers: {
+            'authorization': state.user.token,
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json'
+        }
+        })
         .then((response) => {
           saveCategories = response.data.data;
         })
