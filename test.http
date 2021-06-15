@@ -18,10 +18,12 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
 
 ### Récupération d'un événement
 GET http://localhost:4000/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+
 
 ### Récupération des départements
 GET http://localhost:4000/api/departements
@@ -32,20 +34,25 @@ GET https://playrfindr.herokuapp.com/api/departements
 ### Récupération d'un jeu
 GET https://playrfindr.herokuapp.com/api/jeu/1
 
+
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/2
+GET http://localhost:4000/api/profil/3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 
 ### Récupération de la collection d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/1/collection
+GET https://playrfindr.herokuapp.com/api/profil/3/collection
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 
 ### Ajout d'un jeu a une collection
-POST http://localhost:4000/api/profil/75/collection/6
+POST http://localhost:4000/api/profil/3/collection/1
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 
 ### Ajout d'un jeu a une collection
-POST https://playrfindr.herokuapp.com/api/profil/1/collection/2
+POST https://playrfindr.herokuapp.com/api/profil/3/collection/2
 
 ### Ajout d'un utilisateur
 POST https://playrfindr.herokuapp.com/api/inscription
@@ -83,6 +90,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 Content-Type: application/json
 
 {
@@ -130,7 +138,7 @@ Content-Type: application/json
 }
 
 ### Update d'un utilisateur
-PATCH https://playrfindr.herokuapp.com/api/profil/72
+PATCH https://playrfindr.herokuapp.com/api/profil/3
 Content-Type: application/json
 
 {
@@ -142,7 +150,8 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 
 ### Delete d'un jeux d'une collection
-DELETE http://localhost:4000/api/profil/75/collection/6
+DELETE http://localhost:4000/api/profil/3/collection/6
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
 
 ### Delete d'un jeux d'une collection
 DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6

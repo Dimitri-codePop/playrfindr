@@ -107,9 +107,8 @@ module.exports = {
     },
     async getOneProfil(req, res, next){
         try {   
-            
-            const user = await UserModel.findOneProfil(req.params.id);
-            let userGame = await UserModel.findOneProfilGame(req.params.id);
+            const user = await UserModel.findOneProfil(req.user.userId);
+            let userGame = await UserModel.findOneProfilGame(req.user.userId);
 
             if(!user){
                 return next();
@@ -141,7 +140,7 @@ module.exports = {
 
     async updateProfil(req, res) {
         try {
-            const user = await UserModel.findByPk(req.params.id);
+            const user = await UserModel.findByPk(req.user.userId);
             
             if (!user) {
                 return next();
@@ -165,7 +164,8 @@ module.exports = {
     },
     async deleteProfil(req, res, next){
         try {
-            const user = await UserModel.findByPk(req.params.id);
+            
+            const user = await UserModel.findByPk(req.user.userId);
 
             if(!user){
                 return next();
@@ -181,7 +181,7 @@ module.exports = {
     },
     async getOneCollection(req, res, next){
         try {
-            const user = await UserModel.findCollection(req.params.id);
+            const user = await UserModel.findCollection(req.user.userId);
 
             if(!user){
                 return res.json({error: 'Votre collection est vide'});
@@ -192,10 +192,11 @@ module.exports = {
             console.trace(error);
             response.json({ error });
         }
-    }, 
+    },
+
     async addGames(req, res){
         try {
-            const user = await UserModel.insertCollection(req.params.user_id, req.params.game_id);
+            const user = await UserModel.insertCollection(req.user.userId, req.params.game_id);
             return res.json({user})
         } catch (error) {
             console.trace(error);
@@ -205,7 +206,7 @@ module.exports = {
     },
     async deleteGames(req, res){
         try {
-            const user = await UserModel.deleteGames(req.params.user_id, req.params.game_id);
+            const user = await UserModel.deleteGames(req.user.userId, req.params.game_id);
             return res.json({message: 'Jeux enlevé', user})
         } catch (error) {
             console.trace(error);
