@@ -7,6 +7,7 @@ const types = (store) => (next) => (action) => {
     case FETCH_TYPES: {
       const state = store.getState();
       let saveCategories;
+      let saveThemes;
       axios.get('https://playrfindr.herokuapp.com/api/categories',{
         headers: {
             'authorization': state.user.token,
@@ -20,7 +21,6 @@ const types = (store) => (next) => (action) => {
 
         .catch((error) => console.log(`error`, error));
 
-      
       axios.get('https://playrfindr.herokuapp.com/api/themes')
         .then((response) => {
           saveThemes = response.data.data;
