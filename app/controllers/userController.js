@@ -58,7 +58,7 @@ module.exports = {
 
     async login (req, res) {
         try {
-            
+            let isLogged = false;
             const email = req.body.email;
             const password = req.body.password;
 
@@ -83,8 +83,9 @@ module.exports = {
             }
         
 
-        if(validPwd){
-            return res.status(200).json({
+            if(validPwd){
+                isLogged = true;
+                return res.status(200).json({
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -93,7 +94,8 @@ module.exports = {
                 picture: user.picture,
                 department_number: user.number,
                 department_label: user.label,
-                token: jwt.generateTokenForUser(user)
+                token: jwt.generateTokenForUser(user),
+                isLogged
             })
         }
         } catch (error) {
