@@ -12,17 +12,19 @@ import Profil from 'src/containers/Profil';
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 import Loading from './Loading';
-
+import PropTypes from 'prop-types';
 // == Composant
 export default function App({
   topConnect, 
   loadTypes, 
   loading,
+  loadDepartements,
 }) {
 
 useEffect(() => {
 topConnect();
 loadTypes();
+loadDepartements();
 }, []);
 
 if (loading) {
@@ -57,5 +59,6 @@ return (
 App.protoTypes = {
 topConnect: PropTypes.func.isRequired,
 loadTypes: PropTypes.func.isRequired,
+loadDepartements: PropTypes.func.isRequired,
 loading: PropTypes.bool.isRequired,
 };
