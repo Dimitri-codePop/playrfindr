@@ -18,12 +18,15 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+
+### Récupération des événements
+GET http://localhost:4000/api/event
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzU1NjA0LCJleHAiOjE2MjM3NTkyMDR9.tYgrdqjo82vCe0Mr80YQeWuo25c0pyyn-Npu-P22TWo
 
 ### Récupération d'un événement
-GET http://localhost:4000/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
-
+GET http://localhost:4000/api/event/1
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzU1NjA0LCJleHAiOjE2MjM3NTkyMDR9.tYgrdqjo82vCe0Mr80YQeWuo25c0pyyn-Npu-P22TWo
 
 ### Récupération des départements
 GET http://localhost:4000/api/departements
@@ -37,19 +40,19 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzQ2Mjk1LCJleHAiOjE2MjM3NDk4OTV9.kBSW0B3hWA6Q1Y42tzV_ISGEK92_7Mb1ynRy3mrCE-4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0ou6
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0oababab
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 
 ### Ajout d'un jeu a une collection
 POST http://localhost:4000/api/profil/3/collection/1
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 
 ### Ajout d'un jeu a une collection
 POST https://playrfindr.herokuapp.com/api/profil/3/collection/2
@@ -90,7 +93,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 Content-Type: application/json
 
 {
@@ -137,6 +140,10 @@ Content-Type: application/json
  
 }
 
+### Ajout d'un utilisateur a un event
+POST http://localhost:4000/api/event/35
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/3
 Content-Type: application/json
@@ -151,7 +158,7 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 ### Delete d'un jeux d'une collection
 DELETE http://localhost:4000/api/profil/3/collection/6
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NDU5MDMsImV4cCI6MTYyMzc0OTUwM30.lu-R975ei14hXE1h6f3WDZo02ty5unGyJEq7-F4r240
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 
 ### Delete d'un jeux d'une collection
 DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6

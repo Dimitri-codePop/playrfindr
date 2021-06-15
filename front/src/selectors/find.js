@@ -1,14 +1,17 @@
 
 export function getSpec(theme, cat, base) {
   let found;
+  console.log(`themefct`, theme);
+  console.log(`basefct`, base)
   if ((theme.length >= 1) || (cat.length >= 1)) {
     for (const index of theme) {
-      found = base.filter(element => element.theme.find(element => element === index));
+      found = base.filter(element => element.theme_all.find(element => element === index));
       base = found;
+      console.log(`found`, found);
     }
     if (cat.length >= 1) {
       for (const index of cat) {
-        found = base.filter(element => element.category.find(element => element === index));
+        found = base.filter(element => element.category_all.find(element => element === index));
         base = found;
       }
       return found
@@ -53,6 +56,8 @@ export function addOrRemove(array, value) {
 }
 
 export function FindGoodGame (base, id) {
+  console.log(`base`, base);
+  console.log(`id`, id);
   const found = base.find(element => element.id == id)
   return found;
 }
