@@ -15,8 +15,8 @@ import './style.scss';
 import Loading from './Loading';
 // == Composant
 export default function App({
-  topConnect, 
-  loadTypes, 
+  topConnect,
+  loadTypes,
   loading,
   loadDepartements,
   loadUser,
@@ -63,10 +63,9 @@ export default function App({
 }
 
 App.propTypes = {
-topConnect: PropTypes.func.isRequired,
-loadTypes: PropTypes.func.isRequired,
-loadDepartements: PropTypes.func.isRequired,
-loading: PropTypes.bool.isRequired,
-loadUser : PropTypes.func.isRequired,
+  topConnect: PropTypes.func.isRequired,
+  loadTypes: PropTypes.func.isRequired,
+  loadDepartements: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  loadUser: PropTypes.func.isRequired,
 };
-

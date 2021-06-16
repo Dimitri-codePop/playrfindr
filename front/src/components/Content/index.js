@@ -7,30 +7,25 @@ import './style.scss';
 
 export default function Content({ user, paramsId}) {
   const [currentUser, setCurrentUser] = useState(true);
-  console.log(user);
   const {
+    theme,
+    category,
     firstname,
     picture,
     lastname,
     email,
     birthdate,
     departement,
-    theme,
-    category,
-    id
+    id,
   } = user;
-  console.log(user.theme);
- const themes = {};
+
+  const themes = theme.map((obj) => (
+    <div key={obj} className="profil__tag__theme">{obj}</div>
+  ));
   const age = getAge(birthdate);
-    for(const obj of theme) {
-      themes.obj = obj;
-    }
-  // const themes = theme.map((obj) => (
-  //   <div key={obj.id} className="profil__tag__theme">{obj.label}</div>
-  // ))
-  // const categories = category.map((cat) => (
-  //   <div key={cat} className="profil__tag__cat">{cat}</div>
-  // ))
+  const categories = category.map((cat) => (
+    <div key={cat} className="profil__tag__cat">{cat}</div>
+  ))
 
   // A GERER PLUS TARD POUR L'EDIT
   useEffect(() => {
@@ -58,8 +53,12 @@ export default function Content({ user, paramsId}) {
           </div>
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">
-            {/* {categories} */}
-            {themes}
+            <div>
+              {categories}
+            </div>
+            <div>
+              {themes}
+            </div>
           </div>
         </div>
       </div>

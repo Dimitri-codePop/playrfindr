@@ -1,4 +1,11 @@
-import { LOGIN, LOGOUT, saveUser, SIGN_UP, FETCH_USER, killCurrentUser } from 'src/actions/user';
+import {
+  LOGIN,
+  LOGOUT,
+  saveUser,
+  SIGN_UP,
+  FETCH_USER,
+  killCurrentUser,
+} from 'src/actions/user';
 import axios from 'axios';
 
 const login = (store) => (next) => (action) => {
@@ -9,29 +16,26 @@ const login = (store) => (next) => (action) => {
         email: state.user.email,
         password: state.user.password,
       })
-      .then((response) => {
-        const {
-          firstname,
-          lastname,
-          email,
-          id,
-          birthdate,
-          token,
-          department_number,
-          department_label
-          
-        } = response.data;
-        console.log(response.data);
-        const { isLogged } = response.data;
-        // localStorage.setItem('isLogged', isLogged);
-        const dataUser = response.data;
-        for( const data in dataUser){
-          localStorage.setItem(`${data}`, dataUser[data]);
-        };
-        const saveUserAction = saveUser(id,token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
-        store.dispatch(saveUserAction);
-      })
-      .catch((error) => console.log(`error`, error));
+        .then((response) => {
+          const {
+            firstname,
+            lastname,
+            email,
+            id,
+            birthdate,
+            token,
+            department_number,
+            department_label,
+          } = response.data;
+          console.log(response.data);
+          const { isLogged } = response.data;
+          // localStorage.setItem('isLogged', isLogged);
+          const dataUser = response.data;
+          localStorage.setItem('UserKeysUsed', JSON.stringify(dataUser));
+          const saveUserAction = saveUser(id,token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
+          store.dispatch(saveUserAction);
+        })
+        .catch((error) => console.log(`error`, error));
       break;
     }
     case SIGN_UP: {
@@ -58,7 +62,9 @@ const login = (store) => (next) => (action) => {
     }
     case FETCH_USER: {
       console.log(localStorage);
-      let {
+      let fetchUser = localStorage.getItem('UserKeysUsed');
+      fetchUser = JSON.parse(fetchUser);
+      const {
         firstname,
         lastname,
         email,
@@ -68,8 +74,7 @@ const login = (store) => (next) => (action) => {
         department_number,
         department_label,
         isLogged,
-      } = localStorage;
-      isLogged = (isLogged === 'true');
+      } = fetchUser;
       store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
       break;
     }
