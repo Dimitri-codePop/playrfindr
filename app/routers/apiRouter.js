@@ -94,7 +94,7 @@ router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
 
 
 router.route('/event')
-    .get(/* authorisation, */eventController.getAllEvent)
+    .get(authorisation, eventController.getAllEvent)
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')

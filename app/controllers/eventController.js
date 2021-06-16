@@ -2,7 +2,7 @@ const EventModel = require ('../models/eventModel');
 
 module.exports = {
     async getAllEvent(_, res, next) {
-        console.log("123");
+       
         try {
             const events = await EventModel.findAllEvent();
 
