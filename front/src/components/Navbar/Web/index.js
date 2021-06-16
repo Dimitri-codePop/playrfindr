@@ -13,7 +13,8 @@ import {
   faSearch, 
 } from '@fortawesome/free-solid-svg-icons'
 
-export default function Web({ handleNavBarSearch }) {
+  
+    export default function Web({ handleNavBarSearch, userId, isLogged, handleDisconnect }) {
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
   
   const changeField = (event) => {
@@ -27,7 +28,7 @@ export default function Web({ handleNavBarSearch }) {
     console.log('la recherche suivante se fait : ', event.target[0].value);
     handleNavBarSearch(event.target[0].value);
   }
-
+  const profilPath= `/profil/${userId}`
   return (
     <nav className="navbar__web">
       <>
@@ -60,12 +61,19 @@ export default function Web({ handleNavBarSearch }) {
         <Link to="/jeux">
           <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>
         </Link>
-        <Link to="/events">
-          <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
-        </Link>
-        <Link to="/profil/:id">
-          <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
-        </Link>
+        {isLogged &&(
+          <>
+            <Link to="/events">
+              <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
+            </Link>
+            <Link to= {profilPath}>
+              <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
+            </Link>
+            <button type="button" className="navbar__web__buttons" onClick={handleDisconnect} >
+              <FontAwesomeIcon icon={faUser} />  Déconnexion
+            </button>
+          </>
+        )}
       </div>
       </>
     </nav>
@@ -73,5 +81,10 @@ export default function Web({ handleNavBarSearch }) {
 }
 
 Web.propTypes = {
-
+  userId: PropTypes.number,
+  isLogged: PropTypes.bool.isRequired,
+  handleDisconnect: PropTypes.func.isRequired,
 };
+Web.defaultprops = {
+  userId: 0,
+}

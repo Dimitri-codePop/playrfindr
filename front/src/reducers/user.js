@@ -4,11 +4,12 @@ import {
   CHANGE_VALUE_SIGNUP,
   CHANGE_VALUE_SIGNUP_SELECT,
   SAVE_DEPARTEMENTS,
+  KILL_CURRENT_USER,
 } from 'src/actions/user';
 
 
 const initialState = {
-  id: '',
+  id: 0,
   email: '',
   firstname: '',
   lastname: '',
@@ -49,7 +50,7 @@ const reducer = (state = initialState, action = {}) => {
         email: action.email,
         password: '',
         passwordConfirm: '',
-        isLogged: action.logged,
+        isLogged: action.isLogged,
       };
     case SAVE_DEPARTEMENTS:
       return {
@@ -83,6 +84,25 @@ const reducer = (state = initialState, action = {}) => {
       }
       return {
         ...newState,
+      }
+    }
+    case KILL_CURRENT_USER: {
+      return {
+        id: 0,
+        email: '',
+        firstname: '',
+        lastname: '',
+        password: '',
+        passwordConfirm: '',
+        birthdate: '',
+        department_number: '',
+        department_label: '',
+        token: '',
+        isLogged: false,
+        departement: '',
+        departements: [],
+        themes: [],
+        categories: [],
       }
     }
     default:

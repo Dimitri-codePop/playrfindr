@@ -45,7 +45,6 @@ const types = (store) => (next) => (action) => {
           const saveType = saveTypes(response.data.data, saveCategories, saveThemes);
           store.dispatch(saveType);
         })
-        
         .catch((error) => console.log(`error`, error));
       */
       break;
