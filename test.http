@@ -7,7 +7,6 @@ GET https://playrfindr.herokuapp.com/api/
 ### Page d'acceuil
 GET http://localhost:4000/api/
 
-
 ### Récupération de tout les jeux avec les themes et catégories
 GET https://playrfindr.herokuapp.com/api/jeux
 
@@ -22,15 +21,18 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzYyNjg0LCJleHAiOjE2MjM3NjYyODR9.hlGMtPV7_S39bqKJK_KgaqSlCMm2JBkXXJ43NexSkYY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 ### Récupération d'un événement
 GET http://localhost:4000/api/event/11
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
+
+### Récupération des messages
+GET http://localhost:4000/api/messagerie
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM2MTc0LCJleHAiOjE2MjM4Mzk3NzR9.LWjzgMNE_QtCX8XWmtOq5Sd0WdC6poAThX2L-GEQKXs
 
 ### Récupération des départements
 GET http://localhost:4000/api/departements
@@ -103,30 +105,30 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzY1ODA5LCJleHAiOjE2MjM3Njk0MDl9.t0mMhq3cJItohIDIv0PRZ6Cn2zQjanHLi5TlRLZoFQQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 Content-Type: application/json
 
 {
-    "label": "Partie de Saboteur",
-    "content": "Petite partie de Saboteur",
-    "date": "2021-09-10",
-    "location": "20, rue de la monnaie 59800 Lille",
-    "max_player": 2,
-    "user_id": 75
+    "label": "Partie de Mysterium",
+    "content": "Petite partie de Mysterium",
+    "date": "2021-09-12",
+    "location": "84, rue de la monnaie 59800 Lille",
+    "max_player": 7,
+    "user_id": 63
 }
 
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NjQzMjMsImV4cCI6MTYyMzc2NzkyM30.xmE2yK9tLcWdc6fXDDu_cbPcNLC4nN4AzctzBA1MJ8s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 Content-Type: application/json
 
 {
-    "label": "Partie de Saboteur",
-    "content": "Petite partie de Saboteur",
-    "date": "2021-09-10",
-    "location": "20, rue de la monnaie 59800 Lille",
-    "max_player": 2,
+    "label": "Partie de Mysterium",
+    "content": "Petite partie de Mysterium",
+    "date": "2021-09-12",
+    "location": "84, rue de la monnaie 59800 Lille",
+    "max_player": 7,
     "user_id": 2
 }
 
@@ -174,8 +176,12 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 
 ### Suppression d'un event
-DELETE  http://localhost:4000/api/event/8
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzNzY2MTkyLCJleHAiOjE2MjM3Njk3OTJ9.ZX-toJL6qlB2wYKBkVNhWelP8ilMwe8tlFJH-ZIHtXk
+DELETE  http://localhost:4000/api/event/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+
+### Suppression d'un event
+DELETE  https://playrfindr.herokuapp.com/api/event/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 
 
 ### Delete d'un jeux d'une collection
