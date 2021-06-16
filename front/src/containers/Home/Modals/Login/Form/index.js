@@ -10,11 +10,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, field) => {
     const action = changeValueLogin(value, field);
-    console.log('ici je lance ma fonction login', action);
     dispatch(action);
   },
   handleLogin: () => {
-    console.log('on submit');
     dispatch(login());
   }
 });

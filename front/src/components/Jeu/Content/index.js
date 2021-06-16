@@ -23,7 +23,7 @@ export default function Content({
     loading
 }) {
 
-  console.log(`label`, label)
+  console.log(`theme`, theme_all)
 
   if (loading) {
     return <Loading />;
