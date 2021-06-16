@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  loadGame: () => {
+  loadGame: (id) => {
     dispatch(fetchGame(id));
   },
 });
