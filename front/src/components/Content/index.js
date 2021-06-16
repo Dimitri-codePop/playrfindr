@@ -1,13 +1,13 @@
-import React from 'react'
-import Proptypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { getAge } from 'src/selectors/date';
-
+import { Redirect } from 'react-router-dom'
 import './style.scss';
 
-export default function Content({user, id}) {
-  const nb = id - 1;
+export default function Content({user, paramsId}) {
+  const [currentUser, setCurrentUser] = useState(true);
   const {
     firstname,
     picture,
@@ -16,18 +16,31 @@ export default function Content({user, id}) {
     birthdate,
     departement,
     theme,
-    category
-  } = user[nb]
-
+    category,
+    id
+  } = user;
   const age = getAge(birthdate);
-  const themes = theme.map((theme) => (
-    <div key={theme} className="profil__tag__theme">{theme}</div>
-  ))
-  const categories = category.map((cat) => (
-    <div key={cat} className="profil__tag__cat">{cat}</div>
-  ))
-  return(
-    <div className="profil__section1">
+  // const themes = theme.map((theme) => (
+  //   <div key={theme} className="profil__tag__theme">{theme}</div>
+  // ))
+  // const categories = category.map((cat) => (
+  //   <div key={cat} className="profil__tag__cat">{cat}</div>
+  // ))
+
+  // A GERER PLUS TARD POUR L'EDIT
+  useEffect(() => {
+    if(user.id === paramsId) {
+
+      setCurrentUser(true);
+    } else {
+      setCurrentUser(false);
+    }
+  }, []);
+  // END GESTION EDIT
+  return ( 
+    <>
+  (
+      <div className="profil__section1">
           <img className="profil__image" src={picture}></img>
         <div className="profil__content">
           <div className="profil__name">
@@ -42,12 +55,17 @@ export default function Content({user, id}) {
           </div>
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
             <div className="profil__tag">
-              {categories}
-              {themes}
+              {/* {categories} */}
+              {/*themes*/}
             </div>
         </div>
     </div>
+    )
+    </>
   );
 }
 
-Content.propTypes = {};
+Content.propTypes = {
+  user: PropTypes.object.isRequired,
+  paramsId: PropTypes.number.isRequired,
+};

@@ -20,7 +20,7 @@ export default function Navbar({ isLogged, handleDisconnect }) {
         setWidth(window.innerWidth);
       }
     };
-  
+
     if (window.innerWidth > 960) {
       setToggleMenu(false);
       setWidth(window.innerWidth);

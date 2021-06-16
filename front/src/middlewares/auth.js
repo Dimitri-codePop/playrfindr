@@ -70,7 +70,9 @@ const login = (store) => (next) => (action) => {
         isLogged
       } = localStorage;
       isLogged = (isLogged==='true');
+      console.log(isLogged)
       store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
+      break;
     }
     case LOGOUT: {
       localStorage.clear();

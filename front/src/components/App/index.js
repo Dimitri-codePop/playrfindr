@@ -1,6 +1,5 @@
 // == Import npm
 import React, { useEffect } from 'react';
-
 // == Import
 import NavBar from 'src/containers/Navbar';
 import Footer from 'src/components/Footer';
@@ -9,12 +8,11 @@ import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
 import Events from 'src/containers/Events';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { Switch, Route } from 'react-router-dom';
 import './style.scss';
 import Loading from './Loading';
-import PropTypes from 'prop-types';
 // == Composant
 export default function App({
   topConnect, 
@@ -35,32 +33,32 @@ if (loading) {
   return <Loading />;
 }
 
-return (
-  <div className="app">
-    <NavBar />
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route 
-        exact
-        path="/jeux">
-        <Jeux />
-      </Route>
-      <Route 
-        path="/jeu/:id">
-        <Jeu />
-      </Route>
-      <Route path="/profil/:id">
-        <Profil />
-      </Route>
-      <Route path="/events">
-        <Events />
-      </Route>
-    </Switch>
-    <Footer />
-  </div>
-);
+  return (
+    <div className="app">
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route 
+          exact
+          path="/jeux">
+          <Jeux />
+        </Route>
+        <Route 
+          path="/jeu/:id">
+          <Jeu />
+        </Route>
+        <Route path="/profil/:id">
+          <Profil />
+        </Route>
+        <Route path="/events">
+          <Events />
+        </Route>
+      </Switch>
+      <Footer />
+    </div>
+  );
 }
 
 App.propTypes = {
@@ -70,3 +68,4 @@ loadDepartements: PropTypes.func.isRequired,
 loading: PropTypes.bool.isRequired,
 loadUser : PropTypes.func.isRequired,
 };
+
