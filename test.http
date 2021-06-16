@@ -41,6 +41,9 @@ GET https://playrfindr.herokuapp.com/api/departements
 ### Récupération d'un jeu
 GET https://playrfindr.herokuapp.com/api/jeu/1
 
+### Récupération d'un jeu
+GET http://localhost:4000/api/jeu/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
 
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
