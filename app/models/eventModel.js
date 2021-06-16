@@ -19,11 +19,11 @@ class EventModel extends CoreModel {
 
     static async findAllEvent(){
         const result = await client.query(`SELECT "event".*, "user"."firstname", "user"."lastname",
-                ARRAY_AGG( DISTINCT user_has_event.user_id) AS participant
-                FROM "event" 
-                JOIN "user" ON "event"."user_id" = "user"."id" 
-                JOIN "user_has_event" ON "event"."id" = "user_has_event"."event_id"
-                group by "event"."id", "user"."firstname", "user"."lastname";`);
+        ARRAY_AGG( DISTINCT user_has_event.user_id) AS participant
+        FROM "event" 
+        JOIN "user" ON "event"."user_id" = "user"."id" 
+        JOIN "user_has_event" ON "event"."user_id" = "user_has_event"."user_id"
+        group by "event"."id", "user"."firstname", "user"."lastname";`); 
         return result.rows;
     }
 
