@@ -3,6 +3,7 @@ import Proptypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
+import Loading from 'src/components/Loading'
 
 import './style.scss';
 
@@ -18,12 +19,15 @@ export default function Content({
     theme_all,
     category_all,
     author,
-    editor
+    editor,
+    loading
 }) {
 
   console.log(`label`, label)
 
-
+  if (loading) {
+    return <Loading />;
+  }
   const themes = theme_all.map((theme) => (
     <div key={theme} className="game__tag__theme">{theme}</div>
   ));
