@@ -107,8 +107,8 @@ module.exports = {
     },
     async getOneProfil(req, res, next){
         try {   
-            const user = await UserModel.findOneProfil(req.user.userId);
-            let userGame = await UserModel.findOneProfilGame(req.user.userId);
+            const user = await UserModel.findOneProfil(req.params.id);
+            let userGame = await UserModel.findOneProfilGame(req.params.id);
 
             if(!user){
                 return next();

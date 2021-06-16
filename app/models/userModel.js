@@ -29,8 +29,8 @@ class UserModel extends CoreModel {
 
     static async findOneProfil(id){
         const result = await client.query(`
-        SELECT * FROM "user_profile" WHERE id = $1;`, [id]);
-
+        SELECT * FROM "user_profile" WHERE "id" = $1;`, [id]);
+        
         return result.rows[0];
     }
 

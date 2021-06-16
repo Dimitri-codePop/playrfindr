@@ -48,12 +48,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWlu
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
+GET https://playrfindr.herokuapp.com/api/profil/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4MDc2LCJleHAiOjE2MjM4NjE2NzZ9.Tt6eIh_eX6WE281TllBVujl8-lb-UcjDDu9Szd6nlAs
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0oababab
+GET http://localhost:4000/api/profil/75
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4NDc3LCJleHAiOjE2MjM4NjIwNzd9.WW0lwS1NrV-rCaMMlXPNgCi2qKQ_orBP-FYCP7vrcgI
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
