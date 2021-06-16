@@ -9,7 +9,7 @@ export default function Profil({ user, loadProfil }) {
   useEffect(() => {
     console.log("je passe ici");
     loadProfil();
-  });
+  }, [user]);
 
   return (
     <main className="profil">
