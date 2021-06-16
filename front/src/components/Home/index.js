@@ -24,14 +24,11 @@ export default function Home({
   const [loginIsHidden, setLoginIsHidden] = useState(false);
   const [signupIsHidden, setSignupIsHidden] = useState(false);
   const handleModalLogin = () => {
-    console.log("j'ai cliqué sur login");
     setLoginIsHidden(!loginIsHidden);
   }
   const handleModalSignup = () => {
-    console.log("j'ai cliqué ici");
     setSignupIsHidden(!signupIsHidden);
   }
-  console.log(topTendances);
   const gameList = topTendances.map((game, i) => {
     return (<Card 
       star={faStar}

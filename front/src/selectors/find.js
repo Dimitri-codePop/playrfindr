@@ -61,3 +61,11 @@ export function FindGoodGame (base, id) {
   const found = base.find(element => element.id == id)
   return found;
 }
+
+export function FindGoodEvent (base, event) {
+  let found = base.find(element => element.id == event.id)
+  const index = base.indexOf(found);
+  base.splice(index, 1, event);
+  
+  return base;
+}

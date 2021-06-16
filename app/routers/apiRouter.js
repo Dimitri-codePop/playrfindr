@@ -9,6 +9,7 @@ const categoryController = require('../controllers/categoryController');
 const eventController = require('../controllers/eventController');
 const userController = require('../controllers/userController');
 const departmentController = require('../controllers/departmentController');
+const messageController = require('../controllers/messageController');
 const authorisation = require ('../middleware/authMiddleware');
 const validate = require('../validations/validate');
 
@@ -76,7 +77,6 @@ router.route('/profil/:id(\\d+)')
       */
       .get(authorisation,userController.getOneProfil)
 
-
       .patch(authorisation,validate.body(schemas.userUpdateSchema),userController.updateProfil)
       
       .delete(authorisation, userController.deleteProfil);
@@ -94,15 +94,17 @@ router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
 
 
 router.route('/event')
-    .get(authorisation, eventController.getAll)
+    .get(authorisation, eventController.findEvent)
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')
-    .get(authorisation, eventController.getOneEvent)
-    .post(authorisation, eventController.participationEvent);
-    //.patch(authorisation,eventController.removeParticipant)
-    //.delete(authorisation,eventController.removeEvent);
+    .post(authorisation,  eventController.participationEvent)
+    .patch(authorisation,eventController.removeParticipant)
+    .delete(authorisation,eventController.removeEvent);
 
+
+router.route('/messagerie')
+    .get(authorisation, messageController.getAll); 
 
 router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);

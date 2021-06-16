@@ -75,7 +75,6 @@ class CoreModel {
      * Ajout d'un entité
      */
     async insert() {
-        console.log(this.constructor.tableName);
         const preparedQuery = {
             text: `
                 SELECT * FROM add_${this.constructor.tableName}($1)
@@ -84,7 +83,7 @@ class CoreModel {
         }; 
         
         const result = await client.query(preparedQuery);
-        
+        console.log(result.rows[0]);
         this.dataValues = result.rows[0];
     };
 

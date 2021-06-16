@@ -4,8 +4,7 @@ require("dotenv").config();
 
 module.exports = function (req, res, next) {
     try {
-        const token = req.header("token");
-
+        const token = req.header("Authorization");
         if(!token){
             return res.status(403).json({error: 'Accès non authoriser'});
         }

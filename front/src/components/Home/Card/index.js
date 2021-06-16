@@ -33,12 +33,13 @@ const Card = ({
 Card.propTypes = {
   
   label: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
+  picture: PropTypes.string,
   id: PropTypes.number.isRequired,
   number: PropTypes.number.isRequired,
   star: PropTypes.object.isRequired,
 };
 
 Card.defaultProps = {
+  picture: '',
 };
 export default Card;
