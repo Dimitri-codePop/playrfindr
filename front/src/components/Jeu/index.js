@@ -6,14 +6,15 @@ import Content from 'src/containers/Jeu/Content'
 import './style.scss';
 
 export default function Jeu({
+  id,
   game,
   loading,
   loadGame,
 }) {
 
-
+  console.log(`game`, game)
   useEffect(() => {
-    loadGame();
+    loadGame(id);
   }, []);
 
   if (loading) {
@@ -21,7 +22,7 @@ export default function Jeu({
   }
   return(
     <main className="game">
-      < Content {...game}/>
+      < Content {...game} loading={loading}/>
     </main>
   );
 }
