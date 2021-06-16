@@ -42,7 +42,7 @@ router.route('/jeu/:id(\\d+)')
     * @returns {Game.model} 200 - Le Jeu
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get(/*authorisation*/ gameController.getOne);
+   .get(authorisation, gameController.getOne);
 
 
 router.route('/inscription')
