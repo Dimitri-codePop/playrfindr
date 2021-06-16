@@ -1,8 +1,8 @@
 const EventModel = require ('../models/eventModel');
 
 module.exports = {
-
-    async getAll(_, res, next) {
+    async getAllEvent(_, res, next) {
+        console.log("123");
         try {
             const events = await EventModel.findAllEvent();
 
@@ -100,7 +100,7 @@ module.exports = {
     
             const remove = await EventModel.deleteEvent(goodUser,req.params.id);
            
-            return res.status(200).json({data: remove});
+            return res.status(200).json({data: 'Event supprimé'});
 
         } catch (error) {
             console.trace(error);

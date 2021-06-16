@@ -19,7 +19,8 @@ const initialState = {
   goodGames: [],
   checked: '',
   loading: true,
-  oneGame: [],
+  loadingOneGame: true,
+  oneGame: '',
   topTendances: [],
 };
 
@@ -63,7 +64,7 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           oneGame: action.game,
-          loading: false,
+          loadingOneGame: false,
         };
     default:
       return state;
