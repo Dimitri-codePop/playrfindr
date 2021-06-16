@@ -4,7 +4,7 @@ import Mobile from 'src/containers/Navbar/Mobile';
 import Web from 'src/containers/Navbar/Web'
 
 
-export default function Navbar({ isLogged }) {
+export default function Navbar({ isLogged, handleDisconnect }) {
   const [toggleMenu, setToggleMenu] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -34,11 +34,12 @@ export default function Navbar({ isLogged }) {
 
   return (
     <>
-      {toggleMenu ? (<Mobile /> ) : (<Web />)}
+      {toggleMenu ? (<Mobile handleDisconnect={handleDisconnect}/> ) : (<Web handleDisconnect={handleDisconnect}/>)}
     </>
   );
 }
 
 Navbar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  handleDisconnect: PropTypes.func.isRequired,
 };

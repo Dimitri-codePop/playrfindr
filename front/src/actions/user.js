@@ -4,9 +4,19 @@ export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_SIGNUP = 'CHANGE_VALUE_SIGNUP';
 export const SIGN_UP = 'SIGN_UP';
 export const FETCH_USER = 'FETCH_USER';
+export const LOGOUT = 'LOGOUT';
+export const KILL_CURRENT_USER = 'KILL_CURRENT_USER';
+
+export const killCurrentUser = () => ({
+  type: KILL_CURRENT_USER,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
+});
 
 export const fetchUser = () => ({
-type:FETCH_USER,
+  type:FETCH_USER,
 });
 
 export const saveUser = (id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate) => ({

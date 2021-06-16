@@ -1,4 +1,4 @@
-import { LOGIN, saveUser, SIGN_UP, FETCH_USER } from 'src/actions/user';
+import { LOGIN, LOGOUT, saveUser, SIGN_UP, FETCH_USER, killCurrentUser } from 'src/actions/user';
 import axios from 'axios';
 
 const login = (store) => (next) => (action) => {
@@ -70,7 +70,11 @@ const login = (store) => (next) => (action) => {
         isLogged
       } = localStorage;
       isLogged = (isLogged==='true');
-      store.dispatch(saveUser(id,token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate))
+      store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
+    }
+    case LOGOUT: {
+      localStorage.clear();
+      store.dispatch(killCurrentUser());
     }
     default:
       next(action);

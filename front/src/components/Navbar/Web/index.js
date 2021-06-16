@@ -13,7 +13,8 @@ import {
   faSearch, 
 } from '@fortawesome/free-solid-svg-icons'
 
-export default function Web({ handleNavBarSearch, userId, isLogged }) {
+  
+    export default function Web({ handleNavBarSearch, userId, isLogged, handleDisconnect }) {
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
   
   const changeField = (event) => {
@@ -60,13 +61,18 @@ export default function Web({ handleNavBarSearch, userId, isLogged }) {
         <Link to="/jeux">
           <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>
         </Link>
-        <Link to="/events">
-          <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
-        </Link>
-        {isLogged && (
-        <Link to= {profilPath}>
-          <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
-        </Link>
+        {isLogged &&(
+          <>
+            <Link to="/events">
+              <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
+            </Link>
+            <Link to= {profilPath}>
+              <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
+            </Link>
+            <button type="button" className="navbar__web__buttons" onClick={handleDisconnect} >
+              <FontAwesomeIcon icon={faUser} />  Déconnexion
+            </button>
+          </>
         )}
       </div>
       </>
@@ -77,6 +83,7 @@ export default function Web({ handleNavBarSearch, userId, isLogged }) {
 Web.propTypes = {
   userId: PropTypes.number,
   isLogged: PropTypes.bool.isRequired,
+  handleDisconnect: PropTypes.func.isRequired,
 };
 Web.defaultprops = {
   userId: 0,
