@@ -9,7 +9,6 @@ const mapDispatchToProps = (dispatch) => ({
   // exemple de fonction pour dispatch
   handleNavBarSearch: (value) => {
     const action = ICI(value);
-    console.log('ici je lance ma nouvelle fonction', action);
     dispatch(action);
   },
 });

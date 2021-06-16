@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import events from 'src/data/event';
 import Modal from 'react-modal';
 import { FindGoodGame } from 'src/selectors/find';
 
@@ -10,25 +9,31 @@ Modal.setAppElement('#root');
 
 import './style.scss';
 
-export default function Item() {
+export default function Item({events, handleAddToEvent}) {
+
+  const {
+    user_id,
+  } = events
+
+  console.log(`participant`, events.participant)
 
   const [modalIsOpen, setModalIdOpen] = useState (false);
   const [goodModal, setGoodModal] = useState ('');
 
   const handleClick = (event) => {
-    console.log(event.target.name)
+    handleAddToEvent(event.target.name);
   };
 
   const handleClickModal = (event) => {
     setModalIdOpen(true);
-    setGoodModal(FindGoodGame(events.event, event.target.id))
+    setGoodModal(FindGoodGame(events, event.target.id))
   };
   const handleClickEndModal = () => {
     setModalIdOpen(false);
   };
 
-  const event = events.event.map((element) => {
-    const path = `/profil/${element.users[0].id}`;
+  const event = events.map((element) => {
+    const path = `/profil/${user_id}`;
     return(
     <div key={element.id} className="events__main__items">
       <a 
@@ -39,13 +44,13 @@ export default function Item() {
         >
         {element.label}
       </a>
-      <p>{element.users.length}/{element.nb_maxplayer}</p>
+      <p>{element.firstname.length}/{element.max_player}</p>
       <p>{element.date}</p>
-      <p>{element.lieu}</p>
+      <p>{element.location}</p>
       <a 
         className="events__main__items--linkprofil"
         href={path} >
-          {element.users[0].label}
+          {element.firstname[0]} {element.lastname[0]}
       </a>
       <form className="custom-checkbox">
           <input 
@@ -64,7 +69,7 @@ export default function Item() {
           {event}
           <Modal isOpen={modalIsOpen}>
             <h2>{goodModal.label}</h2>
-            <p>{goodModal.lieu}</p>
+            <p>{goodModal.location}</p>
             <p>{goodModal.date}</p>
             <h3>Infos Complémentaires</h3>
             <p>{goodModal.content}</p>

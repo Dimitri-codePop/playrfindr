@@ -12,12 +12,11 @@ export default function Jeu({
   loadGame,
 }) {
 
-  console.log(`game`, game)
   useEffect(() => {
     loadGame(id);
   }, []);
-
   console.log(`game`, game)
+
   if (loading) {
     return <Loading />;
   }

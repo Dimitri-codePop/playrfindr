@@ -53,7 +53,6 @@ const types = (store) => (next) => (action) => {
     case FETCH_DEPARTEMENTS: {
       axios.get('https://playrfindr.herokuapp.com/api/departements')
       .then((response) => {
-        console.log(response.data.data);
         const saveDepartement = saveDepartements(response.data.data);
         store.dispatch(saveDepartement);
       })

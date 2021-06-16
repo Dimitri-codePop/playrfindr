@@ -1,17 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Proptypes from 'prop-types'
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import Loading from 'src/components/Loading'
+
 
 Modal.setAppElement('#root');
 
 import Item from 'src/containers/Events/Item';
+import FormEvent from 'src/containers/Events/FormEvent';
 
 import './style.scss';
 
-export default function Events() {
+export default function Events({
+  events, 
+  loadEvents, 
+  loading,
+  id,
+}) {
 
+  
+
+  useEffect(() => {
+    loadEvents();
+  }, [events]);
+
+  console.log(`events`, events)
   const [modal, setModal] = useState(false);
 
   const handleModal = () => {
@@ -22,6 +37,9 @@ export default function Events() {
     setModal(false);
   };
 
+  if (loading) {
+    return <Loading />;
+  }
   return(
     <main className="events">
       <h1 className="events__title">Evenements</h1>
@@ -37,22 +55,17 @@ export default function Events() {
             <li className="events__main__nav--mainItem">Evenement</li>
             <li className="events__main__nav--item">Nb de joueurs</li>
             <li className="events__main__nav--item">Date/heure</li>
-            <li className="events__main__nav--item">Dptm</li>
+            <li className="events__main__nav--item">Adresse</li>
             <li className="events__main__nav--item">Crée par</li>
             <li className="events__main__nav--item">S'inscrire</li>
           </ul>
         </nav> 
-      < Item />
+      < Item events={events}/>
       <Modal isOpen={modal}>
-        <form>
-          <h1>Créer un évènement</h1>
-          <input type="text" placeholder="Titre de l'évènement"/>
-          <input type="date" placeholder="Date"/>
-          <input type="number" placeholder="Département"/>
-          <input type="text" placeholder="Description de l'évènement..."/>
-          <button type="submit">Créer</button>
-          <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
-        </form>
+        < FormEvent 
+          handleEndModal={handleEndModal} 
+          id={id}
+        />
       </Modal>
       </div>
     </main>
