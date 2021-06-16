@@ -7,7 +7,7 @@ import { fetchGame } from 'src/actions/games';
 const mapStateToProps = (state, ownProps) => ({
   id:ownProps.match.params.id,
   game: state.games.oneGame,
-  loading: state.games.loading,
+  loading: state.games.loadingOneGame,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -12,7 +12,7 @@ export default function Jeu({
   loadGame,
 }) {
 
-  console.log(`id`, id)
+  console.log(`game`, game)
   useEffect(() => {
     loadGame(id);
   }, []);
@@ -23,7 +23,7 @@ export default function Jeu({
   }
   return(
     <main className="game">
-      <p>salut</p>
+      < Content {...game} loading={loading}/>
     </main>
   );
 }
