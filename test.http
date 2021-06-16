@@ -21,14 +21,14 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ1ODEyLCJleHAiOjE2MjM4NDk0MTJ9.8WkjEpeIXQepMSTJ97C22blaCzc2DXhvpxGSfiXiBco
 ### Récupération d'un événement
-GET http://localhost:4000/api/event/11
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
+GET http://localhost:4000/api/event/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQzNzQzLCJleHAiOjE2MjM4NDczNDN9.uuIUrN0s3_gBangh1_sWJwIJEgo_99fUx-wYrxaokp4
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -52,7 +52,7 @@ GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0ou6
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/3
@@ -86,18 +86,17 @@ Content-Type: application/json
     "category_id": [2, 9, 12]
 }
 ### Ajout d'un utilisateur
-
 POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Guillon",
-    "email": "Dimguillon@gmail.com",
+    "lastname": "Maite",
+    "email": "gimguillon@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
-    "department_id": 36,
+    "department_id": 76,
     "is_admin": true,
     "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
@@ -105,7 +104,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
 Content-Type: application/json
 
 {
@@ -114,13 +113,12 @@ Content-Type: application/json
     "date": "2021-09-12",
     "location": "84, rue de la monnaie 59800 Lille",
     "max_player": 7,
-    "user_id": 63
+    "user_id": 75
 }
-
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
 Content-Type: application/json
 
 {
@@ -128,8 +126,7 @@ Content-Type: application/json
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
     "location": "84, rue de la monnaie 59800 Lille",
-    "max_player": 7,
-    "user_id": 2
+    "max_player": 7
 }
 
 
@@ -148,14 +145,18 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimguillon@gmail.com",
+    "email": "gimguillon@gmail.com",
     "password": "36Flip93"
  
 }
 
 ### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/35
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+POST http://localhost:4000/api/event/11
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ1ODEyLCJleHAiOjE2MjM4NDk0MTJ9.8WkjEpeIXQepMSTJ97C22blaCzc2DXhvpxGSfiXiBco
+
+### Ajout d'un utilisateur a un event
+POST https://playrfindr.herokuapp.com/api/event/35
+Authorization: : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/3
@@ -176,11 +177,11 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 
 ### Suppression d'un event
-DELETE  http://localhost:4000/api/event/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+DELETE  http://localhost:4000/api/event/15
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyMzY5LCJleHAiOjE2MjM4NDU5Njl9.hedVymG2-tyLoL9k8J87L_q7tccK7bIQIKPuIdZC-Uc
 
 ### Suppression d'un event
-DELETE  https://playrfindr.herokuapp.com/api/event/1
+DELETE  https://playrfindr.herokuapp.com/api/event/45
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
 
 
