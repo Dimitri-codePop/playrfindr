@@ -12,19 +12,22 @@ export default function Jeu({
   loadGame,
 }) {
 
-  console.log(`game`, game)
+  console.log(`id`, id)
   useEffect(() => {
     loadGame(id);
   }, []);
 
+  console.log(`game`, game)
   if (loading) {
     return <Loading />;
   }
   return(
     <main className="game">
-      < Content {...game} loading={loading}/>
+      <p>salut</p>
     </main>
   );
 }
 
 Jeu.propTypes = {};
+
+//< Content {...game} loading={loading}/>
