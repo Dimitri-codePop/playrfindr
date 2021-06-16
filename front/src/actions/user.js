@@ -6,7 +6,18 @@ export const SIGN_UP = 'SIGN_UP';
 export const FETCH_USER = 'FETCH_USER';
 export const LOGOUT = 'LOGOUT';
 export const KILL_CURRENT_USER = 'KILL_CURRENT_USER';
+export const FETCH_PROFIL = 'FETCH_PROFIL';
+export const SHOW_PROFIL = 'SHOW_PROFIL';
 
+export const showProfil = (value) => ({
+  type: SHOW_PROFIL,
+  value,
+});
+
+export const fetchProfil = (id) => ({
+  type: FETCH_PROFIL,
+  id,
+});
 export const killCurrentUser = () => ({
   type: KILL_CURRENT_USER,
 });
@@ -16,10 +27,20 @@ export const logout = () => ({
 });
 
 export const fetchUser = () => ({
-  type:FETCH_USER,
+  type: FETCH_USER,
 });
 
-export const saveUser = (id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate) => ({
+export const saveUser = (
+  id,
+  token,
+  email,
+  department_number,
+  department_label,
+  isLogged,
+  firstname,
+  lastname,
+  birthdate,
+) => ({
   type: SAVE_USER,
   id,
   token,
@@ -29,7 +50,7 @@ export const saveUser = (id, token, email, department_number, department_label, 
   firstname,
   lastname,
   email,
-  birthdate
+  birthdate,
 });
 
 export const login = () => ({

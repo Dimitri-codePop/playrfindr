@@ -1,12 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Ludo from 'src/containers/Ludo';
 import Content from 'src/containers/Content';
 
 import './style.scss';
 
-export default function Profil({ user }) {
-  return(
+export default function Profil({ user, loadProfil }) {
+  useEffect(() => {
+    console.log("je passe ici");
+    loadProfil();
+  });
+
+  return (
     <main className="profil">
       <Content user={user} />
       <Ludo />
@@ -16,4 +21,5 @@ export default function Profil({ user }) {
 
 Profil.propTypes = {
   user: PropTypes.object.isRequired,
+  loadProfil: PropTypes.func.isRequired,
 };

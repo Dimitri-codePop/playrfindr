@@ -5,8 +5,8 @@ import {
   CHANGE_VALUE_SIGNUP_SELECT,
   SAVE_DEPARTEMENTS,
   KILL_CURRENT_USER,
+  SHOW_PROFIL,
 } from 'src/actions/user';
-
 
 const initialState = {
   id: 0,
@@ -24,7 +24,7 @@ const initialState = {
   departements: [],
   themes: [],
   categories: [],
-
+  profil: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -34,8 +34,8 @@ const reducer = (state = initialState, action = {}) => {
       // console.log(state.login);
       return {
         ...state,
-          [action.key]: action.value,
-        };
+        [action.key]: action.value,
+      };
     }
     case SAVE_USER:
       return {
@@ -51,6 +51,7 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         passwordConfirm: '',
         isLogged: action.isLogged,
+        loading: true,
       };
     case SAVE_DEPARTEMENTS:
       return {
@@ -64,7 +65,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_VALUE_SIGNUP_SELECT: {
-      let newState= {
+      let newState = {
         ...state,
       };
       if (!state[action.key].length) {
@@ -84,7 +85,7 @@ const reducer = (state = initialState, action = {}) => {
       }
       return {
         ...newState,
-      }
+      };
     }
     case KILL_CURRENT_USER: {
       return {
@@ -103,7 +104,14 @@ const reducer = (state = initialState, action = {}) => {
         departements: [],
         themes: [],
         categories: [],
-      }
+      };
+    }
+    case SHOW_PROFIL: {
+      return {
+        ...state,
+        profil: action.value,
+        loading: false,
+      };
     }
     default:
       return state;

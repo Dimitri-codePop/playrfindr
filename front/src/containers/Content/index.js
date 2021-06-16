@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
   paramsId: Number(ownProps.match.params.id),
-  user: state.user,
+  user: state.user.profil,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

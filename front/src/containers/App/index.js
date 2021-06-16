@@ -15,11 +15,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchTypes());
   },
   loadDepartements: () => {
-    dispatch(fetchDepartements())
+    dispatch(fetchDepartements());
   },
   loadUser: () => {
     dispatch(fetchUser());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

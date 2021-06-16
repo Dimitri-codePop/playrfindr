@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 // == Import
 import NavBar from 'src/containers/Navbar';
 import Footer from 'src/components/Footer';
-import Home from 'src/containers/Home'
+import Home from 'src/containers/Home';
 import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
@@ -21,17 +21,16 @@ export default function App({
   loadDepartements,
   loadUser,
 }) {
+  useEffect(() => {
+    loadUser();
+    topConnect();
+    loadTypes();
+    loadDepartements();
+  }, []);
 
-useEffect(() => {
-  loadUser();
-  topConnect();
-  loadTypes();
-  loadDepartements();
-}, []);
-
-if (loading) {
-  return <Loading />;
-}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="app">
@@ -40,13 +39,15 @@ if (loading) {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route 
+        <Route
           exact
-          path="/jeux">
+          path="/jeux"
+        >
           <Jeux />
         </Route>
-        <Route 
-          path="/jeu/:id">
+        <Route
+          path="/jeu/:id"
+        >
           <Jeu />
         </Route>
         <Route path="/profil/:id">
