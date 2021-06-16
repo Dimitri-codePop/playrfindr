@@ -50,14 +50,13 @@ module.exports = {
     async removeParticipant(req, res, next){
         try {
             const event = await EventModel.findByPk(req.params.id);
-
             if (!event){
                 return next();
             }
     
             const goodUser = req.user.userId;
     
-            if(!goodUser){
+            if(goodUser !== event.user_id){
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever ce participant`})
             }
     
@@ -74,14 +73,14 @@ module.exports = {
     async removeEvent(req, res, next){
         try {
             const event = await EventModel.findByPk(req.params.id);
-
+            console.log(event);
             if (!event){
                 return next();
             }
     
             const goodUser = req.user.userId;
-            console.log(goodUser);
-            if(!goodUser){
+            
+            if(goodUser){
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
             }
     
@@ -93,8 +92,5 @@ module.exports = {
             console.trace(error);
             res.json({ error });
         }
-       
-
-
     }
 }

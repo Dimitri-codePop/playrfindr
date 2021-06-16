@@ -21,14 +21,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODUzNDI3LCJleHAiOjE2MjM4NTcwMjd9.kp5JAKFZmyll3EeoTt4EcCOZy7kLO6kgO2Y0i9IJ5VY
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ1ODEyLCJleHAiOjE2MjM4NDk0MTJ9.8WkjEpeIXQepMSTJ97C22blaCzc2DXhvpxGSfiXiBco
-### Récupération d'un événement
-GET http://localhost:4000/api/event/13
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQzNzQzLCJleHAiOjE2MjM4NDczNDN9.uuIUrN0s3_gBangh1_sWJwIJEgo_99fUx-wYrxaokp4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODUzNDI3LCJleHAiOjE2MjM4NTcwMjd9.kp5JAKFZmyll3EeoTt4EcCOZy7kLO6kgO2Y0i9IJ5VY
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -76,7 +73,7 @@ Content-Type: application/json
 {
     "firstname": "Dimitri",
     "lastname": "Guillon",
-    "email": "Dimitriguillon@gmail.com",
+    "email": "guillon@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-18",
@@ -135,8 +132,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "Dimitriguillon@gmail.com",
-    "password": "123456"
+    "email": "guillon@gmail.com",
+    "password": "36Flip93"
  
 }
 
@@ -145,7 +142,7 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "gimguillon@gmail.com",
+    "email": "guillon@gmail.com",
     "password": "36Flip93"
  
 }
@@ -169,7 +166,7 @@ Content-Type: application/json
 
 ### Suppression d'un utilisateur a un event
 PATCH http://localhost:4000/api/event/6
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NjQzMjMsImV4cCI6MTYyMzc2NzkyM30.xmE2yK9tLcWdc6fXDDu_cbPcNLC4nN4AzctzBA1MJ8s
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ2NzEzLCJleHAiOjE2MjM4NTAzMTN9.lkgUvmxcc7fN8u4bNeHUVi2LHIyYmTuNZ2bThaBBHjQ
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72
@@ -177,8 +174,8 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 
 ### Suppression d'un event
-DELETE  http://localhost:4000/api/event/15
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyMzY5LCJleHAiOjE2MjM4NDU5Njl9.hedVymG2-tyLoL9k8J87L_q7tccK7bIQIKPuIdZC-Uc
+DELETE  http://localhost:4000/api/event/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ2ODUzLCJleHAiOjE2MjM4NTA0NTN9.XIXXTuOyTyTZ-NB7dpReoz1lEq_USLhJL4T0wkBD_mw
 
 ### Suppression d'un event
 DELETE  https://playrfindr.herokuapp.com/api/event/45
