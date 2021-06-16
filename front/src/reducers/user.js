@@ -8,7 +8,7 @@ import {
 
 
 const initialState = {
-  id: '',
+  id: 0,
   email: '',
   firstname: '',
   lastname: '',
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action = {}) => {
         email: action.email,
         password: '',
         passwordConfirm: '',
-        isLogged: action.logged,
+        isLogged: action.isLogged,
       };
     case SAVE_DEPARTEMENTS:
       return {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 import { fetchTopTendances, fetchTypes} from 'src/actions/games';
-import { fetchDepartements } from 'src/actions/user';
+import { fetchDepartements, fetchUser } from 'src/actions/user';
 const mapStateToProps = (state) => ({
   loading: state.games.loading,
 });
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadDepartements: () => {
     dispatch(fetchDepartements())
+  },
+  loadUser: () => {
+    dispatch(fetchUser());
   }
 });
 

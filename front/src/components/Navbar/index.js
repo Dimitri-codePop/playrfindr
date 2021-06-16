@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Mobile from 'src/containers/Navbar/Mobile';
-import Web from 'src/components/Navbar/Web'
+import Web from 'src/containers/Navbar/Web'
 
 
-export default function Navbar() {
+export default function Navbar({ isLogged }) {
   const [toggleMenu, setToggleMenu] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -40,4 +40,5 @@ export default function Navbar() {
 }
 
 Navbar.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
 };

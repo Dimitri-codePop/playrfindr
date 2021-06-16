@@ -1,4 +1,4 @@
-import { LOGIN, saveUser, SIGN_UP } from 'src/actions/user';
+import { LOGIN, saveUser, SIGN_UP, FETCH_USER } from 'src/actions/user';
 import axios from 'axios';
 
 const login = (store) => (next) => (action) => {
@@ -21,7 +21,13 @@ const login = (store) => (next) => (action) => {
           department_label
           
         } = response.data;
+        console.log(response.data);
         const { isLogged } = response.data;
+        // localStorage.setItem('isLogged', isLogged);
+        const dataUser = response.data;
+        for( const data in dataUser){
+          localStorage.setItem(`${data}`, dataUser[data]);
+        };
         const saveUserAction = saveUser(id,token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
         store.dispatch(saveUserAction);
       })
@@ -49,6 +55,22 @@ const login = (store) => (next) => (action) => {
         })
         .catch((error) => console.log( error ) );
       break;
+    }
+    case FETCH_USER: {
+      console.log(localStorage);
+      let {
+        firstname,
+        lastname,
+        email,
+        id,
+        birthdate,
+        token,
+        department_number,
+        department_label,
+        isLogged
+      } = localStorage;
+      isLogged = (isLogged==='true');
+      store.dispatch(saveUser(id,token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate))
     }
     default:
       next(action);

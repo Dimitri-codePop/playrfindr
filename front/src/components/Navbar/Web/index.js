@@ -13,7 +13,7 @@ import {
   faSearch, 
 } from '@fortawesome/free-solid-svg-icons'
 
-export default function Web({ handleNavBarSearch }) {
+export default function Web({ handleNavBarSearch, userId, isLogged }) {
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
   
   const changeField = (event) => {
@@ -27,7 +27,7 @@ export default function Web({ handleNavBarSearch }) {
     console.log('la recherche suivante se fait : ', event.target[0].value);
     handleNavBarSearch(event.target[0].value);
   }
-
+  const profilPath= `/profil/${userId}`
   return (
     <nav className="navbar__web">
       <>
@@ -63,9 +63,11 @@ export default function Web({ handleNavBarSearch }) {
         <Link to="/events">
           <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
         </Link>
-        <Link to="/profil/:id">
+        {isLogged && (
+        <Link to= {profilPath}>
           <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
         </Link>
+        )}
       </div>
       </>
     </nav>
@@ -73,5 +75,9 @@ export default function Web({ handleNavBarSearch }) {
 }
 
 Web.propTypes = {
-
+  userId: PropTypes.number,
+  isLogged: PropTypes.bool.isRequired,
 };
+Web.defaultprops = {
+  userId: 0,
+}

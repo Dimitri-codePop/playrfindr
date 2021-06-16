@@ -3,7 +3,8 @@ import Web from 'src/components/Navbar/Web';
 // import { } from '../actions';
 
 const mapStateToProps = (state) => ({
-  props: state.props,
+  userId: state.user.id,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

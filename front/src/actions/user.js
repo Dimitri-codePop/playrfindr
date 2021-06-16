@@ -3,6 +3,11 @@ export const LOGIN = 'LOGIN';
 export const CHANGE_VALUE_LOGIN = 'CHANGE_VALUE_LOGIN';
 export const CHANGE_VALUE_SIGNUP = 'CHANGE_VALUE_SIGNUP';
 export const SIGN_UP = 'SIGN_UP';
+export const FETCH_USER = 'FETCH_USER';
+
+export const fetchUser = () => ({
+type:FETCH_USER,
+});
 
 export const saveUser = (id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate) => ({
   type: SAVE_USER,

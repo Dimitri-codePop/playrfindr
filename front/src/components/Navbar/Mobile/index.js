@@ -12,7 +12,7 @@ import {
   } from '@fortawesome/free-solid-svg-icons'
 import './style.scss';
 
-export default function Mobile({ handleNavBarSearch }) {
+export default function Mobile({ handleNavBarSearch, userId, isLogged }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(true);
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
@@ -35,7 +35,7 @@ export default function Mobile({ handleNavBarSearch }) {
     console.log('la recherche suivante se fait : ', event.target[0].value);
     handleNavBarSearch(event.target[0].value);
   }
-
+  const profilPath= `/profil/${userId}`
   const classnames = toggleMenu ? 'navbar__list' : 'navbar__list navbar__list-ishidden';
   return (
   <nav className="navbar">
@@ -61,16 +61,18 @@ export default function Mobile({ handleNavBarSearch }) {
       >
         <FontAwesomeIcon icon={faCalendarDay} />   Event
       </NavLink>
-      <NavLink
-        className="navbar__items"
-        activeClassName="navbar__items-active"
-        onClick={toggleNavbar}
-        exact
-        to="/profil/:id"
-        key="profil"
-      >
-        <FontAwesomeIcon icon={faUser} />  Mon Profil
-      </NavLink>
+      {isLogged && (
+        <NavLink
+          className="navbar__items"
+          activeClassName="navbar__items-active"
+          onClick={toggleNavbar}
+          exact
+          to= {profilPath}
+          key="profil"
+        >
+          <FontAwesomeIcon icon={faUser} />  Mon Profil
+        </NavLink>
+      )}
     </ul>
       {toggleSearch ? (
         <>
@@ -112,4 +114,5 @@ export default function Mobile({ handleNavBarSearch }) {
 
 Mobile.propTypes = {
   handleNavBarSearch: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };

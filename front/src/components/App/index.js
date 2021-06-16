@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 
 // == Import
-import NavBar from 'src/components/Navbar';
+import NavBar from 'src/containers/Navbar';
 import Footer from 'src/components/Footer';
 import Home from 'src/containers/Home'
 import Jeux from 'src/containers/Jeux';
@@ -21,12 +21,14 @@ export default function App({
   loadTypes, 
   loading,
   loadDepartements,
+  loadUser,
 }) {
 
 useEffect(() => {
-topConnect();
-loadTypes();
-loadDepartements();
+  loadUser();
+  topConnect();
+  loadTypes();
+  loadDepartements();
 }, []);
 
 if (loading) {
@@ -66,4 +68,5 @@ topConnect: PropTypes.func.isRequired,
 loadTypes: PropTypes.func.isRequired,
 loadDepartements: PropTypes.func.isRequired,
 loading: PropTypes.bool.isRequired,
+loadUser : PropTypes.func.isRequired,
 };
