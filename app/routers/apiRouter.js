@@ -42,7 +42,7 @@ router.route('/jeu/:id(\\d+)')
     * @returns {Game.model} 200 - Le Jeu
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get(authorisation, gameController.getOne);
+   .get(/*authorisation*/ gameController.getOne);
 
 
 router.route('/inscription')
@@ -94,7 +94,7 @@ router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
 
 
 router.route('/event')
-    .get(authorisation, eventController.getAll)
+    .get(/*authorisation,*/ eventController.getAll)
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')

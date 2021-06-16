@@ -42,6 +42,9 @@ GET https://playrfindr.herokuapp.com/api/departements
 GET https://playrfindr.herokuapp.com/api/jeu/1
 
 
+### Récupération d'un jeu
+GET http://localhost:4000/api/jeu/6
+
 ### Récupération d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTY5NDUsImV4cCI6MTYyMzc2MDU0NX0.u2ZSeMAiSAuGICXnesJy0x66zt8sjRt4l5Hp0ou6
