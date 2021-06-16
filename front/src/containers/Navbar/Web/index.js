@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   // exemple de fonction pour dispatch
-  ICIAUSSI: (value) => {
+  handleNavBarSearch: (value) => {
     const action = ICI(value);
     dispatch(action);
   },
