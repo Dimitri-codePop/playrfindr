@@ -1,3 +1,4 @@
+import { FindGoodEvent } from 'src/selectors/find';
 
 import {
   SAVE_EVENTS,
@@ -46,6 +47,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_ADD_TO_EVENT: 
       return {
         ...state,
+        events: FindGoodEvent(state.events, action.event)
       };
     default:
       return state;

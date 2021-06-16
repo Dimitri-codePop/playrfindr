@@ -24,7 +24,7 @@ export default function Events({
 
   useEffect(() => {
     loadEvents();
-  }, [events]);
+  }, [events.firstname]);
 
   console.log(`events`, events)
   const [modal, setModal] = useState(false);

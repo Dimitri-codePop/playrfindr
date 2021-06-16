@@ -53,7 +53,7 @@ const events = (store) => (next) => (action) => {
     }
     case ADD_TO_EVENT: {
       const state = store.getState();
-      axios.post(`https://playrfindr.herokuapp.com/api/event/${action.id}`,
+      axios.post(`https://playrfindr.herokuapp.com/api/event/${action.value}`,
       {
         user_id: state.user.id,
       },{ headers: {
