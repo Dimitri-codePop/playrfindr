@@ -55,6 +55,17 @@ class EventModel extends CoreModel {
         const result =  await client.query(`INSERT INTO "user_has_event" ("user_id", "event_id") VALUES ($1, $2) RETURNING *`, [user, event]);
        return result.rows[0];
     }
+
+
+    static async deleteParticipant(user, event){
+        const result = await client.query(`DELETE FROM "user_has_event" WHERE "user_has_event"."user_id" = $1 AND "user_has_event"."event_id" = $2`, [user, event]);
+        return result.rows[0];
+    }
+
+    static async deleteEvent(user, event){
+        const result = await client.query(`DELETE FROM "event" WHERE "event"."user_id" = $1 AND "event"."id" = $2`, [user, event]);
+        return result.rows;
+    }
 }
 
 module.exports = EventModel;

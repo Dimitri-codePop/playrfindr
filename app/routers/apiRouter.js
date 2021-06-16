@@ -76,7 +76,6 @@ router.route('/profil/:id(\\d+)')
       */
       .get(authorisation,userController.getOneProfil)
 
-
       .patch(authorisation,validate.body(schemas.userUpdateSchema),userController.updateProfil)
       
       .delete(authorisation, userController.deleteProfil);
@@ -99,10 +98,13 @@ router.route('/event')
 
 router.route('/event/:id(\\d+)')
     .get(authorisation, eventController.getOneEvent)
-    .post(authorisation, eventController.participationEvent);
-    //.patch(authorisation,eventController.removeParticipant)
-    //.delete(authorisation,eventController.removeEvent);
+    .post(authorisation, eventController.participationEvent)
+    .patch(authorisation,eventController.removeParticipant)
+    .delete(authorisation,eventController.removeEvent);
 
+
+/* router.route('/messagerie')
+    .get(authorisation, messageController.getAll); */
 
 router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);

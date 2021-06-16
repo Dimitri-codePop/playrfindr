@@ -15,6 +15,10 @@ class MessageModel extends CoreModel {
         super(obj);
     }
 
+    static findAllMessage(id){
+        
+    }
+
 }
 
 module.exports = MessageModel;

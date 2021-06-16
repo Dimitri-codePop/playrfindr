@@ -7,7 +7,6 @@ const games = (store) => (next) => (action) => {
     case FETCH_TOP_GAMES: {
       axios.get('https://playrfindr.herokuapp.com/api')
         .then((res) => {
-          console.log('responses :', res.data.data);
           const actionFetchRecipes = saveTopTendances(res.data.data);
           store.dispatch(actionFetchRecipes);
         })

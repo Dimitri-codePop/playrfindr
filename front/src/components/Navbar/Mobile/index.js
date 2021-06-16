@@ -56,7 +56,7 @@ export default function Mobile({ handleNavBarSearch }) {
         activeClassName="navbar__items-active"
         onClick={toggleNavbar}
         exact
-        to="/event"
+        to="/events"
         key="Event"
       >
         <FontAwesomeIcon icon={faCalendarDay} />   Event

@@ -61,7 +61,8 @@ class GameModel extends CoreModel {
     }
 
     static async findOneGame(id){
-        const result = await client.query(`SELECT  DISTINCT "game".*,
+        const result = await client.query(`
+		SELECT  DISTINCT "game".*,
         ARRAY_AGG(distinct "category"."label") as category_all,
         ARRAY_AGG(distinct "theme"."label") as theme_all,
 		ARRAY_AGG( distinct "author"."firstname") as firstname,

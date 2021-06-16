@@ -1,0 +1,64 @@
+@use 'src/styles/vars';
+
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+
+  &__title {
+    margin: 1rem 0 2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: vars.$primary;
+  }
+
+  &__create {
+    position: fixed;
+    top: 13%;
+    right: 20px;
+    color: vars.$alternate;
+    text-decoration: underline;
+  }
+
+  &__main {
+    width: 90%;
+    margin-bottom: 2rem;
+    &__nav{
+      margin-bottom: 1rem;
+      padding: 0 2rem;
+      &--list {
+        display: flex;
+        justify-content: space-around;
+      }
+      &--mainItem {
+        width: 30%;
+      }
+
+      &--item {
+        width: 14%;
+        text-align: center;
+      }
+    }
+
+    &__items {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1rem;
+      border: vars.$primary 1px solid;
+      padding: 2rem;
+      &--mainItem {
+        width: 30%;
+        justify-self: flex-start;
+      }
+      & p, form {
+        width: 14%;
+        text-align: center;
+      }
+      &--linkprofil {
+        width: 14%;
+        text-align: center;
+      }
+    }
+  }
+}
