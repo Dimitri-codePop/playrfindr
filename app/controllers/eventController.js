@@ -23,10 +23,8 @@ module.exports = {
             }
             
             const eventUdpate = await EventModel.participationEvent(userId,req.params.id);
-
-            const newEvent = await EventModel.findEventByPk(req.params.id);
             
-            res.status(200).json({data: newEvent})
+            res.status(200).json({data: eventUdpate})
 
         } catch (error) {
             console.trace(error);

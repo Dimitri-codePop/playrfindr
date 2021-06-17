@@ -21,11 +21,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODUzNDI3LCJleHAiOjE2MjM4NTcwMjd9.kp5JAKFZmyll3EeoTt4EcCOZy7kLO6kgO2Y0i9IJ5VY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5MDI1LCJleHAiOjE2MjM5MzI2MjV9.BvX-YqivMR6Kj4K00GhiwNbyyi6ThqIKFHS1GpV-asM
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5MTM1LCJleHAiOjE2MjM5MzI3MzV9.6gDam1Jbrty4LBjHyyprOPknHpG5CSLoJIy9X1ReeGM
 Content-Type: application/json
 
 {
@@ -110,12 +110,12 @@ Content-Type: application/json
     "date": "2021-09-12",
     "location": "84, rue de la monnaie 59800 Lille",
     "max_player": 7,
-    "user_id": 79
+    "user_id": 75
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
 Content-Type: application/json
 
 {
@@ -123,7 +123,8 @@ Content-Type: application/json
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
     "location": "84, rue de la monnaie 59800 Lille",
-    "max_player": 7
+    "max_player": 7,
+    "user_id": 37
 }
 
 
@@ -132,7 +133,7 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "gimguillon@gmail.com",
+    "email": "guillon@gmail.com",
     "password": "36Flip93"
  
 }
@@ -148,12 +149,12 @@ Content-Type: application/json
 }
 
 ### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/29
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
+POST http://localhost:4000/api/event/37
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5MTM1LCJleHAiOjE2MjM5MzI3MzV9.6gDam1Jbrty4LBjHyyprOPknHpG5CSLoJIy9X1ReeGM
 
 ### Ajout d'un utilisateur a un event
-POST https://playrfindr.herokuapp.com/api/event/41
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
+POST https://playrfindr.herokuapp.com/api/event/45
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/3
