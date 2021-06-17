@@ -5,7 +5,9 @@ export const NEW_EVENT = 'NEW_EVENT';
 export const SAVE_NEW_EVENT = 'SAVE_NEW_EVENT';
 export const ADD_TO_EVENT = 'ADD_TO_EVENT';
 export const SAVE_ADD_TO_EVENT = 'SAVE_ADD_TO_EVENT';
-
+export const REMOVE_FROM_EVENT = 'REMOVE_FROM_EVENT';
+export const SAVE_REMOVE_FROM_EVENT = 'SAVE_REMOVE_FROM_EVENT';
+export const DELETE_EVENT = 'DELETE_EVENT';
 
 
 export const saveEvents = (events) => ({
@@ -46,4 +48,19 @@ export const saveAddToEvent = (event) => ({
   event,
 });
 
+
+export const removeFromEvent = (id) => ({
+  type: REMOVE_FROM_EVENT,
+  id,
+});
+
+export const saveRemoveFromEvent = (event) => ({
+  type: SAVE_REMOVE_FROM_EVENT,
+  event,
+});
+
+export const deleteEvent = (id) => ({
+  type: DELETE_EVENT,
+  id,
+});
 

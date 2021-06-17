@@ -10,7 +10,7 @@ export default function Ludo({ user, games }) {
   useState(() => {
     const { game } = user;
     console.log(game);
-    const gameList = game.map((obj) => {
+    if (game) {const gameList = game.map((obj) => {
       console.log(obj);
       const oneGame = FindGoodGameByName(games, obj);
       console.log(oneGame);
@@ -22,6 +22,7 @@ export default function Ludo({ user, games }) {
       );
     });
     setProfilGames(gameList);
+    };
   }, []);
   console.log(profilGames);
   return (

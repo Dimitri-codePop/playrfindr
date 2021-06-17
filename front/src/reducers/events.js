@@ -5,6 +5,7 @@ import {
   CHANGE_VALUE_EVENT,
   SAVE_NEW_EVENT,
   SAVE_ADD_TO_EVENT,
+  SAVE_REMOVE_FROM_EVENT,
 } from 'src/actions/events';
 
 const initialState = {
@@ -45,6 +46,11 @@ const reducer = (state = initialState, action = {}) => {
         max_player: action.max_player,
       };
     case SAVE_ADD_TO_EVENT: 
+      return {
+        ...state,
+        events: FindGoodEvent(state.events, action.event)
+      };
+    case SAVE_REMOVE_FROM_EVENT:
       return {
         ...state,
         events: FindGoodEvent(state.events, action.event)

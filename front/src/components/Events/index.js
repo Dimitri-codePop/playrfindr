@@ -17,16 +17,13 @@ export default function Events({
   events, 
   loadEvents, 
   loading,
-  id,
 }) {
 
   
-
   useEffect(() => {
     loadEvents();
-  }, [events.firstname]);
+  }, [events.length]);
 
-  console.log(`events`, events)
   const [modal, setModal] = useState(false);
 
   const handleModal = () => {
@@ -64,7 +61,6 @@ export default function Events({
       <Modal isOpen={modal}>
         < FormEvent 
           handleEndModal={handleEndModal} 
-          id={id}
         />
       </Modal>
       </div>
