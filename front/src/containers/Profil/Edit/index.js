@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeSelectField: (value, field) => {
     const action = changeSelectFieldEditUser(value, field);
-    console.log(value, field);
     dispatch(action);
   },
   deleteSelectField: (value, field) => {

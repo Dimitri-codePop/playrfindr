@@ -9,8 +9,8 @@ import {
   CHANGE_VALUE_EDIT_USER,
   CHANGE_VALUE_SELECT_EDIT_USER,
   DELETE_SELECT_FIELD_USER,
+  DELETE_SELECT_FIELD_SIGNUP_USER,
 } from 'src/actions/user';
-import profil from '../middlewares/profil';
 
 const initialState = {
   id: 0,
@@ -72,9 +72,7 @@ const reducer = (state = initialState, action = {}) => {
       let newState = {
         ...state,
       };
-      console.log('ici', action.key, action.value);
       if (!state[action.key].length) {
-      console.log('ici', action.key, action.value);
         return (
           newState = {
             ...state,
@@ -155,6 +153,19 @@ const reducer = (state = initialState, action = {}) => {
           ...state.profil,
           [action.key]: action.value,
         },
+      };
+    }
+    case DELETE_SELECT_FIELD_SIGNUP_USER: {
+      let tab = [...state[action.key]];
+      console.log(tab);
+      tab = tab.filter((obj) => obj !== action.value);
+      console.log(action.value, action.key, tab);
+      let newState = {
+        ...state,
+        [action.key]: [...tab],
+      };
+      return {
+        ...newState,
       };
     }
     case DELETE_SELECT_FIELD_USER: {
