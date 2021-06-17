@@ -2,9 +2,13 @@ import {
   FETCH_EVENTS, 
   NEW_EVENT,
   ADD_TO_EVENT,
+  REMOVE_FROM_EVENT,
+  DELETE_EVENT,
   saveEvents, 
   saveNewEvent,
   saveAddToEvent,
+  saveRemoveFromEvent,
+  saveDeleteEvent,
 } from 'src/actions/events';
 import axios from 'axios';
 
@@ -63,11 +67,42 @@ const events = (store) => (next) => (action) => {
       }}
       )
         .then((response) => {
-          console.log(response.data.data);
+          console.log(response);
           const event = response.data.data;
           const saveAddToEventAction = saveAddToEvent(event);
           store.dispatch(saveAddToEventAction);
         })
+        .catch((error) => console.log( error ) );
+      break;
+    }
+    case REMOVE_FROM_EVENT: {
+      const state = store.getState();
+      axios.patch(`https://playrfindr.herokuapp.com/api/event/${action.id}`,
+      {
+        user_id: state.user.id,
+      },
+      { headers: {
+        "Authorization": `${state.user.token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }})
+        .then((response) => {
+          console.log(response);
+          const event = response.data.data;
+          const saveRemoveFromEventAction = saveRemoveFromEvent(event);
+          store.dispatch(saveRemoveFromEventAction);
+        })
+        .catch((error) => console.log( error ) );
+      break;
+    }
+    case DELETE_EVENT: {
+      const state = store.getState();
+      axios.delete(`https://playrfindr.herokuapp.com/api/event/${action.id}`,
+      { headers: {
+        "Authorization": `${state.user.token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }})
         .catch((error) => console.log( error ) );
       break;
     }

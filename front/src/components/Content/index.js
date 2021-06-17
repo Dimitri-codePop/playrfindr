@@ -15,7 +15,7 @@ export default function Content({ user, paramsId}) {
     lastname,
     email,
     birthdate,
-    departement,
+    department,
     id,
   } = user;
 
@@ -49,7 +49,7 @@ export default function Content({ user, paramsId}) {
           <p className="profil__email">{email}</p>
           <div className="profil__dpt">
             <p className="profil__dpt__title">Département</p>
-            <p className="profil__dpt__content">{departement}</p>
+            <p className="profil__dpt__content">{department}</p>
           </div>
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">

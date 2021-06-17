@@ -101,7 +101,7 @@ const reducer = (state = initialState, action = {}) => {
         token: '',
         isLogged: false,
         departement: '',
-        departements: [],
+        departements: [...state.departements],
         themes: [],
         categories: [],
       };

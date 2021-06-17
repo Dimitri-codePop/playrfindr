@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import Modal from 'react-modal';
 import { FindGoodGame } from 'src/selectors/find';
+import Check from 'src/containers/Events/Item/Check';
+
 
 Modal.setAppElement('#root');
 
 import './style.scss';
 
-export default function Item({events, handleAddToEvent}) {
+export default function Item({
+  events, 
+  handleAddToEvent, 
+  id,
+  handleDeleteEvent,
+}) {
 
   const {
     user_id,
   } = events
 
-  console.log(`participant`, events.participant)
+  
 
   const [modalIsOpen, setModalIdOpen] = useState (false);
   const [goodModal, setGoodModal] = useState ('');
@@ -31,9 +39,13 @@ export default function Item({events, handleAddToEvent}) {
   const handleClickEndModal = () => {
     setModalIdOpen(false);
   };
+  const handleDelete = (event) => {
+    handleDeleteEvent(event.target.value);
+    setModalIdOpen(false);
+  };
 
   const event = events.map((element) => {
-    const path = `/profil/${user_id}`;
+    const path = `/profil/${element.user_id}`;
     return(
     <div key={element.id} className="events__main__items">
       <a 
@@ -52,18 +64,16 @@ export default function Item({events, handleAddToEvent}) {
         href={path} >
           {element.firstname[0]} {element.lastname[0]}
       </a>
-      <form className="custom-checkbox">
-          <input 
-            type="checkbox" 
-            onChange={handleClick} 
-            name={element.id} 
-            className="events__main__items--icon"
-          />
-      </form>
-
+        < Check 
+          handleClick={handleClick}
+          name={element.id} 
+          events={events}
+          event={element}
+        />
     </div>
     )
-  })
+  });
+
   return(
         <div>
           {event}
@@ -74,8 +84,14 @@ export default function Item({events, handleAddToEvent}) {
             <h3>Infos Complémentaires</h3>
             <p>{goodModal.content}</p>
             <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
+            { (goodModal.user_id == id) && 
+              <button onClick={handleDelete} value={goodModal.id}>
+                <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
+              </button>
+            }
           </Modal>
         </div>
+        
   );
 }
 
