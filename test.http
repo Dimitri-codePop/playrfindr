@@ -185,10 +185,10 @@ DELETE https://playrfindr.herokuapp.com/api/profil/72
 
 ### Suppression d'un event
 DELETE  http://localhost:4000/api/event/45
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0MTU0LCJleHAiOjE2MjM5NDc3NTR9.KUpDlcGGCLNjqx5VBoFKrLalFWKI2MkhhuObBMc6hck
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0OTUyLCJleHAiOjE2MjM5NDg1NTJ9.PMqNO3Q6RM38WCxI9F5kZIv4QvEs8FZ3-eHQSSkaowY
 
 ### Suppression d'un event
-DELETE  https://playrfindr.herokuapp.com/api/event/52
+DELETE  https://playrfindr.herokuapp.com/api/event/57
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
 
 

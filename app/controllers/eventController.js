@@ -83,10 +83,10 @@ module.exports = {
     
             const goodUser = req.user.userId;
 
-           /*  if(goodUser !== event.dataValues.user_id){
+            if(goodUser !== event.dataValues.user_id){
                 
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
-            } */
+            } 
     
             const remove = await EventModel.deleteEvent(goodUser,req.params.id);
            
