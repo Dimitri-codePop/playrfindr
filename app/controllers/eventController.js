@@ -54,14 +54,15 @@ module.exports = {
 
     async removeParticipant(req, res, next){
         try {
+
             const event = await EventModel.findByPk(req.params.id);
+
             if (!event){
                 return next();
             }
             
             const goodUser = req.user.userId;
     
-            console.log(goodUser, req.params.id);
             const remove = await EventModel.deleteParticipant(goodUser,req.params.id);
     
             return res.status(200).json({data: remove});

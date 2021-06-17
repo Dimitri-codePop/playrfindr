@@ -21,7 +21,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1MTc1LCJleHAiOjE2MjM5Mzg3NzV9.woLs-474Elbk872O39-O00imNV9-wz3TIqFj7UGzIB8
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -154,7 +154,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWlu
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/55
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/3
@@ -166,12 +166,12 @@ Content-Type: application/json
 
 
 ### Suppression d'un utilisateur a un event
-PATCH http://localhost:4000/api/event/44
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1NTMzLCJleHAiOjE2MjM5MzkxMzN9.u_v5qXWzQI4c1krZCzQNy1261hpOz5cjILhM_VxRE1g
+PATCH http://localhost:4000/api/event/55
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
 
 
 ### Suppression d'un utilisateur a un event
-PATCH https://playrfindr.herokuapp.com/api/event/55
+PATCH https://playrfindr.herokuapp.com/api/event/53
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1MTc1LCJleHAiOjE2MjM5Mzg3NzV9.woLs-474Elbk872O39-O00imNV9-wz3TIqFj7UGzIB8
 
 ### delete d'un utilisateur
@@ -184,8 +184,8 @@ DELETE  http://localhost:4000/api/event/15
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTE2NDA0LCJleHAiOjE2MjM5MjAwMDR9.WARZuEfUZZ5yRV7YZmoMGa3lEBwnBjXEbfkkCFt8qXM
 
 ### Suppression d'un event
-DELETE  https://playrfindr.herokuapp.com/api/event/45
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM3NzYyLCJleHAiOjE2MjM4NDEzNjJ9.qVAY_Mz3T5q3fv-am86rFQdkRAM0FihF_Nshz1Hr91s
+DELETE  https://playrfindr.herokuapp.com/api/event/53
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
 
 
 ### Delete d'un jeux d'une collection
