@@ -26,7 +26,8 @@ class EventModel extends CoreModel {
         LEFT JOIN "user_has_event" ON "event"."id" = "user_has_event"."event_id"
         LEFT JOIN "user" ON "event"."user_id" = "user"."id"
         OR "user"."id" = "user_has_event"."user_id"
-        GROUP BY "event"."id";`);
+        GROUP BY "event"."id"
+        ORDER BY "event"."created_at" DESC;`);
         return result.rows;
     }
 
