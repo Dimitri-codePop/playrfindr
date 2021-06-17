@@ -1,7 +1,6 @@
 const EventModel = require ('../models/eventModel');
 
 module.exports = {
-
     async addEvent(req, res){
         try { 
             const event = new EventModel(req.body);

@@ -24,7 +24,7 @@ class EventModel extends CoreModel {
         ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
         FROM "event" 
         LEFT JOIN "user_has_event" ON "event"."id" = "user_has_event"."event_id"
-        LEFT JOIN "user" ON "user_has_event"."user_id" = "user"."id"
+        LEFT JOIN "user" ON "event"."user_id" = "user"."id"
         GROUP BY "event"."id";`);
         return result.rows;
     }
