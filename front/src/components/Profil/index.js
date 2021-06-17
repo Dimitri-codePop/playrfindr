@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Ludo from 'src/containers/Ludo';
 import Content from 'src/containers/Content';
 import Loading from 'src/components/Loading';
-
 import './style.scss';
 
 export default function Profil({ user, loadProfil, loading }) {
