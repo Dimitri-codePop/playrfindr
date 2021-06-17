@@ -22,10 +22,12 @@ module.exports = {
             if(!event){
                 return res.status(401).json({error: `Cet événement n'existe pas`})
             }
-            console.log(userId);
-            const eventUdpate = await EventModel.participationEvent(userId,req.params.id);
             
-            res.status(200).json({data: eventUdpate})
+            const eventUdpate = await EventModel.participationEvent(userId,req.params.id);
+
+            const newEvent = await EventModel.findEventByPk(req.params.id);
+            
+            res.status(200).json({data: newEvent})
 
         } catch (error) {
             console.trace(error);
@@ -56,7 +58,7 @@ module.exports = {
     
             const goodUser = req.user.userId;
     
-            if(goodUser !== event.user_id){
+            if(goodUser !== event.dataValues.user_id){
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever ce participant`})
             }
     
@@ -73,14 +75,15 @@ module.exports = {
     async removeEvent(req, res, next){
         try {
             const event = await EventModel.findByPk(req.params.id);
-            console.log(event);
+           
             if (!event){
                 return next();
             }
     
             const goodUser = req.user.userId;
             
-            if(goodUser){
+            if(!goodUser !== event.dataValues.user_id){
+                
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
             }
     

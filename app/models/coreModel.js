@@ -83,7 +83,7 @@ class CoreModel {
         }; 
         
         const result = await client.query(preparedQuery);
-        console.log(result.rows[0]);
+      
         this.dataValues = result.rows[0];
     };
 

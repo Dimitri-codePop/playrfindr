@@ -21,12 +21,25 @@ class EventModel extends CoreModel {
         
         const result = await client.query(`SELECT event.* as event,
         ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
-        ARRAY_REMOVE( ARRAY_AGG(DISTINCT "user"."lastname"), NULL) AS lastname
+        ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
         FROM "event" 
         LEFT JOIN "user_has_event" ON "event"."id" = "user_has_event"."event_id"
         LEFT JOIN "user" ON "user_has_event"."user_id" = "user"."id"
         GROUP BY "event"."id";`);
         return result.rows;
+    }
+
+    static async findEventByPk(id){
+        
+        const result = await client.query(`SELECT "event".*, 
+        ARRAY_AGG("user"."firstname") AS firstname,
+        ARRAY_AGG("user"."lastname") AS lastname
+        FROM event 
+        JOIN "user_has_event" ON "user_has_event"."event_id" = "event"."id"
+        JOIN "user" ON "user_has_event"."user_id" = "user"."id"
+        WHERE "event"."id" = $1
+        GROUP BY  "event"."id";`,[id]);
+        return result.rows[0];
     }
 
     static async participationEvent(user, event){
