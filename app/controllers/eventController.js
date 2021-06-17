@@ -22,9 +22,10 @@ module.exports = {
                 return res.status(401).json({error: `Cet événement n'existe pas`})
             }
             
-            const eventUdpate = await EventModel.participationEvent(userId,req.params.id);
-            
-            res.status(200).json({data: eventUdpate})
+            const eventUpdate = await EventModel.participationEvent(userId,req.params.id);
+
+            const newEvent =  await EventModel.findEventUpdate(event.dataValues.id);
+            res.status(200).json({data: newEvent})
 
         } catch (error) {
             console.trace(error);
