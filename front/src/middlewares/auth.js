@@ -64,23 +64,26 @@ const login = (store) => (next) => (action) => {
       console.log(localStorage);
       let fetchUser = localStorage.getItem('UserKeysUsed');
       fetchUser = JSON.parse(fetchUser);
-      const {
-        firstname,
-        lastname,
-        email,
-        id,
-        birthdate,
-        token,
-        department_number,
-        department_label,
-        isLogged,
-      } = fetchUser;
-      store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
+      if (fetchUser) {
+        const {
+          firstname,
+          lastname,
+          email,
+          id,
+          birthdate,
+          token,
+          department_number,
+          department_label,
+          isLogged,
+        } = fetchUser;
+        store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
+      }
       break;
     }
     case LOGOUT: {
       localStorage.clear();
       store.dispatch(killCurrentUser());
+      break;
     }
     default:
       next(action);
