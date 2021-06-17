@@ -8,7 +8,26 @@ export const LOGOUT = 'LOGOUT';
 export const KILL_CURRENT_USER = 'KILL_CURRENT_USER';
 export const FETCH_PROFIL = 'FETCH_PROFIL';
 export const SHOW_PROFIL = 'SHOW_PROFIL';
+export const EDIT_USER = 'EDIT_USER';
+export const CHANGE_VALUE_EDIT_USER = 'CHANGE_VALUE_EDIT_USER';
+export const CHANGE_VALUE_SELECT_EDIT_USER = 'CHANGE_VALUE_SELECT_EDIT_USER';
+export const DELETE_SELECT_FIELD_USER = 'DELETE_SELECT_FIELD_USER';
+export const SAVE_EDIT_USER = 'SAVE_EDIT_USER';
 
+export const saveEditUser = (value) => ({
+  type: SAVE_EDIT_USER,
+  value,
+});
+export const deleteSelectField = (value, key) => ({
+  type: DELETE_SELECT_FIELD_USER,
+  value,
+  key,
+});
+export const changeSelectFieldEditUser = (value, key) => ({
+  type: CHANGE_VALUE_SELECT_EDIT_USER,
+  value,
+  key,
+});
 export const showProfil = (value) => ({
   type: SHOW_PROFIL,
   value,
@@ -72,8 +91,18 @@ export const changeValueSignup = (value, key) => ({
 export const signUp = () => ({
   type: SIGN_UP,
 });
+export const changeValueEditUser = (value, key) => ({
+  type: CHANGE_VALUE_EDIT_USER,
+  value,
+  key,
+});
+
+export const editUser = () => ({
+  type: EDIT_USER,
+});
 
 export const CHANGE_VALUE_SIGNUP_SELECT = 'CHANGE_VALUE_SIGNUP_SELECT';
+
 export const changeSelectField = (value, key) => ({
   type: CHANGE_VALUE_SIGNUP_SELECT,
   value,

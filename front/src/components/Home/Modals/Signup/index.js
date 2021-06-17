@@ -6,11 +6,10 @@ import Form from 'src/containers/Home/Modals/Signup/Form';
 import './style.scss';
 
 export default function Signup({ signupIsHidden, setSignupIsHidden }) {
-  Modal.setAppElement('#root')
+  Modal.setAppElement('#root');
 
-  
   const customStyles = {
-    content : {
+    content: {
       top                   : '50%',
       left                  : '50%',
       right                 : '10%',
@@ -36,10 +35,10 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
         style={customStyles}
         contentLabel="Inscription"
       >
-        <Form 
-        closeModal={closeModal}
-        setSignupIsHidden={setSignupIsHidden}
-        signupIsHidden={signupIsHidden}
+        <Form
+          closeModal={closeModal}
+          setSignupIsHidden={setSignupIsHidden}
+          signupIsHidden={signupIsHidden}
         />
       </Modal>
     </div>

@@ -6,7 +6,11 @@ import {
   SAVE_DEPARTEMENTS,
   KILL_CURRENT_USER,
   SHOW_PROFIL,
+  CHANGE_VALUE_EDIT_USER,
+  CHANGE_VALUE_SELECT_EDIT_USER,
+  DELETE_SELECT_FIELD_USER,
 } from 'src/actions/user';
+import profil from '../middlewares/profil';
 
 const initialState = {
   id: 0,
@@ -57,7 +61,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         departements: [...state.departements, ...action.value],
-      }
+      };
     case CHANGE_VALUE_SIGNUP: {
       return {
         ...state,
@@ -68,18 +72,51 @@ const reducer = (state = initialState, action = {}) => {
       let newState = {
         ...state,
       };
+      console.log('ici', action.key, action.value);
       if (!state[action.key].length) {
+      console.log('ici', action.key, action.value);
         return (
           newState = {
             ...state,
-            [action.key]: [...state[action.key], Number(action.value)],
+            [action.key]: [...state[action.key], action.value],
           }
         )
-      } else if (!state[action.key].includes(Number(action.value))) {
+      } else if (!state[action.key].includes(action.value)) {
         return (
           newState = {
-            ...state, 
-            [action.key]: [...state[action.key], Number(action.value)],
+            ...state,
+            [action.key]: [...state[action.key], action.value],
+          }
+        )
+      }
+      return {
+        ...newState,
+      };
+    }
+    case CHANGE_VALUE_SELECT_EDIT_USER: {
+      let newState = {
+        ...state,
+      };
+      console.log('ici', action.key, action.value);
+      if (!state.profil[action.key].length) {
+      console.log('ici', action.key, action.value);
+        return (
+          newState = {
+            ...state,
+            profil: {
+              ...state.profil,
+              [action.key]: [...state.profil[action.key], action.value],
+            }
+          }
+        )
+      } else if (!state.profil[action.key].includes(action.value)) {
+        return (
+          newState = {
+            ...state,
+            profil: {
+              ...state.profil,
+              [action.key]: [...state.profil[action.key], action.value],
+            }
           }
         )
       }
@@ -89,6 +126,7 @@ const reducer = (state = initialState, action = {}) => {
     }
     case KILL_CURRENT_USER: {
       return {
+        ...state,
         id: 0,
         email: '',
         firstname: '',
@@ -101,9 +139,6 @@ const reducer = (state = initialState, action = {}) => {
         token: '',
         isLogged: false,
         departement: '',
-        departements: [...state.departements],
-        themes: [],
-        categories: [],
       };
     }
     case SHOW_PROFIL: {
@@ -111,6 +146,31 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         profil: action.value,
         loading: false,
+      };
+    }
+    case CHANGE_VALUE_EDIT_USER: {
+      return {
+        ...state,
+        profil: {
+          ...state.profil,
+          [action.key]: action.value,
+        },
+      };
+    }
+    case DELETE_SELECT_FIELD_USER: {
+      let tab = [...state.profil[action.key]];
+      console.log(tab);
+      tab = tab.filter((obj) => obj !== action.value);
+      console.log('ici', action.key, action.value, tab);
+      let newState = {
+        ...state,
+        profil: {
+          ...state.profil,
+          [action.key]: [...tab],
+        },
+      };
+      return {
+        ...newState,
       };
     }
     default:

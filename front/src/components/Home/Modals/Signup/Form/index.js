@@ -20,7 +20,7 @@ export default function Form({
   selectCat,
   selectThemes,
   changeSelectField,
-  closeModal
+  closeModal,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,13 +44,11 @@ export default function Form({
   });
   const handlechangeSelect = (event) => {
     console.log(event.target.value, event.target.name )
-    changeSelectField(event.target.value, event.target.name)
+    changeSelectField(Number(event.target.value), event.target.name)
   }
-  console.log('ici', departement);
-  console.log('ici', birthdate);
   return (
     <>
-      <button onClick={closeModal}>close</button>
+      <button type="button" onClick={closeModal}>close</button>
       <form className="form__login" onSubmit={handleSubmit}>
         <Field
           type="email"
@@ -81,18 +79,18 @@ export default function Form({
           value={birthdate}
         />
         <select name="departement" id="departement" onChange={handlechangeSelect} className="field__input">
-            <option value="">--Choisissez votre département--</option>
-            {listDepartements}
+          <option value="">--Choisissez votre département--</option>
+          {listDepartements}
         </select>
         <label htmlFor="categories"> Vos catégories préférés :</label>
         <select name="categories" id="categories" onChange={handlechangeSelect} className="field__input">
-            <option value="">--Choisissez vos catégories--</option>
-            {listCategories}
+          <option value="">--Choisissez vos catégories--</option>
+          {listCategories}
         </select>
         <label htmlFor="themes"> Vos thèmes préférés :</label>
         <select name="themes" id="theme" onChange={handlechangeSelect} className="field__input">
-            <option value="">--Choisissez vos thèmes--</option>
-            {listThemes}
+          <option value="">--Choisissez vos thèmes--</option>
+          {listThemes}
         </select>
         <Field
           type="password"
@@ -115,24 +113,29 @@ export default function Form({
 }
 
 Form.propTypes = {
-  changefieldSignup: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
+  changefieldSignup: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordConfirm: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
   categories: PropTypes.array,
   themes: PropTypes.array,
   departements: PropTypes.array,
-  passwordConfirm: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   selectCat: PropTypes.array,
   selectThemes: PropTypes.array,
+  departement: PropTypes.array,
   changeSelectField: PropTypes.func.isRequired,
+  birthdate: PropTypes.string.isRequired,
 };
 
 Form.defaultProps = {
+  departements: [],
   departement: [],
   selectCat: [],
   selectThemes: [],
+  categories: [],
+  themes: [],
 };
