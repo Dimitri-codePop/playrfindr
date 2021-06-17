@@ -29,7 +29,7 @@ module.exports = {
 
         } catch (error) {
             console.trace(error);
-            if(error == "23505"){
+            if(error.code == "23505"){
                 error = 'Vous etes deja inscrit a cet evenement'
             }else {
                 error = `A server error occured, please retry later.`;
@@ -58,13 +58,10 @@ module.exports = {
             if (!event){
                 return next();
             }
-    
+            
             const goodUser = req.user.userId;
     
-            if(goodUser !== event.dataValues.user_id){
-                return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever ce participant`})
-            }
-    
+            console.log(goodUser, req.params.id);
             const remove = await EventModel.deleteParticipant(goodUser,req.params.id);
     
             return res.status(200).json({data: remove});

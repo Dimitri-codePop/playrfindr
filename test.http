@@ -21,11 +21,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNzU5LCJleHAiOjE2MjM5MzczNTl9.8gmunfAG0F9EJ4jX29xyXwk-tqxaKPRwe84mih1MRMo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1MTc1LCJleHAiOjE2MjM5Mzg3NzV9.woLs-474Elbk872O39-O00imNV9-wz3TIqFj7UGzIB8
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNzU5LCJleHAiOjE2MjM5MzczNTl9.8gmunfAG0F9EJ4jX29xyXwk-tqxaKPRwe84mih1MRMo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1NTMzLCJleHAiOjE2MjM5MzkxMzN9.u_v5qXWzQI4c1krZCzQNy1261hpOz5cjILhM_VxRE1g
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -133,8 +133,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "guillon@gmail.com",
-    "password": "36Flip93"
+    "email": "a@a.com",
+    "password": "coucou"
  
 }
 
@@ -166,8 +166,13 @@ Content-Type: application/json
 
 
 ### Suppression d'un utilisateur a un event
-PATCH http://localhost:4000/api/event/6
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQ2NzEzLCJleHAiOjE2MjM4NTAzMTN9.lkgUvmxcc7fN8u4bNeHUVi2LHIyYmTuNZ2bThaBBHjQ
+PATCH http://localhost:4000/api/event/44
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1NTMzLCJleHAiOjE2MjM5MzkxMzN9.u_v5qXWzQI4c1krZCzQNy1261hpOz5cjILhM_VxRE1g
+
+
+### Suppression d'un utilisateur a un event
+PATCH https://playrfindr.herokuapp.com/api/event/55
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1MTc1LCJleHAiOjE2MjM5Mzg3NzV9.woLs-474Elbk872O39-O00imNV9-wz3TIqFj7UGzIB8
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72
