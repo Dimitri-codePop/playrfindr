@@ -17,10 +17,9 @@ class MessageModel extends CoreModel {
     }
 
     static async findAllMessageByUser(id){
-        const result = await client.query(`SELECT "message"."content", "message"."date", "user"."firstname", "user"."lastname", "user"."email"
-        FROM "message" 
-        JOIN "user" ON "user"."id" = "message"."user_id"
-        WHERE NOT "user_id"  = $1;`, [id]);
+        const result = await client.query(`select * from message 
+        join "user" on message.user_id = "user".id
+        where recipient_id = $1;`, [id]);
         return result.rows;
     }
 
