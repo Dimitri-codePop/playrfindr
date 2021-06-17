@@ -21,11 +21,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNzU5LCJleHAiOjE2MjM5MzczNTl9.8gmunfAG0F9EJ4jX29xyXwk-tqxaKPRwe84mih1MRMo
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMwNTIxLCJleHAiOjE2MjM5MzQxMjF9.zZUno_vsAStAYXqLXM-CodjRNOzBlKN5gvCFwY7j8Ko
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNzU5LCJleHAiOjE2MjM5MzczNTl9.8gmunfAG0F9EJ4jX29xyXwk-tqxaKPRwe84mih1MRMo
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -150,7 +150,7 @@ Content-Type: application/json
 
 ### Ajout d'un utilisateur a un event
 POST http://localhost:4000/api/event/44
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMwNTIxLCJleHAiOjE2MjM5MzQxMjF9.zZUno_vsAStAYXqLXM-CodjRNOzBlKN5gvCFwY7j8Ko
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNDU3LCJleHAiOjE2MjM5MzcwNTd9.8E67Eef2h_Tbh9a3yc3-7xlSUAN6SfYIPrmqYA_ATd4
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/55

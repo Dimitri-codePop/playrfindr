@@ -29,6 +29,11 @@ module.exports = {
 
         } catch (error) {
             console.trace(error);
+            if(error == "23505"){
+                error = 'Vous etes deja inscrit a cet evenement'
+            }else {
+                error = `A server error occured, please retry later.`;
+            }
             res.json({ error });
         }
     },
