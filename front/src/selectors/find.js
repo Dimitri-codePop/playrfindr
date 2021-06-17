@@ -58,12 +58,12 @@ export function addOrRemove(array, value) {
 export function FindGoodGame(base, id) {
   console.log(`base`, base);
   console.log(`id`, id);
-  const found = base.find(element => element.id == id)
+  const found = base.find(element => element.id == id);
   return found;
 }
 
 export function FindGoodEvent(base, event) {
-  let found = base.find(element => element.id == event.id)
+  let found = base.find(element => element.id == event.id);
   const index = base.indexOf(found);
   base.splice(index, 1, event);
   
@@ -71,6 +71,11 @@ export function FindGoodEvent(base, event) {
 }
 
 export function FindGoodGameByName(base, name) {
-  const found = base.find(element => element.label == name);
+  const found = base.find((element) => element.label == name);
+  return found;
+}
+
+export function FindGoodType(base, id) {
+  const found = base.find((element) => element.id == id);
   return found;
 }
