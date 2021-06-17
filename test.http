@@ -25,7 +25,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWlu
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODUzNDI3LCJleHAiOjE2MjM4NTcwMjd9.kp5JAKFZmyll3EeoTt4EcCOZy7kLO6kgO2Y0i9IJ5VY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTE1NTAwLCJleHAiOjE2MjM5MTkxMDB9.L9mUrHvfjvQGj3Tt6UjdGSmU7VOpgl2gDZ5Owk_u-lc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
 Content-Type: application/json
 
 {
@@ -110,12 +110,12 @@ Content-Type: application/json
     "date": "2021-09-12",
     "location": "84, rue de la monnaie 59800 Lille",
     "max_player": 7,
-    "user_id": 75
+    "user_id": 79
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODQyOTk3LCJleHAiOjE2MjM4NDY1OTd9.XuynXsJnydCf2ovqbdMGBbxSDQxcWAi9Zz3RFcRrL9A
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
 Content-Type: application/json
 
 {
@@ -148,12 +148,12 @@ Content-Type: application/json
 }
 
 ### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/20
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTE2NDA0LCJleHAiOjE2MjM5MjAwMDR9.WARZuEfUZZ5yRV7YZmoMGa3lEBwnBjXEbfkkCFt8qXM
+POST http://localhost:4000/api/event/29
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/41
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTE0NjA0LCJleHAiOjE2MjM5MTgyMDR9.VRWYIiq-8r5XNShCUpWPQRts_mHfUDcxMyUxCLJ5Jn4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTIzODkyLCJleHAiOjE2MjM5Mjc0OTJ9.GisfBFbnSu0Y02iCIYzyi6LGyhVz6MTzFhiUfsSO2sM
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/3
