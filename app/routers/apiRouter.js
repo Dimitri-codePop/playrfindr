@@ -98,13 +98,16 @@ router.route('/event')
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')
-    .post(authorisation,  eventController.participationEvent)
+    .post(authorisation, validate.body(schemas.eventUpdateSchema), eventController.participationEvent)
     .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
 
 
 router.route('/messagerie')
-    .get(authorisation, messageController.getAll); 
+    .get(authorisation, messageController.getAll);
+    
+router.route('/messagerie/:id')
+    .post(authorisation, validate.body(schemas.messageInsertSchema), messageController.sendMessage); 
 
 router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);
