@@ -25,7 +25,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluI
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1NTMzLCJleHAiOjE2MjM5MzkxMzN9.u_v5qXWzQI4c1krZCzQNy1261hpOz5cjILhM_VxRE1g
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM4Mzg3LCJleHAiOjE2MjM5NDE5ODd9.iFOHx0TJRPZ9ot6rRU4p0uLYdzymrm7FB3qDNERIdEY
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -149,8 +149,8 @@ Content-Type: application/json
 }
 
 ### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/44
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTMzNDU3LCJleHAiOjE2MjM5MzcwNTd9.8E67Eef2h_Tbh9a3yc3-7xlSUAN6SfYIPrmqYA_ATd4
+POST http://localhost:4000/api/event/41
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM5MjUwLCJleHAiOjE2MjM5NDI4NTB9.9iFSH_5IANXEBFw_EpW7mC7JP9PJKkkmMv7zgA6gd8E
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/55
@@ -166,13 +166,13 @@ Content-Type: application/json
 
 
 ### Suppression d'un utilisateur a un event
-PATCH http://localhost:4000/api/event/55
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
+PATCH http://localhost:4000/api/event/41
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM5MjUwLCJleHAiOjE2MjM5NDI4NTB9.9iFSH_5IANXEBFw_EpW7mC7JP9PJKkkmMv7zgA6gd8E
 
 
 ### Suppression d'un utilisateur a un event
 PATCH https://playrfindr.herokuapp.com/api/event/53
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM1MTc1LCJleHAiOjE2MjM5Mzg3NzV9.woLs-474Elbk872O39-O00imNV9-wz3TIqFj7UGzIB8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM4MzMzLCJleHAiOjE2MjM5NDE5MzN9.PJfEzgv-w0fTvoFlB1gVsTFcrN2Wf-8GOmyUyUm32tU
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72

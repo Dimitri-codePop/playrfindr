@@ -99,7 +99,7 @@ router.route('/event')
 
 router.route('/event/:id(\\d+)')
     .post(authorisation,  eventController.participationEvent)
-    .patch(authorisation,eventController.removeParticipant)
+    .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
 
 

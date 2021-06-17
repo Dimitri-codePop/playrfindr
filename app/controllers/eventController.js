@@ -54,18 +54,18 @@ module.exports = {
 
     async removeParticipant(req, res, next){
         try {
-
+            const userId = req.user.userId;
             const event = await EventModel.findByPk(req.params.id);
 
             if (!event){
                 return next();
             }
             
-            const goodUser = req.user.userId;
     
-            const remove = await EventModel.deleteParticipant(goodUser,req.params.id);
-    
-            return res.status(200).json({data: remove});
+            const remove = await EventModel.deleteParticipant(userId,req.params.id);
+            const newEvent =  await EventModel.findEventUpdate(event.dataValues.id);
+
+            return res.status(200).json({data: newEvent});
         } catch (error) {
             console.trace(error);
             res.json({ error });
