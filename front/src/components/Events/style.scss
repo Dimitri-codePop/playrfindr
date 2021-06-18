@@ -19,14 +19,20 @@
     right: 20px;
     color: vars.$alternate;
     text-decoration: underline;
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 0 0 5px vars.$alternate;
+    font-weight: bold;
   }
 
   &__main {
+    font-size: 1.4rem;
     width: 90%;
     margin-bottom: 2rem;
     &__nav{
       margin-bottom: 1rem;
       padding: 0 2rem;
+      font-weight: bold;
       &--list {
         display: flex;
         justify-content: space-around;
@@ -43,13 +49,18 @@
 
     &__items {
       display: flex;
-      justify-content: space-around;
-      margin-bottom: 1rem;
-      border: vars.$primary 1px solid;
-      padding: 2rem;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-top: vars.$primary 2px solid;
+      border-left: vars.$primary 1px solid;
+      padding: 1rem 2rem;
+      box-shadow: 4px 4px 5px #b1b1b1;
+      background-color: vars.$light;
+      border-radius: 10px;
       &--mainItem {
         width: 30%;
         justify-self: flex-start;
+        text-decoration: underline;
       }
       & p, form {
         width: 14%;
@@ -58,6 +69,32 @@
       &--linkprofil {
         width: 14%;
         text-align: center;
+        color: vars.$alternate;
+      }
+      &--setup {
+        width: 14%;
+        text-decoration: underline;
+        text-align: center;
+        cursor: pointer;
+      }
+      &--full {
+        width: 14%;
+        color: vars.$primary;
+        text-align: center;
+      }
+      &--address {
+        width: 14%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        & p {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+      }
+      &--inscription_text {
+        width: 100% !important;
+        font-size: 1rem;
       }
     }
   }

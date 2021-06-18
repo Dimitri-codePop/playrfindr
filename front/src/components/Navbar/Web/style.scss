@@ -12,8 +12,8 @@
   
   &__logo {
     align-self: center;
-    width: 60px;
-    height: 60px;
+    height: 70px;
+    margin: 0 0.5rem;
   }
   &__title {
     display: flex;
@@ -34,6 +34,7 @@
     align-self: center;
     margin: 0 0.6rem;
     font-size: 1.1rem;
+    box-shadow: 0 0 5px black;
   }
   &__profil-circle {
     border: 1px solid v.$primary;
@@ -45,6 +46,7 @@
     align-items: center;
     font-size: 2rem;
     color: v.$primary;
+    box-shadow: 0 0 3px black;
   }
 }
 
@@ -62,4 +64,8 @@
 .navbar__web__logo-container {
   display: flex;
   align-items: center;
+}
+
+.navbar__search-form {
+  box-shadow: 0 0 10px v.$alternate;
 }
