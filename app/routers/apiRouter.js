@@ -43,7 +43,7 @@ router.route('/jeu/:id(\\d+)')
     * @returns {Game.model} 200 - Le Jeu
     * @returns {Error} 500 - Une erreur serveur
     */
-   .get(authorisation, gameController.getOne);
+   .get(gameController.getOne);
 
 
 router.route('/inscription')
@@ -98,13 +98,16 @@ router.route('/event')
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')
-    .post(authorisation,  eventController.participationEvent)
-    .patch(authorisation,eventController.removeParticipant)
+    .post(authorisation, validate.body(schemas.eventUpdateSchema), eventController.participationEvent)
+    .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
 
 
 router.route('/messagerie')
-    .get(authorisation, messageController.getAll); 
+    .get(authorisation, messageController.getAll);
+    
+router.route('/messagerie/:id')
+    .post(authorisation, validate.body(schemas.messageInsertSchema), messageController.sendMessage); 
 
 router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);

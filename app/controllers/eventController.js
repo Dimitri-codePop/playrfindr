@@ -1,7 +1,6 @@
 const EventModel = require ('../models/eventModel');
 
 module.exports = {
-
     async addEvent(req, res){
         try { 
             const event = new EventModel(req.body);
@@ -22,13 +21,19 @@ module.exports = {
             if(!event){
                 return res.status(401).json({error: `Cet événement n'existe pas`})
             }
-            console.log(userId);
-            const eventUdpate = await EventModel.participationEvent(userId,req.params.id);
             
-            res.status(200).json({data: eventUdpate})
+            const eventUpdate = await EventModel.participationEvent(userId,req.params.id);
+
+            const newEvent =  await EventModel.findEventUpdate(event.dataValues.id);
+            res.status(200).json({data: newEvent})
 
         } catch (error) {
             console.trace(error);
+            if(error.code == "23505"){
+                error = 'Vous etes deja inscrit a cet evenement'
+            }else {
+                error = `A server error occured, please retry later.`;
+            }
             res.json({ error });
         }
     },
@@ -49,20 +54,18 @@ module.exports = {
 
     async removeParticipant(req, res, next){
         try {
+            const userId = req.user.userId;
             const event = await EventModel.findByPk(req.params.id);
+
             if (!event){
                 return next();
             }
+            
     
-            const goodUser = req.user.userId;
-    
-            if(goodUser !== event.user_id){
-                return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever ce participant`})
-            }
-    
-            const remove = await EventModel.deleteParticipant(goodUser,req.params.id);
-    
-            return res.status(200).json({data: remove});
+            const remove = await EventModel.deleteParticipant(userId,req.params.id);
+            const newEvent =  await EventModel.findEventUpdate(event.dataValues.id);
+
+            return res.status(200).json({data: newEvent});
         } catch (error) {
             console.trace(error);
             res.json({ error });
@@ -73,16 +76,17 @@ module.exports = {
     async removeEvent(req, res, next){
         try {
             const event = await EventModel.findByPk(req.params.id);
-            console.log(event);
+           
             if (!event){
                 return next();
             }
     
             const goodUser = req.user.userId;
-            
-            if(goodUser){
+
+            if(goodUser !== event.dataValues.user_id){
+                
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
-            }
+            } 
     
             const remove = await EventModel.deleteEvent(goodUser,req.params.id);
            
