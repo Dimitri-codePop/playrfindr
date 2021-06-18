@@ -8,7 +8,7 @@ const insertSchema = Joi.object({
     address: Joi.string().required().min(2),
     town: Joi.string().required().min(2),
     max_player: Joi.number().integer().required().min(1),
-    userid: Joi.number().integer().required().min(1)
+    user_id: Joi.number().integer().required().min(1)
 }).required();
 
 const updateSchema = Joi.object({

@@ -64,7 +64,7 @@ class EventModel extends CoreModel {
 
     static async participationEvent(user, event){
         const result =  await client.query(`INSERT INTO "user_has_event" ("user_id", "event_id") VALUES ($1, $2) RETURNING *`, [user, event]);
-        console.log(result);
+        
        return result.rows[0];
     }
 

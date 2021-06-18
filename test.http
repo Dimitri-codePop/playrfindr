@@ -21,7 +21,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTgzNDEsImV4cCI6MTYyNDAyMTk0MX0.SHI3jOWJQ7J-56owOCYrBrWHVidyrkKQa8tK29HGZmU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -121,18 +121,18 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQ2ODAsImV4cCI6MTYyNDAxODI4MH0.0_ogS_XQ298jLBLeQHyDgPD_j9Lhpqw39ke494VY0UI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
 Content-Type: application/json
 
 {
-   "label": "Partie de Mysterium",
-    "content": "Petite partie de Mysterium",
-    "date": "2021-09-12",
-    "number_address": 13000,
-    "address": "84 rue de la bicyclette",
-    "town": "Marseille",
+   "label": "Partie de Cyclades",
+    "content": "Petite partie de Cyclades",
+    "date": "2021-09-15",
+    "number_address": 30000,
+    "address": "35 rue de la moto",
+    "town": "Nimes",
     "max_player": 7,
-    "user_id": 2
+    "userid": 2
 }
 
 
@@ -172,7 +172,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjg0LCJpc0FkbWlu
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTgzNDEsImV4cCI6MTYyNDAyMTk0MX0.SHI3jOWJQ7J-56owOCYrBrWHVidyrkKQa8tK29HGZmU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/2
