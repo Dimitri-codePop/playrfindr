@@ -21,15 +21,15 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAzNzMzLCJleHAiOjE2MjQwMDczMzN9.o8YTOoHcAb4UhruWYO93AAl0BNzDJR8Kcby-sLf789w
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM4Mzg3LCJleHAiOjE2MjM5NDE5ODd9.iFOHx0TJRPZ9ot6rRU4p0uLYdzymrm7FB3qDNERIdEY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDEwODE0LCJleHAiOjE2MjQwMTQ0MTR9.1Qf39JfaB679TkwReVifScKQq7nf5efBn4olvidIV4U
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM2MTc0LCJleHAiOjE2MjM4Mzk3NzR9.LWjzgMNE_QtCX8XWmtOq5Sd0WdC6poAThX2L-GEQKXs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAzNzMzLCJleHAiOjE2MjQwMDczMzN9.o8YTOoHcAb4UhruWYO93AAl0BNzDJR8Kcby-sLf789w
 
 ### Récupération des départements
 GET http://localhost:4000/api/departements
@@ -76,11 +76,11 @@ Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Guillon",
-    "email": "guillon@gmail.com",
+    "lastname": "Martin",
+    "email": "dimitri@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
-    "birthdate": "1995-07-18",
+    "birthdate": "1995-07-19",
     "department_id": 36,
     "is_admin": true,
     "theme_id": [1, 6, 2],
@@ -93,7 +93,7 @@ Content-Type: application/json
 {
     "firstname": "Dimitri",
     "lastname": "Maite",
-    "email": "gimguillon@gmail.com",
+    "email": "jc@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
@@ -105,30 +105,34 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0MTU0LCJleHAiOjE2MjM5NDc3NTR9.KUpDlcGGCLNjqx5VBoFKrLalFWKI2MkhhuObBMc6hck
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDEwODE0LCJleHAiOjE2MjQwMTQ0MTR9.1Qf39JfaB679TkwReVifScKQq7nf5efBn4olvidIV4U
 Content-Type: application/json
 
 {
     "label": "Partie de Mysterium",
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
-    "location": "84, rue de la monnaie 59800 Lille",
+    "number_address": 84,
+    "address": "rue de la bicyclette",
+    "town": "Marseille",
     "max_player": 7,
     "user_id": 67
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTIwMjEsImV4cCI6MTYyNDAxNTYyMX0.jwgihbiIoa1bp9y5zLas7etRKW-wFWUEq8Hw0BpQGls
 Content-Type: application/json
 
 {
-    "label": "Partie de Mysterium",
+   "label": "Partie de Mysterium",
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
-    "location": "84, rue de la monnaie 59800 Lille",
+    "number_address": 84,
+    "address": "rue de la bicyclette",
+    "town": "Marseille",
     "max_player": 7,
-    "user_id": 37
+    "user_id": 5
 }
 
 
@@ -137,8 +141,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "a@a.com",
-    "password": "coucou"
+    "email": "dimitri@gmail.com",
+    "password": "123456"
  
 }
 
@@ -147,9 +151,19 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "guillon@gmail.com",
+    "email": "dimguillon@gmail.com",
     "password": "36Flip93"
  
+}
+
+
+### Envoi  d'un message
+POST http://localhost:4000/api/messagerie/75
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAwOTc1LCJleHAiOjE2MjQwMDQ1NzV9.XnX9sPaZRqNcWmMacIfc_2IMLobl4OYpi3szGXZMwLo
+Content-Type: application/json
+
+{
+    "content": "Bonjour, Un whisky ? "
 }
 
 ### Ajout d'un utilisateur a un event
@@ -198,3 +212,9 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNl
 
 ### Delete d'un jeux d'une collection
 DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6
+
+
+
+### Delete d'un message
+DELETE http://localhost:4000/api/message/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAyOTgxLCJleHAiOjE2MjQwMDY1ODF9.hNErfQAuSRzCnsmTmAJFjyHCSCDMN4ta83dn1wHulFI

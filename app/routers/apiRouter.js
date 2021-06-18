@@ -109,6 +109,9 @@ router.route('/messagerie')
 router.route('/messagerie/:id')
     .post(authorisation, validate.body(schemas.messageInsertSchema), messageController.sendMessage); 
 
+router.route('/message/:id')
+    .delete(authorisation, messageController.deleteMessage); 
+
 router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);

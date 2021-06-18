@@ -13,4 +13,4 @@ const {
     insertSchema: messageInsertSchema, 
     updateSchema: messageUpdateSchema,
 }  = require('./messageSchema');
-module.exports = { userInsertSchema,  userUpdateSchema, eventInsertSchema, eventUpdateSchema, messageInsertSchema, messageUpdateSchema};
+module.exports = { userInsertSchema,  userUpdateSchema, eventInsertSchema, eventUpdateSchema, messageInsertSchema};

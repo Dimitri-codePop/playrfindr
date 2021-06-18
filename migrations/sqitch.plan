@@ -11,3 +11,5 @@ delete_cascade 2021-06-11T12:11:56Z Dimitri Martin <dimmartin32@gmail.com> # Ajo
 function_delete 2021-06-11T16:49:33Z Dimitri Martin <dimmartin32@gmail.com> # Ajout des fonctions de suppression
 view_collection 2021-06-14T07:17:49Z Dimitri Martin <dimmartin32@gmail.com> # Mise en place d'une vue collection sql
 user_profile_game 2021-06-14T13:40:36Z Dimitri Martin <dimmartin32@gmail.com> # Ajout d'une vue pour le profil utilisateur qui renvoie ses jeux
+address_town 2021-06-18T09:45:02Z Dimitri Martin <dimmartin32@gmail.com> # Modification de la bdd event
+function_add_event 2021-06-18T10:15:11Z Dimitri Martin <dimmartin32@gmail.com> # Refonte de la fonction event add
