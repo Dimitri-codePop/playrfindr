@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import Modal from 'react-modal';
 import { FindGoodGame } from 'src/selectors/find';
@@ -26,6 +26,7 @@ export default function Item({
   
 
   const [modalIsOpen, setModalIdOpen] = useState (false);
+  const [modalEditOpen, setModalEditOpen] = useState (false);
   const [goodModal, setGoodModal] = useState ('');
 
   const handleClick = (event) => {
@@ -43,6 +44,13 @@ export default function Item({
     handleDeleteEvent(event.target.value);
     setModalIdOpen(false);
   };
+  const handleEdit = (event) => {
+    setModalEditOpen(true);
+    console.log(event.target.value);
+  };
+  const handleClickEndEditModal = () => {
+    setModalEditOpen(false);
+  };
 
   const event = events.map((element) => {
     const path = `/profil/${element.user_id}`;
@@ -58,7 +66,11 @@ export default function Item({
       </a>
       <p>{element.firstname.length}/{element.max_player}</p>
       <p>{element.date}</p>
-      <p>{element.location}</p>
+      <div className="events__main__items--address">
+      <p>{element.address}</p>
+      <p>{element.number_address}</p>
+      <p>{element.town}</p>
+      </div>
       <a 
         className="events__main__items--linkprofil"
         href={path} >
@@ -67,8 +79,8 @@ export default function Item({
         < Check 
           handleClick={handleClick}
           name={element.id} 
-          events={events}
           event={element}
+          handleClickModal={handleClickModal}
         />
     </div>
     )
@@ -85,10 +97,19 @@ export default function Item({
             <p>{goodModal.content}</p>
             <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
             { (goodModal.user_id == id) && 
-              <button onClick={handleDelete} value={goodModal.id}>
-                <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
-              </button>
+              <div className="all_btn">
+                <button onClick={handleDelete} value={goodModal.id}>
+                  <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
+                </button>
+                <button onClick={handleEdit} value={goodModal.id}>
+                <FontAwesomeIcon className="edit_event" icon={faPen} />
+                </button>
+              </div>
             }
+          </Modal>
+          <Modal isOpen={modalEditOpen}>
+            <h2>{goodModal.label}</h2>
+            <FontAwesomeIcon onClick={handleClickEndEditModal} className="close_modal" icon={faTimes} />
           </Modal>
         </div>
         

@@ -37,7 +37,9 @@ const events = (store) => (next) => (action) => {
         user_id: state.user.id,
         label: state.events.label,
         date: state.events.date,
-        location: state.events.location,
+        address: state.events.address,
+        number_address: state.events.number_address,
+        town: state.events.town,
         content: state.events.content,
         max_player: state.events.max_player,
       },{ headers: {

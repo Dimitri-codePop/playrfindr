@@ -29,11 +29,13 @@ export const newEvent = () => ({
   type: NEW_EVENT,
 });
 
-export const saveNewEvent = (label, date, location, content, max_player) => ({
+export const saveNewEvent = (label, date, address, number_address, town, content, max_player) => ({
   type: SAVE_NEW_EVENT,
   label, 
   date, 
-  location, 
+  address,
+  number_address,
+  town,
   content, 
   max_player
 });

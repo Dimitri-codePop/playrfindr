@@ -48,6 +48,14 @@
       &--categorieslist {
         margin: 1rem;
       }
+      &__label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      &__input {
+        margin-right: 0.3rem;
+      }
     }
 
     &__noresults {
