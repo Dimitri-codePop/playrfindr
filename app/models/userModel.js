@@ -59,6 +59,7 @@ class UserModel extends CoreModel {
         const result = await client.query(`delete from "user_has_game" where "user_id" = $1 and "game_id" = $2`, [user_id, game_id]);
         return result.rows[0];
     }
+
 }
 
 module.exports = UserModel;

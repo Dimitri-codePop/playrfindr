@@ -97,5 +97,31 @@ module.exports = {
             console.trace(error);
             res.json({ error });
         }
+    },
+
+
+    async updateEvent(req, res, next) {
+        try {
+
+            const id = req.params.id;
+
+            const event =  await EventModel.findByPk(id);
+            
+
+            if (!event) {
+                return next();
+            } 
+        
+            event.data = req.body;
+
+            await event.update();
+        
+            return res.status(200).json({data: event});
+            
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+        
     }
 }

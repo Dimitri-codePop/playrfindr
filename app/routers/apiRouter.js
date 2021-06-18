@@ -101,7 +101,9 @@ router.route('/event/:id(\\d+)')
     .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
 
-
+router.route('/event/:id/update')
+    .patch(authorisation, validate.body(schemas.eventUpdateSchema), eventController.updateEvent);
+    
 router.route('/messagerie')
     .get(authorisation, messageController.getAll);
     

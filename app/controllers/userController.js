@@ -142,32 +142,31 @@ module.exports = {
     async updateProfil(req, res, next) {
         try {
             const user = await UserModel.findByPk(req.user.userId);
+            
             if (!user) {
                 return next();
             }
 
-            const validPwd = await bcrypt.compare(req.body.password, user.dataValues.password);
-        
-
-            if(validPwd === true) {
-                res.status(400).json({error: `Same Password`})
-            }
-
-            if(req.body.password !== req.body.passwordConfirm){
-                return res.status(400).json({
+            if (req.body.password) {
+                const validPwd = await bcrypt.compare(req.body.password, user.dataValues.password);
+                if(validPwd === true) {
+                    res.status(400).json({error: `Same Password`})
+                }
+                
+                if(req.body.password !== req.body.passwordConfirm){
+                    return res.status(400).json({
                     error: "Ce n'est pas le bon mot de passe."
-                });
+                    });
+                        }
+                const salt = await bcrypt.genSalt(10);
+                const encryptedPassword = await bcrypt.hash(req.body.password, salt); 
+                user.dataValues.password = encryptedPassword
+                await user.update();
+                return res.json({data: user})
             }
-
-            const salt = await bcrypt.genSalt(10);
-            const encryptedPassword = await bcrypt.hash(req.body.password, salt); 
         
-
             user.data = req.body;
-            user.dataValues.password = encryptedPassword
-
-
-
+           
             await user.update();
             
             res.json({ data: user.dataValues });

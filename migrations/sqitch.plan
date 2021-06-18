@@ -14,3 +14,4 @@ user_profile_game 2021-06-14T13:40:36Z Dimitri Martin <dimmartin32@gmail.com> # 
 address_town 2021-06-18T09:45:02Z Dimitri Martin <dimmartin32@gmail.com> # Modification de la bdd event
 function_add_event 2021-06-18T10:15:11Z Dimitri Martin <dimmartin32@gmail.com> # Refonte de la fonction event add
 function_add_games 2021-06-18T15:04:55Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de la fonction add_game
+update_event 2021-06-18T15:34:27Z Dimitri Martin <dimmartin32@gmail.com> # Update d'un event

@@ -64,7 +64,6 @@ class CoreModel {
      */
     static async findByPk(id) {
         const result = await client.query(`SELECT * FROM "${this.tableName}" WHERE "id" = $1`, [id]);
-
         if (!result.rows[0]) {
             return null;
         }
@@ -91,7 +90,6 @@ class CoreModel {
      * Mise à jour d'une entité
      */
     async update() {
-       
         const preparedQuery = {
 
             text: `
@@ -99,8 +97,8 @@ class CoreModel {
             `,
             values: [this.dataValues]
         };
-
         const result = await client.query(preparedQuery);
+        
         this.dataValues = result.rows[0];
 
     };

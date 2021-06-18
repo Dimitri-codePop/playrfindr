@@ -78,6 +78,7 @@ class EventModel extends CoreModel {
         const result = await client.query(`DELETE FROM "event" WHERE "event"."user_id" = $1 AND "event"."id" = $2`, [user, event]);
         return result.rows;
     }
+
 }
 
 module.exports = EventModel;

@@ -52,8 +52,8 @@ GET https://playrfindr.herokuapp.com/api/profil/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/4
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTU0OTQsImV4cCI6MTYyNDAxOTA5NH0.K7wMQFoF-E-dQ3C2eC9ftvxTwuzPV6nwZV25jL8gs2I
+GET http://localhost:4000/api/profil/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzE0NDQsImV4cCI6MTYyNDAzNTA0NH0.vBhxrgwJyIsyB2dpJkuFk9gWCneA7eYPEybXre2NlVY
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
@@ -105,7 +105,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDEwODE0LCJleHAiOjE2MjQwMTQ0MTR9.1Qf39JfaB679TkwReVifScKQq7nf5efBn4olvidIV4U
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI4MDMsImV4cCI6MTYyNDAzNjQwM30.FTz3R8jvtEeACbwqXDOTJmxIjJgwexU9BHldelARFSU
 Content-Type: application/json
 
 {
@@ -116,7 +116,7 @@ Content-Type: application/json
     "address": "rue de la bicyclette",
     "town": "Marseille",
     "max_player": 7,
-    "user_id": 67
+    "user_id": 2
 }
 
 ### Ajout d'un evenement
@@ -152,7 +152,7 @@ Content-Type: application/json
 
 {
     "email": "jabaaas@gmail.com",
-    "password": "36Flip93"
+    "password": "12345689"
  
 }
 
@@ -176,7 +176,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQxNTEsImV4cCI6MTYyNDAxNzc1MX0.GBUwh8nYoue44DD-S3ngde-bo5mSEe1ghajBrt1wcx4
+Authorization: $2b$10$FCGuhj4sNb63sMwlegjBGuRQXt9oA.Lpr9sruMfcuQXChU6FkwM/q
 Content-Type: application/json
 
 {
@@ -187,16 +187,16 @@ Content-Type: application/json
 
 
 ### Update d'un utilisateur
-PATCH http://localhost:4000/api/profil/81
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE2NTQxLCJleHAiOjE2MjQwMjAxNDF9.wFLKMd4ieNinzNfstmZ8XVZlTdGXF7IZI9vXoMD_szA
+PATCH http://localhost:4000/api/profil/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI0OTcsImV4cCI6MTYyNDAzNjA5N30.ICdgsjzgsWaO36kNDeiXd_2QqIkxWuKGIP_pedLxSF8
 Content-Type: application/json
 
 {
     "firstname": "Dim",
-    "lastname": "Martin",
-    "department_id": 20,
-    "password": "36Flip93",
-    "passwordConfirm": "36Flip93"
+    "lastname": "ma",
+    "department_id": 27,
+    "password": "12345689",
+    "passwordConfirm": "12345689"
 }
 
 ### Suppression d'un utilisateur a un event
@@ -207,6 +207,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWlu
 ### Suppression d'un utilisateur a un event
 PATCH https://playrfindr.herokuapp.com/api/event/53
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+
+
+
+### Update d'un  event
+PATCH http://localhost:4000/api/event/5/update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI4MDMsImV4cCI6MTYyNDAzNjQwM30.FTz3R8jvtEeACbwqXDOTJmxIjJgwexU9BHldelARFSU
+Content-Type: application/json
+
+{
+   "label": "Partis de Cyclades"
+   
+}
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72
