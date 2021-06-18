@@ -21,7 +21,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAzNzMzLCJleHAiOjE2MjQwMDczMzN9.o8YTOoHcAb4UhruWYO93AAl0BNzDJR8Kcby-sLf789w
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTc1MTgsImV4cCI6MTYyNDAyMTExOH0.JXPx6eufb1I_lTvW-mNq1J3ki04M2KHt6WHucvhqmSI
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
