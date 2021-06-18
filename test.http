@@ -93,7 +93,7 @@ Content-Type: application/json
 {
     "firstname": "Dimitri",
     "lastname": "Maite",
-    "email": "jab@gmail.com",
+    "email": "jabaa@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",

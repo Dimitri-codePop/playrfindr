@@ -164,8 +164,11 @@ module.exports = {
         
 
             user.data = req.body;
+            user.dataValues.password = encryptedPassword
 
-            await user.update({password: encryptedPassword});
+
+
+            await user.update();
             
             res.json({ data: user.dataValues });
         } catch (error) {
