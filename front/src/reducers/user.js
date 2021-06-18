@@ -35,8 +35,6 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE_LOGIN: {
-      // console.log('action.key', action.key, '/ value :', action.value);
-      // console.log(state.login);
       return {
         ...state,
         [action.key]: action.value,
@@ -96,9 +94,8 @@ const reducer = (state = initialState, action = {}) => {
       let newState = {
         ...state,
       };
-      console.log('ici', action.key, action.value);
+
       if (!state.profil[action.key].length) {
-      console.log('ici', action.key, action.value);
         return (
           newState = {
             ...state,
@@ -158,9 +155,7 @@ const reducer = (state = initialState, action = {}) => {
     }
     case DELETE_SELECT_FIELD_SIGNUP_USER: {
       let tab = [...state[action.key]];
-      console.log(tab);
       tab = tab.filter((obj) => obj !== action.value);
-      console.log(action.value, action.key, tab);
       let newState = {
         ...state,
         [action.key]: [...tab],
@@ -171,9 +166,7 @@ const reducer = (state = initialState, action = {}) => {
     }
     case DELETE_SELECT_FIELD_USER: {
       let tab = [...state.profil[action.key]];
-      console.log(tab);
       tab = tab.filter((obj) => obj !== action.value);
-      console.log('ici', action.key, action.value, tab);
       let newState = {
         ...state,
         profil: {

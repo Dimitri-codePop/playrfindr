@@ -1,5 +1,5 @@
 @use 'src/styles/vars';
-@media (min-width: 1200px) {
+@media (min-width: 960px) {
   .profil {
     &__section1 {
       display: flex;
@@ -40,7 +40,16 @@
         font-size: 30px;
       }
     }
-
+    
+    &__btn {
+      display: flex;
+      color: vars.$primary;
+      padding: 0.7rem;
+      margin: 0.3rem;
+      width: auto;
+      height: auto;
+      min-width: 60px;
+    }
     &__email {
       color: vars.$grey;
       margin: 1rem 0;
@@ -94,7 +103,7 @@
     }
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 960px) {
   .profil {
     overflow-y: auto;
     margin: auto;
@@ -102,6 +111,9 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
+    &__btn {
+      color: vars.$primary;
+    }
     &__section1 {
       display: flex;
       flex-direction: column;

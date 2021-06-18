@@ -1,4 +1,13 @@
-import { FETCH_PROFIL, showProfil, EDIT_USER, saveEditUser } from 'src/actions/user';
+import {
+  FETCH_PROFIL,
+  showProfil,
+  EDIT_USER,
+  saveEditUser,
+  EDIT_PASSWORD,
+} from 'src/actions/user';
+import {
+  messageEditPassword,
+} from 'src/actions/systemMessages';
 import axios from 'axios';
 import { FindGoodGameByName } from 'src/selectors/find';
 
@@ -41,9 +50,6 @@ const profil = (store) => (next) => (action) => {
         department_id: state.user.profil.department,
         category_id: goodCat,
         theme_id: goodTheme,
-        password: state.user.password,
-        passwordConfirm: state.user.passwordConfirm,
-        oldPassword: state.user.oldPassword,
       }, {
         headers: {
           "Authorization": `${state.user.token}`,
@@ -59,6 +65,34 @@ const profil = (store) => (next) => (action) => {
           store.dispatch(actionSaveEditUser);
         })
         .catch((error) => console.log('errot', error));
+      break;
+    }
+    case EDIT_PASSWORD: {
+      const state = store.getState();
+      axios.patch(`https://playrfindr.herokuapp.com/api/profil/${state.user.profil.id}`, {
+        password: state.user.password,
+        passwordConfirm: state.user.passwordConfirm,
+        oldPassword: state.user.oldPassword,
+      }, {
+        headers: {
+          "Authorization": `${state.user.token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
+        .then((res) => {
+          const message = 'Votre mot de passe a bien été édité';
+          const isOk = true;
+          const actionEditPassword = messageEditPassword(message, isOk);
+          store.dispatch(actionEditPassword);
+        })
+        .catch((error) => {
+          console.log('errot', error);
+          const message = "Une erreur s'est produite, veuillez réessayer plus tard !";
+          const isOk = false;
+          const actionEditPassword = messageEditPassword(message, isOk);
+          store.dispatch(actionEditPassword);
+        });
       break;
     }
     default:

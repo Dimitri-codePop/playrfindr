@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // == Import
 import NavBar from 'src/containers/Navbar';
 import Footer from 'src/components/Footer';
@@ -21,6 +21,7 @@ export default function App({
   loadDepartements,
   loadUser,
 }) {
+  const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
     loadUser();
     topConnect();
@@ -34,10 +35,16 @@ export default function App({
 
   return (
     <div className="app">
-      <NavBar />
+      <NavBar
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
+      />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home
+            showMessage={showMessage}
+            setShowMessage={setShowMessage}
+          />
         </Route>
         <Route
           exact

@@ -18,11 +18,15 @@ export default function Web({
   userId,
   isLogged,
   handleDisconnect,
+  showMessage,
+  setShowMessage,
 }) {
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
   const history = useHistory();
   const handleOnClick = () => {
     handleDisconnect();
+    setShowMessage(!showMessage);
+   // setTimeout(() => setShowMessage(!showMessage), 1000);
     history.push('/');
   };
 

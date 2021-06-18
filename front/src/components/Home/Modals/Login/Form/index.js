@@ -10,11 +10,14 @@ export default function Form({
   changeField,
   email,
   password,
+  showMessage,
+  setShowMessage,
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
     closeModal();
+    setShowMessage(!showMessage);
     //setLoginIsHidden(!loginIsHidden)
   };
 
