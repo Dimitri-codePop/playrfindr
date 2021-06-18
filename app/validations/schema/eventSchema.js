@@ -19,7 +19,7 @@ const updateSchema = Joi.object({
     address: Joi.string().min(2),
     town: Joi.string().min(2),
     max_player: Joi.number().integer().min(1),
-    user_id: Joi.array().items(Joi.number().integer()).max(1)
+    user_id: Joi.number().integer().required().min(1)
 }).required();
 
 module.exports = { insertSchema, updateSchema };

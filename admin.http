@@ -1,2 +1,6 @@
 ### Page d'acceuil
 GET http://localhost:4000/admin/jeux
+
+### Page d'acceuil
+GET  https://playrfindr.herokuapp.com/admin/jeux
+

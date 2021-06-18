@@ -13,5 +13,9 @@ module.exports = {
             console.log(error);
         }
        
+    },
+
+    async addGame(req, res){
+
     }
 }

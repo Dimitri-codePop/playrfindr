@@ -7,6 +7,7 @@ const adminController = require('../controllers/adminController');
 
 
 router.route('/jeux')
-    .get(adminController.getAll)
-
+    .get(adminController.getAll);
+/* router.route('/jeux/:id')
+    .post(adminController.addGames); */
 module.exports = router;

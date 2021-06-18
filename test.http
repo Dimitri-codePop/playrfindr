@@ -48,12 +48,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWlu
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/5
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTIzODEsImV4cCI6MTYyNDAxNTk4MX0.aDAZYdkxAyLJGefDVsPXBo3X_Y1Zlauw9W9qeYBCgYI
+GET https://playrfindr.herokuapp.com/api/profil/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/75
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4NDc3LCJleHAiOjE2MjM4NjIwNzd9.WW0lwS1NrV-rCaMMlXPNgCi2qKQ_orBP-FYCP7vrcgI
+GET http://localhost:4000/api/profil/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTU0OTQsImV4cCI6MTYyNDAxOTA5NH0.K7wMQFoF-E-dQ3C2eC9ftvxTwuzPV6nwZV25jL8gs2I
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
@@ -93,7 +93,7 @@ Content-Type: application/json
 {
     "firstname": "Dimitri",
     "lastname": "Maite",
-    "email": "jc@gmail.com",
+    "email": "jab@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
@@ -121,18 +121,18 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTIwMjEsImV4cCI6MTYyNDAxNTYyMX0.jwgihbiIoa1bp9y5zLas7etRKW-wFWUEq8Hw0BpQGls
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQ2ODAsImV4cCI6MTYyNDAxODI4MH0.0_ogS_XQ298jLBLeQHyDgPD_j9Lhpqw39ke494VY0UI
 Content-Type: application/json
 
 {
    "label": "Partie de Mysterium",
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
-    "number_address": 84,
-    "address": "rue de la bicyclette",
+    "number_address": 13000,
+    "address": "84 rue de la bicyclette",
     "town": "Marseille",
     "max_player": 7,
-    "user_id": 5
+    "user_id": 2
 }
 
 
@@ -151,8 +151,8 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimguillon@gmail.com",
-    "password": "36Flip93"
+    "email": "jab@gmail.com",
+    "password": "123456"
  
 }
 
@@ -186,6 +186,19 @@ Content-Type: application/json
 }
 
 
+### Update d'un utilisateur
+PATCH http://localhost:4000/api/profil/81
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE2NTQxLCJleHAiOjE2MjQwMjAxNDF9.wFLKMd4ieNinzNfstmZ8XVZlTdGXF7IZI9vXoMD_szA
+Content-Type: application/json
+
+{
+    "firstname": "Dim",
+    "lastname": "Martin",
+    "department_id": 20,
+    "password": "123456",
+    "passwordConfirm": "123456"
+}
+
 ### Suppression d'un utilisateur a un event
 PATCH http://localhost:4000/api/event/41
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM5MjUwLCJleHAiOjE2MjM5NDI4NTB9.9iFSH_5IANXEBFw_EpW7mC7JP9PJKkkmMv7zgA6gd8E
@@ -205,8 +218,8 @@ DELETE  http://localhost:4000/api/event/45
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0OTUyLCJleHAiOjE2MjM5NDg1NTJ9.PMqNO3Q6RM38WCxI9F5kZIv4QvEs8FZ3-eHQSSkaowY
 
 ### Suppression d'un event
-DELETE  https://playrfindr.herokuapp.com/api/event/57
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+DELETE  https://playrfindr.herokuapp.com/api/event/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQ2ODAsImV4cCI6MTYyNDAxODI4MH0.0_ogS_XQ298jLBLeQHyDgPD_j9Lhpqw39ke494VY0UI
 
 
 ### Delete d'un jeux d'une collection
