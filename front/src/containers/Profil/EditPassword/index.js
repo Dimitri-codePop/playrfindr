@@ -12,10 +12,10 @@ const mapDispatchToProps = (dispatch) => ({
   // exemple de fonction pour dispatch
   changeField: (value, field) => {
     const action = changeValueLogin(value, field);
-    // console.log('ici je lance ma nouvelle fonction', action);
+    console.log('ici je lance ma nouvelle fonction', action);
     dispatch(action);
   },
-  handleSubmit: () => {
+  handleSubmitEdit: () => {
     dispatch(editPassword());
   },
 });

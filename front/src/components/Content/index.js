@@ -7,7 +7,12 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { getAge } from 'src/selectors/date';
 import './style.scss';
 
-export default function Content({ user, paramsId}) {
+export default function Content({
+  user,
+  paramsId,
+  showMessage,
+  setShowMessage,
+}) {
   const [currentUser, setCurrentUser] = useState(true);
   const [modalEditOpen, setModalEditOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -84,12 +89,16 @@ export default function Content({ user, paramsId}) {
           modalEditOpen={modalEditOpen}
           setModalEditOpen={setModalEditOpen}
           {...user}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
         />
       )}
       {isOpen && (
         <EditPassword
           setIsOpen={setIsOpen}
           isOpen={isOpen}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
         />
       )}
     </>

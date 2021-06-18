@@ -58,7 +58,10 @@ export default function App({
           <Jeu />
         </Route>
         <Route path="/profil/:id">
-          <Profil />
+          <Profil
+            showMessage={showMessage}
+            setShowMessage={setShowMessage}
+          />
         </Route>
         <Route path="/events">
           <Events />

@@ -14,6 +14,8 @@ export default function EditPassword({
   handleSubmitEdit,
   isOpen,
   setIsOpen,
+  showMessage,
+  setShowMessage,
 }) {
   Modal.setAppElement('#root');
 
@@ -24,6 +26,7 @@ export default function EditPassword({
     event.preventDefault();
     handleSubmitEdit();
     closeModal();
+    setShowMessage(!showMessage);
   };
 
   const refreshPage = () => {
@@ -62,14 +65,14 @@ export default function EditPassword({
           value={password}
         />
         <Field
-          type="passwordConfirm"
+          type="password"
           name="passwordConfirm"
           placeholder="Confirmez le nouveau Mot de Passe"
           onChange={changeField}
           value={passwordConfirm}
         />
         <Field
-          type="oldPassword"
+          type="password"
           name="oldPassword"
           placeholder="Entrez votre Ancien Mot de Passe"
           onChange={changeField}

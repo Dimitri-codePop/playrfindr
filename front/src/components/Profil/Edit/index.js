@@ -23,6 +23,8 @@ export default function Edit({
   changeSelectField,
   deleteSelectField,
   handleEdit,
+  showMessage,
+  setShowMessage,
 }) {
   // MODAL SETTINGS START
   Modal.setAppElement('#root');
@@ -49,6 +51,7 @@ export default function Edit({
     event.preventDefault();
     handleEdit();
     closeModal();
+    setShowMessage(!showMessage);
   };
   // select change form
   const handlechangeSelect = (event) => {

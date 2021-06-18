@@ -6,7 +6,6 @@ import {
 } from 'src/actions/systemMessages';
 
 const initialState = {
-  editPassword: '',
   message: '',
   isOk: false,
 };

@@ -26,7 +26,10 @@ const profil = (store) => (next) => (action) => {
           const actionShowProfil = showProfil(response.data);
           store.dispatch(actionShowProfil);
         })
-        .catch((error) => console.log('error', error));
+        .catch((error) => {
+          console.log('error', error);
+          console.log('')
+        });
 
       break;
     }
@@ -59,12 +62,24 @@ const profil = (store) => (next) => (action) => {
       })
         .then((response) => {
           const actionSaveEditUser = saveEditUser(response.data);
+          console.log(response.data);
           localStorage.clear();
           state.user.profil.token = state.user.token;
+          console.log(state.user.profil);
           localStorage.setItem('UserKeysUsed', JSON.stringify(state.user.profil));
           store.dispatch(actionSaveEditUser);
+          const message = 'Votre profil a bien été édité';
+          const isOk = true;
+          const actionEditPassword = messageEditPassword(message, isOk);
+          store.dispatch(actionEditPassword);
         })
-        .catch((error) => console.log('errot', error));
+        .catch((error) => {
+          console.log('error', error);
+          const message = 'Votre mot de passe a bien été édité';
+          const isOk = false;
+          const actionEditPassword = messageEditPassword(message, isOk);
+          store.dispatch(actionEditPassword);
+        });
       break;
     }
     case EDIT_PASSWORD: {
@@ -72,7 +87,7 @@ const profil = (store) => (next) => (action) => {
       axios.patch(`https://playrfindr.herokuapp.com/api/profil/${state.user.profil.id}`, {
         password: state.user.password,
         passwordConfirm: state.user.passwordConfirm,
-        oldPassword: state.user.oldPassword,
+        // oldPassword: state.user.oldPassword,
       }, {
         headers: {
           "Authorization": `${state.user.token}`,

@@ -138,6 +138,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case SHOW_PROFIL: {
+      console.log(action.value);
       return {
         ...state,
         profil: action.value,

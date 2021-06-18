@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
@@ -7,7 +7,7 @@ export default function Flash({ message, isOk, showMessage, setShowMessage }) {
   useEffect(() => {
     setTimeout(() => setShowMessage(false), 3000);
   }, [showMessage]);
-  const classMessageSwap = isOk ? 'green' : 'red';
+  const classMessageSwap = isOk ? 'flash green' : 'flash red';
   return (
     <>
       { showMessage && (
@@ -19,5 +19,7 @@ export default function Flash({ message, isOk, showMessage, setShowMessage }) {
 
 Flash.propTypes = {
   message: PropTypes.string.isRequired,
-  isOk: PropTypes.number.isRequired,
+  isOk: PropTypes.bool.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
 };
