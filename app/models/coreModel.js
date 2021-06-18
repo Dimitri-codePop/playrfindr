@@ -91,7 +91,7 @@ class CoreModel {
      * Mise à jour d'une entité
      */
     async update() {
-
+        
         const preparedQuery = {
 
             text: `
@@ -99,8 +99,9 @@ class CoreModel {
             `,
             values: [this.dataValues]
         };
+
         const result = await client.query(preparedQuery);
-        
+        console.log(result.rows);
         this.dataValues = result.rows[0];
 
     };

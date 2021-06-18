@@ -102,16 +102,18 @@ module.exports = {
     async updateEvent(req, res, next) {
         try {
 
-            const eventId = await EventModel.findByPk(req.params.id);
+            const event = await EventModel.findByPk(req.params.id);
 
-            if(!eventId){
+            if(!event){
                 return next();
             }
-            
-            const event = new EventModel(req.body);
+        
 
-            event.update();
-            return res.status(200).json({data: event});
+            await event.update(req.body);
+             
+            const eventUpdate = await EventModel.findByPk(req.params.id);
+            
+            return res.status(200).json({data: eventUpdate});
             
         } catch (error) {
             console.trace(error);

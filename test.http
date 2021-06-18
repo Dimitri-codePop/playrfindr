@@ -25,7 +25,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE3ODYxLCJleHAiOjE2MjQwMjE0NjF9.bxgoTEOMOOdUu1IcrJRhczWTp87IUsUV6-3LmtkKLP8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwNDA0OTYsImV4cCI6MTYyNDA0NDA5Nn0.HxRwQWNWWYa3RtuJNyDPOvAULffDSj6bTsSN5PHELZ0
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -52,8 +52,8 @@ GET https://playrfindr.herokuapp.com/api/profil/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/8
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzE0NDQsImV4cCI6MTYyNDAzNTA0NH0.vBhxrgwJyIsyB2dpJkuFk9gWCneA7eYPEybXre2NlVY
+GET http://localhost:4000/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzY4ODMsImV4cCI6MTYyNDA0MDQ4M30.Kfo2GwI3BhmVtiWmRIa_F4q6XKgWg41Y3iopd-wQpFQ
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
@@ -176,27 +176,24 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/2
-Authorization: $2b$10$FCGuhj4sNb63sMwlegjBGuRQXt9oA.Lpr9sruMfcuQXChU6FkwM/q
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzYxNzYsImV4cCI6MTYyNDAzOTc3Nn0.puMF_pnmoK0pPHe4ln4lNK_gpOPHvjGcsXfDl01L2rQ
 Content-Type: application/json
 
 {
     "firstname": "Dim",
     "lastname": "Martin",
-    "department_id": 20
+    "password": "12345689",
+    "passwordConfirm": "12345689"
 }
 
 
 ### Update d'un utilisateur
-PATCH http://localhost:4000/api/profil/8
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI0OTcsImV4cCI6MTYyNDAzNjA5N30.ICdgsjzgsWaO36kNDeiXd_2QqIkxWuKGIP_pedLxSF8
+PATCH http://localhost:4000/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzY4ODMsImV4cCI6MTYyNDA0MDQ4M30.Kfo2GwI3BhmVtiWmRIa_F4q6XKgWg41Y3iopd-wQpFQ
 Content-Type: application/json
 
 {
-    "firstname": "Dim",
-    "lastname": "ma",
-    "department_id": 27,
-    "password": "12345689",
-    "passwordConfirm": "12345689"
+   "category_id": [4]
 }
 
 ### Suppression d'un utilisateur a un event
@@ -212,15 +209,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWlu
 
 ### Update d'un  event
 PATCH http://localhost:4000/api/event/5/update
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzUxMzcsImV4cCI6MTYyNDAzODczN30.PeDO8Yfw8mlxj8dHOBsCrcbYQfEtXdMxGOXgBYV2P14
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwNDA0OTYsImV4cCI6MTYyNDA0NDA5Nn0.HxRwQWNWWYa3RtuJNyDPOvAULffDSj6bTsSN5PHELZ0
 Content-Type: application/json
 
 {
     "label": "Partie de cyclade",
     "content": "Petite partie de Cyclades",
     "address": "15 Bis rue localStorage",
-    "max_player": 85
-   
+    "max_player": 3,
+    "date": "2021-06-19"
 }
 
 
@@ -230,7 +227,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 Content-Type: application/json
 
 {
-   "max_player": 5
+   "max_player": 2
    
 }
 

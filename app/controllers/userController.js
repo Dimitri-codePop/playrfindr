@@ -169,7 +169,7 @@ module.exports = {
            
             await user.update();
             
-            res.json({ data: user.dataValues });
+            res.json({ data: user });
         } catch (error) {
             console.trace(error);
             if(error.code == '23503'){

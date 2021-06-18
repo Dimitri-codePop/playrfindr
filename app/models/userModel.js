@@ -60,6 +60,24 @@ class UserModel extends CoreModel {
         return result.rows[0];
     }
 
+    async update(){
+        
+        await super.update();
+        console.log(this.dataValues);
+
+            if(this.dataValues.theme_id){
+            for (const theme_id of this.dataValues.theme_id) {
+                await client.query(`UPDATE "user_has_theme" SET "user_id" = $1, "theme_id" = $2`, [this.dataValues.id, theme_id])
+                }
+            }
+            if(this.dataValues.category_id){
+       
+            for (const category_id of this.dataValues.category_id) {
+                await client.query(`UPDATE "user_has_category" SET "user_id" = $1, "category_id" = $2`, [this.dataValues.id, category_id])
+            }
+        }
+    }
+
 }
 
 module.exports = UserModel;

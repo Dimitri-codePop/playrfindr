@@ -79,6 +79,12 @@ class EventModel extends CoreModel {
         return result.rows;
     }
 
+    async update(body){
+        const result = await client.query(`UPDATE "event" SET "label" = $1,"content" = $2, "max_player" = $3, "address" = $4, "number_address" = $5, "town" = $6, date = $7 WHERE "id" = $8 RETURNING *;`,
+        [body.label, body.content, body.max_player, body.address, body.number_address, body.town, body.date, this.dataValues.id]);
+
+        return result.rows;
+    }
 }
 
 module.exports = EventModel;
