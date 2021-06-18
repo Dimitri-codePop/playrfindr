@@ -35,7 +35,7 @@ export default function FormEvent({
             value={label}
           />
           <Field
-            type="date"
+            type="datetime-local"
             name="date"
             placeholder="Date"
             onChange={changefieldEvent}

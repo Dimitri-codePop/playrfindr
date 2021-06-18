@@ -67,8 +67,8 @@ export default function Item({
         < Check 
           handleClick={handleClick}
           name={element.id} 
-          events={events}
           event={element}
+          handleClickModal={handleClickModal}
         />
     </div>
     )
