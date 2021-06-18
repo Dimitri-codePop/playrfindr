@@ -19,6 +19,7 @@ const initialState = {
   lastname: '',
   password: '',
   passwordConfirm: '',
+  oldPassword: '',
   birthdate: '',
   department_number: '',
   department_label: '',

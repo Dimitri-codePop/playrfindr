@@ -1,5 +1,6 @@
 import { FETCH_PROFIL, showProfil, EDIT_USER, saveEditUser } from 'src/actions/user';
 import axios from 'axios';
+import { FindGoodGameByName } from 'src/selectors/find';
 
 const profil = (store) => (next) => (action) => {
   switch (action.type) {
@@ -22,9 +23,27 @@ const profil = (store) => (next) => (action) => {
     }
     case EDIT_USER: {
       const state = store.getState();
-      console.log(state.user.profil);
+      const goodCat = [];
+      const goodTheme = [];
+      state.user.profil.category.map((cat) => {
+        const found = FindGoodGameByName(state.games.categories, cat);
+        goodCat.push(found.id);
+      });
+      state.user.profil.theme.map((obj) => {
+        const found = FindGoodGameByName(state.games.themes, obj);
+        goodTheme.push(found.id);
+      });
+      console.log(state.user.profil, goodCat, goodTheme, state.user.profil.department);
       axios.patch(`https://playrfindr.herokuapp.com/api/profil/${state.user.profil.id}`, {
-        ...state.user.profil,
+        firstname: state.user.profil.firstname,
+        lastname: state.user.profil.lastname,
+        email: state.user.profil.email,
+        department_id: state.user.profil.department,
+        category_id: goodCat,
+        theme_id: goodTheme,
+        password: state.user.password,
+        passwordConfirm: state.user.passwordConfirm,
+        oldPassword: state.user.oldPassword,
       }, {
         headers: {
           "Authorization": `${state.user.token}`,
@@ -32,11 +51,14 @@ const profil = (store) => (next) => (action) => {
           "Content-Type": "application/json"
         },
       })
-      .then((response) => {
-        const actionSaveEditUser = saveEditUser(response.data);
-        store.dispatch(actionSaveEditUser);
-      })
-      .catch((error) => console.log('errot', error));
+        .then((response) => {
+          const actionSaveEditUser = saveEditUser(response.data);
+          localStorage.clear();
+          state.user.profil.token = state.user.token;
+          localStorage.setItem('UserKeysUsed', JSON.stringify(state.user.profil));
+          store.dispatch(actionSaveEditUser);
+        })
+        .catch((error) => console.log('errot', error));
       break;
     }
     default:
