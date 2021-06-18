@@ -26,7 +26,7 @@ export default function Field({ type, name, placeholder, value, onChange }) {
 Field.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
