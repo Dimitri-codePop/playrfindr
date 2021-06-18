@@ -88,7 +88,6 @@ module.exports = {
                 
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
             } 
-    
             const remove = await EventModel.deleteEvent(goodUser,req.params.id);
            
             return res.status(200).json({data: 'Event supprimé', remove});
@@ -103,19 +102,15 @@ module.exports = {
     async updateEvent(req, res, next) {
         try {
 
-            const id = req.params.id;
+            const eventId = await EventModel.findByPk(req.params.id);
 
-            const event =  await EventModel.findByPk(id);
-            
-
-            if (!event) {
+            if(!eventId){
                 return next();
-            } 
-        
-            event.data = req.body;
+            }
+            
+            const event = new EventModel(req.body);
 
-            await event.update();
-        
+            event.update();
             return res.status(200).json({data: event});
             
         } catch (error) {

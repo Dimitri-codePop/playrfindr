@@ -21,7 +21,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzQ5MjMsImV4cCI6MTYyNDAzODUyM30._FATRZyaMSM1aRE43d3Kl8o4gzZjM9JTXeyFC9cRK5I
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -212,13 +212,28 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWlu
 
 ### Update d'un  event
 PATCH http://localhost:4000/api/event/5/update
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI4MDMsImV4cCI6MTYyNDAzNjQwM30.FTz3R8jvtEeACbwqXDOTJmxIjJgwexU9BHldelARFSU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzUxMzcsImV4cCI6MTYyNDAzODczN30.PeDO8Yfw8mlxj8dHOBsCrcbYQfEtXdMxGOXgBYV2P14
 Content-Type: application/json
 
 {
-   "label": "Partis de Cyclades"
+    "label": "Partie de cyclade",
+    "content": "Petite partie de Cyclades",
+    "address": "15 Bis rue localStorage",
+    "max_player": 85
    
 }
+
+
+### Update d'un  event
+PATCH https://playrfindr.herokuapp.com/api/event/6/update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzQ5MjMsImV4cCI6MTYyNDAzODUyM30._FATRZyaMSM1aRE43d3Kl8o4gzZjM9JTXeyFC9cRK5I
+Content-Type: application/json
+
+{
+   "max_player": 5
+   
+}
+
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72

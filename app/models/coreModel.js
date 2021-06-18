@@ -74,6 +74,7 @@ class CoreModel {
      * Ajout d'un entité
      */
     async insert() {
+        
         const preparedQuery = {
             text: `
                 SELECT * FROM add_${this.constructor.tableName}($1)
@@ -90,6 +91,7 @@ class CoreModel {
      * Mise à jour d'une entité
      */
     async update() {
+
         const preparedQuery = {
 
             text: `
