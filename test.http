@@ -152,7 +152,7 @@ Content-Type: application/json
 
 {
     "email": "jab@gmail.com",
-    "password": "123456"
+    "password": "36Flip93"
  
 }
 
@@ -195,8 +195,8 @@ Content-Type: application/json
     "firstname": "Dim",
     "lastname": "Martin",
     "department_id": 20,
-    "password": "123456",
-    "passwordConfirm": "123456"
+    "password": "36Flip93",
+    "passwordConfirm": "36Flip93"
 }
 
 ### Suppression d'un utilisateur a un event
