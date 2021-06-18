@@ -10,7 +10,7 @@ import Profil from 'src/containers/Profil';
 import Events from 'src/containers/Events';
 import PropTypes from 'prop-types';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './style.scss';
 import Loading from './Loading';
 // == Composant
@@ -20,6 +20,7 @@ export default function App({
   loading,
   loadDepartements,
   loadUser,
+  isLogged,
 }) {
   const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
@@ -58,10 +59,14 @@ export default function App({
           <Jeu />
         </Route>
         <Route path="/profil/:id">
-          <Profil
-            showMessage={showMessage}
-            setShowMessage={setShowMessage}
-          />
+          {isLogged ?
+            (
+              <Profil
+                showMessage={showMessage}
+                setShowMessage={setShowMessage}
+              />
+            ) : <Redirect to="/" />
+          }}
         </Route>
         <Route path="/events">
           <Events />

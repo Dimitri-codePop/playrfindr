@@ -11,7 +11,6 @@ export default function Profil({
   user,
   loadProfil,
   loading,
-  isLogged,
   showMessage,
   setShowMessage,
   message,
@@ -26,24 +25,20 @@ export default function Profil({
 
   return (
     <>
-      {isLogged ? (
-        <>
-          <Flash
-            message={message}
-            isOk={isOk}
-            showMessage={showMessage}
-            setShowMessage={setShowMessage}
-          />
-          <main className="profil">
-            <Content
-              user={user}
-              showMessage={showMessage}
-              setShowMessage={setShowMessage}
-            />
-            <Ludo user={user} />
-          </main>
-        </>
-      ) : <Redirect to="/" />}
+      <Flash
+        message={message}
+        isOk={isOk}
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
+      />
+      <main className="profil">
+        <Content
+          user={user}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+        />
+        <Ludo user={user} />
+      </main>
     </>
   );
 }

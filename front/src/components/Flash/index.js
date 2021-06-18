@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-export default function Flash({ message, isOk, showMessage, setShowMessage }) {
+export default function Flash({
+  message,
+  isOk,
+  showMessage,
+  setShowMessage,
+}) {
   useEffect(() => {
     setTimeout(() => setShowMessage(false), 3000);
   }, [showMessage]);

@@ -75,7 +75,7 @@ const profil = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('error', error);
-          const message = 'Votre mot de passe a bien été édité';
+          const message = "Votre Profil n'a pas pu être édité";
           const isOk = false;
           const actionEditPassword = messageEditPassword(message, isOk);
           store.dispatch(actionEditPassword);
@@ -87,7 +87,7 @@ const profil = (store) => (next) => (action) => {
       axios.patch(`https://playrfindr.herokuapp.com/api/profil/${state.user.profil.id}`, {
         password: state.user.password,
         passwordConfirm: state.user.passwordConfirm,
-        // oldPassword: state.user.oldPassword,
+        //oldPassword: state.user.oldPassword,
       }, {
         headers: {
           "Authorization": `${state.user.token}`,
