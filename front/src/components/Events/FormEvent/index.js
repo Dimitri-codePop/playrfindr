@@ -19,6 +19,7 @@ export default function FormEvent({
   handleNewEvent,
 }) {
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleNewEvent();

@@ -8,6 +8,7 @@ import { FindGoodGame } from 'src/selectors/find';
 import Check from 'src/containers/Events/Item/Check';
 import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
 Modal.setAppElement('#root');
@@ -54,9 +55,11 @@ export default function Item({
   };
   const handleClickEndEditModal = () => {
     setModalEditOpen(false);
+    setModalIdOpen(false);
   };
 
   moment.locale('fr')
+  const position = [43.601400, 1.442130];
 
   const event = events.map((element) => {
     const path = `/profil/${element.user_id}`;
@@ -112,6 +115,19 @@ export default function Item({
                 </button>
               </div>
             }
+            <div id="mapid">
+              <MapContainer className="map" center={position} zoom={13} scrollWheelZoom={true}>
+                <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={position}>
+                <Popup>
+                  Place de la Bourse, Toulouse.
+                </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
           </Modal>
           <Modal isOpen={modalEditOpen}>
             <EditEvent 

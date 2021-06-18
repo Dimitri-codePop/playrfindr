@@ -132,10 +132,8 @@ const events = (store) => (next) => (action) => {
         "Content-Type": "application/json"
       }}
       )
-        .then((response) => {
-          console.log(response);
-          const { data } = response;
-          const saveEditEventAction = saveEditEvent(data);
+        .then(() => {
+          const saveEditEventAction = saveEditEvent();
           store.dispatch(saveEditEventAction);
         })
         .catch((error) => console.log( error ) );

@@ -31,7 +31,10 @@ export default function EditEvent({
     handleClickEndEditModal();
   };
 
-  const dateSetUp = moment(date).format("yyyy-MM-DDTHH:mm");
+  moment.locale('fr')
+  const stillUtc = moment.utc(date).toDate();
+  console.log(stillUtc)
+  const dateSetUp = moment(stillUtc).local().format("yyyy-MM-DDTHH:mm");
 
   return(
     <>

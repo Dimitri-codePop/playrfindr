@@ -51,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_NEW_EVENT:
       return {
         ...state,
-        label: action.label, 
+        label: action.label,
         date: action.date, 
         address: action.address, 
         number_address: action.number_address, 
@@ -73,15 +73,16 @@ const reducer = (state = initialState, action = {}) => {
         trigger: !(state.trigger)
       };
     case SAVE_EDIT_EVENT:
+      console.log(`action`, action)
       return {
         ...state,
-        label: action.label, 
-        date: action.date, 
-        address: action.address, 
-        number_address: action.number_address, 
-        town: action.town, 
-        content: action.content,
-        max_player: action.max_player,
+        label: '',
+        date: '', 
+        address: '', 
+        number_address: '', 
+        town: '', 
+        content: '',
+        max_player: '',
         trigger: !(state.trigger)
       };
     case SET_EVENT:

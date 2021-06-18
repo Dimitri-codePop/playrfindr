@@ -77,15 +77,8 @@ export const editEvent = (id) => ({
   id,
 });
 
-export const saveEditEvent = (label, date, address, number_address, town, content, max_player) => ({
+export const saveEditEvent = () => ({
   type: SAVE_EDIT_EVENT,
-  label, 
-  date, 
-  address,
-  number_address,
-  town,
-  content, 
-  max_player
 });
 
 export const EditValueEvent = (value, key) => ({
