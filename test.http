@@ -48,8 +48,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWlu
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/4
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4MDc2LCJleHAiOjE2MjM4NjE2NzZ9.Tt6eIh_eX6WE281TllBVujl8-lb-UcjDDu9Szd6nlAs
+GET https://playrfindr.herokuapp.com/api/profil/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTIzODEsImV4cCI6MTYyNDAxNTk4MX0.aDAZYdkxAyLJGefDVsPXBo3X_Y1Zlauw9W9qeYBCgYI
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/75
@@ -175,11 +175,14 @@ POST https://playrfindr.herokuapp.com/api/event/55
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
 
 ### Update d'un utilisateur
-PATCH https://playrfindr.herokuapp.com/api/profil/3
+PATCH https://playrfindr.herokuapp.com/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQxNTEsImV4cCI6MTYyNDAxNzc1MX0.GBUwh8nYoue44DD-S3ngde-bo5mSEe1ghajBrt1wcx4
 Content-Type: application/json
 
 {
-    "lastname": "Martin"
+    "firstname": "Dim",
+    "lastname": "Martin",
+    "department_id": 20
 }
 
 

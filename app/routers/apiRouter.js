@@ -86,7 +86,6 @@ router.route('/profil/:id(\\d+)/collection')
     .get(authorisation, userController.getOneCollection);
 
 
-
 router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
     .post(authorisation, userController.addGames)
     .delete(authorisation, userController.deleteGames); 

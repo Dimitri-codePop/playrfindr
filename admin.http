@@ -1,0 +1,2 @@
+### Page d'acceuil
+GET http://localhost:4000/admin/jeux

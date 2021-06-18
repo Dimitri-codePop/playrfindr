@@ -16,7 +16,7 @@ const insertSchema = Joi.object({
 const updateSchema = Joi.object({
     firstname: Joi.string().min(2),
     lastname: Joi.string().min(2),
-    email: Joi.string().email({ tlds: { allow: false } }).length(2),
+    email: Joi.string().email({ tlds: { allow: false } }).min(2),
     birthdate: Joi.date().max('now'),
     password: Joi.string().min(6),
     department_id: Joi.number().integer(),

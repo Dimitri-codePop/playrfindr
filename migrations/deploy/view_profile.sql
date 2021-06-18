@@ -3,6 +3,7 @@
 BEGIN;
 
 -- XXX Add DDLs here.
+CREATE VIEW "user_profile" AS
 SELECT "user".*, 
 	ARRAY_AGG(DISTINCT "theme"."label") as theme, 
 	ARRAY_AGG (DISTINCT "category"."label") as category, 
