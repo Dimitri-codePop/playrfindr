@@ -34,7 +34,7 @@ class EventModel extends CoreModel {
 
     static async findEventUpdate(id){
         
-        const result = await client.query(`SELECT event.*, to_char( "event".date, 'DD-MM-YYYY HH:MM') as date,
+        const result = await client.query(`SELECT event.*, to_char("event"."date", 'DD-MM-YYYY HH:MM')
         ARRAY_REMOVE(ARRAY_AGG("user"."id"), NULL) AS userId,
         ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
         ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname

@@ -91,7 +91,7 @@ class CoreModel {
      * Mise à jour d'une entité
      */
     async update() {
-        console.log(this.dataValues);
+       
         const preparedQuery = {
 
             text: `

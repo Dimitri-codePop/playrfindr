@@ -25,7 +25,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDEwODE0LCJleHAiOjE2MjQwMTQ0MTR9.1Qf39JfaB679TkwReVifScKQq7nf5efBn4olvidIV4U
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE3ODYxLCJleHAiOjE2MjQwMjE0NjF9.bxgoTEOMOOdUu1IcrJRhczWTp87IUsUV6-3LmtkKLP8
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -167,8 +167,8 @@ Content-Type: application/json
 }
 
 ### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/41
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM5MjUwLCJleHAiOjE2MjM5NDI4NTB9.9iFSH_5IANXEBFw_EpW7mC7JP9PJKkkmMv7zgA6gd8E
+POST http://localhost:4000/api/event/44
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE3ODYxLCJleHAiOjE2MjQwMjE0NjF9.bxgoTEOMOOdUu1IcrJRhczWTp87IUsUV6-3LmtkKLP8
 
 ### Ajout d'un utilisateur a un event
 POST https://playrfindr.herokuapp.com/api/event/55
