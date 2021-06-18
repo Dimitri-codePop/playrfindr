@@ -34,7 +34,7 @@ class EventModel extends CoreModel {
 
     static async findEventUpdate(id){
         
-        const result = await client.query(`SELECT event.*, to_char("event"."date", 'DD-MM-YYYY HH:MM')
+        const result = await client.query(`SELECT event.*, to_char("event"."date", 'DD-MM-YYYY HH:MM'),
         ARRAY_REMOVE(ARRAY_AGG("user"."id"), NULL) AS userId,
         ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
         ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
@@ -64,6 +64,7 @@ class EventModel extends CoreModel {
 
     static async participationEvent(user, event){
         const result =  await client.query(`INSERT INTO "user_has_event" ("user_id", "event_id") VALUES ($1, $2) RETURNING *`, [user, event]);
+        console.log(result);
        return result.rows[0];
     }
 

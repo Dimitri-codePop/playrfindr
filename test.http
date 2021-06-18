@@ -21,7 +21,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTc1MTgsImV4cCI6MTYyNDAyMTExOH0.JXPx6eufb1I_lTvW-mNq1J3ki04M2KHt6WHucvhqmSI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTgzNDEsImV4cCI6MTYyNDAyMTk0MX0.SHI3jOWJQ7J-56owOCYrBrWHVidyrkKQa8tK29HGZmU
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -91,9 +91,9 @@ POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Dimitri",
+    "firstname": "Michel",
     "lastname": "Maite",
-    "email": "jabaa@gmail.com",
+    "email": "jabaaas@gmail.com",
     "password": "36Flip93",
     "passwordConfirm": "36Flip93",
     "birthdate": "1995-07-18",
@@ -151,7 +151,7 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "jab@gmail.com",
+    "email": "jabaaas@gmail.com",
     "password": "36Flip93"
  
 }
@@ -168,11 +168,11 @@ Content-Type: application/json
 
 ### Ajout d'un utilisateur a un event
 POST http://localhost:4000/api/event/44
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgzLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE3ODYxLCJleHAiOjE2MjQwMjE0NjF9.bxgoTEOMOOdUu1IcrJRhczWTp87IUsUV6-3LmtkKLP8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjg0LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE5MjUyLCJleHAiOjE2MjQwMjI4NTJ9.Yzh_LeVV7zzC5xMhXMudKoEkmx6gyIwBlwfWZFT6nQ4
 
 ### Ajout d'un utilisateur a un event
-POST https://playrfindr.herokuapp.com/api/event/55
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
+POST https://playrfindr.herokuapp.com/api/event/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTgzNDEsImV4cCI6MTYyNDAyMTk0MX0.SHI3jOWJQ7J-56owOCYrBrWHVidyrkKQa8tK29HGZmU
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/2

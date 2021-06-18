@@ -42,6 +42,7 @@ module.exports = {
         try {
             const event = await EventModel.findEvent();
 
+
             if(!event){
                 return res.status(401).json({error: `Cet événement n'existe pas`})
             }            
