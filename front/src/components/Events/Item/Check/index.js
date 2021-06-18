@@ -48,10 +48,12 @@ export default function Check({
         className="events__main__items--icon"
         onClick={handleClickSetEvent}
       />
+      <label htmlFor={name}>S'inscrire</label>
     </form>
     }
     {(!onEvent || userOnEvent ) && !(event.userid == id) &&
     <form className="custom-checkbox">
+      <p className="events__main__items--inscription_text">Vous êtes inscrit a cet évènement</p>
       <button
         onClick={handleRemove}
         name={name}

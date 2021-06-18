@@ -14,7 +14,9 @@ const initialState = {
   id: '',
   label: '',
   date: '',
-  location: '',
+  address: '',
+  number_address:'',
+  town:'',
   content: '',
   max_player: '',
 };
@@ -41,7 +43,9 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         label: action.label, 
         date: action.date, 
-        location: action.location, 
+        address: action.address, 
+        number_address: action.number_address, 
+        town: action.town, 
         content: action.content, 
         max_player: action.max_player,
       };
