@@ -19,7 +19,7 @@ class EventModel extends CoreModel {
 
     static async findEvent(){
         
-        const result = await client.query(`SELECT event.*, to_char( "event".date, 'DD-MM-YYYY HH:MM') as date,
+        const result = await client.query(`SELECT event.*,
         ARRAY_REMOVE(ARRAY_AGG("user"."id"), NULL) AS userId,
         ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
         ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
@@ -34,7 +34,7 @@ class EventModel extends CoreModel {
 
     static async findEventUpdate(id){
         
-        const result = await client.query(`SELECT event.*, to_char("event"."date", 'DD-MM-YYYY HH:MM'),
+        const result = await client.query(`SELECT event.*,
         ARRAY_REMOVE(ARRAY_AGG("user"."id"), NULL) AS userId,
         ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
         ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
@@ -50,7 +50,7 @@ class EventModel extends CoreModel {
 
     static async findEventByPk(id){
         
-        const result = await client.query(`SELECT event.*, to_char( "event".date, 'DD-MM-YYYY HH:MM') as date,
+        const result = await client.query(`SELECT event.*, 
         ARRAY_AGG("user"."id") AS userId,
         ARRAY_AGG("user"."firstname") AS firstname,
         ARRAY_AGG("user"."lastname") AS lastname
