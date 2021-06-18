@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,6 +17,8 @@ export default function Mobile({
   userId,
   isLogged,
   handleDisconnect,
+  showMessage,
+  setShowMessage,
 }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(true);
@@ -39,6 +41,12 @@ export default function Mobile({
     event.preventDefault();
     console.log('la recherche suivante se fait : ', event.target[0].value);
     handleNavBarSearch(event.target[0].value);
+  };
+  const history = useHistory();
+  const handleOnClick = () => {
+    handleDisconnect();
+    setShowMessage(!showMessage);
+    history.push('/');
   };
   const profilPath = `/profil/${userId}`;
   const classnames = toggleMenu ? 'navbar__list' : 'navbar__list navbar__list-ishidden';
@@ -78,7 +86,7 @@ export default function Mobile({
             >
               <FontAwesomeIcon icon={faUser} />  Mon Profil
             </NavLink>
-            <button type="button" className="navbar__items" onClick={handleDisconnect}>
+            <button type="button" className="navbar__items" onClick={handleOnClick}>
               <FontAwesomeIcon icon={faUser} />  Déconnexion
             </button>
           </>

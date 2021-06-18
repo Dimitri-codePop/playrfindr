@@ -14,7 +14,11 @@ export const CHANGE_VALUE_SELECT_EDIT_USER = 'CHANGE_VALUE_SELECT_EDIT_USER';
 export const DELETE_SELECT_FIELD_USER = 'DELETE_SELECT_FIELD_USER';
 export const SAVE_EDIT_USER = 'SAVE_EDIT_USER';
 export const DELETE_SELECT_FIELD_SIGNUP_USER = 'DELETE_SELECT_FIELD_SIGNUP_USER';
+export const EDIT_PASSWORD = 'EDIT_PASSWORD';
 
+export const editPassword = () => ({
+  type: EDIT_PASSWORD,
+});
 
 export const deleteSelectSignupField = (value, key) => ({
   type: DELETE_SELECT_FIELD_SIGNUP_USER,

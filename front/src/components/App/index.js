@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // == Import
 import NavBar from 'src/containers/Navbar';
 import Footer from 'src/components/Footer';
@@ -10,8 +10,9 @@ import Profil from 'src/containers/Profil';
 import Events from 'src/containers/Events';
 import PropTypes from 'prop-types';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import 'src/styles/index.scss';
+
 import './style.scss';
 import Loading from './Loading';
 // == Composant
@@ -21,7 +22,9 @@ export default function App({
   loading,
   loadDepartements,
   loadUser,
+  isLogged,
 }) {
+  const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
     loadUser();
     topConnect();
@@ -35,10 +38,16 @@ export default function App({
 
   return (
     <div className="app">
-      <NavBar />
+      <NavBar
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
+      />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home
+            showMessage={showMessage}
+            setShowMessage={setShowMessage}
+          />
         </Route>
         <Route
           exact
@@ -52,7 +61,14 @@ export default function App({
           <Jeu />
         </Route>
         <Route path="/profil/:id">
-          <Profil />
+          {isLogged ?
+            (
+              <Profil
+                showMessage={showMessage}
+                setShowMessage={setShowMessage}
+              />
+            ) : <Redirect to="/" />
+          }}
         </Route>
         <Route path="/events">
           <Events />

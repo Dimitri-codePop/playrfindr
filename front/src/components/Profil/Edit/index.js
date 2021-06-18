@@ -23,6 +23,8 @@ export default function Edit({
   changeSelectField,
   deleteSelectField,
   handleEdit,
+  showMessage,
+  setShowMessage,
 }) {
   // MODAL SETTINGS START
   Modal.setAppElement('#root');
@@ -49,10 +51,10 @@ export default function Edit({
     event.preventDefault();
     handleEdit();
     closeModal();
+    setShowMessage(!showMessage);
   };
   // select change form
   const handlechangeSelect = (event) => {
-    console.log(event.target.value, event.target.name);
     changeSelectField(event.target.value, event.target.name);
   };
   const handleSelectDelete = (event) => {
@@ -87,16 +89,19 @@ export default function Edit({
     </div>
   ));
   // Selects lists end
-  console.log(selectCat, selectThemes);
+  const refreshPage = () => {
+    window.location.reload();
+  };
   return (
     <Modal
-      bodyOpenClassName={"signup"}
+      bodyOpenClassName={"Edit Profil"}
       isOpen={modalEditOpen}
-      onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Inscription"
     >
-      <button type="button" onClick={closeModal}>close</button>
+      <button onClick={refreshPage} type="button">
+        <FontAwesomeIcon className="no-pointer" icon={faTimes} />
+      </button>
       <form className="form__login" onSubmit={handleSubmit}>
         <Field
           type="email"
@@ -142,6 +147,10 @@ export default function Edit({
           {listThemes}
         </select>
         {themesChoosen}
+        <button onClick={refreshPage} type="button">
+          Annuler
+          <FontAwesomeIcon className="no-pointer" icon={faTimes} />
+        </button>
         <button type="submit" className="form__login-button">Envoyer</button>
       </form>
     </Modal>

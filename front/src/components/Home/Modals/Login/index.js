@@ -5,8 +5,10 @@ import './style.scss';
 import Form from 'src/containers/Home/Modals/Login/Form';
 
 export default function Login({ 
-  loginIsHidden, 
+  loginIsHidden,
   setLoginIsHidden,
+  showMessage,
+  setShowMessage,
 }) {
   Modal.setAppElement('#root')
   
@@ -41,6 +43,8 @@ export default function Login({
       >
         <Form 
         closeModal={closeModal}
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
         />
       </Modal>
     </div>

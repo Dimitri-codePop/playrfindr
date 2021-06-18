@@ -6,6 +6,10 @@ import {
   FETCH_USER,
   killCurrentUser,
 } from 'src/actions/user';
+import {
+  messageLogin,
+  messageLogOut,
+} from 'src/actions/systemMessages';
 import axios from 'axios';
 
 const login = (store) => (next) => (action) => {
@@ -32,10 +36,20 @@ const login = (store) => (next) => (action) => {
           // localStorage.setItem('isLogged', isLogged);
           const dataUser = response.data;
           localStorage.setItem('UserKeysUsed', JSON.stringify(dataUser));
-          const saveUserAction = saveUser(id,token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
+          const saveUserAction = saveUser(id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
           store.dispatch(saveUserAction);
+          const message = 'Vous êtes bien connectés';
+          const isOk = true;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
         })
-        .catch((error) => console.log(`error`, error));
+        .catch((error) => {
+          console.log(`error`, error);
+          const message = 'Votre Identifiant ou Mot de passe est incorrect';
+          const isOk = false;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
+        });
       break;
     }
     case SIGN_UP: {
@@ -83,6 +97,10 @@ const login = (store) => (next) => (action) => {
     case LOGOUT: {
       localStorage.clear();
       store.dispatch(killCurrentUser());
+      const message = 'Déconnexion réussie';
+      const isOk = true;
+      const actionLogOutMessage = messageLogOut(message, isOk);
+      store.dispatch(actionLogOutMessage);
       break;
     }
     default:

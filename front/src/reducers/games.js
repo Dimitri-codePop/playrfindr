@@ -32,7 +32,6 @@ const reducer = (state = initialState, action = {}) => {
       };
     case CHANGE_THEME:
       const newThemes = addOrRemove(state.themeSearch, action.theme);
-      console.log(`newThemes`, newThemes);
       return {
         ...state,
         themeSearch: newThemes,
