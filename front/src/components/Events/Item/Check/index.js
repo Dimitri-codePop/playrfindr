@@ -10,6 +10,8 @@ export default function Check({
   event, 
   id,
   handleRemoveFromEvent,
+  handleClickModal,
+  goodModal,
 }) {
 
   const [onEvent, setOnEvent] = useState (true);
@@ -24,6 +26,10 @@ export default function Check({
     setOnEvent(!onEvent);
   };
 
+  const handleModalSetUp = (event) => {
+    handleClickModal(event);
+  };
+
 
   const handleRemove = (event) => {
     event.preventDefault();
@@ -33,7 +39,7 @@ export default function Check({
 
   return(
     <>
-    {(onEvent && !userOnEvent) &&
+    {(onEvent && !userOnEvent && !(event.firstname.length >= event.max_player) && !(event.userid == id)) &&
     <form className="custom-checkbox">
       <input 
         type="checkbox" 
@@ -42,10 +48,12 @@ export default function Check({
         className="events__main__items--icon"
         onClick={handleClickSetEvent}
       />
+      <label htmlFor={name}>S'inscrire</label>
     </form>
     }
-    {(!onEvent || userOnEvent ) &&
+    {(!onEvent || userOnEvent ) && !(event.userid == id) &&
     <form className="custom-checkbox">
+      <p className="events__main__items--inscription_text">Vous êtes inscrit a cet évènement</p>
       <button
         onClick={handleRemove}
         name={name}
@@ -53,6 +61,17 @@ export default function Check({
         Se désinscrire
       </button>
     </form>
+    }
+    {(event.firstname.length >= event.max_player && !userOnEvent) &&
+    <p className="events__main__items--full">Evènement complet</p>
+    }
+    {(event.userid == id) &&
+    <a 
+      className="events__main__items--setup"
+      onClick={handleModalSetUp}
+      id={event.id}
+    >
+        Gérer mon event</a>
     }
     </>
   );

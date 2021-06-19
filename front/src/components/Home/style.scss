@@ -31,12 +31,15 @@
     font-weight: bold;
     color: v.$light;
     padding: 1rem 0;
+    &--content {
+      text-shadow: 0 0 5px black;
+    }
   }
   &__subtitle {
     display: block;
     padding: 1rem 0.3rem;
     font-size: 1rem;
-    text-shadow: 2px 2px 1px rgba(100,100,100,0.7);
+    text-shadow: 1px 2px 1px v.$grey;
     font-weight: lighter;
   }
   &__top {
@@ -69,6 +72,8 @@
   width: 130px;
   height: 2rem;
   border-radius: 15px;
+  box-shadow: 0 0 5px v.$grey;
+  font-size: 1.5rem;;
 }
 
 .btn-login {

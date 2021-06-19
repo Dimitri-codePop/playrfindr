@@ -7,6 +7,9 @@ import { fetchProfil } from 'src/actions/user';
 const mapStateToProps = (state) => ({
   user: state.user.profil,
   loading: state.user.loading,
+  isLogged: state.user.isLogged,
+  message: state.systemMessages.message,
+  isOk: state.systemMessages.isOk,
 });
 
 const mapDispatchToProps = (dispatch, ownprops) => ({

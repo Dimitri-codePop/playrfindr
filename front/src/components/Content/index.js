@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Edit from 'src/containers/Profil/Edit';
+import EditPassword from 'src/containers/Profil/EditPassword';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { getAge } from 'src/selectors/date';
 import './style.scss';
 
-export default function Content({ user, paramsId}) {
+export default function Content({
+  user,
+  paramsId,
+  showMessage,
+  setShowMessage,
+}) {
   const [currentUser, setCurrentUser] = useState(true);
   const [modalEditOpen, setModalEditOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const {
     theme,
     category,
@@ -41,6 +48,9 @@ export default function Content({ user, paramsId}) {
   const handleModalEdit = () => {
     setModalEditOpen(!modalEditOpen);
   };
+  const handleModalEditPassword = () => {
+    setIsOpen(!isOpen);
+  };
   // END GESTION EDIT
   return (
     <>
@@ -57,7 +67,12 @@ export default function Content({ user, paramsId}) {
             <p className="profil__dpt__title">Département</p>
             <p className="profil__dpt__content">{department}</p>
           </div>
-          <button type="button" onClick={handleModalEdit} className="btn btn-login" id="modal_login">Edit</button>
+          {currentUser && (
+            <div className="profil__btn">
+              <button type="button" onClick={handleModalEdit} className="btn profil__btn" id="modal_login">Edit</button>
+              <button type="button" onClick={handleModalEditPassword} className="btn profil__btn" id="modal_login">Changer mot de passe</button>
+            </div>
+          )}
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">
             <div>
@@ -74,6 +89,16 @@ export default function Content({ user, paramsId}) {
           modalEditOpen={modalEditOpen}
           setModalEditOpen={setModalEditOpen}
           {...user}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+        />
+      )}
+      {isOpen && (
+        <EditPassword
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
         />
       )}
     </>
