@@ -10,6 +10,12 @@ GET http://localhost:4000/api/
 ### Récupération de tout les jeux avec les themes et catégories
 GET https://playrfindr.herokuapp.com/api/jeux
 
+### Récupération de tout les jeux avec les themes et catégories
+GET http://localhost:4000/api/jeux
+
+### Récupération de tout les jeux
+GET http://localhost:4000/api/games
+
 ### Récupération de tout les jeux
 GET https://playrfindr.herokuapp.com/api/games
 
@@ -61,7 +67,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNl
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQwNzYwLCJleHAiOjE2MjM5NDQzNjB9.1kV8yWte0rnj8YMFDJg6zqouTBbEvbhHGA0nbGUzqpY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU2OTcsImV4cCI6MTYyNDEwOTI5N30.CyjsN_f0CE_mYrGU2jbG0fBbVQWGb-S3BuyGk5-Ioig
 
 ### Ajout d'un jeu a une collection
 POST http://localhost:4000/api/profil/3/collection/1
@@ -76,13 +82,12 @@ Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Martin",
-    "email": "dimitri@gmail.com",
+    "lastname": "Mart",
+    "email": "dimiti@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
     "department_id": 36,
-    "is_admin": true,
     "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
@@ -91,14 +96,13 @@ POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Michel",
-    "lastname": "Maite",
-    "email": "jabaaas@gmail.com",
-    "password": "36Flip93",
-    "passwordConfirm": "36Flip93",
-    "birthdate": "1995-07-18",
-    "department_id": 76,
-    "is_admin": true,
+     "firstname": "Dimitri",
+    "lastname": "Mart",
+    "email": "dimiti@gmail.com",
+    "password": "123456",
+    "passwordConfirm": "123456",
+    "birthdate": "1995-07-19",
+    "department_id": 36,
     "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
@@ -151,8 +155,8 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "jabaaas@gmail.com",
-    "password": "12345689"
+    "email": "dimiti@gmail.com",
+    "password": "123456"
  
 }
 
@@ -189,11 +193,11 @@ Content-Type: application/json
 
 ### Update d'un utilisateur
 PATCH http://localhost:4000/api/profil/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzY4ODMsImV4cCI6MTYyNDA0MDQ4M30.Kfo2GwI3BhmVtiWmRIa_F4q6XKgWg41Y3iopd-wQpFQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU5MTYsImV4cCI6MTYyNDEwOTUxNn0.52YYxK2GHThIXUayjEWD8QFw3q8PMN_ol67LosT6GE4
 Content-Type: application/json
 
 {
-   "category_id": [4]
+   "is_admin": false
 }
 
 ### Suppression d'un utilisateur a un event

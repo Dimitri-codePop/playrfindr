@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DROP VIEW user_collection;
+--DROP VIEW user_collection;
 
 
 COMMIT;

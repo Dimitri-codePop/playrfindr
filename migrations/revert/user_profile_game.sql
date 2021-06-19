@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP VIEW user_game ;
+--DROP VIEW user_game ;
 
 COMMIT;

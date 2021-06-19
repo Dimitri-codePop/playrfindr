@@ -1,13 +1,25 @@
 const express = require('express');
 
+
+const schemas = require('../validations/schema');
+const adminController = require('../controllers/adminController');
+const authorisationAdmin = require ('../middleware/authMiddlewarelv2');
+const validate = require('../validations/validate');
+
+
 const router = express.Router();
 
 
-const adminController = require('../controllers/adminController');
 
 
 router.route('/jeux')
-    .get(adminController.getAll);
-/* router.route('/jeux/:id')
-    .post(adminController.addGames); */
+    .get(authorisationAdmin, adminController.getAllGames)
+    .post( adminController.addGames);
+
+
+router.route('/editor')
+    .get( adminController.getAllEditor)
+    .post( adminController.addEditors);
+
+
 module.exports = router;

@@ -1,6 +1,61 @@
 ### Page d'acceuil
 GET http://localhost:4000/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDEwNzAzNSwiZXhwIjoxNjI0MTEwNjM1fQ.UVUhDwVDuzLbrr_Mkcov-ybj71CWk57z1E2sLJ8bbYw
 
-### Page d'acceuil
+
+
+### Insert  des jeux
+POST  http://localhost:4000/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Wendigo",
+    "duration": 10,
+    "player_min": 2,
+    "player_max": 6,
+    "age_min": 6,
+    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
+    "year": 2017,
+    "describe":"",
+    "editor_id": 9
+}
+
+
+
+
+### Page des Editors
+GET  http://localhost:4000/admin/editor
+
+
+### Insert  des editors
+POST  http://localhost:4000/admin/editor
+Content-Type: application/json
+
+{
+    "label": "Artipia Games"
+}
+
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
 
+
+
+### Insert  des jeux
+POST  https://playrfindr.herokuapp.com/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Dixit",
+    "duration": "30",
+    "player_min": "3",
+    "player_max": "6",
+    "age_min": "8",
+    "picture":"https://zupimages.net/up/21/24/3io7.png",
+    "year":"2009",
+    "describe":"Dixit est un jeu de société qui fait appel à l'imagination. Il se joue en famille et favorise la créativité",
+    "editor_id": 2
+}
