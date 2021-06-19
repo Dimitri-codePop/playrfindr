@@ -1,4 +1,7 @@
 ### Page d'acceuil
+GET http://localhost:4000/admin/
+
+### Page des jeux
 GET http://localhost:4000/admin/jeux
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDEwNzAzNSwiZXhwIjoxNjI0MTEwNjM1fQ.UVUhDwVDuzLbrr_Mkcov-ybj71CWk57z1E2sLJ8bbYw
 
@@ -6,6 +9,24 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4i
 
 ### Insert  des jeux
 POST  http://localhost:4000/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Wendigo",
+    "duration": 10,
+    "player_min": 2,
+    "player_max": 6,
+    "age_min": 6,
+    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
+    "year": 2017,
+    "describe":"",
+    "editor_id": 9
+}
+
+
+### Update  des jeux
+Patch  http://localhost:4000/admin/jeux/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
 Content-Type: application/json
 
@@ -34,6 +55,47 @@ Content-Type: application/json
 
 {
     "label": "Artipia Games"
+}
+
+
+### Page des themes
+GET  http://localhost:4000/admin/theme
+
+
+### Insert  des themes
+POST  http://localhost:4000/admin/theme
+Content-Type: application/json
+
+{
+    "label": "Fantaisie"
+}
+
+
+### Page des category
+GET  http://localhost:4000/admin/category
+
+
+### Insert  des categories
+POST  http://localhost:4000/admin/category
+Content-Type: application/json
+
+{
+    "label": "Fantaisie"
+}
+
+
+### Page des auteur
+GET  http://localhost:4000/admin/author
+
+
+### Insert  des auteurs
+POST  http://localhost:4000/admin/author
+Content-Type: application/json
+
+{
+    "firstname": "Regis",
+    "lastname": "Bonnessée"
+
 }
 
 -------------------------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 const GameModel = require('../models/gameModel');
 
+
 module.exports = {
     async getAll(_, res, next) {
         try {
@@ -42,6 +43,46 @@ module.exports = {
         } catch (error) {
             console.trace(error);
             res.json({ error });
+        }
+    },
+    async addGames(req, res){
+        try {
+            const games = new GameModel(req.body);
+
+            await games.insert();
+            
+            return res.json({games})
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({error});
+        }
+    },
+
+    async updateGames(req, res){
+        try {
+            const game = await GameModel.findByPk(req.params.id);
+
+            game.data = req.body;
+
+            await game.update();
+
+            res.status(200).json({data: game.dataValues})
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({error});
+        }
+    },
+    
+    async deleteGames(req, res){
+        try {
+            const game = await GameModel.findByPk(req.params.id);
+
+            await game.delete();
+
+            res.status(200).json({message: `Jeux supprimé`})
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({error});
         }
     }
 }
