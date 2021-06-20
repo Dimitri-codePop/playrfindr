@@ -51,7 +51,7 @@ export default function Check({
       <label htmlFor={name}>S'inscrire</label>
     </form>
     }
-    {(!onEvent || userOnEvent ) && !(event.userid == id) &&
+    {(!onEvent || userOnEvent ) && !(event.user_id == id) &&
     <form className="custom-checkbox">
       <p className="events__main__items--inscription_text">Vous êtes inscrit a cet évènement</p>
       <button
@@ -65,7 +65,7 @@ export default function Check({
     {(event.firstname.length >= event.max_player && !userOnEvent) &&
     <p className="events__main__items--full">Evènement complet</p>
     }
-    {(event.userid == id) &&
+    {(event.user_id == id) &&
     <a 
       className="events__main__items--setup"
       onClick={handleModalSetUp}

@@ -1,13 +1,14 @@
-import React from 'react';
-import Proptypes from 'prop-types';
+import React from 'react'
+import Proptypes from 'prop-types'
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import moment from 'moment';
 
 import './style.scss';
 
-export default function FormEvent({
-  handleEndModal,
+export default function EditEvent({
+  handleEditEvent,
   label,
   date,
   address,
@@ -16,76 +17,82 @@ export default function FormEvent({
   content,
   max_player,
   changefieldEvent,
-  handleNewEvent,
+  handleClickEndEditModal,
+  id,
 }) {
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleNewEvent();
-    handleEndModal();
+    handleEditEvent(id);
+    handleClickEndEditModal();
   };
+
+  const handleClickClose = () => {
+    handleClickEndEditModal();
+  };
+
+  moment.locale('fr')
+  const stillUtc = moment.utc(date).toDate();
+  console.log(stillUtc)
+  const dateSetUp = moment(stillUtc).local().format("yyyy-MM-DDTHH:mm");
 
   return(
     <>
         <form onSubmit={handleSubmit}>
-          <h1>Créer un évènement</h1>
+          <h1>Modifier l'évènement</h1>
           <Field
             type="text"
             name="label"
-            placeholder="Titre de l'évènement"
             onChange={changefieldEvent}
+            placeholder="Titre de l'évènement"
             value={label}
           />
           <Field
             type="datetime-local"
             name="date"
-            placeholder="Date/Heure"
             onChange={changefieldEvent}
-            value={date}
+            value={dateSetUp}
           />
           <Field
             type="text"
             name="address"
-            placeholder="Adresse"
             onChange={changefieldEvent}
+            placeholder="Adresse"
             value={address}
           />
           <Field
             type="text"
             name="number_address"
-            placeholder="Code Postal"
             onChange={changefieldEvent}
+            placeholder="Code Postal"
             value={number_address}
           />
           <Field
             type="text"
             name="town"
-            placeholder="Ville"
             onChange={changefieldEvent}
+            placeholder="Ville"
             value={town}
           />
           <Field
             type="number"
             name="max_player"
-            placeholder="Nombre de joueurs max"
             onChange={changefieldEvent}
+            placeholder="Nombre max de joueurs"
             value={max_player}
           />
           <Field
             type="text"
             name="content"
-            placeholder="Description de l'évènement..."
             onChange={changefieldEvent}
+            placeholder="Description de l'évènement..."
             value={content}
           />
-          <button type="submit">Créer</button>
-          <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
+          <button type="submit">Valider</button>
+          <FontAwesomeIcon onClick={handleClickClose} className="close_modal" icon={faTimes} />
         </form>
     </>
   );
 }
 
-FormEvent.propTypes = {};
-
-        
+EditEvent.propTypes = {};

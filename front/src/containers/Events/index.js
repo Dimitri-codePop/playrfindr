@@ -6,6 +6,7 @@ import { fetchEvents} from 'src/actions/events';
 const mapStateToProps = (state) => ({
   events: state.events.events,
   loading: state.events.loading,
+  trigger: state.events.trigger,
 });
 
 const mapDispatchToProps = (dispatch) => ({
