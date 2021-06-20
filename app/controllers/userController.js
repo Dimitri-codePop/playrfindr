@@ -242,5 +242,21 @@ module.exports = {
             console.trace(error);
             res.json({ error });
         }
-    }
+    },
+    async deleteProfilAdmin(req, res, next){
+        try {
+            
+            const user = await UserModel.findByPk(req.params.id);
+            if(!user){
+                return next();
+            }
+
+            await user.delete();
+
+            return res.json({message: `User  delete`});
+        } catch (error) {
+            console.trace(error);
+            response.json({ error });
+        }
+    },
 };

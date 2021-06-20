@@ -3,7 +3,7 @@ GET http://localhost:4000/admin/
 
 ### Page des jeux
 GET http://localhost:4000/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDEwNzAzNSwiZXhwIjoxNjI0MTEwNjM1fQ.UVUhDwVDuzLbrr_Mkcov-ybj71CWk57z1E2sLJ8bbYw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
 
 
 
@@ -161,16 +161,20 @@ DELETE   http://localhost:4000/admin/category/1
 ### Page des users
 GET http://localhost:4000/admin/users
 
+
+### Delete des users
+DELETE  http://localhost:4000/admin/users/4
+
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
 ### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
 
 
 ### Insert  des jeux
 POST  https://playrfindr.herokuapp.com/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
 Content-Type: application/json
 
 {
