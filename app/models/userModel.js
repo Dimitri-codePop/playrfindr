@@ -16,10 +16,15 @@ class UserModel extends CoreModel {
         'category_id'
     ];
 
-    static tableName = 'user';
+    static tableName = "user";
 
     constructor(obj){
         super(obj);
+    }
+
+    static async findAllUser(){
+        const result = await client.query(`SELECT * FROM "user" `);
+        return result.rows;
     }
 
     static async findOne(email){

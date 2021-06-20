@@ -113,10 +113,10 @@ router.route('/messagerie/:id')
 router.route('/message/:id')
     .delete(authorisation, messageController.deleteMessage); 
 
-router.get('/games', gameController.getAll);
+ router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);
-router.get('/categories', categoryController.getAll);
+router.get('/categories', categoryController.getAll); 
 
 router.use(errorController.ressourceNotFound);
 module.exports = router;
