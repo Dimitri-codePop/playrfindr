@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Navlink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
-import Content from './Content';
+import Jeux from './Content/Jeux';
 import './style.scss';
 
 export default function Admin(  
@@ -10,6 +10,13 @@ export default function Admin(
     loadTypes,
     loadDepartements,
     loadUsers,
+    games,
+    categories,
+    themes,
+    users,
+    events,
+    editors,
+
   }) {
   useEffect(() => {
     loadUsers();
@@ -23,6 +30,7 @@ export default function Admin(
   </div>
   <div className="admin__content">
   <Switch>
+
     <Route 
       exact
       path="/admin/home"
@@ -41,7 +49,7 @@ export default function Admin(
       exact
       path="/admin/games"
     >
-      Jeux
+      <Jeux games={games}/>
     </Route>
     <Route
     exact

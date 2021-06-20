@@ -6,11 +6,12 @@ import './style.scss';
 export default function Navbar() {
     return (
     <>
+        <h1> Sommaire </h1>
       <NavLink
         exact
         to="/admin/users"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="users"
       >
         Utilisateurs
@@ -18,8 +19,8 @@ export default function Navbar() {
       <NavLink
         exact
         to="/admin/games"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="games"
       >
         Jeux
@@ -27,8 +28,8 @@ export default function Navbar() {
       <NavLink
       exact
       to="/admin/departments"
-      className="navbar__items"
-      activeClassName="navbar__items-active"
+      className="admin__navbar__items"
+      activeClassName="admin__navbar__items-active"
       key="departments"
       >
         Départements
@@ -36,8 +37,8 @@ export default function Navbar() {
       <NavLink 
         exact 
         to="/admin/themes"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="themes"
       >
         Thèmes
@@ -45,8 +46,8 @@ export default function Navbar() {
       <NavLink
         exact
         to="/admin/categories"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="categories"
       >
         Catégories
@@ -54,8 +55,8 @@ export default function Navbar() {
       <NavLink
         exact
         to="/admin/editors"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="editors"
       >
         Editeurs
@@ -63,8 +64,8 @@ export default function Navbar() {
       <NavLink 
         exact 
         to="/admin/events"
-        className="navbar__items"
-        activeClassName="navbar__items-active"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
         key="events"
       >
         Evénements
