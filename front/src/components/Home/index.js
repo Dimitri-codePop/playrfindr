@@ -53,7 +53,7 @@ export default function Home({
       <div className="home__accueil__container">
         <img src={accueil} className="home__accueil-img" alt="accueil avec des des et un pion du jeu d'échec" />
         <div className="home__title">
-          <span className="">Retrouvez-vous et jouer à vos jeux favoris !</span>
+          <span className="home__title--content">Retrouvez-vous et jouer à vos jeux favoris !</span>
           <span className="home__subtitle">
             PlayRfindR est une plateforme qui facilite la mise en relation de plusieurs 
             jouers afin qu'ils se retrouvent autour d'un jeu de société

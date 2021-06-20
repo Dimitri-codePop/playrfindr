@@ -157,3 +157,10 @@ input,
 button {
   outline: 0;
 }
+
+
+button, input, label, select {
+  font-family : inherit;
+  font-size: 1em;
+}
+

@@ -27,6 +27,7 @@ export default function Filter({
   const themesList = themes.map((theme) => (
       <div key={theme.id} className="games__filter__results__items">
         <label 
+          className="games__filter__results__label" 
           htmlFor={theme.label}
         >
           <input 
@@ -43,6 +44,7 @@ export default function Filter({
   const categoryList = categories.map((cat) => (
       <div key={cat.id} className="games__filter__results__items">
         <label 
+          className="games__filter__results__label" 
           htmlFor={cat.label}
         >
           <input 

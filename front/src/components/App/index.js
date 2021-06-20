@@ -11,6 +11,8 @@ import Events from 'src/containers/Events';
 import PropTypes from 'prop-types';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import 'src/styles/index.scss';
+
 import './style.scss';
 import Loading from './Loading';
 // == Composant
