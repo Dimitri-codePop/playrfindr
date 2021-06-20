@@ -51,6 +51,7 @@ const profil = (store) => (next) => (action) => {
         lastname: state.user.profil.lastname,
         email: state.user.profil.email,
         department_id: state.user.profil.department,
+        birthdate: state.user.profil.birthdate,
         category_id: goodCat,
         theme_id: goodTheme,
       }, {
