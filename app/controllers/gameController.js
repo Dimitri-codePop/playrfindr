@@ -58,9 +58,13 @@ module.exports = {
         }
     },
 
-    async updateGames(req, res){
+    async updateGames(req, res, next){
         try {
             const game = await GameModel.findByPk(req.params.id);
+
+            if(!game){
+                return next();
+            }
 
             game.data = req.body;
 
@@ -84,5 +88,34 @@ module.exports = {
             console.log(error);
             res.status(500).json({error});
         }
-    }
+    },
+    async getAllGamesAndThemesAndCatAndAuthor(_, res, next){
+        try {
+            const games = await GameModel.findAllGamesWithCatAndThemeAndAuthor();
+
+            if(!games){
+                return next();
+            }
+            
+            res.json({ data: games});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
+
+    async getAllGamesAndThemesAndCat(_, res, next){
+        try {
+            const games = await GameModel.findAllGamesWithCatAndTheme();
+
+            if(!games){
+                return next();
+            }
+            
+            res.json({ data: games.map(game => game.dataValues)});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
 }

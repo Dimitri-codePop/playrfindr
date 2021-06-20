@@ -9,6 +9,7 @@ const validate = require('../validations/validate');
 const gameController = require('../controllers/gameController');
 const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
+const userController = require('../controllers/userController');
 const authorController = require('../controllers/authorController');
 
 const router = express.Router();
@@ -16,8 +17,11 @@ const router = express.Router();
 
 router.get('/', /* authorisationAdmin, */ adminController.home)
 
+router.route('/users')
+    .get(/* authorisationAdmin, */ userController.getAll);
+
 router.route('/jeux')
-    .get(/* authorisationAdmin, */ gameController.getAll)
+    .get(/* authorisationAdmin, */ gameController.getAllGamesAndThemesAndCatAndAuthor)
     .post(/* authorisationAdmin, */ gameController.addGames);
 
 router.route('/jeux/:id')
@@ -57,5 +61,6 @@ router.route('/author')
 router.route('/author/:id')
     .patch(/* authorisationAdmin, */ authorController.updateAuthor)
     .delete(/* authorisationAdmin, */ authorController.deleteAuthor);
+
 
 module.exports = router;

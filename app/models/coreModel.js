@@ -46,7 +46,8 @@ class CoreModel {
      * @returns {object[]} Liste d'es 'instances
      */
     static async findAll() {
-        const result = await client.query(`SELECT * FROM ${this.tableName} WHERE deleted_at IS NULL`);
+        console.log(this.tableName);
+        const result = await client.query(`SELECT * FROM ${this.tableName}`);
         
         const instanceList = [];
 
@@ -101,7 +102,7 @@ class CoreModel {
         };
 
         const result = await client.query(preparedQuery);
-        console.log(result.rows);
+    
         this.dataValues = result.rows[0];
 
     };

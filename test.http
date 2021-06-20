@@ -48,7 +48,7 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5MDM3OSwiZXhwIjoxNjI0MTkzOTc5fQ.u3B9OHCsECx-brqLKzi5Dqw8RddWmP9YURkpBBZYApA
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
@@ -98,12 +98,12 @@ Content-Type: application/json
 {
      "firstname": "Dimitri",
     "lastname": "Mart",
-    "email": "dimiti@gmail.com",
+    "email": "dimitraie@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
     "department_id": 36,
-    "theme_id": [1, 6, 2],
+    "theme_id": [6, 2],
     "category_id": [2, 9, 12]
 }
 

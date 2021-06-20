@@ -81,6 +81,27 @@ class GameModel extends CoreModel {
         return result.rows[0];
     }
 
+
+    static async findAllGamesWithCatAndThemeAndAuthor(){
+        const result = await client.query(`
+		SELECT  DISTINCT "game".*,
+        ARRAY_AGG(distinct "category"."label") as category_all,
+        ARRAY_AGG(distinct "theme"."label") as theme_all,
+		ARRAY_AGG( distinct "author"."firstname") as firstname,
+		ARRAY_AGG( distinct "author"."lastname") as lastname,
+		"editor"."label" as editor
+        FROM "game" 
+        JOIN "game_has_theme" ON "game"."id" = "game_has_theme"."game_id"
+        JOIN "theme" ON "theme"."id" = "game_has_theme"."game_id"
+        JOIN "game_has_category" ON"game"."id" = "game_has_category"."game_id"
+        JOIN "category" ON "category"."id" = "game_has_category"."category_id"
+		JOIN "author_has_game" ON "game"."id" = "author_has_game"."game_id"
+		JOIN "author" ON "author"."id" = "author_has_game"."author_id"
+		JOIN "editor" ON "game"."editor_id" = "editor"."id"
+        GROUP BY "game"."id", "editor"."label";`);
+        return result.rows;
+    }
+
 }
 
 module.exports = GameModel;

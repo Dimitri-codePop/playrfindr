@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require ('../services/jwt');
 const UserModel = require ('../models/userModel');
+const { getAll } = require('./gameController');
 
 
 module.exports = {
@@ -227,6 +228,16 @@ module.exports = {
         try {
             const user = await UserModel.deleteGames(req.user.userId, req.params.game_id);
             return res.json({message: 'Jeux enlevé', user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
+    async getAll(_, res, next){
+        try {
+            const users = await UserModel.findAllUser();
+            console.log(users);
+            res.json({ data: users.map(user => user)});
         } catch (error) {
             console.trace(error);
             res.json({ error });

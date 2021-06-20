@@ -17,3 +17,5 @@ function_add_games 2021-06-18T15:04:55Z Dimitri Martin <dimmartin32@gmail.com> #
 update_event 2021-06-18T15:34:27Z Dimitri Martin <dimmartin32@gmail.com> # Update d'un event
 add_user2 2021-06-19T12:45:34Z Dimitri Martin <dimmartin32@gmail.com> # Update de la fonction d insert un user
 add_author 2021-06-19T19:09:10Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de la fonction d ajout d'auteur
+update_editor 2021-06-20T10:56:29Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de le fonction update d un editor
+add_game 2021-06-20T11:06:32Z Dimitri Martin <dimmartin32@gmail.com> # Amélioration de la fonction add_game
