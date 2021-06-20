@@ -42,6 +42,7 @@ module.exports = {
         try {
             const event = await EventModel.findEvent();
 
+
             if(!event){
                 return res.status(401).json({error: `Cet événement n'existe pas`})
             }            
@@ -87,7 +88,6 @@ module.exports = {
                 
                 return res.status(404).json({error: `Vous n'avez pas l'autorisation d'enlever cet evenement`})
             } 
-    
             const remove = await EventModel.deleteEvent(goodUser,req.params.id);
            
             return res.status(200).json({data: 'Event supprimé', remove});
@@ -96,5 +96,29 @@ module.exports = {
             console.trace(error);
             res.json({ error });
         }
+    },
+
+
+    async updateEvent(req, res, next) {
+        try {
+
+            const event = await EventModel.findByPk(req.params.id);
+
+            if(!event){
+                return next();
+            }
+        
+
+            await event.update(req.body);
+             
+            const eventUpdate = await EventModel.findByPk(req.params.id);
+            
+            return res.status(200).json({data: eventUpdate});
+            
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+        
     }
 }

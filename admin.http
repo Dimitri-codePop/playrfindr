@@ -1,0 +1,186 @@
+### Page d'acceuil
+GET http://localhost:4000/admin/
+
+### Page des jeux
+GET http://localhost:4000/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDEwNzAzNSwiZXhwIjoxNjI0MTEwNjM1fQ.UVUhDwVDuzLbrr_Mkcov-ybj71CWk57z1E2sLJ8bbYw
+
+
+
+### Insert  des jeux
+POST  http://localhost:4000/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Saboteur",
+    "duration": 30,
+    "player_min": 1,
+    "player_max": 2,
+    "age_min": 8,
+    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
+    "year": 2017,
+    "describe":"",
+    "editor_id": 6,
+    "author_id": [1],
+    "theme_id": [2],
+    "category_id": [6]
+}
+
+
+### Update  des jeux
+Patch  http://localhost:4000/admin/jeux/60
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Saboteur",
+    "duration": 30,
+    "player_min": 1,
+    "player_max": 2,
+    "age_min": 8,
+    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
+    "year": 2017,
+    "describe":"",
+    "editor_id": 1
+}
+
+### Delete  des jeux
+DELETE http://localhost:4000/admin/jeux/60
+
+
+### Page des Editors
+GET  http://localhost:4000/admin/editor
+
+
+### Insert  des editors
+POST  http://localhost:4000/admin/editor
+Content-Type: application/json
+
+{
+    "label": "Artipia Games"
+}
+
+### Update  des editor
+Patch  http://localhost:4000/admin/editor/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Amigo"
+}
+
+### Delete  des editor
+DELETE   http://localhost:4000/admin/editor/1
+
+
+
+### Page des themes
+GET  http://localhost:4000/admin/theme
+
+
+### Insert  des themes
+POST  http://localhost:4000/admin/theme
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+### Update  des editor
+Patch  http://localhost:4000/admin/theme/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+### Delete  des themes
+DELETE   http://localhost:4000/admin/theme/1
+
+
+
+### Page des category
+GET  http://localhost:4000/admin/category
+
+
+### Insert  des categories
+POST  http://localhost:4000/admin/category
+Content-Type: application/json
+
+{
+    "label": "Fantaisie"
+}
+
+### Update  des category
+Patch  http://localhost:4000/admin/category/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+
+### Delete  des category
+DELETE   http://localhost:4000/admin/category/1
+
+
+### Page des auteur
+GET  http://localhost:4000/admin/author
+
+
+### Insert  des auteurs
+POST  http://localhost:4000/admin/author
+Content-Type: application/json
+
+{
+    "firstname": "Regis",
+    "lastname": "Bonnessée"
+
+}
+
+### Update  des aueurs
+Patch  http://localhost:4000/admin/author/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "firstname": "Regis",
+    "lastname": "Bonnessée"
+}
+
+
+### Delete  des category
+DELETE   http://localhost:4000/admin/category/1
+
+
+
+
+### Page des users
+GET http://localhost:4000/admin/users
+
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+### Page des jeux
+GET  https://playrfindr.herokuapp.com/admin/jeux
+
+
+
+### Insert  des jeux
+POST  https://playrfindr.herokuapp.com/admin/jeux
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Dixit",
+    "duration": "30",
+    "player_min": "3",
+    "player_max": "6",
+    "age_min": "8",
+    "picture":"https://zupimages.net/up/21/24/3io7.png",
+    "year":"2009",
+    "describe":"Dixit est un jeu de société qui fait appel à l'imagination. Il se joue en famille et favorise la créativité",
+    "editor_id": 2
+}

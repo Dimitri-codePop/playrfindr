@@ -10,6 +10,12 @@ GET http://localhost:4000/api/
 ### Récupération de tout les jeux avec les themes et catégories
 GET https://playrfindr.herokuapp.com/api/jeux
 
+### Récupération de tout les jeux avec les themes et catégories
+GET http://localhost:4000/api/jeux
+
+### Récupération de tout les jeux
+GET http://localhost:4000/api/games
+
 ### Récupération de tout les jeux
 GET https://playrfindr.herokuapp.com/api/games
 
@@ -21,15 +27,15 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzQ5MjMsImV4cCI6MTYyNDAzODUyM30._FATRZyaMSM1aRE43d3Kl8o4gzZjM9JTXeyFC9cRK5I
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM4Mzg3LCJleHAiOjE2MjM5NDE5ODd9.iFOHx0TJRPZ9ot6rRU4p0uLYdzymrm7FB3qDNERIdEY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwNDA0OTYsImV4cCI6MTYyNDA0NDA5Nn0.HxRwQWNWWYa3RtuJNyDPOvAULffDSj6bTsSN5PHELZ0
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODM2MTc0LCJleHAiOjE2MjM4Mzk3NzR9.LWjzgMNE_QtCX8XWmtOq5Sd0WdC6poAThX2L-GEQKXs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAzNzMzLCJleHAiOjE2MjQwMDczMzN9.o8YTOoHcAb4UhruWYO93AAl0BNzDJR8Kcby-sLf789w
 
 ### Récupération des départements
 GET http://localhost:4000/api/departements
@@ -42,18 +48,18 @@ GET https://playrfindr.herokuapp.com/api/jeu/1
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODMyMDkzLCJleHAiOjE2MjM4MzU2OTN9.4WGue_sQLGahpuD3e0pQ3_E8HTlz3KLLCoH0NC5LluQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5MDM3OSwiZXhwIjoxNjI0MTkzOTc5fQ.u3B9OHCsECx-brqLKzi5Dqw8RddWmP9YURkpBBZYApA
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/4
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4MDc2LCJleHAiOjE2MjM4NjE2NzZ9.Tt6eIh_eX6WE281TllBVujl8-lb-UcjDDu9Szd6nlAs
+GET https://playrfindr.herokuapp.com/api/profil/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
 
 ### Récupération d'un utilisateur
-GET http://localhost:4000/api/profil/75
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzODU4NDc3LCJleHAiOjE2MjM4NjIwNzd9.WW0lwS1NrV-rCaMMlXPNgCi2qKQ_orBP-FYCP7vrcgI
+GET http://localhost:4000/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzY4ODMsImV4cCI6MTYyNDA0MDQ4M30.Kfo2GwI3BhmVtiWmRIa_F4q6XKgWg41Y3iopd-wQpFQ
 
 ### Récupération de la collection d'un utilisateur
 GET https://playrfindr.herokuapp.com/api/profil/3/collection
@@ -61,7 +67,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNl
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQwNzYwLCJleHAiOjE2MjM5NDQzNjB9.1kV8yWte0rnj8YMFDJg6zqouTBbEvbhHGA0nbGUzqpY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU2OTcsImV4cCI6MTYyNDEwOTI5N30.CyjsN_f0CE_mYrGU2jbG0fBbVQWGb-S3BuyGk5-Ioig
 
 ### Ajout d'un jeu a une collection
 POST http://localhost:4000/api/profil/3/collection/1
@@ -76,13 +82,12 @@ Content-Type: application/json
 
 {
     "firstname": "Dimitri",
-    "lastname": "Guillon",
-    "email": "guillon@gmail.com",
+    "lastname": "Mart",
+    "email": "dimiti@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
-    "birthdate": "1995-07-18",
+    "birthdate": "1995-07-19",
     "department_id": 36,
-    "is_admin": true,
     "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
@@ -91,44 +96,47 @@ POST http://localhost:4000/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Dimitri",
-    "lastname": "Maite",
-    "email": "gimguillon@gmail.com",
-    "password": "36Flip93",
-    "passwordConfirm": "36Flip93",
-    "birthdate": "1995-07-18",
-    "department_id": 76,
-    "is_admin": true,
-    "theme_id": [1, 6, 2],
+     "firstname": "Dimitri",
+    "lastname": "Mart",
+    "email": "dimitraie@gmail.com",
+    "password": "123456",
+    "passwordConfirm": "123456",
+    "birthdate": "1995-07-19",
+    "department_id": 36,
+    "theme_id": [6, 2],
     "category_id": [2, 9, 12]
 }
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0MTU0LCJleHAiOjE2MjM5NDc3NTR9.KUpDlcGGCLNjqx5VBoFKrLalFWKI2MkhhuObBMc6hck
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI4MDMsImV4cCI6MTYyNDAzNjQwM30.FTz3R8jvtEeACbwqXDOTJmxIjJgwexU9BHldelARFSU
 Content-Type: application/json
 
 {
     "label": "Partie de Mysterium",
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
-    "location": "84, rue de la monnaie 59800 Lille",
+    "number_address": 84,
+    "address": "rue de la bicyclette",
+    "town": "Marseille",
     "max_player": 7,
-    "user_id": 67
+    "user_id": 2
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTI5NzI2LCJleHAiOjE2MjM5MzMzMjZ9.-T4qiIagRaf_yWnw9RqVEcini9qwm5NncY5mmk4blq0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
 Content-Type: application/json
 
 {
-    "label": "Partie de Mysterium",
-    "content": "Petite partie de Mysterium",
-    "date": "2021-09-12",
-    "location": "84, rue de la monnaie 59800 Lille",
+   "label": "Partie de Cyclades",
+    "content": "Petite partie de Cyclades",
+    "date": "2021-09-15",
+    "number_address": 30000,
+    "address": "35 rue de la moto",
+    "town": "Nimes",
     "max_player": 7,
-    "user_id": 37
+    "userid": 2
 }
 
 
@@ -137,8 +145,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "a@a.com",
-    "password": "coucou"
+    "email": "dimitri@gmail.com",
+    "password": "123456"
  
 }
 
@@ -147,27 +155,50 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "guillon@gmail.com",
-    "password": "36Flip93"
+    "email": "dimiti@gmail.com",
+    "password": "123456"
  
 }
 
-### Ajout d'un utilisateur a un event
-POST http://localhost:4000/api/event/41
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM5MjUwLCJleHAiOjE2MjM5NDI4NTB9.9iFSH_5IANXEBFw_EpW7mC7JP9PJKkkmMv7zgA6gd8E
 
-### Ajout d'un utilisateur a un event
-POST https://playrfindr.herokuapp.com/api/event/55
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTM3ODI1LCJleHAiOjE2MjM5NDE0MjV9.2QJe0KJlvCQzRMF0IY9cCv09e4-5mxKGAfT4bnmjKFU
-
-### Update d'un utilisateur
-PATCH https://playrfindr.herokuapp.com/api/profil/3
+### Envoi  d'un message
+POST http://localhost:4000/api/messagerie/75
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAwOTc1LCJleHAiOjE2MjQwMDQ1NzV9.XnX9sPaZRqNcWmMacIfc_2IMLobl4OYpi3szGXZMwLo
 Content-Type: application/json
 
 {
-    "lastname": "Martin"
+    "content": "Bonjour, Un whisky ? "
 }
 
+### Ajout d'un utilisateur a un event
+POST http://localhost:4000/api/event/44
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjg0LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE5MjUyLCJleHAiOjE2MjQwMjI4NTJ9.Yzh_LeVV7zzC5xMhXMudKoEkmx6gyIwBlwfWZFT6nQ4
+
+### Ajout d'un utilisateur a un event
+POST https://playrfindr.herokuapp.com/api/event/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
+
+### Update d'un utilisateur
+PATCH https://playrfindr.herokuapp.com/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzYxNzYsImV4cCI6MTYyNDAzOTc3Nn0.puMF_pnmoK0pPHe4ln4lNK_gpOPHvjGcsXfDl01L2rQ
+Content-Type: application/json
+
+{
+    "firstname": "Dim",
+    "lastname": "Martin",
+    "password": "12345689",
+    "passwordConfirm": "12345689"
+}
+
+
+### Update d'un utilisateur
+PATCH http://localhost:4000/api/profil/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU5MTYsImV4cCI6MTYyNDEwOTUxNn0.52YYxK2GHThIXUayjEWD8QFw3q8PMN_ol67LosT6GE4
+Content-Type: application/json
+
+{
+   "is_admin": false
+}
 
 ### Suppression d'un utilisateur a un event
 PATCH http://localhost:4000/api/event/41
@@ -177,6 +208,33 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc5LCJpc0FkbWlu
 ### Suppression d'un utilisateur a un event
 PATCH https://playrfindr.herokuapp.com/api/event/53
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+
+
+
+### Update d'un  event
+PATCH http://localhost:4000/api/event/5/update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwNDA0OTYsImV4cCI6MTYyNDA0NDA5Nn0.HxRwQWNWWYa3RtuJNyDPOvAULffDSj6bTsSN5PHELZ0
+Content-Type: application/json
+
+{
+    "label": "Partie de cyclade",
+    "content": "Petite partie de Cyclades",
+    "address": "15 Bis rue localStorage",
+    "max_player": 3,
+    "date": "2021-06-19"
+}
+
+
+### Update d'un  event
+PATCH https://playrfindr.herokuapp.com/api/event/6/update
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzQ5MjMsImV4cCI6MTYyNDAzODUyM30._FATRZyaMSM1aRE43d3Kl8o4gzZjM9JTXeyFC9cRK5I
+Content-Type: application/json
+
+{
+   "max_player": 2
+   
+}
+
 
 ### delete d'un utilisateur
 DELETE https://playrfindr.herokuapp.com/api/profil/72
@@ -188,8 +246,8 @@ DELETE  http://localhost:4000/api/event/45
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQ0OTUyLCJleHAiOjE2MjM5NDg1NTJ9.PMqNO3Q6RM38WCxI9F5kZIv4QvEs8FZ3-eHQSSkaowY
 
 ### Suppression d'un event
-DELETE  https://playrfindr.herokuapp.com/api/event/57
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjIzOTQzOTY4LCJleHAiOjE2MjM5NDc1Njh9.UfU3CXpr6ZSo0Od8BH0wr6_3AIcNuIqUduTMWyJVwTA
+DELETE  https://playrfindr.herokuapp.com/api/event/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTQ2ODAsImV4cCI6MTYyNDAxODI4MH0.0_ogS_XQ298jLBLeQHyDgPD_j9Lhpqw39ke494VY0UI
 
 
 ### Delete d'un jeux d'une collection
@@ -198,3 +256,9 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNl
 
 ### Delete d'un jeux d'une collection
 DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6
+
+
+
+### Delete d'un message
+DELETE http://localhost:4000/api/message/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAyOTgxLCJleHAiOjE2MjQwMDY1ODF9.hNErfQAuSRzCnsmTmAJFjyHCSCDMN4ta83dn1wHulFI

@@ -46,7 +46,8 @@ class CoreModel {
      * @returns {object[]} Liste d'es 'instances
      */
     static async findAll() {
-        const result = await client.query(`SELECT * FROM ${this.tableName} WHERE deleted_at IS NULL`);
+        console.log(this.tableName);
+        const result = await client.query(`SELECT * FROM ${this.tableName}`);
         
         const instanceList = [];
 
@@ -64,7 +65,6 @@ class CoreModel {
      */
     static async findByPk(id) {
         const result = await client.query(`SELECT * FROM "${this.tableName}" WHERE "id" = $1`, [id]);
-
         if (!result.rows[0]) {
             return null;
         }
@@ -75,6 +75,7 @@ class CoreModel {
      * Ajout d'un entité
      */
     async insert() {
+        
         const preparedQuery = {
             text: `
                 SELECT * FROM add_${this.constructor.tableName}($1)
@@ -91,7 +92,7 @@ class CoreModel {
      * Mise à jour d'une entité
      */
     async update() {
-
+        
         const preparedQuery = {
 
             text: `
@@ -101,6 +102,7 @@ class CoreModel {
         };
 
         const result = await client.query(preparedQuery);
+    
         this.dataValues = result.rows[0];
 
     };

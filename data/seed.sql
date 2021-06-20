@@ -158,13 +158,6 @@ INSERT INTO "department" ("number","label") VALUES
 (976,	'Mayotte');
 
 
-INSERT INTO "user"("firstname","lastname","email","password", "picture", "birthdate", "department_id") VALUES
-('Florence','Monserrat', 'flo@gmail.com', '123456', null, '1993-02-23', 1),
-('Michel', 'Pomme', 'michel@yahoo.fr', 'azerty', null, '1999-06-29', 20);
-
-INSERT INTO "event"("label", "content", "date", "location", "max_player", "user_id") VALUES
-('Partie de Cyclade', 'Je vous propose une partie de cyclade a 5 joueurs', '2021-06-10','80 Avenue des lilas, Paris, 75003', 5, 1);
-
 INSERT INTO "game_has_theme"("game_id", "theme_id") VALUES
 (1, 7),
 (2, 3),
@@ -177,9 +170,6 @@ INSERT INTO "game_has_theme"("game_id", "theme_id") VALUES
 (6, 2),
 (6, 6),
 (6, 7);
-
-INSERT INTO "message" ("content", "date", "recipient_id", "user_id") VALUES
-('Bonjour, je souhaiterai jouer avec vous', '2021-06-09 13:29:50', 2, 1);
 
 
 INSERT INTO "game_has_category"("game_id", "category_id") VALUES
@@ -211,41 +201,3 @@ INSERT INTO "author_has_game"("author_id", "game_id") VALUES
 (9, 4),
 (10, 4),
 (11, 1);
-
-INSERT INTO "user_has_game" ("user_id", "game_id")VALUES
-(1,1),
-(1,6),
-(1,5),
-(1,4),
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,6);
-
-INSERT INTO "user_has_event" ("user_id", "event_id")VALUES
-(2, 1),
-(1,1);
-
-INSERT INTO "user_has_theme" ("user_id", "theme_id") VALUES
-(1,1),
-(1,7),
-(1,5),
-(1,4),
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,6);
-
-INSERT INTO "user_has_category"("user_id", "category_id") VALUES
-(1,1),
-(1,7),
-(1,5),
-(1,4),
-(1,10),
-(2,11),
-(2,2),
-(2,3),
-(2,4),
-(2,6);

@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const express = require('express');
 const apiRouter = require('./app/routers/apiRouter');
+const adminRouter = require('./app/routers/adminRouter');
 const cors = require ('cors');
 
 const app = express();
@@ -38,6 +39,7 @@ app.use(express.json());
 app.use(cors("*"));
 
 app.use('/api', apiRouter);
+app.use('/admin', adminRouter);
 
 app.listen(port, _ => {
    console.log(`http://localhost:${port}`);

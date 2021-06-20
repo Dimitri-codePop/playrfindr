@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DROP VIEW user_profile;
+--DROP VIEW user_profile;
 -- XXX Add DDLs here.
 
 COMMIT;

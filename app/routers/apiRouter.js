@@ -86,7 +86,6 @@ router.route('/profil/:id(\\d+)/collection')
     .get(authorisation, userController.getOneCollection);
 
 
-
 router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
     .post(authorisation, userController.addGames)
     .delete(authorisation, userController.deleteGames); 
@@ -102,17 +101,22 @@ router.route('/event/:id(\\d+)')
     .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
 
-
+router.route('/event/:id/update')
+    .patch(authorisation, validate.body(schemas.eventUpdateSchema), eventController.updateEvent);
+    
 router.route('/messagerie')
     .get(authorisation, messageController.getAll);
     
 router.route('/messagerie/:id')
     .post(authorisation, validate.body(schemas.messageInsertSchema), messageController.sendMessage); 
 
-router.get('/games', gameController.getAll);
+router.route('/message/:id')
+    .delete(authorisation, messageController.deleteMessage); 
+
+ router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);
-router.get('/categories', categoryController.getAll);
+router.get('/categories', categoryController.getAll); 
 
 router.use(errorController.ressourceNotFound);
 module.exports = router;

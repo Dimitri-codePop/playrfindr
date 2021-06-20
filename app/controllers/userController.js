@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require ('../services/jwt');
 const UserModel = require ('../models/userModel');
+const { getAll } = require('./gameController');
 
 
 module.exports = {
@@ -76,8 +77,9 @@ module.exports = {
 
             const validPwd = await bcrypt.compare(password, user.password);
 
+
             if (!validPwd) {
-                return res.json({
+                return res.status(400).json({
                     error: "Ce n'est pas le bon mot de passe."
                 });
             }
@@ -138,7 +140,7 @@ module.exports = {
         }
     },
 
-    async updateProfil(req, res) {
+    async updateProfil(req, res, next) {
         try {
             const user = await UserModel.findByPk(req.user.userId);
             
@@ -146,11 +148,29 @@ module.exports = {
                 return next();
             }
 
+            if (req.body.password) {
+                const validPwd = await bcrypt.compare(req.body.password, user.dataValues.password);
+                if(validPwd === true) {
+                    res.status(400).json({error: `Same Password`})
+                }
+                
+                if(req.body.password !== req.body.passwordConfirm){
+                    return res.status(400).json({
+                    error: "Ce n'est pas le bon mot de passe."
+                    });
+                        }
+                const salt = await bcrypt.genSalt(10);
+                const encryptedPassword = await bcrypt.hash(req.body.password, salt); 
+                user.dataValues.password = encryptedPassword
+                await user.update();
+                return res.json({data: user})
+            }
+        
             user.data = req.body;
-            
+           
             await user.update();
             
-            res.json({ data: user.dataValues });
+            res.json({ data: user });
         } catch (error) {
             console.trace(error);
             if(error.code == '23503'){
@@ -208,6 +228,16 @@ module.exports = {
         try {
             const user = await UserModel.deleteGames(req.user.userId, req.params.game_id);
             return res.json({message: 'Jeux enlevé', user})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
+    async getAll(_, res, next){
+        try {
+            const users = await UserModel.findAllUser();
+            console.log(users);
+            res.json({ data: users.map(user => user)});
         } catch (error) {
             console.trace(error);
             res.json({ error });
