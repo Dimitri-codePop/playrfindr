@@ -100,7 +100,7 @@ Content-Type: application/json
 {
      "firstname": "Dimitri",
     "lastname": "Mart",
-    "email": "dimitraie@gmail.com",
+    "email": "dimitae@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
