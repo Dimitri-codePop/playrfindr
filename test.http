@@ -70,8 +70,8 @@ GET http://localhost:4000/api/messagerie
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU2OTcsImV4cCI6MTYyNDEwOTI5N30.CyjsN_f0CE_mYrGU2jbG0fBbVQWGb-S3BuyGk5-Ioig
 
 ### Ajout d'un jeu a une collection
-POST http://localhost:4000/api/profil/2/collection/2
-Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MTkyNywiZXhwIjoxNjI0MjY1NTI3fQ.L6ZVftDug6U_B-eJ18EpxpJa5nW5cI5TxH_oC4c1q00
+POST http://localhost:4000/api/profil/4/collection/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2NzU3NSwiZXhwIjoxNjI0MjcxMTc1fQ.UnWMkbqnRFRPAZDD2j0suNxGNC7oU8yD5MzZJVR67u0
 
 ### Ajout d'un jeu a une collection
 POST https://playrfindr.herokuapp.com/api/profil/7/collection/3

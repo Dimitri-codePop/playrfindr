@@ -63,7 +63,6 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
 
-
             if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
             }
@@ -83,11 +82,12 @@ module.exports = {
                     error: "Ce n'est pas le bon mot de passe."
                 });
             }
-        
+  
 
             if(validPwd){
                 isLogged = true;
-                return res.status(200).json({
+
+                res.status(200).json({
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -98,7 +98,7 @@ module.exports = {
                 department_label: user.label,
                 token: jwt.generateTokenForUser(user),
                 isLogged
-            })
+            });
         }
         } catch (error) {
             console.trace(error);
@@ -204,7 +204,7 @@ module.exports = {
     async getOneCollection(req, res, next){
         try {
             const user = await UserModel.findCollection(req.user.userId);
-
+            
             if(!user){
                 return res.json({error: 'Votre collection est vide'});
             }
@@ -214,15 +214,26 @@ module.exports = {
             console.trace(error);
             response.json({ error });
         }
+    
     },
 
     async addGames(req, res){
         try {
             const user = await UserModel.insertCollection(req.user.userId, req.params.game_id);
-            return res.json({user})
+            return res.json({user});
+
         } catch (error) {
-            console.trace(error);
+        
+            console.trace(error.code);
+
+            if (error.code == '23505') {
+                
+                error = `Ce jeu est deja dans votre collection`;
+            } else {
+                error = `A server error occured, please retry later.`;
+            }
             res.json({ error });
+            response.json({ error });
         }
         
     },
