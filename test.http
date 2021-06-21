@@ -70,8 +70,8 @@ GET http://localhost:4000/api/messagerie
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU2OTcsImV4cCI6MTYyNDEwOTI5N30.CyjsN_f0CE_mYrGU2jbG0fBbVQWGb-S3BuyGk5-Ioig
 
 ### Ajout d'un jeu a une collection
-POST http://localhost:4000/api/profil/3/collection/1
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+POST http://localhost:4000/api/profil/2/collection/2
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MTkyNywiZXhwIjoxNjI0MjY1NTI3fQ.L6ZVftDug6U_B-eJ18EpxpJa5nW5cI5TxH_oC4c1q00
 
 ### Ajout d'un jeu a une collection
 POST https://playrfindr.herokuapp.com/api/profil/3/collection/2
@@ -81,9 +81,9 @@ POST https://playrfindr.herokuapp.com/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Antoine",
-    "lastname": "Noix",
-    "email": "antoine@gmail.com",
+    "firstname": "Jean",
+    "lastname": "Jean",
+    "email": "jean@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
@@ -109,7 +109,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzI4MDMsImV4cCI6MTYyNDAzNjQwM30.FTz3R8jvtEeACbwqXDOTJmxIjJgwexU9BHldelARFSU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MDM2OSwiZXhwIjoxNjI0MjYzOTY5fQ.DU2Ggsfhbpfsvsp3rEFlz50GdenVsaiMWZzKDZeNI8o
 Content-Type: application/json
 
 {
@@ -179,8 +179,8 @@ POST https://playrfindr.herokuapp.com/api/event/3
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
 
 ### Update d'un utilisateur
-PATCH https://playrfindr.herokuapp.com/api/profil/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxOTUwNzYsImV4cCI6MTYyNDE5ODY3Nn0.Rplnkb09m5Hbahb8pmHPe6KsMn-oJ1d3lkQ1BP3GEQA
+PATCH https://playrfindr.herokuapp.com/api/profil/8
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNTkyOTUsImV4cCI6MTYyNDI2Mjg5NX0.RIdRPcJiKqurE1V7QG7WsmVnL2GRYMPx-h1veLWa1Ns
 Content-Type: application/json
 
 {
@@ -190,11 +190,12 @@ Content-Type: application/json
 
 ### Update d'un utilisateur
 PATCH http://localhost:4000/api/profil/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU5MTYsImV4cCI6MTYyNDEwOTUxNn0.52YYxK2GHThIXUayjEWD8QFw3q8PMN_ol67LosT6GE4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MDk2NSwiZXhwIjoxNjI0MjY0NTY1fQ._4VTIYY12eTy28Yz6zzdcgtU3Dl4FjD_c7RTr0ZZUt0
 Content-Type: application/json
 
 {
-   "is_admin": false
+   "lastname": "Momo",
+   "theme_id": [3, 6, 8]
 }
 
 ### Suppression d'un utilisateur a un event

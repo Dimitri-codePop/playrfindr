@@ -162,6 +162,8 @@ module.exports = {
                 const salt = await bcrypt.genSalt(10);
                 const encryptedPassword = await bcrypt.hash(req.body.password, salt); 
                 user.dataValues.password = encryptedPassword
+
+                
                 await user.update();
                 return res.json({data: user})
             }

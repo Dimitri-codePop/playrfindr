@@ -101,10 +101,10 @@ class CoreModel {
             values: [this.dataValues]
         };
 
+
         const result = await client.query(preparedQuery);
     
-        this.dataValues = result.rows[0];
-
+        this.dataValues = {...this.dataValues, ...result.rows[0]};
     };
 
     /**
