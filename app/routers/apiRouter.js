@@ -17,7 +17,7 @@ const validate = require('../validations/validate');
 const router = express.Router();
 
 router.route('/')
- /**
+/**
     * Route de l'acceuil
     * @route GET /
     * @returns {Game[]} 200 - La liste des jeux random

@@ -136,7 +136,7 @@ module.exports = {
         } catch (error) {
             console.trace(error);
             error = `A server error occured, please retry later.`;
-            response.json({ error });
+            res.json({ error });
         }
     },
 
@@ -181,7 +181,7 @@ module.exports = {
                 error = `A server error occured, please retry later.`;
             }
 
-            response.json({ error });
+            res.json({ error });
         }
     },
     async deleteProfil(req, res, next){
@@ -198,7 +198,7 @@ module.exports = {
             return res.json({data: user});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     },
     async getOneCollection(req, res, next){
@@ -212,7 +212,7 @@ module.exports = {
             return res.json({data: user});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     
     },
@@ -233,7 +233,7 @@ module.exports = {
                 error = `A server error occured, please retry later.`;
             }
             res.json({ error });
-            response.json({ error });
+            res.json({ error });
         }
         
     },
@@ -269,7 +269,7 @@ module.exports = {
             return res.json({message: `User  delete`});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     },
 };
