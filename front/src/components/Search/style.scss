@@ -1,0 +1,49 @@
+@use 'src/styles/vars' as v;
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-title {
+    color: v.$primary;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+  &-items {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+  }
+  &-content {
+    width: 48%;
+    box-shadow: 0 0 10px v.$grey;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 0 0 2rem 0;
+  }
+  &-subtitle {
+    font-size: 2rem;
+  }
+  &-results {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+}
+
+.resultcard {
+  width: 20%;
+  margin: 1rem;
+  &-img {
+    width: 100%;
+    box-shadow: 0 0 3px v.$grey;
+  }
+  &-title {
+    margin-top: 0.5rem;
+  }
+  &-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

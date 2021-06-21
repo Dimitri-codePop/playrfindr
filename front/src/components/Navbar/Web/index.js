@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 
 import './style.scss';
 import Logo from 'src/assets/logo.png';
@@ -20,8 +20,9 @@ export default function Web({
   handleDisconnect,
   showMessage,
   setShowMessage,
+  handleChangeSearchValue,
+  search,
 }) {
-  const [navBarSearchValue, setNavBarSearchValue] = useState('');
   const history = useHistory();
   const handleOnClick = () => {
     handleDisconnect();
@@ -32,13 +33,14 @@ export default function Web({
 
   const changeField = (event) => {
     event.preventDefault();
-    setNavBarSearchValue(event.target.value);
+    handleChangeSearchValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log('la recherche suivante se fait : ', event.target[0].value);
-    handleNavBarSearch(event.target[0].value);
+    console.log(search[0])
+    handleNavBarSearch(search[0]);
+    history.push('/recherche');
   };
   const profilPath = `/profil/${userId}`;
   return (
@@ -64,9 +66,9 @@ export default function Web({
               className="navbar__search-form--input"
               placeholder="Entrez votre recherche"
               onChange={changeField}
-              value={navBarSearchValue}
+              value={search}
             />
-            <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch} className="" /> </button>
+              <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch}/> </button>
           </fieldset>
         </form>
         <div className="navbar__web__button-container">
