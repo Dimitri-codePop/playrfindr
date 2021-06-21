@@ -94,11 +94,9 @@ export default function Web({
 
 Web.propTypes = {
   handleNavBarSearch: PropTypes.func.isRequired,
-  userId: PropTypes.number,
-  isLogged: PropTypes.bool.isRequired,
   handleDisconnect: PropTypes.func.isRequired,
 };
 
 Web.defaultProps = {
-  userId: 0,
+
 };
