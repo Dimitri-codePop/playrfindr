@@ -68,17 +68,20 @@ class UserModel extends CoreModel {
     async update(){
         
         await super.update();
-        console.log(this.dataValues);
 
             if(this.dataValues.theme_id){
-            for (const theme_id of this.dataValues.theme_id) {
-                await client.query(`UPDATE "user_has_theme" SET "user_id" = $1, "theme_id" = $2`, [this.dataValues.id, theme_id])
+                console.log(this.dataValues.theme_id);
+                await client.query(`DELETE FROM "user_has_theme" WHERE "user_id" = $1`, [this.dataValues.id]);
+                for (const theme_id of this.dataValues.theme_id) {
+                await client.query(`INSERT INTO "user_has_theme" ("user_id", "theme_id") VALUES ($1,$2)`, [this.dataValues.id, theme_id])
                 }
             }
+            
             if(this.dataValues.category_id){
        
+                await client.query(`DELETE FROM "user_has_category" WHERE "user_id" = $1`, [this.dataValues.id]);
             for (const category_id of this.dataValues.category_id) {
-                await client.query(`UPDATE "user_has_category" SET "user_id" = $1, "category_id" = $2`, [this.dataValues.id, category_id])
+                await client.query(`INSERT INTO "user_has_category" ("user_id", "category_id") VALUES ($1,$2)`, [this.dataValues.id, category_id])
             }
         }
     }

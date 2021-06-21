@@ -17,7 +17,7 @@ const validate = require('../validations/validate');
 const router = express.Router();
 
 router.route('/')
- /**
+/**
     * Route de l'acceuil
     * @route GET /
     * @returns {Game[]} 200 - La liste des jeux random
@@ -70,8 +70,8 @@ router.route('/connexion')
 router.route('/profil/:id(\\d+)')
     /**
       * Récuperer un utilisateur
-      * @route GET /profil/:id
-      * @param {UserInput.model} User.params.required - Un objet contenant les informations de l'utilisateur
+      * @route GET /profil/{id}
+      * @param {number} id - Identifiant du jeu- Un objet contenant les informations de l'utilisateur
       * @returns {User} 200 - L'utilisateur récupérer
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
@@ -83,6 +83,13 @@ router.route('/profil/:id(\\d+)')
 
 
 router.route('/profil/:id(\\d+)/collection')
+/**
+    * Route de l'acceuil
+    * @route GET /profil/:id(\\d+)/collection
+    * @returns {Game[]} 200 - La collection d'un utilisateur
+    * @param {number} id - Identifiant de l'utilisateur
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation, userController.getOneCollection);
 
 
@@ -93,6 +100,12 @@ router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
 
 
 router.route('/event')
+/**
+    * Route des evenements
+    * @route GET /event
+    * @returns {Event[]} 200 - La liste des evenements
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation, eventController.findEvent)
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 

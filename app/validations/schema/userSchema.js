@@ -9,8 +9,8 @@ const insertSchema = Joi.object({
     passwordConfirm: Joi.string().required().min(6),
     department_id: Joi.number().integer().required(),
     is_admin:Joi.boolean(),
-    theme_id: Joi.array().items(Joi.number().integer()).required().max(3),
-    category_id: Joi.array().items(Joi.number().integer()).required().max(3)
+    theme_id: Joi.array().items(Joi.number().integer()).required().min(1),
+    category_id: Joi.array().items(Joi.number().integer()).required().min(1)
 }).required();
 
 const updateSchema = Joi.object({

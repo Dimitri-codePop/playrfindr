@@ -63,7 +63,6 @@ module.exports = {
             const email = req.body.email;
             const password = req.body.password;
 
-
             if(email == null || password == null){
             return res.status(400).json({error: "Arguments missing"})
             }
@@ -83,11 +82,12 @@ module.exports = {
                     error: "Ce n'est pas le bon mot de passe."
                 });
             }
-        
+  
 
             if(validPwd){
                 isLogged = true;
-                return res.status(200).json({
+
+                res.status(200).json({
                 id: user.id,
                 firstname: user.firstname,
                 lastname: user.lastname,
@@ -98,7 +98,7 @@ module.exports = {
                 department_label: user.label,
                 token: jwt.generateTokenForUser(user),
                 isLogged
-            })
+            });
         }
         } catch (error) {
             console.trace(error);
@@ -136,7 +136,7 @@ module.exports = {
         } catch (error) {
             console.trace(error);
             error = `A server error occured, please retry later.`;
-            response.json({ error });
+            res.json({ error });
         }
     },
 
@@ -162,6 +162,8 @@ module.exports = {
                 const salt = await bcrypt.genSalt(10);
                 const encryptedPassword = await bcrypt.hash(req.body.password, salt); 
                 user.dataValues.password = encryptedPassword
+
+                
                 await user.update();
                 return res.json({data: user})
             }
@@ -179,7 +181,7 @@ module.exports = {
                 error = `A server error occured, please retry later.`;
             }
 
-            response.json({ error });
+            res.json({ error });
         }
     },
     async deleteProfil(req, res, next){
@@ -196,13 +198,13 @@ module.exports = {
             return res.json({data: user});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
     },
     async getOneCollection(req, res, next){
         try {
             const user = await UserModel.findCollection(req.user.userId);
-
+            
             if(!user){
                 return res.json({error: 'Votre collection est vide'});
             }
@@ -210,16 +212,27 @@ module.exports = {
             return res.json({data: user});
         } catch (error) {
             console.trace(error);
-            response.json({ error });
+            res.json({ error });
         }
+    
     },
 
     async addGames(req, res){
         try {
             const user = await UserModel.insertCollection(req.user.userId, req.params.game_id);
-            return res.json({user})
+            return res.json({user, message:'Votre jeu a bien été ajouté '});
+
         } catch (error) {
-            console.trace(error);
+        
+            console.trace(error.code);
+
+            if (error.code == '23505') {
+                
+                error = `Ce jeu est deja dans votre collection`;
+            } else {
+                error = `A server error occured, please retry later.`;
+            }
+            res.json({ error });
             res.json({ error });
         }
         
@@ -242,5 +255,21 @@ module.exports = {
             console.trace(error);
             res.json({ error });
         }
-    }
+    },
+    async deleteProfilAdmin(req, res, next){
+        try {
+            
+            const user = await UserModel.findByPk(req.params.id);
+            if(!user){
+                return next();
+            }
+
+            await user.delete();
+
+            return res.json({message: `User  delete`});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
 };
