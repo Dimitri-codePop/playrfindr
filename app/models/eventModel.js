@@ -23,7 +23,7 @@ class EventModel extends CoreModel {
         creator.firstname creator_firstname,
         creator.lastname creator_lastname,
         to_char( "event".date, 'DD-MM-YYYY HH:MM') "date",
-        ARRAY_AGG((visitor.id, visitor.firstname, visitor.lastname)) visitors
+        JSON_AGG((visitor.id, visitor.firstname, visitor.lastname)) visitors
         FROM event
         LEFT JOIN user_has_event ON event.id = user_has_event.event_id
         LEFT JOIN "user" visitor ON visitor.id = user_has_event.user_id
