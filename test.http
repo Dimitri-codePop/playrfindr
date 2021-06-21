@@ -27,7 +27,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNjUwNDksImV4cCI6MTYyNDI2ODY0OX0.wRAIRyhMflhA71gMp2vF758_n1YJ6tTi28mRPu-Ge14
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNzAxMzEsImV4cCI6MTYyNDI3MzczMX0.REj24Gp3DdhuwYA6Z43xZjS6t-K5k0QyyDFMzfj-Eag
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -92,6 +92,7 @@ Content-Type: application/json
     "theme_id": [1, 6, 2, 3],
     "category_id": [2, 9, 12]
 }
+
 ### Ajout d'un utilisateur
 POST http://localhost:4000/api/inscription
 Content-Type: application/json
