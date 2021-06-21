@@ -121,7 +121,7 @@ module.exports = {
 
     async searchGame(req, res, next){
         try {
-            const games = await GameModel.searchGame(req.body);
+            const games = await GameModel.searchGame(req.params.name);
 
             if(!games){
                 return next();

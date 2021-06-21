@@ -278,3 +278,7 @@ GET  http://localhost:4000/api/search/user/Di
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI4MDMzNywiZXhwIjoxNjI0MjgzOTM3fQ.hclWDSI5wszESf0RK0TAo8x8CkydS0bzeV3SjeSX8Y0
 Content-Type: application/json
 
+### Ajout d'un utilisateur
+GET  http://localhost:4000/api/search/game/Myst
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI4MDMzNywiZXhwIjoxNjI0MjgzOTM3fQ.hclWDSI5wszESf0RK0TAo8x8CkydS0bzeV3SjeSX8Y0
+Content-Type: application/json
