@@ -35,16 +35,17 @@ class EventModel extends CoreModel {
 
     static async findEventUpdate(id){
         
-        const result = await client.query(`SELECT event.*,
-        ARRAY_REMOVE(ARRAY_AGG("user"."id"), NULL) AS userId,
-        ARRAY_REMOVE(ARRAY_AGG("user"."firstname"), NULL) AS firstname,
-        ARRAY_REMOVE( ARRAY_AGG("user"."lastname"), NULL) AS lastname
-        FROM "event" 
-        LEFT JOIN "user_has_event" ON "event"."id" = "user_has_event"."event_id"
-        LEFT JOIN "user" ON "event"."user_id" = "user"."id"
-        OR "user"."id" = "user_has_event"."user_id"
-        WHERE "event"."id" = $1
-        GROUP BY "event"."id"
+        const result = await client.query(`  SELECT event.*,
+        creator.firstname creator_firstname,
+        creator.lastname creator_lastname,
+        to_char( "event".date, 'DD-MM-YYYY HH:MM') "date",
+        JSON_AGG((visitor.id, visitor.firstname, visitor.lastname)) visitors
+        FROM event
+        LEFT JOIN user_has_event ON event.id = user_has_event.event_id
+        LEFT JOIN "user" visitor ON visitor.id = user_has_event.user_id
+        LEFT JOIN "user" creator ON creator.id = event.user_id
+        WHERE event.id = $1
+        GROUP BY event.id, creator_firstname, creator_lastname
         ORDER BY "event"."created_at" DESC;`, [id]);
         return result.rows;
     }

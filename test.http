@@ -146,7 +146,7 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "test3@test.com",
+    "email": "jean@gmail.com",
     "password": "123456"
  
 }
@@ -173,11 +173,11 @@ Content-Type: application/json
 
 ### Ajout d'un utilisateur a un event
 POST http://localhost:4000/api/event/44
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjg0LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDE5MjUyLCJleHAiOjE2MjQwMjI4NTJ9.Yzh_LeVV7zzC5xMhXMudKoEkmx6gyIwBlwfWZFT6nQ4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNjYwNzUsImV4cCI6MTYyNDI2OTY3NX0.thqNfvZsojMNgdpPrzUCpBf8vhSm88Q2rSefTK-kAjI
 
 ### Ajout d'un utilisateur a un event
-POST https://playrfindr.herokuapp.com/api/event/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTkzODgsImV4cCI6MTYyNDAyMjk4OH0.R1w1vP7fcbkItL9AFWFkfRVMT5LPc35_zo2v6_yHvoM
+POST https://playrfindr.herokuapp.com/api/event/18
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNjYwNzUsImV4cCI6MTYyNDI2OTY3NX0.thqNfvZsojMNgdpPrzUCpBf8vhSm88Q2rSefTK-kAjI
 
 ### Update d'un utilisateur
 PATCH https://playrfindr.herokuapp.com/api/profil/8
