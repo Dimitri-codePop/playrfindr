@@ -82,9 +82,9 @@ POST https://playrfindr.herokuapp.com/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Jean",
-    "lastname": "Jean",
-    "email": "jeann@gmail.com",
+    "firstname": "Yvon",
+    "lastname": "Fumer-des-goelands",
+    "email": "yvon@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "picture": "https://images-ext-1.discordapp.net/external/ildAxySpuZ_bCsme5AjFzpkaELagwQNtDNyQQ4tuOks/https/moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg?width=676&height=676",
