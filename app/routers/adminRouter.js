@@ -16,62 +16,62 @@ const eventController = require('../controllers/eventController');
 const router = express.Router();
 
 
-router.get('/', /* authorisationAdmin, */ adminController.home);
+router.get('/', authorisationAdmin, adminController.home);
 
 router.route('/users')
     .get(authorisationAdmin, userController.getAll);
 
 router.route('/users/:id')
-    .delete(/* authorisationAdmin, */ userController.deleteProfilAdmin);
+    .delete( authorisationAdmin,userController.deleteProfilAdmin);
 
 router.route('/jeux')
     .get(authorisationAdmin,  gameController.getAllGamesAndThemesAndCatAndAuthor)
-    .post(authorisationAdmin,  gameController.addGames);
+    .post( authorisationAdmin, validate(schemas.gameInsertSchema), gameController.addGames);
 
 router.route('/jeux/:id')
-    .patch(authorisationAdmin,  gameController.updateGames)
-    .delete(authorisationAdmin,  gameController.deleteGames);
+    .patch( authorisationAdmin,  validate(schemas.gameUpdateSchema), gameController.updateGames)
+    .delete( authorisationAdmin,  gameController.deleteGames);
 
 
 router.route('/editor')
-    .get(authorisationAdmin,  editorController.getAllEditor)
-    .post(authorisationAdmin,  editorController.addEditors);
+    .get( authorisationAdmin,  editorController.getAllEditor)
+    .post( authorisationAdmin,validate(schemas.editorInsertSchema), editorController.addEditors);
 
 router.route('/editor/:id')
-    .patch(authorisationAdmin,  editorController.updateEditor)
-    .delete(authorisationAdmin,  editorController.deleteEditor);
+    .patch( authorisationAdmin, validate(schemas.editorUpdateSchema), editorController.updateEditor)
+    .delete( authorisationAdmin,  editorController.deleteEditor);
 
 router.route('/theme')
-    .get(authorisationAdmin,  themeController.getAll)
-    .post(authorisationAdmin,  themeController.addTheme);
+    .get( authorisationAdmin,  themeController.getAll)
+    .post( authorisationAdmin, validate(schemas.themeInsertSchema), themeController.addTheme);
 
 router.route('/theme/:id')
-    .patch(authorisationAdmin,  themeController.updateTheme)
-    .delete(authorisationAdmin,  themeController.deleteTheme);
+    .patch( authorisationAdmin, validate(schemas.themeUpdateSchema), themeController.updateTheme)
+    .delete( authorisationAdmin,  themeController.deleteTheme);
 
 router.route('/category')
-    .get(authorisationAdmin, categoryController.getAll)
-    .post(authorisationAdmin,  categoryController.addCategory);
+    .get( authorisationAdmin, categoryController.getAll)
+    .post( authorisationAdmin, validate(schemas.categoryInsertSchema), categoryController.addCategory);
 
 router.route('/category/:id')
-    .patch(authorisationAdmin,  categoryController.updateCategory)
-    .delete(authorisationAdmin,  categoryController.deleteCategory);
+    .patch( authorisationAdmin, validate(schemas.categoryUpdateSchema), categoryController.updateCategory)
+    .delete( authorisationAdmin,  categoryController.deleteCategory);
 
 router.route('/author')
-    .get(authorisationAdmin, authorController.getAll)
-    .post(authorisationAdmin,  authorController.addAuthor);
+    .get( authorisationAdmin, authorController.getAll)
+    .post( authorisationAdmin, validate(schemas.authorInsertSchema),  authorController.addAuthor);
 
 
 router.route('/author/:id')
-    .patch(authorisationAdmin,  authorController.updateAuthor)
-    .delete(authorisationAdmin,  authorController.deleteAuthor);
+    .patch( authorisationAdmin, validate(schemas.authorUpdateSchema), authorController.updateAuthor)
+    .delete( authorisationAdmin,  authorController.deleteAuthor);
 
 
 router.route('/event')
-    .get(/* authorisationAdmin, */eventController.getAll);
+    .get( authorisationAdmin, eventController.getAll);
 
 router.route('/event/:id')
-    .delete(/* authorisationAdmin, */eventController.deleteEvent);
+    .delete( authorisationAdmin, eventController.deleteEvent);
 
 
 module.exports = router;

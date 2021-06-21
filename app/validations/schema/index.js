@@ -35,6 +35,13 @@ const {
     updateSchema: categoryUpdateSchema,
 }  = require('./categorySchema');
 
+const { 
+    insertSchema: authorInsertSchema, 
+    updateSchema: authorUpdateSchema,
+}  = require('./authorSchema');
+
 module.exports = { userInsertSchema,  userUpdateSchema, eventInsertSchema, 
     eventUpdateSchema, messageInsertSchema, gameInsertSchema, gameUpdateSchema, 
-    editorInsertSchema, editorUpdateSchema, themeInsertSchema, themeUpdateSchema, categoryInsertSchema, categoryUpdateSchema};
+    editorInsertSchema, editorUpdateSchema, themeInsertSchema, themeUpdateSchema, categoryInsertSchema, categoryUpdateSchema,
+    authorUpdateSchema,
+    authorInsertSchema };
