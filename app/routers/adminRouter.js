@@ -15,10 +15,13 @@ const authorController = require('../controllers/authorController');
 const router = express.Router();
 
 
-router.get('/',authorisationAdmin, adminController.home)
+router.get('/', /* authorisationAdmin, */ adminController.home);
 
 router.route('/users')
     .get(authorisationAdmin, userController.getAll);
+
+router.route('/users/:id')
+    .delete(/* authorisationAdmin, */ userController.deleteProfilAdmin);
 
 router.route('/jeux')
     .get(authorisationAdmin,  gameController.getAllGamesAndThemesAndCatAndAuthor)
