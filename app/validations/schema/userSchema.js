@@ -7,6 +7,7 @@ const insertSchema = Joi.object({
     birthdate: Joi.date().required().max('now'),
     password: Joi.string().required().min(6),
     passwordConfirm: Joi.string().required().min(6),
+    picture: Joi.string().required().min(2),
     department_id: Joi.number().integer().required(),
     is_admin:Joi.boolean(),
     theme_id: Joi.array().items(Joi.number().integer()).required().max(3),
