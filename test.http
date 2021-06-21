@@ -84,9 +84,10 @@ Content-Type: application/json
 {
     "firstname": "Jean",
     "lastname": "Jean",
-    "email": "jean@gmail.com",
+    "email": "jeanne@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
+    "picture": "",
     "birthdate": "1995-07-19",
     "department_id": 36,
     "theme_id": [1, 6, 2, 3],
@@ -158,7 +159,7 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimiti@gmail.com",
+    "email": "dimitae@gmail.com",
     "password": "123456"
  
 }
