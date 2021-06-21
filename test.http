@@ -70,7 +70,7 @@ GET http://localhost:4000/api/messagerie
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQxMDU2OTcsImV4cCI6MTYyNDEwOTI5N30.CyjsN_f0CE_mYrGU2jbG0fBbVQWGb-S3BuyGk5-Ioig
 
 ### Ajout d'un jeu a une collection
-POST http://localhost:4000/api/profil/4/collection/4
+POST http://localhost:4000/api/profil/4/collection/6
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2NzU3NSwiZXhwIjoxNjI0MjcxMTc1fQ.UnWMkbqnRFRPAZDD2j0suNxGNC7oU8yD5MzZJVR67u0
 
 ### Ajout d'un jeu a une collection

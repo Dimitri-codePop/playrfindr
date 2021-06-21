@@ -220,7 +220,7 @@ module.exports = {
     async addGames(req, res){
         try {
             const user = await UserModel.insertCollection(req.user.userId, req.params.game_id);
-            return res.json({user});
+            return res.json({user, message:'Votre jeu a bien été ajouté '});
 
         } catch (error) {
         
