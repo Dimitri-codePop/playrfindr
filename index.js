@@ -20,7 +20,7 @@ let options = {
            title: 'PlayrFindr',
            version: '1.0.0',
        },
-       host: 'localhost:3000',
+       host: 'localhost:4000',
        basePath: '/api',
        produces: [
            "application/json"
