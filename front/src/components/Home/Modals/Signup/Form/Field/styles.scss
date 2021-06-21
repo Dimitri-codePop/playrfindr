@@ -1,15 +1,39 @@
 @use 'src/styles/vars' as v;
 
 .field {
+  margin-bottom: 1rem;
   &__input {
     width: 100%;
-    margin-bottom: v.$gutter / 2;
     border: 1px solid v.$grey;
     border-bottom: 2px solid v.$grey;
-    padding: v.$gutter / 2;
+    padding: 1rem;
     border-radius: 5px;
     &:focus {
       border-bottom: 2px solid v.$primary;
+    }
+    &--dpt {
+      border: none;
+      background: none;
+      width: 32%;
+      height: 50%;
+    }
+    & label {
+      font-size: 0.9rem;
+    }
+    &--type {
+      background: none;
+    }
+    &--cattitle {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: v.$alternate;
+      margin-bottom: 1rem;
+    }
+    &--themestitle {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: v.$primary;
+      margin-bottom: 1rem;
     }
   }
 }

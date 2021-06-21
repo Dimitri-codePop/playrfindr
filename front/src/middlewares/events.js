@@ -4,11 +4,13 @@ import {
   ADD_TO_EVENT,
   REMOVE_FROM_EVENT,
   DELETE_EVENT,
+  EDIT_EVENT,
   saveEvents, 
   saveNewEvent,
   saveAddToEvent,
   saveRemoveFromEvent,
-  saveDeleteEvent,
+  saveRemoveEvent,
+  saveEditEvent,
 } from 'src/actions/events';
 import axios from 'axios';
 
@@ -105,6 +107,35 @@ const events = (store) => (next) => (action) => {
         "Accept": "application/json",
         "Content-Type": "application/json"
       }})
+      .then((response) => {
+        const saveRemoveEventAction = saveRemoveEvent();
+        store.dispatch(saveRemoveEventAction);
+      })
+        .catch((error) => console.log( error ) );
+      break;
+    }
+    case EDIT_EVENT: {
+      const state = store.getState();
+      axios.patch(`https://playrfindr.herokuapp.com/api/event/${action.id}/update`,
+      {
+        user_id: state.user.id,
+        label: state.events.label,
+        date: state.events.date,
+        address: state.events.address,
+        number_address: state.events.number_address,
+        town: state.events.town,
+        content: state.events.content,
+        max_player: state.events.max_player,
+      },{ headers: {
+        "Authorization": `${state.user.token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }}
+      )
+        .then(() => {
+          const saveEditEventAction = saveEditEvent();
+          store.dispatch(saveEditEventAction);
+        })
         .catch((error) => console.log( error ) );
       break;
     }

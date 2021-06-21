@@ -17,12 +17,17 @@ export default function Events({
   events, 
   loadEvents, 
   loading,
+  trigger
 }) {
 
   
   useEffect(() => {
     loadEvents();
-  }, [events.length]);
+  }, []);
+
+  useEffect(() => {
+    loadEvents();
+  }, [trigger]);
 
   const [modal, setModal] = useState(false);
 

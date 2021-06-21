@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Item from 'src/components/Events/Item';
-import { addToEvent, deleteEvent } from 'src/actions/events';
+import { addToEvent, deleteEvent, setEvent } from 'src/actions/events';
 import { withRouter } from 'react-router-dom';
 
 
@@ -15,6 +15,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleDeleteEvent: (value) => {
     const action = deleteEvent(value);
+    dispatch(action);
+  },
+  setUpEvent: (event) => {
+    const action = setEvent(event);
     dispatch(action);
   },
 });

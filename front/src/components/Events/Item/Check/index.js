@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Proptypes from 'prop-types'
-import { FindGoodGame } from 'src/selectors/find';
+import { visitorsInEvent } from 'src/selectors/find';
 
 import './style.scss';
 
@@ -20,7 +20,7 @@ export default function Check({
     handleClick(event);
   };
 
-  const userOnEvent = event.userid.includes(id);
+  const userOnEvent = visitorsInEvent(event.visitors, id);
 
   const handleClickSetEvent = () => {
     setOnEvent(!onEvent);
@@ -39,7 +39,7 @@ export default function Check({
 
   return(
     <>
-    {(onEvent && !userOnEvent && !(event.firstname.length >= event.max_player) && !(event.userid == id)) &&
+    {((onEvent && !userOnEvent) && !((event.visitors.length + 1) >= event.max_player) && !(event.user_id == id)) &&
     <form className="custom-checkbox">
       <input 
         type="checkbox" 
@@ -51,7 +51,7 @@ export default function Check({
       <label htmlFor={name}>S'inscrire</label>
     </form>
     }
-    {(!onEvent || userOnEvent ) && !(event.userid == id) &&
+    {(!onEvent || userOnEvent) && !(event.user_id == id) &&
     <form className="custom-checkbox">
       <p className="events__main__items--inscription_text">Vous êtes inscrit a cet évènement</p>
       <button
@@ -62,10 +62,10 @@ export default function Check({
       </button>
     </form>
     }
-    {(event.firstname.length >= event.max_player && !userOnEvent) &&
+    {((event.visitors.length +1) >= event.max_player) && !userOnEvent &&
     <p className="events__main__items--full">Evènement complet</p>
     }
-    {(event.userid == id) &&
+    {(event.user_id == id) &&
     <a 
       className="events__main__items--setup"
       onClick={handleModalSetUp}
