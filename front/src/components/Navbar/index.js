@@ -57,6 +57,5 @@ export default function Navbar({
 }
 
 Navbar.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
   handleDisconnect: PropTypes.func.isRequired,
 };

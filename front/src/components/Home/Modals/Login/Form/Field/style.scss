@@ -3,13 +3,17 @@
 .field {
   &__input {
     width: 100%;
-    margin-bottom: v.$gutter / 2;
+    margin-bottom: 1rem;
     border: 1px solid v.$grey;
     border-bottom: 2px solid v.$grey;
-    padding: v.$gutter / 2;
+    padding: 1rem;
     border-radius: 5px;
     &:focus {
       border-bottom: 2px solid v.$primary;
+    }
+    &--connect {
+      width: 100%;
+      margin: .5rem 0 !important;
     }
   }
 }

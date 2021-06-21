@@ -73,8 +73,8 @@ export default function Item({
         >
         {element.label}
       </a>
-      <p>{element.firstname.length}/{element.max_player}</p>
-      <p>{moment(element.date).format("ddd MM YYYY / HH:mm")}</p>
+      <p>{element.visitors.length + 1}/{element.max_player}</p>  
+      <p>{moment(element.date).format("ddd DD-MM-YYYY / HH:mm")}</p>
       <div className="events__main__items--address">
       <p>{element.address}</p>
       <p>{element.number_address}</p>
@@ -83,7 +83,7 @@ export default function Item({
       <a 
         className="events__main__items--linkprofil"
         href={path} >
-          {element.firstname[0]} {element.lastname[0]}
+          {element.creator_firstname} {element.creator_lastname}
       </a>
         < Check 
           handleClick={handleClick}

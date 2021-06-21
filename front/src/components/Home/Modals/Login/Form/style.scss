@@ -13,13 +13,46 @@
     padding: 0.3rem;
     margin: .2rem 0;
   }
-  &-button {
-    margin: 0.2rem 0;
-    background-color: #662AD8;
+  &-connect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    & p {
+      margin-bottom: 0.3rem;
+    }
+    & span {
+      font-weight: bold;
+      color: v.$primary;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &-buttonconnect {
+    background-color: v.$primary;
     height: 35px;
+    width: 100%;
     color: white;
     border: none;
     border-radius: 5px;
   }
 
+}
+
+.modal{
+  &_signup{
+    &--titleconnect{
+      margin: 5rem 0;
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: center;
+    }
+    &--pw{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
 }

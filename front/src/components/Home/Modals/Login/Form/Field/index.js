@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import { createMuiTheme } from '@material-ui/core/styles';
+
 
 import './style.scss';
 
@@ -10,12 +13,13 @@ export default function Field({ type, name, placeholder, value, onChangeValue })
 
   return (
     <div className="field">
-      <input
-        className="field__input"
+      <TextField 
+        className="field__input--connect"
+        required id="standard-required" 
+        label={placeholder}
         type={type}
         name={name}
         id={name}
-        placeholder={placeholder}
         value={value}
         onChange={handleOnChange}
       />
