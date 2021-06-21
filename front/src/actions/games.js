@@ -4,7 +4,13 @@ export const FETCH_TYPES = 'FETCH_TYPES';
 export const SAVE_TYPES = 'SAVE_TYPES';
 export const FETCH_GAME = 'FETCH_GAME';
 export const SAVE_GAME = 'SAVE_GAME';
+export const ADD_GAME_TO_LIB = 'ADD_GAME_TO_LIB'; 
+export const SAVE_GAME_TO_LIB = 'SAVE_GAME_TO_LIB';
 
+export const addGameToLib = (gameId) => ({
+  type: ADD_GAME_TO_LIB,
+  gameId,
+});
 
 export const changeTheme = (theme) => ({
   type: CHANGE_THEME,

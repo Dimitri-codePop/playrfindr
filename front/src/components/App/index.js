@@ -58,7 +58,10 @@ export default function App({
         <Route
           path="/jeu/:id"
         >
-          <Jeu />
+          <Jeu 
+            showMessage={showMessage}
+            setShowMessage={setShowMessage}
+          />
         </Route>
         <Route path="/profil/:id">
           {isLogged ?

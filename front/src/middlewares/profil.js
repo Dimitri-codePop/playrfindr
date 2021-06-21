@@ -6,7 +6,11 @@ import {
   EDIT_PASSWORD,
 } from 'src/actions/user';
 import {
+  ADD_GAME_TO_LIB,
+} from 'src/actions/games';
+import {
   messageEditPassword,
+  messageAddGameToLib,
 } from 'src/actions/systemMessages';
 import axios from 'axios';
 import { FindGoodGameByName } from 'src/selectors/find';
@@ -111,6 +115,29 @@ const profil = (store) => (next) => (action) => {
         });
       break;
     }
+    case ADD_GAME_TO_LIB:
+    const state = store.getState();
+    const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
+    console.log(user.id, action.gameId, user.token);
+    axios.post(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`,{}, {
+      headers: {
+        "Authorization": `${state.user.token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+    })
+      .then((res) => {
+        const message = 'Le jeu a bien été ajouté à votre Ludothèque';
+        const isOk = true;
+        const actionMessAddGameToLib = messageAddGameToLib(message, isOk);
+        store.dispatch(actionMessAddGameToLib);
+      })
+      .catch((error) => {
+        const message = "Une erreur s'est produite, veuillez réessayer dans quelques instants.";
+        const isOk = false;
+        const actionMessAddGameToLib = messageAddGameToLib(message, isOk);
+        store.dispatch(actionMessAddGameToLib);
+      })
     default:
       next(action);
   }
