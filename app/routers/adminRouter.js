@@ -69,7 +69,7 @@ router.route('/author/:id')
 
 router.route('/event')
     .get( authorisationAdmin, eventController.getAll);
-
+    
 router.route('/event/:id')
     .delete( authorisationAdmin, eventController.deleteEvent);
 
