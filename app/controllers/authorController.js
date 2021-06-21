@@ -41,9 +41,13 @@ module.exports = {
         }
     },
     
-    async deleteAuthor(req, res){
+    async deleteAuthor(req, res, next){
         try {
             const author = await AuthorModel.findByPk(req.params.id);
+
+            if(!author){
+                return next();
+            }
 
             await author.delete();
 

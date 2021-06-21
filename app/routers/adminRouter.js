@@ -11,6 +11,7 @@ const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
 const userController = require('../controllers/userController');
 const authorController = require('../controllers/authorController');
+const eventController = require('../controllers/eventController');
 
 const router = express.Router();
 
@@ -64,6 +65,13 @@ router.route('/author')
 router.route('/author/:id')
     .patch(authorisationAdmin,  authorController.updateAuthor)
     .delete(authorisationAdmin,  authorController.deleteAuthor);
+
+
+router.route('/event')
+    .get(/* authorisationAdmin, */eventController.getAll);
+
+router.route('/event/:id')
+    .delete(/* authorisationAdmin, */eventController.deleteEvent);
 
 
 module.exports = router;

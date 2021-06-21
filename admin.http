@@ -152,8 +152,8 @@ Content-Type: application/json
 }
 
 
-### Delete  des category
-DELETE   http://localhost:4000/admin/category/1
+### Delete  des author
+DELETE   http://localhost:4000/admin/author/88
 
 
 
@@ -165,8 +165,20 @@ GET http://localhost:4000/admin/users
 ### Delete des users
 DELETE  http://localhost:4000/admin/users/4
 
+
+### Page des event
+GET http://localhost:4000/admin/event
+
+
+### Delete des event
+DELETE  http://localhost:4000/admin/event/2
+
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
+
+### Page d'acceuil
+GET  https://playrfindr.herokuapp.com/admin/
+
 ### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
@@ -188,3 +200,145 @@ Content-Type: application/json
     "describe":"Dixit est un jeu de société qui fait appel à l'imagination. Il se joue en famille et favorise la créativité",
     "editor_id": 2
 }
+
+
+
+### Update  des jeux
+Patch   https://playrfindr.herokuapp.com/admin/jeux/60
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Saboteur",
+    "duration": 30,
+    "player_min": 1,
+    "player_max": 2,
+    "age_min": 8,
+    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
+    "year": 2017,
+    "describe":"",
+    "editor_id": 1
+}
+
+### Delete  des jeux
+DELETE  https://playrfindr.herokuapp.com/admin/jeux/60
+
+
+### Page des Editors
+GET   https://playrfindr.herokuapp.com/admin/editor
+
+
+### Insert  des editors
+POST   https://playrfindr.herokuapp.com/admin/editor
+Content-Type: application/json
+
+{
+    "label": "Artipia Games"
+}
+
+### Update  des editor
+Patch   https://playrfindr.herokuapp.com/admin/editor/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Amigo"
+}
+
+### Delete  des editor
+DELETE    https://playrfindr.herokuapp.com/admin/editor/1
+
+
+
+### Page des themes
+GET   https://playrfindr.herokuapp.com/admin/theme
+
+
+### Insert  des themes
+POST   https://playrfindr.herokuapp.com/admin/theme
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+### Update  des editor
+Patch   https://playrfindr.herokuapp.com/admin/theme/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+### Delete  des themes
+DELETE    https://playrfindr.herokuapp.com/admin/theme/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+
+### Page des category
+GET   https://playrfindr.herokuapp.com/admin/category
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+### Insert  des categories
+POST   https://playrfindr.herokuapp.com/admin/category
+Content-Type: application/json
+
+{
+    "label": "Fantaisie"
+}
+
+### Update  des category
+Patch   https://playrfindr.herokuapp.com/admin/category/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "label": "Histoire"
+}
+
+
+### Delete  des category
+DELETE    https://playrfindr.herokuapp.com/admin/category/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+### Page des auteur
+GET   https://playrfindr.herokuapp.com/admin/author
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+### Insert  des auteurs
+POST   https://playrfindr.herokuapp.com/admin/author
+Content-Type: application/json
+
+{
+    "firstname": "Regis",
+    "lastname": "Bonnessée"
+
+}
+
+### Update  des aueurs
+Patch   https://playrfindr.herokuapp.com/admin/author/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Content-Type: application/json
+
+{
+    "firstname": "Regis",
+    "lastname": "Bonnessée"
+}
+
+
+### Delete  des category
+DELETE    https://playrfindr.herokuapp.com/admin/category/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+
+
+### Page des users
+GET  https://playrfindr.herokuapp.com/admin/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+
+### Delete des users 
+
+DELETE  https://playrfindr.herokuapp.com/admin/users/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
