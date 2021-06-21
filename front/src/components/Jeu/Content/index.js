@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faUsers, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import Loading from 'src/components/Loading'
 import Flash from 'src/components/Flash';
@@ -24,6 +24,8 @@ export default function Content({
     addGameToLib,
     message,
     isOk,
+    firstname,
+    lastname,
     showMessage,
     setShowMessage,
 }) {
@@ -55,8 +57,16 @@ const handleOnClick = () => {
         <div className="game__content">
           <div className="game__name">
             <p className="game__name__content">{label}</p>
+            <div>
+            <p className="game__name__content-subtitle">{editor}</p>
+            <p className="game__name__content-subtitle">{firstname[0]} {lastname[0]}</p>
+            </div>
+            
             <div className="game__name__add">
-              <a href="#" className="game__name__add--text" onClick={handleOnClick}>Ajouter ce jeu à ma Ludothèque</a>
+              <a href="#" className="game__name__add--text" onClick={handleOnClick}>
+                Ajouter ce jeu à ma Ludothèque 
+              <FontAwesomeIcon className="" icon={faChevronCircleRight} />
+                </a>
             </div>
           </div>
           <p className="game__describe">{describe}</p>
