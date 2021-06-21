@@ -22,7 +22,6 @@ class EventModel extends CoreModel {
         const result = await client.query(`  SELECT event.*,
         creator.firstname creator_firstname,
         creator.lastname creator_lastname,
-        to_char( "event".date, 'DD-MM-YYYY HH:MM') "date",
         JSON_AGG((visitor.id, visitor.firstname, visitor.lastname)) visitors
         FROM event
         LEFT JOIN user_has_event ON event.id = user_has_event.event_id
@@ -35,10 +34,9 @@ class EventModel extends CoreModel {
 
     static async findEventUpdate(id){
         
-        const result = await client.query(`  SELECT event.*,
+        const result = await client.query(` SELECT event.*,
         creator.firstname creator_firstname,
         creator.lastname creator_lastname,
-        to_char( "event".date, 'DD-MM-YYYY HH:MM') "date",
         JSON_AGG((visitor.id, visitor.firstname, visitor.lastname)) visitors
         FROM event
         LEFT JOIN user_has_event ON event.id = user_has_event.event_id
