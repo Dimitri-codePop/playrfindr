@@ -255,8 +255,8 @@ DELETE http://localhost:4000/api/profil/3/collection/6
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 
 ### Delete d'un jeux d'une collection
-DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNjMzMjIsImV4cCI6MTYyNDI2NjkyMn0.AceLdus8ykRft4HwXcYXLa5wXF4eRDkWjCfEOKeQ2J8
+DELETE https://playrfindr.herokuapp.com/api/profil/7/collection/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNzg3OTksImV4cCI6MTYyNDI4MjM5OX0.unEpayGL2UWFI9IesuVgtV7gbGo-SRjStkFXo6otSac
 
 
 ### Delete d'un message
@@ -266,10 +266,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWlu
 
 
 ### Ajout d'un utilisateur
-GET  http://localhost:4000/api/search/game
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI3ODYzNywiZXhwIjoxNjI0MjgyMjM3fQ.6nqFl99U0tHk1nRg2lDNCdozW1PRrmozYiCy2r0iGkc
+GET  https://playrfindr.herokuapp.com/api/search/user/J
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNzg3OTksImV4cCI6MTYyNDI4MjM5OX0.unEpayGL2UWFI9IesuVgtV7gbGo-SRjStkFXo6otSac
 Content-Type: application/json
 
-{
-   "search": "Sab"
-}
+
+
+
+### Ajout d'un utilisateur
+GET  http://localhost:4000/api/search/user/Di
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI4MDMzNywiZXhwIjoxNjI0MjgzOTM3fQ.hclWDSI5wszESf0RK0TAo8x8CkydS0bzeV3SjeSX8Y0
+Content-Type: application/json
+

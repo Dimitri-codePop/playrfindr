@@ -133,7 +133,7 @@ router.route('/message/:id')
     .delete(authorisation, messageController.deleteMessage); 
 
 
-router.route('/search/user')
+router.route('/search/user/:name')
 /**
     * Route de la recherche
     * @route GET /search/user
@@ -145,7 +145,7 @@ router.route('/search/user')
 
 
 
-router.route('/search/game')
+router.route('/search/game/:name')
 /**
     * Route de la recherche
     * @route GET /search/game

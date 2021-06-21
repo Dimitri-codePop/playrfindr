@@ -276,14 +276,13 @@ module.exports = {
 
     async searchUser(req, res, next){
         try {
-            const users = await UserModel.searchUser(req.body);
+            const users = await UserModel.searchUser(req.params.name);
 
             if(!users){
                 return next();
             }
 
             return res.json({data: users});
-            
         } catch (error) {
             console.trace(error);
             res.json({ error });
