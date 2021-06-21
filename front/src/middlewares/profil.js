@@ -7,10 +7,13 @@ import {
 } from 'src/actions/user';
 import {
   ADD_GAME_TO_LIB,
+  DELETE_GAME_FROM_LIB,
+  saveCurrentLibAfterDelete,
 } from 'src/actions/games';
 import {
   messageEditPassword,
   messageAddGameToLib,
+  messageDeleteGameFromLib,
 } from 'src/actions/systemMessages';
 import axios from 'axios';
 import { FindGoodGameByName } from 'src/selectors/find';
@@ -115,17 +118,17 @@ const profil = (store) => (next) => (action) => {
         });
       break;
     }
-    case ADD_GAME_TO_LIB:
-    const state = store.getState();
-    const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
-    console.log(user.id, action.gameId, user.token);
-    axios.post(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`,{}, {
-      headers: {
-        "Authorization": `${state.user.token}`,
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-    })
+    case ADD_GAME_TO_LIB:{
+      const state = store.getState();
+      const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log(user.id, action.gameId, user.token);
+      axios.post(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`,{}, {
+        headers: {
+          "Authorization": `${state.user.token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
       .then((res) => {
         console.log("responses", res.data);
         let message='';
@@ -144,7 +147,35 @@ const profil = (store) => (next) => (action) => {
         const isOk = false;
         const actionMessAddGameToLib = messageAddGameToLib(message, isOk);
         store.dispatch(actionMessAddGameToLib);
+      });
+      break;
+    }
+    case DELETE_GAME_FROM_LIB:
+      const state = store.getState();
+      const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log(user.id, action.gameId, state.user.token);
+      axios.delete(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`, {
+        headers: {
+          "Authorization": `${state.user.token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
       })
+      .then((res) => {
+        console.log("responses", res.data);
+        const message= 'Le jeux à bien été supprimé de votre ludothèque';
+        let isOk = true;
+        const actionStateDeleteGame = saveCurrentLibAfterDelete(action.name);
+        const actionMessDeleteGameToLib = messageDeleteGameFromLib(message, isOk);
+        store.dispatch(actionMessDeleteGameToLib);
+        store.dispatch(actionStateDeleteGame);
+      })
+      .catch((error) => {
+        const message = "Une erreur s'est produite, veuillez réessayer dans quelques instants.";
+        const isOk = false;
+        const actionMessDeleteGameToLib = messageDeleteGameFromLib(message, isOk);
+        store.dispatch(actionMessDeleteGameToLib);
+      });
     default:
       next(action);
   }

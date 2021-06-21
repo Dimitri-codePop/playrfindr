@@ -68,7 +68,7 @@
           max-width: 20%;
           margin: 0.3rem 1rem;
           border: 1px solid vars.$alternate;
-          transition: all 0.6s ease-out;
+          transition: all 0.1s ease-out;
           &:hover {
             background-color: rgb(218, 248, 245);
             transform: scale(1.1);
@@ -96,8 +96,12 @@
       height: auto;
       margin: 0 1rem;
       font-size: 2rem;
-      color: vars.$alternate;
+      color: vars.$primary;
       font-weight: bold;
+      &-btn {
+        border: none;
+        background-color: transparent;
+      }
     }
   }
 }

@@ -37,7 +37,10 @@ export default function Profil({
           showMessage={showMessage}
           setShowMessage={setShowMessage}
         />
-        <Ludo user={user} />
+        <Ludo
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+        />
       </main>
     </>
   );

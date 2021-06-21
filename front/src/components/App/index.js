@@ -71,7 +71,7 @@ export default function App({
                 setShowMessage={setShowMessage}
               />
             ) : <Redirect to="/" />
-          }}
+          }
         </Route>
         <Route path="/events">
           <Events />
