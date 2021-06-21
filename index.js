@@ -26,8 +26,14 @@ let options = {
            "application/json"
        ],
        schemes: ['http', 'https'],
-       securityDefinitions: {
-       }
+        securityDefinitions: {
+            JWT: {
+                type: 'apiKey',
+                in: 'header',
+                name: 'Authorization',
+                description: "The JWT",
+            }
+        }
    },
    basedir: __dirname, //app absolute path
    files: ['./app/routers/*.js', './app/models/*.js'] //Path to the API handle folder

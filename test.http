@@ -266,9 +266,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWlu
 
 
 ### Ajout d'un utilisateur
-GET  http://localhost:4000/api/search/user
+GET  http://localhost:4000/api/search/game
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI3ODYzNywiZXhwIjoxNjI0MjgyMjM3fQ.6nqFl99U0tHk1nRg2lDNCdozW1PRrmozYiCy2r0iGkc
 Content-Type: application/json
 
 {
-   "search": "Mo"
+   "search": "Sab"
 }

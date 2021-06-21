@@ -20,7 +20,7 @@ router.route('/')
 /**
     * Route de l'acceuil
     * @route GET /
-    * @returns {Game[]} 200 - La liste des jeux random
+    * @returns {{}} 200 - La liste des jeux random
     * @returns {Error} 500 - Une erreur serveur
     */
    .get( mainController.getAllRandom);
@@ -69,10 +69,10 @@ router.route('/connexion')
 
 router.route('/profil/:id(\\d+)')
     /**
-      * Récuperer un utilisateur
+      * Récuperer d'un utilisateur
       * @route GET /profil/{id}
-      * @param {number} id - Identifiant du jeu- Un objet contenant les informations de l'utilisateur
-      * @returns {User} 200 - L'utilisateur récupérer
+      * @param {number} id - Identifiant d'un utilisateur- Un objet contenant les informations de l'utilisateur
+      * @returns {User{}} 200 - L'utilisateur récupérer
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
       .get(authorisation,userController.getOneProfil)
@@ -134,11 +134,25 @@ router.route('/message/:id')
 
 
 router.route('/search/user')
+/**
+    * Route de la recherche
+    * @route GET /search/user
+    * @returns {User[]} 200 - Resultat de la recherche
+    * @param {SearchInput.model} User.body.required - Un objet contenant les informations de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation , userController.searchUser); 
 
 
 
-    router.route('/search/game')
+router.route('/search/game')
+/**
+    * Route de la recherche
+    * @route GET /search/game
+    * @returns {Game[]} 200 - Resultat de la recherche
+    * @param {SearchInput.model} Game.body.required - Un objet contenant les informations de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation , gameController.searchGame); 
 
 
