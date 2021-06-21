@@ -67,12 +67,11 @@
           min-width: 20%;
           max-width: 20%;
           margin: 0.3rem 1rem;
-          border: 1px solid vars.$alternate;
           transition: all 0.1s ease-out;
           &:hover {
             background-color: rgb(218, 248, 245);
             transform: scale(1.1);
-            box-shadow: 10px 10px 15px vars.$alternate;
+            box-shadow: 0 0 15px vars.$alternate;
           }
         }
 

@@ -11,6 +11,7 @@ import {
   messageLogOut,
 } from 'src/actions/systemMessages';
 import axios from 'axios';
+import profil_picture from 'src/assets/default_profile_picture.jpg';
 
 const login = (store) => (next) => (action) => {
   switch (action.type) {
@@ -64,6 +65,7 @@ const login = (store) => (next) => (action) => {
         department_id: state.user.departement[0],
         theme_id: state.user.themes,
         category_id: state.user.categories,
+        picture: "https://t3.ftcdn.net/jpg/00/85/06/44/360_F_85064489_TfbAnASPyjxyaUCZL0dQEeStLHZqKKle.jpg",
       })
         .then((response) => {
           console.log(response);
