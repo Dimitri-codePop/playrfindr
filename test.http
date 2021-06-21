@@ -84,13 +84,13 @@ Content-Type: application/json
 {
     "firstname": "Jean",
     "lastname": "Jean",
-    "email": "jeanne@gmail.com",
+    "email": "jeann@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
-    "picture": "",
+    "picture": "https://images-ext-1.discordapp.net/external/ildAxySpuZ_bCsme5AjFzpkaELagwQNtDNyQQ4tuOks/https/moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg?width=676&height=676",
     "birthdate": "1995-07-19",
     "department_id": 36,
-    "theme_id": [1, 6, 2, 3],
+    "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
 
@@ -101,11 +101,11 @@ Content-Type: application/json
 {
      "firstname": "Dimitri",
     "lastname": "Mart",
-    "email": "dimitae@gmail.com",
+    "email": "dimitaae@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
-    "picture": "https://cdn.pixabay.com/photo/2021/06/04/15/10/sand-6310118_960_720.jpg",
+    "picture": null,
     "department_id": 36,
     "theme_id": [6, 2],
     "category_id": [2, 9, 12]
@@ -149,7 +149,7 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "jean@gmail.com",
+    "email": "jeann@gmail.com",
     "password": "123456"
  
 }

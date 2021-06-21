@@ -76,16 +76,29 @@ router.route('/profil/:id(\\d+)')
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
       .get(authorisation,userController.getOneProfil)
-
+    /**
+      * Récuperer d'un utilisateur
+      * @route PATCH /profil/{id}
+      * @param {number} id - Identifiant d'un utilisateur- Un objet contenant les informations de l'utilisateur
+      * @param {UserInput.model} User.body.required - Un objet contenant les informations d'un utilisateur a modifier
+      * @returns {User{}} 200 - L'utilisateur récupérer
+      * @returns {Error} 500 - Utilisateur n'existe pas
+      */
       .patch(authorisation,validate.body(schemas.userUpdateSchema),userController.updateProfil)
-      
+    /**
+      * Récuperer d'un utilisateur
+      * @route DELETE /profil/{id}
+      * @param {number} id - Identifiant d'un utilisateur- Un objet contenant les informations de l'utilisateur a supprimer
+      * @returns {User{}} 200 - L'utilisateur récupérer
+      * @returns {Error} 500 - Utilisateur n'existe pas
+      */
       .delete(authorisation, userController.deleteProfil);
 
 
 router.route('/profil/:id(\\d+)/collection')
 /**
     * Route de l'acceuil
-    * @route GET /profil/:id(\\d+)/collection
+    * @route GET /profil/:id/collection
     * @returns {Game[]} 200 - La collection d'un utilisateur
     * @param {number} id - Identifiant de l'utilisateur
     * @returns {Error} 500 - Une erreur serveur
@@ -94,6 +107,14 @@ router.route('/profil/:id(\\d+)/collection')
 
 
 router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
+/**
+    * Route de l'acceuil
+    * @route POST /profil/:user_id/collection/:game_id
+    * @returns {Game[]} 200 - La collection d'un utilisateur
+    * @param {number} user_id - Identifiant de l'utilisateur
+    * @param {number} game_id - Identifiant du jeu
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .post(authorisation, userController.addGames)
     .delete(authorisation, userController.deleteGames); 
     
