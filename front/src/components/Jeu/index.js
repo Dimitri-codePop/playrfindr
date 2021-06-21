@@ -10,6 +10,8 @@ export default function Jeu({
   game,
   loading,
   loadGame,
+  showMessage,
+  setShowMessage,
 }) {
 
   useEffect(() => {
@@ -22,7 +24,12 @@ export default function Jeu({
   }
   return(
     <main className="game">
-      < Content {...game} loading={loading}/>
+      < Content 
+      {...game} 
+      loading={loading}
+      showMessage={showMessage}
+      setShowMessage={setShowMessage}
+      />
     </main>
   );
 }
