@@ -127,8 +127,15 @@ const profil = (store) => (next) => (action) => {
       },
     })
       .then((res) => {
-        const message = 'Le jeu a bien été ajouté à votre Ludothèque';
-        const isOk = true;
+        console.log("responses", res.data);
+        let message='';
+        let isOk = false;
+        if(res.data.message){
+          message = 'Le jeu a bien été ajouté à votre Ludothèque';
+          isOk = true;
+        } else {
+          message = "Le jeux est déjà présent dans votre Ludothèque";
+        }
         const actionMessAddGameToLib = messageAddGameToLib(message, isOk);
         store.dispatch(actionMessAddGameToLib);
       })

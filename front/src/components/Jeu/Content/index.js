@@ -28,7 +28,6 @@ export default function Content({
     setShowMessage,
 }) {
 
-  console.log(`theme`, theme_all)
 
   if (loading) {
     return <Loading />;
@@ -41,16 +40,17 @@ export default function Content({
   ));
 const handleOnClick = () => {
   addGameToLib()
+  setShowMessage(!showMessage);
 }
   return(
     <>
+      <div className="game__section1">
       <Flash
         message={message}
         isOk={isOk}
         showMessage={showMessage}
         setShowMessage={setShowMessage}
       />
-      <div className="game__section1">
         <img className="game__image" src={picture}></img>
         <div className="game__content">
           <div className="game__name">

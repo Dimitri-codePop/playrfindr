@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FindGoodGameByName } from 'src/selectors/find';
 import './style.scss';
 
@@ -14,11 +15,17 @@ export default function Ludo({ user, games }) {
       console.log(obj);
       const oneGame = FindGoodGameByName(games, obj);
       console.log(oneGame);
+      const path = `/jeu/${oneGame.id}`;
       return (
-        <div className="profil__ludo__games__content">
-          <img className="profil__ludo__games__pic" src={oneGame.picture} alt="Game" />
-          <p className="profil__ludo__games__name">{oneGame.label}</p>
-        </div>
+        <Link className="profil__ludo__games__content" to={path} >
+          <div >
+            <img className="profil__ludo__games__pic" src={oneGame.picture} alt="Game" />
+            <div className="profil__ludo__games__name">
+            <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
+            <p className="profil__ludo__games__name-title">{oneGame.label}</p>
+            </div>
+          </div>
+        </Link>
       );
     });
     setProfilGames(gameList);
