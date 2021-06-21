@@ -8,6 +8,7 @@ import Jeux from 'src/containers/Jeux';
 import Jeu from 'src/containers/Jeu';
 import Profil from 'src/containers/Profil';
 import Events from 'src/containers/Events';
+import Search from 'src/containers/Search';
 import PropTypes from 'prop-types';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -68,10 +69,13 @@ export default function App({
                 setShowMessage={setShowMessage}
               />
             ) : <Redirect to="/" />
-          }}
+          }
         </Route>
         <Route path="/events">
           <Events />
+        </Route>
+        <Route path="/recherche">
+          <Search />
         </Route>
       </Switch>
       <Footer />
