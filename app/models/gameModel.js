@@ -1,6 +1,30 @@
 const client = require ('../client');
 const CoreModel = require('./coreModel');
 
+/**
+ * @typedef Game
+ * @property {number} id - Identifiant unique
+ * @property {string} label - Label de la Game
+ * @property  {number} duration - Durée du jeu
+ * @property  {number} player_min - Nombre de joueur minimum
+ * @property  {number} player_max - Nombre de joueur maximum
+ * @property  {number} age_min - Age minimum du jeu
+ * @property  {string} picture - Url de la photo du jeu
+ * @property {string} created_at - Date de création de l'auteur (date ISO 8601)
+ * @property {string} updated_at - Date de mise à jour de l'auteur (date ISO 8601)
+ * @property {string} deleted_at - Date de suppression de l'auteur (date ISO 8601)
+ */
+
+/**
+ * @typedef GameInput
+ * @property {string} label - Label de la Game
+ * @property  {number} duration - Durée du jeu
+ * @property  {number} player_min - Nombre de joueur minimum
+ * @property  {number} player_max - Nombre de joueur maximum
+ * @property  {number} age_min - Age minimum du jeu
+ * @property  {string} picture - Url de la photo du jeu
+ */
+
 
 class GameModel extends CoreModel {
 

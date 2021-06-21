@@ -155,11 +155,36 @@ router.route('/search/game/:name')
     */
     .get(authorisation , gameController.searchGame); 
 
-
-
+/**
+    * Route des jeux
+    * @route GET /games
+    * @returns {Game[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/games', gameController.getAll);
+
+/**
+    * Route des départements
+    * @route GET /departements
+    * @returns {Department[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/departements', departmentController.getAll);
+
+/**
+    * Route des themes
+    * @route GET /themes
+    * @returns {Theme[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/themes', themeController.getAll);
+
+/**
+    * Route des categories
+    * @route GET /categories
+    * @returns {Category[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/categories', categoryController.getAll); 
 
 router.use(errorController.ressourceNotFound);
