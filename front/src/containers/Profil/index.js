@@ -6,6 +6,7 @@ import { fetchProfil } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   user: state.user.profil,
+  game: state.user.profil.game,
   loading: state.user.loading,
   isLogged: state.user.isLogged,
   message: state.systemMessages.message,
