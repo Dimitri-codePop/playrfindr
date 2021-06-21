@@ -74,7 +74,8 @@ POST http://localhost:4000/api/profil/2/collection/2
 Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MTkyNywiZXhwIjoxNjI0MjY1NTI3fQ.L6ZVftDug6U_B-eJ18EpxpJa5nW5cI5TxH_oC4c1q00
 
 ### Ajout d'un jeu a une collection
-POST https://playrfindr.herokuapp.com/api/profil/3/collection/2
+POST https://playrfindr.herokuapp.com/api/profil/7/collection/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNjA3NjQsImV4cCI6MTYyNDI2NDM2NH0.2XgkiM-5uWLqnwdHSEp52HCT3AET4yDxKelfBkUwL3o
 
 ### Ajout d'un utilisateur
 POST https://playrfindr.herokuapp.com/api/inscription
@@ -145,8 +146,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "jabaaas@gmail.com",
-    "password": "36Flip93"
+    "email": "test3@test.com",
+    "password": "123456"
  
 }
 
@@ -253,8 +254,8 @@ DELETE http://localhost:4000/api/profil/3/collection/6
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
 
 ### Delete d'un jeux d'une collection
-DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/6
-
+DELETE https://playrfindr.herokuapp.com/api/profil/1/collection/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNjMzMjIsImV4cCI6MTYyNDI2NjkyMn0.AceLdus8ykRft4HwXcYXLa5wXF4eRDkWjCfEOKeQ2J8
 
 
 ### Delete d'un message
