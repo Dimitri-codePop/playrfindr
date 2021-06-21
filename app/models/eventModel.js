@@ -1,6 +1,31 @@
 const CoreModel = require('./coreModel');
 const client = require ('../client');
 
+/**
+ * @typedef Event
+ * @property {number} id - Identifiant unique
+ * @property {string} label - Label de la Event
+ * @property  {string} content - Contenu de l event
+ * @property  {string} date - Date de l event
+ * @property  {string} location - Lieux de l event
+ * @property  {number} max_player - Nombre maximun de joueur pour l evenement
+ * @property  {number} user_id - Id du createur de l event
+ * @property {string} created_at - Date de création de l'auteur (date ISO 8601)
+ * @property {string} updated_at - Date de mise à jour de l'auteur (date ISO 8601)
+ * @property {string} deleted_at - Date de suppression de l'auteur (date ISO 8601)
+ */
+
+/**
+ * @typedef EventInput
+ * @property {string} label - Label de la Event
+ * @property  {string} content - Contenu de l event
+ * @property  {string} date - Date de l event
+ * @property  {string} location - Lieux de l event
+ * @property  {number} max_player - Nombre maximun de joueur pour l evenement
+ * @property  {number} user_id - Id du createur de l event
+ */
+
+
 class EventModel extends CoreModel {
 
     static fields = [

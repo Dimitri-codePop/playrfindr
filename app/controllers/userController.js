@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require ('../services/jwt');
 const UserModel = require ('../models/userModel');
 const { getAll } = require('./gameController');
+const { search } = require('../routers/apiRouter');
 
 
 module.exports = {
@@ -17,6 +18,7 @@ module.exports = {
             const theme_id = req.body.theme_id;
             const category_id = req.body.category_id;
             const is_admin = req.body.is_admin;
+            const picture = req.body.picture;
             
             if(firstname === null || lastname === null || email === null || password === null || birthdate === null || theme_id === null || category_id === null) {
                 return res.statut(400).json({error : "Arguments missing"});
@@ -40,7 +42,8 @@ module.exports = {
                 department_id,
                 theme_id,
                 category_id,
-                is_admin});
+                is_admin,
+                picture});
                 
                 await user.insert();
                 
@@ -272,4 +275,19 @@ module.exports = {
             res.json({ error });
         }
     },
+
+    async searchUser(req, res, next){
+        try {
+            const users = await UserModel.searchUser(req.params.name);
+
+            if(!users){
+                return next();
+            }
+
+            return res.json({data: users});
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    }
 };

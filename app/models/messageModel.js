@@ -1,6 +1,27 @@
 const client = require('../client');
 const CoreModel = require('./coreModel');
 
+/**
+ * @typedef Message
+ * @property {number} id - Identifiant unique
+ * @property {string} content - Contenue du message
+ * @property  {string} date - Date du message
+ * @property  {number} recipient_id - Id du destinataire
+ * @property  {number} user_id - Id de l'envoyeur
+ * @property {string} created_at - Date de création de l'auteur (date ISO 8601)
+ * @property {string} updated_at - Date de mise à jour de l'auteur (date ISO 8601)
+ * @property {string} deleted_at - Date de suppression de l'auteur (date ISO 8601)
+ */
+
+/**
+ * @typedef MessageInput
+ * @property {string} content - Contenue du message
+ * @property  {string} date - Date du message
+ * @property  {number} recipient_id - Id du destinataire
+ * @property  {number} user_id - Id de l'envoyeur
+ */
+
+
 class MessageModel extends CoreModel {
 
     static fields = [

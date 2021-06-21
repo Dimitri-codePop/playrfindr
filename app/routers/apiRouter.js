@@ -20,7 +20,7 @@ router.route('/')
 /**
     * Route de l'acceuil
     * @route GET /
-    * @returns {Game[]} 200 - La liste des jeux random
+    * @returns {{}} 200 - La liste des jeux random
     * @returns {Error} 500 - Une erreur serveur
     */
    .get( mainController.getAllRandom);
@@ -69,10 +69,10 @@ router.route('/connexion')
 
 router.route('/profil/:id(\\d+)')
     /**
-      * Récuperer un utilisateur
+      * Récuperer d'un utilisateur
       * @route GET /profil/{id}
-      * @param {number} id - Identifiant du jeu- Un objet contenant les informations de l'utilisateur
-      * @returns {User} 200 - L'utilisateur récupérer
+      * @param {number} id - Identifiant d'un utilisateur- Un objet contenant les informations de l'utilisateur
+      * @returns {User{}} 200 - L'utilisateur récupérer
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
       .get(authorisation,userController.getOneProfil)
@@ -118,6 +118,12 @@ router.route('/event/:id/update')
     .patch(authorisation, validate.body(schemas.eventUpdateSchema), eventController.updateEvent);
     
 router.route('/messagerie')
+    /**
+    * Route des messages
+    * @route GET /messagerie
+    * @returns {message[]} 200 - La liste des messages recus
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation, messageController.getAll);
     
 router.route('/messagerie/:id')
@@ -126,9 +132,59 @@ router.route('/messagerie/:id')
 router.route('/message/:id')
     .delete(authorisation, messageController.deleteMessage); 
 
- router.get('/games', gameController.getAll);
+
+router.route('/search/user/:name')
+/**
+    * Route de la recherche
+    * @route GET /search/user
+    * @returns {User[]} 200 - Resultat de la recherche
+    * @param {SearchInput.model} User.body.required - Un objet contenant les informations de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
+    .get(authorisation , userController.searchUser); 
+
+
+
+router.route('/search/game/:name')
+/**
+    * Route de la recherche
+    * @route GET /search/game
+    * @returns {Game[]} 200 - Resultat de la recherche
+    * @param {SearchInput.model} Game.body.required - Un objet contenant les informations de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
+    .get(authorisation , gameController.searchGame); 
+
+/**
+    * Route des jeux
+    * @route GET /games
+    * @returns {Game[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
+router.get('/games', gameController.getAll);
+
+/**
+    * Route des départements
+    * @route GET /departements
+    * @returns {Department[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/departements', departmentController.getAll);
+
+/**
+    * Route des themes
+    * @route GET /themes
+    * @returns {Theme[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/themes', themeController.getAll);
+
+/**
+    * Route des categories
+    * @route GET /categories
+    * @returns {Category[]} 200 - Resultat de la recherche
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/categories', categoryController.getAll); 
 
 router.use(errorController.ressourceNotFound);
