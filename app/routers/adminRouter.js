@@ -5,7 +5,7 @@ const schemas = require('../validations/schema');
 const adminController = require('../controllers/adminController');
 const editorController = require('../controllers/editorController');
 const authorisationAdmin = require ('../middleware/authMiddlewarelv2');
-const validate = require('../validations/validate');
+const validate.body = require('../validations/validate.body');
 const gameController = require('../controllers/gameController');
 const themeController = require('../controllers/themeController');
 const categoryController = require('../controllers/categoryController');
@@ -26,44 +26,44 @@ router.route('/users/:id')
 
 router.route('/jeux')
     .get(authorisationAdmin,  gameController.getAllGamesAndThemesAndCatAndAuthor)
-    .post( authorisationAdmin, validate(schemas.gameInsertSchema), gameController.addGames);
+    .post( authorisationAdmin, validate.body(schemas.gameInsertSchema), gameController.addGames);
 
 router.route('/jeux/:id')
-    .patch( authorisationAdmin,  validate(schemas.gameUpdateSchema), gameController.updateGames)
+    .patch( authorisationAdmin,  validate.body(schemas.gameUpdateSchema), gameController.updateGames)
     .delete( authorisationAdmin,  gameController.deleteGames);
 
 
 router.route('/editor')
     .get( authorisationAdmin,  editorController.getAllEditor)
-    .post( authorisationAdmin,validate(schemas.editorInsertSchema), editorController.addEditors);
+    .post( authorisationAdmin,validate.body(schemas.editorInsertSchema), editorController.addEditors);
 
 router.route('/editor/:id')
-    .patch( authorisationAdmin, validate(schemas.editorUpdateSchema), editorController.updateEditor)
+    .patch( authorisationAdmin, validate.body(schemas.editorUpdateSchema), editorController.updateEditor)
     .delete( authorisationAdmin,  editorController.deleteEditor);
 
 router.route('/theme')
     .get( authorisationAdmin,  themeController.getAll)
-    .post( authorisationAdmin, validate(schemas.themeInsertSchema), themeController.addTheme);
+    .post( authorisationAdmin, validate.body(schemas.themeInsertSchema), themeController.addTheme);
 
 router.route('/theme/:id')
-    .patch( authorisationAdmin, validate(schemas.themeUpdateSchema), themeController.updateTheme)
+    .patch( authorisationAdmin, validate.body(schemas.themeUpdateSchema), themeController.updateTheme)
     .delete( authorisationAdmin,  themeController.deleteTheme);
 
 router.route('/category')
     .get( authorisationAdmin, categoryController.getAll)
-    .post( authorisationAdmin, validate(schemas.categoryInsertSchema), categoryController.addCategory);
+    .post( authorisationAdmin, validate.body(schemas.categoryInsertSchema), categoryController.addCategory);
 
 router.route('/category/:id')
-    .patch( authorisationAdmin, validate(schemas.categoryUpdateSchema), categoryController.updateCategory)
+    .patch( authorisationAdmin, validate.body(schemas.categoryUpdateSchema), categoryController.updateCategory)
     .delete( authorisationAdmin,  categoryController.deleteCategory);
 
 router.route('/author')
     .get( authorisationAdmin, authorController.getAll)
-    .post( authorisationAdmin, validate(schemas.authorInsertSchema),  authorController.addAuthor);
+    .post( authorisationAdmin, validate.body(schemas.authorInsertSchema),  authorController.addAuthor);
 
 
 router.route('/author/:id')
-    .patch( authorisationAdmin, validate(schemas.authorUpdateSchema), authorController.updateAuthor)
+    .patch( authorisationAdmin, validate.body(schemas.authorUpdateSchema), authorController.updateAuthor)
     .delete( authorisationAdmin,  authorController.deleteAuthor);
 
 
