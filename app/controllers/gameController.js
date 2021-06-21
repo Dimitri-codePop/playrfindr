@@ -118,4 +118,19 @@ module.exports = {
             res.json({ error });
         }
     },
+
+    async searchGame(req, res, next){
+        try {
+            const games = await GameModel.searchGame(req.body);
+
+            if(!games){
+                return next();
+            }
+
+            return res.json({data: games})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    }
 }

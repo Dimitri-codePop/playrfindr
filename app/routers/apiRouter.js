@@ -118,6 +118,12 @@ router.route('/event/:id/update')
     .patch(authorisation, validate.body(schemas.eventUpdateSchema), eventController.updateEvent);
     
 router.route('/messagerie')
+    /**
+    * Route des messages
+    * @route GET /messagerie
+    * @returns {message[]} 200 - La liste des messages recus
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .get(authorisation, messageController.getAll);
     
 router.route('/messagerie/:id')
@@ -126,7 +132,18 @@ router.route('/messagerie/:id')
 router.route('/message/:id')
     .delete(authorisation, messageController.deleteMessage); 
 
- router.get('/games', gameController.getAll);
+
+router.route('/search/user')
+    .get(authorisation , userController.searchUser); 
+
+
+
+    router.route('/search/game')
+    .get(authorisation , gameController.searchGame); 
+
+
+
+router.get('/games', gameController.getAll);
 router.get('/departements', departmentController.getAll);
 router.get('/themes', themeController.getAll);
 router.get('/categories', categoryController.getAll); 

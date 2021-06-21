@@ -262,3 +262,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4i
 ### Delete d'un message
 DELETE http://localhost:4000/api/message/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjc1LCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjI0MDAyOTgxLCJleHAiOjE2MjQwMDY1ODF9.hNErfQAuSRzCnsmTmAJFjyHCSCDMN4ta83dn1wHulFI
+
+
+
+### Ajout d'un utilisateur
+GET  http://localhost:4000/api/search/user
+Content-Type: application/json
+
+{
+   "search": "Mo"
+}

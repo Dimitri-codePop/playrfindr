@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require ('../services/jwt');
 const UserModel = require ('../models/userModel');
 const { getAll } = require('./gameController');
+const { search } = require('../routers/apiRouter');
 
 
 module.exports = {
@@ -272,4 +273,20 @@ module.exports = {
             res.json({ error });
         }
     },
+
+    async searchUser(req, res, next){
+        try {
+            const users = await UserModel.searchUser(req.body);
+
+            if(!users){
+                return next();
+            }
+
+            return res.json({data: users});
+            
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    }
 };

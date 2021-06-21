@@ -102,6 +102,11 @@ class GameModel extends CoreModel {
         return result.rows;
     }
 
+    static async searchGame(body){
+        const result = client.query(`SELECT * FROM game WHERE "label" LIKE $1';`, [body.search + '%']);
+        return (await result).rows;
+    }
+
 }
 
 module.exports = GameModel;
