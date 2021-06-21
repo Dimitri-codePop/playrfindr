@@ -81,14 +81,14 @@ POST https://playrfindr.herokuapp.com/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Dimitri",
-    "lastname": "Mart",
-    "email": "dimiti@gmail.com",
+    "firstname": "Antoine",
+    "lastname": "Noix",
+    "email": "antoine@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
     "department_id": 36,
-    "theme_id": [1, 6, 2],
+    "theme_id": [1, 6, 2, 3],
     "category_id": [2, 9, 12]
 }
 ### Ajout d'un utilisateur
