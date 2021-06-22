@@ -22,6 +22,7 @@ export default function Home({
   isOk,
   showMessage,
   setShowMessage,
+  isLogged,
 }) {
   const [loginIsHidden, setLoginIsHidden] = useState(false);
   const [signupIsHidden, setSignupIsHidden] = useState(false);
@@ -58,8 +59,12 @@ export default function Home({
             PlayRfindR est une plateforme qui facilite la mise en relation de plusieurs 
             jouers afin qu'ils se retrouvent autour d'un jeu de société
           </span>
-          <button type="button" onClick={handleModalLogin} className="btn btn-login" id="modal_login">Connexion<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
-          <button type="button" onClick={handleModalSignup} className="btn btn-signup" id="modal_signup">Inscription<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
+          {!(isLogged) &&
+          <div>
+            <button type="button" onClick={handleModalLogin} className="btn btn-login" id="modal_login">Connexion<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
+            <button type="button" onClick={handleModalSignup} className="btn btn-signup" id="modal_signup">Inscription<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
+          </div>
+          }
         </div>
       </div>
       <section className="home__top">

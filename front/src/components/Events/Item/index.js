@@ -9,6 +9,7 @@ import Check from 'src/containers/Events/Item/Check';
 import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import momentTz from 'moment-timezone';
 
 
 Modal.setAppElement('#root');
@@ -59,9 +60,13 @@ export default function Item({
   };
 
   moment.locale('fr')
+  const timeZone = 'Atlantic/Azores'
   const position = [43.601400, 1.442130];
 
   const event = events.map((element) => {
+    const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
+    const momentHeure = moment(element.date).tz(timeZone).format("HH:mm")
+    const test = (element.visitors[0].f1 == null) ? (1) : (element.visitors.length + 1);
     const path = `/profil/${element.user_id}`;
     return(
     <div key={element.id} className="events__main__items">
@@ -73,8 +78,11 @@ export default function Item({
         >
         {element.label}
       </a>
-      <p>{element.visitors.length + 1}/{element.max_player}</p>  
-      <p>{moment(element.date).format("ddd DD-MM-YYYY / HH:mm")}</p>
+      <p>{test}/{element.max_player}</p>  
+      <div className="events__main__items--date">
+        <p>{momentDate}</p>
+        <p>{momentHeure}</p>
+      </div>
       <div className="events__main__items--address">
       <p>{element.address}</p>
       <p>{element.number_address}</p>

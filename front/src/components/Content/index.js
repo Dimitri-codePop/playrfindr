@@ -52,7 +52,7 @@ export default function Content({
     } else {
       setCurrentUser(false);
     }
-  }, []);
+  }, [paramsId]);
 
   const handleModalEdit = () => {
     setModalEditOpen(!modalEditOpen);
