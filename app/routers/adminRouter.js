@@ -15,7 +15,12 @@ const eventController = require('../controllers/eventController');
 
 const router = express.Router();
 
-
+/**
+    * Route de l'acceuil admin
+    * @route GET /
+    * @returns {{}} 200 - La page admin
+    * @returns {Error} 500 - Une erreur serveur
+    */
 router.get('/', authorisationAdmin, adminController.home);
 
 router.route('/users')
