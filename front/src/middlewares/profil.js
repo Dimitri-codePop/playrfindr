@@ -35,7 +35,7 @@ const profil = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('error', error);
-          console.log('')
+          console.log('');
         });
 
       break;

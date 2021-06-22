@@ -7,38 +7,45 @@ import { FindGoodGameByName, FindGoodGame } from 'src/selectors/find';
 import Flash from 'src/components/Flash';
 import './style.scss';
 
-export default function Ludo({ user, game, games, deleteGameFromLib, message, isOk, showMessage, setShowMessage}) {
+export default function Ludo({
+  game,
+  games,
+  deleteGameFromLib,
+  message,
+  isOk,
+  showMessage,
+  setShowMessage,
+}) {
   const [profilGames, setProfilGames] = useState([]);
 
   const handleOnClick = (event) => {
-    const gameName = FindGoodGame(games, event.target.id)
+    const gameName = FindGoodGame(games, event.target.id);
     deleteGameFromLib(event.target.id, gameName.label);
-  }
+  };
 
   useEffect(() => {
-    if (game) {const gameList = game.map((obj) => {
-      console.log(obj);
-      const oneGame = FindGoodGameByName(games, obj);
-      console.log(oneGame);
-      const path = `/jeu/${oneGame.id}`;
-      return (
-        <div className="profil__ludo__games__content" key={oneGame.id}>
-            <Link  to={path} >
+    if (game) {
+      const gameList = game.map((obj) => {
+        const oneGame = FindGoodGameByName(games, obj);
+
+        const path = `/jeu/${oneGame.id}`;
+        return (
+          <div className="profil__ludo__games__content" key={oneGame.id}>
+            <Link to={path} >
               <img className="profil__ludo__games__pic" src={oneGame.picture} alt="Game" />
             </Link>
             <div className="profil__ludo__games__name">
               <button type="button" id={oneGame.id} onClick={handleOnClick} className="profil__delete-btn">
                 <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
               </button>
-            <p className="profil__ludo__games__name-title">{oneGame.label}</p>
+              <p className="profil__ludo__games__name-title">{oneGame.label}</p>
             </div>
           </div>
-      );
-    });
-    setProfilGames(gameList);
-    };
+        );
+      });
+      setProfilGames(gameList);
+    }
   }, [game]);
-
 
   return (
     <>
@@ -62,4 +69,12 @@ export default function Ludo({ user, game, games, deleteGameFromLib, message, is
   );
 }
 
-Ludo.propTypes = {};
+Ludo.propTypes = {
+  game: PropTypes.object.isRequired,
+  games: PropTypes.object.isRequired,
+  deleteGameFromLib: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  isOk: PropTypes.bool.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+};
