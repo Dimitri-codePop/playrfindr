@@ -9,6 +9,9 @@ export default function Navbar({
   handleDisconnect,
   showMessage,
   setShowMessage,
+  search,
+  handleNavBarSearchValue,
+  handleNavSearch,
 }) {
   const [toggleMenu, setToggleMenu] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
@@ -37,6 +40,16 @@ export default function Navbar({
     };
   }, [width]);
 
+
+  const handleChangeSearchValue = (value) => {
+    console.log(value);
+    handleNavBarSearchValue(value);
+  }
+
+  const handleNavBarSearch = (value) => {
+    handleNavSearch(value);
+  }
+
   return (
     <>
       {toggleMenu ? (
@@ -44,12 +57,18 @@ export default function Navbar({
           handleDisconnect={handleDisconnect}
           showMessage={showMessage}
           setShowMessage={setShowMessage}
+          search={search}
+          handleChangeSearchValue={handleChangeSearchValue}
+          handleNavBarSearch={handleNavBarSearch}
         />
       ) : (
         <Web
           handleDisconnect={handleDisconnect}
           showMessage={showMessage}
           setShowMessage={setShowMessage}
+          search={search}
+          handleChangeSearchValue={handleChangeSearchValue}
+          handleNavBarSearch={handleNavBarSearch}
         />
       )}
     </>

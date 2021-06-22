@@ -21,13 +21,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+
     }
 
     &__name {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 450px;
       border-bottom: solid 1px vars.$alternate;
       margin-bottom: 1rem;
 
@@ -35,8 +35,11 @@
         color: vars.$grey;
         font-size: 30px;
         text-shadow: 0 0 2px vars.$primary;
-        padding-bottom: 2rem;
-        
+        display: flex;
+        flex-direction: column;
+        &-subtitle {
+          font-size: 1.1rem;
+        }
       }
       &__add {
         display: flex;
@@ -45,8 +48,8 @@
         margin-bottom: .2rem;
         &--text {
           font-size: .8rem;
-          text-decoration: underline;
-          color: lightgray;
+          padding: 0 0.3rem;
+          color: rgb(146, 146, 146);
         }
         &--icon {
           color: vars.$grey;
