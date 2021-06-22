@@ -2,7 +2,7 @@ const MessageModel = require('../models/messageModel');
 const UserModel = require('../models/userModel')
 
 module.exports = {
-    async getAll(req, res, next){
+    async getAllMessageReceive(req, res, next){
         try {
             const message = await MessageModel.findAllMessageByUser(req.user.userId);
             if(!message){

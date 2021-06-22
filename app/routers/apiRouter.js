@@ -145,7 +145,7 @@ router.route('/messagerie')
     * @returns {message[]} 200 - La liste des messages recus
     * @returns {Error} 500 - Une erreur serveur
     */
-    .get(authorisation, messageController.getAll);
+    .get(authorisation, messageController.getAllMessageReceive);
     
 router.route('/messagerie/:id')
     .post(authorisation, validate.body(schemas.messageInsertSchema), messageController.sendMessage); 
