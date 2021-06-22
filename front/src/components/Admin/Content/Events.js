@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Jeux({games}) {
-  console.log(games);
-  const tr = games.map(obj => {
+export default function Events({events}) {
+  const tr = events.map(obj => {
     return(
       <tr key={obj.label}>
         <td>{obj.id}</td>
         <td>{obj.label}</td>
-        <td>{obj.category_all[0]}</td>
-        <td>{obj.theme_all[0]}</td>
+        <td>{obj.address}</td>
+        <td>{obj.town}</td>
+        <td>{obj.creator_firstname}{obj.creator_lastname}</td>
+        <td>{obj.max_player}</td>
         <td>Edit / Suppr</td>
       </tr>
     )
-  })
+  });
   return (
     <div className="admin__content">App
 
@@ -22,8 +23,10 @@ export default function Jeux({games}) {
           <tr>
             <th className="admin__games_table_th">id</th>
             <th className="admin__games_table_th">label</th>
-            <th className="admin__games_table_th">category</th>
-            <th className="admin__games_table_th">themes</th>
+            <th className="admin__games_table_th">Adresse</th>
+            <th className="admin__games_table_th">Ville</th>
+            <th className="admin__games_table_th">Créateur</th>
+            <th className="admin__games_table_th">Participants Max</th>
             <th className="admin__games_table-th"> Edit </th>
           </tr>
         </thead>
@@ -31,10 +34,10 @@ export default function Jeux({games}) {
           {tr}
         </tbody>
       </table>
-</div>
+    </div>
 );
 }
 
-Jeux.propTypes = {
-  games: PropTypes.array.isRequired,
+Events.propTypes = {
+  events: PropTypes.array.isRequired,
 };

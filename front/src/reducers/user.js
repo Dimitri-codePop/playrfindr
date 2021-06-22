@@ -13,7 +13,8 @@ import {
 } from 'src/actions/user';
 import {
   SAVE_CURRENT_LIB_AFTER_DELETE,
-} from 'src/actions/games'
+} from 'src/actions/games';
+
 const initialState = {
   id: 0,
   email: '',

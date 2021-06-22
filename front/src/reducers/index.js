@@ -6,6 +6,7 @@ import eventsReducer from './events';
 import systemMessagesReducer from './systemMessages';
 import searchReducer from './search';
 import messagesReducer from './messages';
+import adminReducer from './admin';
 
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   systemMessages: systemMessagesReducer,
   search: searchReducer,
   messages: messagesReducer,
+  admin: adminReducer,
 });
 
 export default rootReducer;

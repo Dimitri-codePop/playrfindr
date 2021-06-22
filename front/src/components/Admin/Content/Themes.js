@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Jeux({games}) {
-  console.log(games);
-  const tr = games.map(obj => {
+export default function Themes({ themes }) {
+  console.log(themes);
+  const tr = themes.map(obj => {
     return(
       <tr key={obj.label}>
         <td>{obj.id}</td>
         <td>{obj.label}</td>
-        <td>{obj.category_all[0]}</td>
-        <td>{obj.theme_all[0]}</td>
         <td>Edit / Suppr</td>
       </tr>
     )
-  })
+  });
   return (
     <div className="admin__content">App
 
@@ -21,9 +19,7 @@ export default function Jeux({games}) {
         <thead>
           <tr>
             <th className="admin__games_table_th">id</th>
-            <th className="admin__games_table_th">label</th>
-            <th className="admin__games_table_th">category</th>
-            <th className="admin__games_table_th">themes</th>
+            <th className="admin__games_table_th">Label</th>
             <th className="admin__games_table-th"> Edit </th>
           </tr>
         </thead>
@@ -31,10 +27,10 @@ export default function Jeux({games}) {
           {tr}
         </tbody>
       </table>
-</div>
-);
+    </div>
+  );
 }
 
-Jeux.propTypes = {
-  games: PropTypes.array.isRequired,
+Themes.propTypes = {
+  themes: PropTypes.array.isRequired,
 };

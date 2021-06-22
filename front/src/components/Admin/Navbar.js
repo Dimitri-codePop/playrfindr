@@ -61,6 +61,15 @@ export default function Navbar() {
       >
         Editeurs
       </NavLink>
+      <NavLink
+        exact
+        to="/admin/authors"
+        className="admin__navbar__items"
+        activeClassName="admin__navbar__items-active"
+        key="authors"
+      >
+        Authors
+      </NavLink>
       <NavLink 
         exact 
         to="/admin/events"
