@@ -22,7 +22,7 @@ export default function Ludo({ user, game, games, deleteGameFromLib, message, is
       console.log(oneGame);
       const path = `/jeu/${oneGame.id}`;
       return (
-        <div className="profil__ludo__games__content">
+        <div className="profil__ludo__games__content" key={oneGame.id}>
             <Link  to={path} >
               <img className="profil__ludo__games__pic" src={oneGame.picture} alt="Game" />
             </Link>
