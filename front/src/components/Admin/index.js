@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, Navlink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Flash from 'src/components/Flash';
+
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
 import Users from './Content/Users';
@@ -28,6 +30,7 @@ export default function Admin(
     addElementType,
   },
 ) {
+  const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
     loadUsers();
     loadTypes();
@@ -40,6 +43,12 @@ export default function Admin(
         <Navbar />
       </div>
       <div className="admin__content">
+        <Flash
+          // message={message}
+          // isOk={isOk}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+        />
         <Switch>
           <Route
             exact
