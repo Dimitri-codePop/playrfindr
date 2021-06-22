@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
-import Content from 'src/components/Content';
-import { changeValueMessage, sendMessage } from 'src/actions/messages';
+import Messages from 'src/components/Messages';
+import { fetchMessages, sendMessage, changeValueMessage, deleteMessage } from 'src/actions/messages';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => ({
-  paramsId: Number(ownProps.match.params.id),
-  user: state.user.profil,
-  idCurrent: state.user.id,
+const mapStateToProps = (state) => ({
+  messages: state.messages.messages,
   contentMessage: state.messages.contentMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  loadMessages: () => {
+    dispatch(fetchMessages());
+  },
   changefieldMessage: (value, field) => {
     const action = changeValueMessage(value, field);
     dispatch(action);
@@ -19,9 +20,13 @@ const mapDispatchToProps = (dispatch) => ({
     const action = sendMessage(message, id);
     dispatch(action);
   },
+  deleteMessageContent: (id) => {
+    const action = deleteMessage(id);
+    dispatch(action);
+  },
 });
 
-const container = connect(mapStateToProps, mapDispatchToProps)(Content);
+const container = connect(mapStateToProps, mapDispatchToProps)(Messages);
 
 const containerWithRouter = withRouter(container);
 
