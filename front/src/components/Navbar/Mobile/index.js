@@ -26,7 +26,6 @@ export default function Mobile({
   const toggleNavbar = () => {
     setToggleMenu(!toggleMenu);
   };
-
   const toggleSearchBar = () => {
     setToggleSearch(!toggleSearch);
   };
@@ -135,4 +134,6 @@ Mobile.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   handleDisconnect: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
 };

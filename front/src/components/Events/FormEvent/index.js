@@ -40,7 +40,7 @@ export default function FormEvent({
           <Field
             type="datetime-local"
             name="date"
-            placeholder="Date/Heure"
+            placeholder=""
             onChange={changefieldEvent}
             value={date}
           />

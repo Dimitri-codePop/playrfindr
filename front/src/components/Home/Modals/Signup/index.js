@@ -27,7 +27,7 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
 
 
   return (
-    <div>
+    <div className="modalstyle">
       <Modal
         bodyOpenClassName={"signup"}
         isOpen={signupIsHidden}

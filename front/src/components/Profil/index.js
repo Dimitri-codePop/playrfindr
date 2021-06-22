@@ -15,10 +15,11 @@ export default function Profil({
   setShowMessage,
   message,
   isOk,
+  userId,
 }) {
   useEffect(() => {
     loadProfil();
-  }, []);
+  }, [userId]);
   if (loading) {
     return <Loading />;
   }
@@ -37,7 +38,10 @@ export default function Profil({
           showMessage={showMessage}
           setShowMessage={setShowMessage}
         />
-        <Ludo user={user} />
+        <Ludo
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+        />
       </main>
     </>
   );

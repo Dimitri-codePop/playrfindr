@@ -14,12 +14,33 @@
     margin: .2rem 0;
   }
   &-button {
+    width: 100%;
     margin: 0.2rem 0;
-    background-color: #662AD8;
+    background-color: v.$primary;
     height: 35px;
     color: white;
     border: none;
     border-radius: 5px;
   }
+  &-inscript{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    width: 100%;
+    & p {
+      margin-top: 0.3rem;
+    }
+    & span {
+      font-weight: bold;
+      color: v.$primary;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 
+
+}
+.delete {
+  pointer-events: none;
 }

@@ -11,7 +11,9 @@ import {
   DELETE_SELECT_FIELD_USER,
   DELETE_SELECT_FIELD_SIGNUP_USER,
 } from 'src/actions/user';
-
+import {
+  SAVE_CURRENT_LIB_AFTER_DELETE,
+} from 'src/actions/games'
 const initialState = {
   id: 0,
   email: '',
@@ -31,6 +33,7 @@ const initialState = {
   categories: [],
   profil: {},
 };
+
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -156,7 +159,11 @@ const reducer = (state = initialState, action = {}) => {
     }
     case DELETE_SELECT_FIELD_SIGNUP_USER: {
       let tab = [...state[action.key]];
-      tab = tab.filter((obj) => obj !== action.value);
+      console.log('tab', tab)
+      console.log(action.value);
+      tab = tab.filter((obj) => obj != action.value);
+      console.log('tab', tab)
+      console.log(action.key);
       let newState = {
         ...state,
         [action.key]: [...tab],
@@ -178,6 +185,32 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...newState,
       };
+    }
+    case SAVE_CURRENT_LIB_AFTER_DELETE: {
+      let tab = [...state.profil.game];
+      tab = tab.filter((obj) => obj !== action.gameName);
+      let newState = {...state.profil};
+      if(tab) {
+        newState = {
+          ...state,
+          profil: {
+            ...state.profil,
+            game: [...tab],
+          }
+        }
+      }
+      else {
+        newState = {
+          ...state,
+          profil: {
+            ...state.profil,
+            game: [],
+          }
+        }
+      }
+      return {
+        ...newState,
+      }
     }
     default:
       return state;

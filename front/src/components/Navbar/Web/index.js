@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 
 import './style.scss';
 import Logo from 'src/assets/logo.png';
@@ -20,8 +20,9 @@ export default function Web({
   handleDisconnect,
   showMessage,
   setShowMessage,
+  handleChangeSearchValue,
+  search,
 }) {
-  const [navBarSearchValue, setNavBarSearchValue] = useState('');
   const history = useHistory();
   const handleOnClick = () => {
     handleDisconnect();
@@ -32,15 +33,19 @@ export default function Web({
 
   const changeField = (event) => {
     event.preventDefault();
-    setNavBarSearchValue(event.target.value);
+    handleChangeSearchValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log('la recherche suivante se fait : ', event.target[0].value);
-    handleNavBarSearch(event.target[0].value);
+    console.log(search[0])
+    handleNavBarSearch(search[0]);
+    history.push('/recherche');
   };
   const profilPath = `/profil/${userId}`;
+  const onClickProfil = () => {
+    history.push(profilPath);
+  };
   return (
     <nav className="navbar__web">
       <>
@@ -64,9 +69,9 @@ export default function Web({
               className="navbar__search-form--input"
               placeholder="Entrez votre recherche"
               onChange={changeField}
-              value={navBarSearchValue}
+              value={search}
             />
-            <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch} className="" /> </button>
+              <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch}/> </button>
           </fieldset>
         </form>
         <div className="navbar__web__button-container">
@@ -78,7 +83,7 @@ export default function Web({
               <Link to="/events">
                 <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>
-              <Link to={profilPath}>
+              <Link to={profilPath} onClick={onClickProfil}>
                 <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
               </Link>
               <button type="button" className="navbar__web__buttons" onClick={handleOnClick}>
@@ -94,11 +99,9 @@ export default function Web({
 
 Web.propTypes = {
   handleNavBarSearch: PropTypes.func.isRequired,
-  userId: PropTypes.number,
-  isLogged: PropTypes.bool.isRequired,
   handleDisconnect: PropTypes.func.isRequired,
 };
 
 Web.defaultProps = {
-  userId: 0,
+
 };
