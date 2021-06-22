@@ -5,6 +5,7 @@ import gamesReducer from './games';
 import eventsReducer from './events';
 import systemMessagesReducer from './systemMessages';
 import searchReducer from './search';
+import messagesReducer from './messages';
 
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   events: eventsReducer,
   systemMessages: systemMessagesReducer,
   search: searchReducer,
+  messages: messagesReducer,
 });
 
 export default rootReducer;
