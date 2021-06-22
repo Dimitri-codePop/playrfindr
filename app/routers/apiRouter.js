@@ -231,7 +231,7 @@ router.route('/search/user/:name')
     * Route de la recherche
     * @route GET /search/user
     * @returns {User[]} 200 - Resultat de la recherche
-    * @param {SearchInput.model} User.body.required - Un objet contenant les informations de la recherche
+    * @param {UserInput.model} User.body.required - Un objet contenant les informations de la recherche
     * @returns {Error} 500 - Une erreur serveur
     */
     .get(authorisation , userController.searchUser); 
@@ -243,7 +243,7 @@ router.route('/search/game/:name')
     * Route de la recherche
     * @route GET /search/game
     * @returns {Game[]} 200 - Resultat de la recherche
-    * @param {SearchInput.model} Game.body.required - Un objet contenant les informations de la recherche
+    * @param {GameInput.model} Game.body.required - Un objet contenant les informations de la recherche
     * @returns {Error} 500 - Une erreur serveur
     */
     .get(authorisation , gameController.searchGame); 

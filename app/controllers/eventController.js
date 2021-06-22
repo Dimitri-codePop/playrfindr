@@ -122,17 +122,6 @@ module.exports = {
         }
         
     },
-
-    async getAll(_, res) {
-        try {
-            const events = await EventModel.findAll();
-
-            return res.status(200).json({data: events})
-        } catch (error) {
-            console.trace(error);
-            res.json({ error });
-        }
-    },
     async deleteEvent(req, res, next) {
         try {
             const event = await EventModel.findByPk(req.params.id);

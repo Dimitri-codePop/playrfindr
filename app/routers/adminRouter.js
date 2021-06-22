@@ -15,12 +15,7 @@ const eventController = require('../controllers/eventController');
 
 const router = express.Router();
 
-/**
-    * Route de l'acceuil admin
-    * @route GET /
-    * @returns {{}} 200 - La page admin
-    * @returns {Error} 500 - Une erreur serveur
-    */
+   
 router.get('/', authorisationAdmin, adminController.home);
 
 router.route('/users')
@@ -36,7 +31,6 @@ router.route('/jeux')
 router.route('/jeux/:id')
     .patch( authorisationAdmin,  validate.body(schemas.gameUpdateSchema), gameController.updateGames)
     .delete( authorisationAdmin,  gameController.deleteGames);
-
 
 router.route('/editor')
     .get( authorisationAdmin,  editorController.getAllEditor)
@@ -71,9 +65,6 @@ router.route('/author/:id')
     .patch( authorisationAdmin, validate.body(schemas.authorUpdateSchema), authorController.updateAuthor)
     .delete( authorisationAdmin,  authorController.deleteAuthor);
 
-
-router.route('/event')
-    .get( authorisationAdmin, eventController.getAll);
     
 router.route('/event/:id')
     .delete( authorisationAdmin, eventController.deleteEvent);
