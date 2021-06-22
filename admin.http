@@ -30,7 +30,7 @@ Content-Type: application/json
 
 ### Update  des jeux
 Patch  http://localhost:4000/admin/jeux/60
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
 Content-Type: application/json
 
 {
@@ -53,13 +53,6 @@ DELETE http://localhost:4000/admin/jeux/60
 GET  http://localhost:4000/admin/editor
 
 
-### Insert  des editors
-POST  http://localhost:4000/admin/editor
-Content-Type: application/json
-
-{
-    "label": "Artipia Games"
-}
 
 ### Update  des editor
 Patch  http://localhost:4000/admin/editor/1
@@ -181,7 +174,7 @@ GET  https://playrfindr.herokuapp.com/admin/
 
 ### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
 
 
 ### Insert  des jeux
@@ -204,20 +197,12 @@ Content-Type: application/json
 
 
 ### Update  des jeux
-Patch   https://playrfindr.herokuapp.com/admin/jeux/60
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+PATCH   https://playrfindr.herokuapp.com/admin/jeux/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
 Content-Type: application/json
 
 {
-    "label": "Saboteur",
-    "duration": 30,
-    "player_min": 1,
-    "player_max": 2,
-    "age_min": 8,
-    "picture": "https://zupimages.net/up/21/24/ttxa.jpg",
-    "year": 2017,
-    "describe":"",
-    "editor_id": 1
+    "picture": "https://www.zupimages.net/up/21/24/3io7.png"
 }
 
 ### Delete  des jeux

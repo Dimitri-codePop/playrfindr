@@ -76,7 +76,13 @@ router.route('/profil/:id(\\d+)')
       * @returns {Error} 500 - Utilisateur n'existe pas
       */
       .get(authorisation,userController.getOneProfil)
-
+    /**
+      * Récuperer d'un utilisateur
+      * @route PATCH /profil/{id}
+      * @param {number} id - Identifiant d'un utilisateur- Un objet contenant les informations de l'utilisateur
+      * @param {UserInput.model} User.body.required 200 - Un objet contenant les informations d'un utilisateur a update
+      * @returns {Error} 500 - Utilisateur n'existe pas
+      */
       .patch(authorisation,validate.body(schemas.userUpdateSchema),userController.updateProfil)
       
       .delete(authorisation, userController.deleteProfil);
@@ -94,6 +100,13 @@ router.route('/profil/:id(\\d+)/collection')
 
 
 router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
+/**
+    * Récuperer un utilisateur
+    * @route POST /inscription
+    * @param {UserInput.model} User.body.required - Un objet contenant les informations d'un utilisateur
+    * @returns {User} 200 - L'utilisateur récupérer
+    * @returns {Error} 500 - Utilisateur n'existe pas
+    */
     .post(authorisation, userController.addGames)
     .delete(authorisation, userController.deleteGames); 
     
@@ -107,9 +120,23 @@ router.route('/event')
     * @returns {Error} 500 - Une erreur serveur
     */
     .get(authorisation, eventController.findEvent)
+/**
+    * Route des evenements
+    * @route POST /event
+    * @param {EventInput.model} Event.body.required - Un objet contenant les informations d'un événement
+    * @return {Event[]} - Retourne l'événement update
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .post(authorisation, validate.body(schemas.eventInsertSchema),eventController.addEvent);
 
 router.route('/event/:id(\\d+)')
+/**
+    * Route des evenements
+    * @route POST /event
+    * @param {number} id  - L'id de l'événement 
+    * @return {Event[]}  - L'événement avec les participants
+    * @returns {Error} 500 - Une erreur serveur
+    */
     .post(authorisation, validate.body(schemas.eventUpdateSchema), eventController.participationEvent)
     .patch(authorisation, eventController.removeParticipant)
     .delete(authorisation,eventController.removeEvent);
