@@ -66,11 +66,11 @@ class GameModel extends CoreModel {
     static async findAllGamesWithCatAndTheme () {
          
         const result = await client.query(`SELECT  "game".*,
-        ARRAY_REMOVE(ARRAY_AGG(distinct "category"."label"), NULL) as category_all,
-        ARRAY_REMOVE(ARRAY_AGG(distinct "theme"."label"), NULL) as theme_all
+        ARRAY_AGG(distinct "category"."label") as category_all,
+        ARRAY_AGG(distinct "theme"."label") as theme_all
         FROM "game" 
         JOIN "game_has_theme" ON "game"."id" = "game_has_theme"."game_id"
-        JOIN "theme" ON "theme"."id" = "game_has_theme"."game_id"
+        JOIN "theme" ON "theme"."id" = "game_has_theme"."theme_id"
         JOIN "game_has_category" ON"game"."id" = "game_has_category"."game_id"
         JOIN "category" ON "category"."id" = "game_has_category"."category_id"
         group by "game"."id";`) 
