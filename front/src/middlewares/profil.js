@@ -69,10 +69,9 @@ const profil = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          const actionSaveEditUser = saveEditUser(response.data);
           console.log(response.data);
-          localStorage.clear();
           state.user.profil.token = state.user.token;
+          const actionSaveEditUser = saveEditUser(response.data);
           console.log(state.user.profil);
           localStorage.setItem('UserKeysUsed', JSON.stringify(state.user.profil));
           store.dispatch(actionSaveEditUser);
