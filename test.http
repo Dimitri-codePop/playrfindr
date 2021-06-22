@@ -44,7 +44,8 @@ GET http://localhost:4000/api/departements
 GET https://playrfindr.herokuapp.com/api/departements
 
 ### Récupération d'un jeu
-GET https://playrfindr.herokuapp.com/api/jeu/1
+GET https://playrfindr.herokuapp.com/api/jeu/40
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM1MTA5NiwiZXhwIjoxNjI0MzU0Njk2fQ.VYQyJbQw-980pssuBTV2gxk8_nqOalbSLzP-kBNk0vo
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
@@ -149,7 +150,7 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "jeann@gmail.com",
+    "email": "oclock@oclock.io",
     "password": "123456"
  
 }
