@@ -38,7 +38,7 @@ module.exports = {
             if(!messageFound){
                 return next();
             }
-            console.log(messageFound);
+          
 
             if (req.user.userId !== messageFound.dataValues.recipient_id){
                 return res.status(403).json({error: `Delete not possible`})

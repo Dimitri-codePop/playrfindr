@@ -252,7 +252,7 @@ module.exports = {
     async getAll(_, res, next){
         try {
             const users = await UserModel.findAllUser();
-            console.log(users);
+            
             res.json({ data: users.map(user => user)});
         } catch (error) {
             console.trace(error);
