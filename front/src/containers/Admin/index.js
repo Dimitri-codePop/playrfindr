@@ -7,6 +7,7 @@ import {
   fetchEditors,
   deleteElement,
   addElementType,
+  changeFieldType,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -42,6 +43,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   addElementType: (value, key) => {
     dispatch(addElementType(value, key));
+  },
+  onChangefieldType: (value, key) => {
+    dispatch(changeFieldType(value, key));
   },
 });
 

@@ -5,6 +5,7 @@ import {
   SAVE_AFTER_DELETE,
   SAVE_ALL_TYPE,
   SAVE_ELEMENTS_TYPE,
+  CHANGE_ADD_TYPE_FIELD,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -15,6 +16,14 @@ const initialState = {
   event: [],
   theme: [],
   category: [],
+  new: {
+    editor: '',
+    theme: '',
+    category: '',
+    jeux: {},
+    user: {},
+    author: {},
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -43,11 +52,16 @@ const reducer = (state = initialState, action = {}) => {
         ]
         ,
       };
-    case SAVE_AFTER_DELETE:
+    case SAVE_AFTER_DELETE: {
+      const tab = state[action.key];
+      console.log(`tab`, tab);
+      const newTab = tab.filter((entry) => Number(entry.id) !== Number(action.value));
+      console.log(`newTab`, newTab);
       return {
         ...state,
-        [action.key]: [...action.value],
+        [action.key]: [...newTab],
       };
+    }
     case SAVE_ALL_TYPE:
       return {
         ...state,
@@ -60,9 +74,17 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: [
-          ...[action.key],
+          ...state[action.key],
           action.value,
         ],
+      };
+    case CHANGE_ADD_TYPE_FIELD:
+      return {
+        ...state,
+        new: {
+          ...state.new,
+          [action.key]: action.value,
+        },
       };
     default:
       return state;

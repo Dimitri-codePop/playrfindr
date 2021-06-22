@@ -91,9 +91,8 @@ export default function Home({
 }
 
 Home.propTypes = {
-topTendances: PropTypes.array,
+  topTendances: PropTypes.array,
 };
-
 
 Home.defaultProps = {
   topTendances: [],

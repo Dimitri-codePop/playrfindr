@@ -111,6 +111,7 @@ const admin = (store) => (next) => (action) => {
       break;
     }
     case DELETE_ONE_ENTRY: {
+      console.log('MDW ', action.key, action.value);
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
       axios.delete(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.value}`, {
         headers: {
@@ -120,7 +121,8 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          const data = saveAfterDelete(response.data.data, action.key);
+          console.log(response.data);
+          const data = saveAfterDelete(action.value, action.key);
           store.dispatch(data);
         })
         .catch((error) => console.log(`error`, error));
@@ -128,6 +130,7 @@ const admin = (store) => (next) => (action) => {
     }
     case ADD_ELEMENTS_TYPE: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log('MDW ', action.key, action.value);
       axios.post(`https://playrfindr.herokuapp.com/admin/${action.key}`, {
         label: action.value,
       }, {
@@ -138,7 +141,8 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          const data = saveElementsType(response.data.data, action.key);
+          console.log(response.data.theme.dataValues);
+          const data = saveElementsType(response.data.theme.dataValues, action.key);
           store.dispatch(data);
         })
         .catch((error) => console.log(`error`, error));

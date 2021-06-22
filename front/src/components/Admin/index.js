@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, Navlink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Flash from 'src/components/Flash';
+import Themes from 'src/containers/Admin/Content/Themes';
 
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
 import Users from './Content/Users';
 import Categories from './Content/Categories';
-import Themes from './Content/Themes';
 import Events from './Content/Events';
 import Authors from './Content/Authors';
 import Editors from './Content/Editors';
@@ -28,27 +28,31 @@ export default function Admin(
     authors,
     deleteElement,
     addElementType,
+    onChangefieldType,
   },
 ) {
   const [showMessage, setShowMessage] = useState(false);
+  const [showModalTheme, setShowModalTheme] = useState(false);
   useEffect(() => {
     loadUsers();
     loadTypes();
     loadEditors();
     loadAuthors();
   }, []);
+  {/* <Flash
+    message={message}
+    isOk={isOk}
+    showMessage={showMessage}
+    setShowMessage={setShowMessage}
+  /> */}
+
   return (
     <div className="admin">
       <div className="admin__nav">
         <Navbar />
       </div>
       <div className="admin__content">
-        <Flash
-          // message={message}
-          // isOk={isOk}
-          showMessage={showMessage}
-          setShowMessage={setShowMessage}
-        />
+
         <Switch>
           <Route
             exact
@@ -83,6 +87,9 @@ export default function Admin(
               themes={themes}
               deleteElement={deleteElement}
               addElementType={addElementType}
+              showModal={showModalTheme}
+              setShowModal={setShowModalTheme}
+              onChangefieldType={onChangefieldType}
             />
           </Route>
           <Route
@@ -130,7 +137,7 @@ Admin.propTypes = {
   loadAuthors: PropTypes.func.isRequired,
   deleteElement: PropTypes.func.isRequired,
   addElementType: PropTypes.func.isRequired,
-
+  onChangefieldType: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
   themes: PropTypes.array.isRequired,

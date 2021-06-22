@@ -11,6 +11,13 @@ export const FETCH_ALL_TYPE = 'FETCH_ALL_TYPE';
 export const SAVE_ALL_TYPE = 'SAVE_ALL_TYPE';
 export const ADD_ELEMENTS_TYPE = 'ADD_ELEMENTS_TYPE';
 export const SAVE_ELEMENTS_TYPE = 'SAVE_ELEMENTS_TYPE';
+export const CHANGE_ADD_TYPE_FIELD = 'CHANGE_ADD_TYPE_FIELD';
+
+export const changeFieldType = (value, key) => ({
+  type: CHANGE_ADD_TYPE_FIELD,
+  value,
+  key,
+});
 
 export const saveElementsType = (value, key) => ({
   type: SAVE_ELEMENTS_TYPE,
