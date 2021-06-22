@@ -26,8 +26,8 @@ const updateSchema = Joi.object({
     describe: Joi.string(),
     editor_id: Joi.number().integer().min(1),
     author_id: Joi.number().integer().min(1),
-    category_id:Joi.array().items(Joi.number().integer()).required().min(1),
-    theme_id: Joi.array().items(Joi.number().integer()).required().min(1),
+    category_id:Joi.array().items(Joi.number().integer()).min(1),
+    theme_id: Joi.array().items(Joi.number().integer()).min(1),
 }).required(); 
 
 module.exports = { insertSchema, updateSchema };
