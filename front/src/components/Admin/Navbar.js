@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 export default function Navbar() {
-    return (
+  return (
     <>
-        <h1> Sommaire </h1>
+      <h1> Sommaire </h1>
       <NavLink
         exact
         to="/admin/users"
@@ -26,16 +26,7 @@ export default function Navbar() {
         Jeux
       </NavLink>
       <NavLink
-      exact
-      to="/admin/departments"
-      className="admin__navbar__items"
-      activeClassName="admin__navbar__items-active"
-      key="departments"
-      >
-        Départements
-      </NavLink>
-      <NavLink 
-        exact 
+        exact
         to="/admin/themes"
         className="admin__navbar__items"
         activeClassName="admin__navbar__items-active"
@@ -70,8 +61,8 @@ export default function Navbar() {
       >
         Authors
       </NavLink>
-      <NavLink 
-        exact 
+      <NavLink
+        exact
         to="/admin/events"
         className="admin__navbar__items"
         activeClassName="admin__navbar__items-active"

@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default function Users({users}) {
+export default function Users({ users, deleteElement }) {
   console.log(users);
+  const handleOnClick = (event) => {
+    const name = 'users';
+    console.log(event.target.id, name);
+    deleteElement(event.target.id, name);
+  };
   const tr = users.map(obj => {
     return(
       <tr key={obj.firstname}>
@@ -10,13 +17,17 @@ export default function Users({users}) {
         <td><img src={obj.picture} alt="profil user" className="admin__users_logo"/></td>
         <td>{obj.firstname} {obj.lastname}</td>
         <td>{obj.email}</td>
-        <td>Edit / Suppr</td>
+        <td>
+          <button type="button" id={obj.id} onClick={handleOnClick} className="profil__delete-btn">
+            <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
+          </button>
+        </td>
       </tr>
     )
   });
   return (
     <div className="admin__content">App
-
+ADD
       <table className="admin__games_table">
         <thead>
           <tr>
@@ -37,4 +48,5 @@ export default function Users({users}) {
 
 Users.propTypes = {
   users: PropTypes.array.isRequired,
+  deleteElement: PropTypes.func.isRequired,
 };

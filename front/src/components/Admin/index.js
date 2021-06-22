@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
 import Users from './Content/Users';
-import Departments from './Content/Departments';
 import Categories from './Content/Categories';
 import Themes from './Content/Themes';
 import Events from './Content/Events';
@@ -15,10 +14,9 @@ import './style.scss';
 export default function Admin(
   {
     loadTypes,
-    loadDepartements,
     loadUsers,
-    loadEvents,
     loadEditors,
+    loadAuthors,
     games,
     categories,
     themes,
@@ -26,15 +24,15 @@ export default function Admin(
     events,
     editors,
     authors,
-    departments,
+    deleteElement,
+    addElementType,
   },
 ) {
   useEffect(() => {
     loadUsers();
     loadTypes();
-    loadDepartements();
-    loadEvents();
     loadEditors();
+    loadAuthors();
   }, []);
   return (
     <div className="admin">
@@ -54,49 +52,61 @@ export default function Admin(
             path="/admin/users"
             key="users"
           >
-            <Users users={users} />
+            <Users
+              users={users}
+              deleteElement={deleteElement}
+            />
           </Route>
           <Route
             exact
             path="/admin/games"
           >
-            <Jeux games={games} />
-          </Route>
-          <Route
-            exact
-            path="/admin/departments"
-          >
-            <Departments departments={departments} />
+            <Jeux
+              games={games}
+              deleteElement={deleteElement}
+            />
           </Route>
           <Route
             exact
             path="/admin/themes"
           >
-            <Themes themes={themes} />
+            <Themes
+              themes={themes}
+              deleteElement={deleteElement}
+              addElementType={addElementType}
+            />
           </Route>
           <Route
             exact
             path="/admin/categories"
           >
-            <Categories categories={categories} />
+            <Categories
+              categories={categories}
+              deleteElement={deleteElement}
+              addElementType={addElementType}
+            />
           </Route>
           <Route
             exact
             path="/admin/editors"
           >
-            <Editors editors={editors} />
+            <Editors
+              editors={editors}
+              deleteElement={deleteElement}
+              addElementType={addElementType}
+            />
           </Route>
           <Route
             exact
             path="/admin/authors"
           >
-            <Authors authors={authors} />
+            <Authors authors={authors} deleteElement={deleteElement} />
           </Route>
           <Route
             exact
             path="/admin/events"
           >
-            <Events events={events} />
+            <Events events={events} deleteElement={deleteElement} />
           </Route>
         </Switch>
       </div>
@@ -106,16 +116,17 @@ export default function Admin(
 
 Admin.propTypes = {
   loadTypes: PropTypes.func.isRequired,
-  loadDepartements: PropTypes.func.isRequired,
   loadUsers: PropTypes.func.isRequired,
-  loadEvents: PropTypes.func.isRequired,
   loadEditors: PropTypes.func.isRequired,
-  games: PropTypes.object.isRequired,
-  categories: PropTypes.object.isRequired,
-  themes: PropTypes.object.isRequired,
-  users: PropTypes.object.isRequired,
-  events: PropTypes.object.isRequired,
-  editors: PropTypes.object.isRequired,
+  loadAuthors: PropTypes.func.isRequired,
+  deleteElement: PropTypes.func.isRequired,
+  addElementType: PropTypes.func.isRequired,
+
+  games: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+  themes: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
+  events: PropTypes.array.isRequired,
+  editors: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
-  departments: PropTypes.object.isRequired,
 };

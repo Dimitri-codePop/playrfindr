@@ -1,17 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default function Events({events}) {
+export default function Events({ events, deleteElement }) {
+  const handleOnClick = (event) => {
+    const name = 'event';
+    console.log(event.target.id, name);
+    deleteElement(event.target.id, name);
+  };
+  console.log(events);
   const tr = events.map(obj => {
     return(
-      <tr key={obj.label}>
-        <td>{obj.id}</td>
-        <td>{obj.label}</td>
-        <td>{obj.address}</td>
-        <td>{obj.town}</td>
-        <td>{obj.creator_firstname}{obj.creator_lastname}</td>
-        <td>{obj.max_player}</td>
-        <td>Edit / Suppr</td>
+      <tr key={obj.dataValues.label}>
+        <td>{obj.dataValues.id}</td>
+        <td>{obj.dataValues.label}</td>
+        <td>{obj.dataValues.address}</td>
+        <td>{obj.dataValues.town}</td>
+        <td>{obj.dataValues.creator_firstname}{obj.creator_lastname}</td>
+        <td>{obj.dataValues.max_player}</td>
+        <td>
+          <button type="button" id={obj.id} onClick={handleOnClick} className="profil__delete-btn">
+            <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
+          </button>
+        </td>
       </tr>
     )
   });
@@ -40,4 +52,5 @@ export default function Events({events}) {
 
 Events.propTypes = {
   events: PropTypes.array.isRequired,
+  deleteElement: PropTypes.func.isRequired,
 };

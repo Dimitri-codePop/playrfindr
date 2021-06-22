@@ -1,44 +1,47 @@
 import { connect } from 'react-redux';
 import Admin from 'src/components/Admin';
-import { fetchTypes } from 'src/actions/games';
-import { fetchDepartements } from 'src/actions/user';
-import { fetchUsers, fetchAuthors, fetchEditors } from 'src/actions/admin';
-import { fetchEvents} from 'src/actions/events';
+import {
+  fetchUsers,
+  fetchAuthors,
+  fetchAllType,
+  fetchEditors,
+  deleteElement,
+  addElementType,
+} from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
-  games: state.games.goodGames,
-  categories: state.games.categories,
-  departments: state.user.departements,
-  events: state.events.events,
-  editors: state.admin.editors,
+  games: state.admin.jeux,
+  categories: state.admin.category,
+  departments: state.user.department,
+  events: state.admin.event,
+  editors: state.admin.editor,
+  authors: state.admin.author,
   users: state.admin.users,
-  themes: state.games.themes,
-  loading: state.games.loading,
+  themes: state.admin.theme,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // exemple de fonction pour dispatch
   loadTypes: () => {
-    dispatch(fetchTypes());
-  },
-  loadDepartements: () => {
-    dispatch(fetchDepartements());
+    dispatch(fetchAllType());
   },
   loadUsers: () => {
-    console.log("admin users")
+    console.log("admin users");
     dispatch(fetchUsers());
-  },
-  loadEvents: () => {
-    console.log("admin events");
-    dispatch(fetchEvents());
   },
   loadEditors: () => {
     console.log("admin Editors");
     dispatch(fetchEditors());
   },
   loadAuthors: () => {
-    console.log("admin Editors");
+    console.log("admin Authors");
     dispatch(fetchAuthors());
+  },
+  deleteElement: (value, key) => {
+    dispatch(deleteElement(value, key));
+  },
+  addElementType: (value, key) => {
+    dispatch(addElementType(value, key));
   },
 });
 
