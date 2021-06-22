@@ -43,6 +43,9 @@ export default function Web({
     history.push('/recherche');
   };
   const profilPath = `/profil/${userId}`;
+  const onClickProfil = () => {
+    history.push(profilPath);
+  };
   return (
     <nav className="navbar__web">
       <>
@@ -80,7 +83,7 @@ export default function Web({
               <Link to="/events">
                 <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>
-              <Link to={profilPath}>
+              <Link to={profilPath} onClick={onClickProfil}>
                 <div className="navbar__web__profil-circle"><FontAwesomeIcon icon={faUser} /></div>
               </Link>
               <button type="button" className="navbar__web__buttons" onClick={handleOnClick}>

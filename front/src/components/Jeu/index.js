@@ -24,9 +24,9 @@ export default function Jeu({
   if (loader) {
     return <Loading />;
   }
-  return(
+  return (
     <main className="game">
-      < Content
+      <Content
         {...game}
         loading={loading}
         showMessage={showMessage}
@@ -44,5 +44,3 @@ Jeu.propTypes = {
   showMessage: PropTypes.bool.isRequired,
   setShowMessage: PropTypes.func.isRequired,
 };
-
-//< Content {...game} loading={loading}/>

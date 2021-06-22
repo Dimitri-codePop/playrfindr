@@ -59,20 +59,19 @@ export default function App({
         <Route
           path="/jeu/:id"
         >
-          <Jeu 
+          <Jeu
             showMessage={showMessage}
             setShowMessage={setShowMessage}
           />
         </Route>
         <Route path="/profil/:id">
-          {isLogged ?
-            (
+          {isLogged
+            ? (
               <Profil
                 showMessage={showMessage}
                 setShowMessage={setShowMessage}
               />
-            ) : <Redirect to="/" />
-          }
+            ) : <Redirect to="/" />}
         </Route>
         <Route path="/events">
           <Events />
@@ -92,4 +91,5 @@ App.propTypes = {
   loadDepartements: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   loadUser: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };

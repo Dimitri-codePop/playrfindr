@@ -15,10 +15,11 @@ export default function Profil({
   setShowMessage,
   message,
   isOk,
+  userId,
 }) {
   useEffect(() => {
     loadProfil();
-  }, []);
+  }, [userId]);
   if (loading) {
     return <Loading />;
   }
