@@ -3,7 +3,7 @@ GET http://localhost:4000/admin/
 
 ### Page des jeux
 GET http://localhost:4000/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 
 
@@ -51,7 +51,7 @@ DELETE http://localhost:4000/admin/jeux/60
 
 ### Page des Editors
 GET  http://localhost:4000/admin/editor
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des editors
 POST  http://localhost:4000/admin/editor
@@ -161,7 +161,7 @@ DELETE   http://localhost:4000/admin/author/88
 
 ### Page des users
 GET http://localhost:4000/admin/users
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Delete des users
 DELETE  http://localhost:4000/admin/users/4
@@ -179,10 +179,11 @@ DELETE  http://localhost:4000/admin/event/2
 
 ### Page d'acceuil
 GET  https://playrfindr.herokuapp.com/admin/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 
 ### Insert  des jeux
@@ -220,7 +221,7 @@ DELETE  https://playrfindr.herokuapp.com/admin/jeux/60
 
 ### Page des Editors
 GET   https://playrfindr.herokuapp.com/admin/editor
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des editors
 POST   https://playrfindr.herokuapp.com/admin/editor
@@ -246,7 +247,7 @@ DELETE    https://playrfindr.herokuapp.com/admin/editor/1
 
 ### Page des themes
 GET   https://playrfindr.herokuapp.com/admin/theme
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des themes
 POST   https://playrfindr.herokuapp.com/admin/theme
@@ -272,7 +273,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des category
 GET   https://playrfindr.herokuapp.com/admin/category
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des categories
 POST   https://playrfindr.herokuapp.com/admin/category
@@ -336,3 +337,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 DELETE  https://playrfindr.herokuapp.com/admin/users/5
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+
+###Event
+
+GET https://playrfindr.herokuapp.com/admin/event
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI

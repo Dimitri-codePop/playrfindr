@@ -8,7 +8,7 @@ module.exports = {
         try {
             const events = await EventModel.findAll();
 
-            return res.status(200).json({data: events.dataValues})
+            return res.status(200).json({data: events.map(event =>event.dataValues)})
         } catch (error) {
             console.trace(error);
             res.json({ error });

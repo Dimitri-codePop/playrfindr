@@ -6,7 +6,7 @@ module.exports = {
         try {
             const editors = await EditorModel.findAll();
     
-            return res.status(200).json({data : editors.dataValues})
+            return res.status(200).json({data: editors.map(editor => editor.dataValues)})
         } catch (error) {
             console.log(error);
             res.status(500).json({error});
