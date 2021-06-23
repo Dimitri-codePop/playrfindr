@@ -24,7 +24,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     height: 320px;
     top: 15%;
     font-size: 2rem;
@@ -41,6 +40,7 @@
     font-size: 1rem;
     text-shadow: 1px 2px 1px v.$grey;
     font-weight: lighter;
+    margin-bottom: 4rem;
   }
   &__top {
     background-color: #e7e7e7;
@@ -71,13 +71,12 @@
   z-index: 1;
   width: 130px;
   height: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 0 5px v.$grey;
   font-size: 1.5rem;;
 }
 
 .btn-login {
   background-color: v.$light;
+  margin-bottom: 2rem;
 }
 .btn-signup {
   background-color: v.$primary;
@@ -170,6 +169,21 @@
   }
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateX(-100px);
+}
 
 @media screen and(min-width: 960px) {
   .home {
