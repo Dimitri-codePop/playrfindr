@@ -14,6 +14,37 @@ export const SAVE_ELEMENTS_TYPE = 'SAVE_ELEMENTS_TYPE';
 export const CHANGE_ADD_TYPE_FIELD = 'CHANGE_ADD_TYPE_FIELD';
 export const EDIT_TYPE_FIELD = 'EDIT_TYPE_FIELD';
 export const SAVE_EDIT_TYPE_FIELD = 'SAVE_EDIT_TYPE_FIELD';
+export const CHANGE_AUTHOR_FIELD = 'CHANGE_AUTHOR_FIELD';
+export const SAVE_ADD_AUTHOR = 'SAVE_ADD_AUTHOR';
+export const SAVE_EDIT_AUTHOR = 'SAVE_EDIT_AUTHOR';
+export const ADD_AUTHOR = 'ADD_AUTHOR';
+export const EDIT_AUTHOR = 'EDIT_AUTHOR';
+export const addElementAuthor = (value, key) => ({
+  type: ADD_AUTHOR,
+  value,
+  key,
+});
+export const saveAddAuthor = (value) => ({
+  type: SAVE_ADD_AUTHOR,
+  value,
+});
+export const editElementAuthor = (id) => ({
+  type: EDIT_AUTHOR,
+  id,
+});
+
+export const saveEditAuthor = (value, key, id) => ({
+  type: SAVE_EDIT_AUTHOR,
+  value,
+  key,
+  id,
+});
+
+export const changeFieldAuthor = (value, key) => ({
+  type: CHANGE_AUTHOR_FIELD,
+  value,
+  key,
+});
 
 export const saveEditElementType = (value, key, id) => ({
   type: SAVE_EDIT_TYPE_FIELD,

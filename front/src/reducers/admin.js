@@ -7,6 +7,9 @@ import {
   SAVE_ELEMENTS_TYPE,
   SAVE_EDIT_TYPE_FIELD,
   CHANGE_ADD_TYPE_FIELD,
+  CHANGE_AUTHOR_FIELD,
+  SAVE_EDIT_AUTHOR,
+  SAVE_ADD_AUTHOR,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -22,8 +25,10 @@ const initialState = {
     theme: '',
     category: '',
     jeux: {},
-    user: {},
-    author: {},
+    author: {
+      firstname: '',
+      lastname: '',
+    },
   },
 };
 
@@ -81,8 +86,6 @@ const reducer = (state = initialState, action = {}) => {
       };
     case SAVE_EDIT_TYPE_FIELD: {
       const tab = state[action.key];
-      console.log(`action.value`, action.value);
-      console.log(action.value.id);
       const newTab = tab.map((entry) => {
         if (Number(entry.id) === Number(action.value.id)) {
           entry.label = action.value.label;
@@ -104,6 +107,43 @@ const reducer = (state = initialState, action = {}) => {
           [action.key]: action.value,
         },
       };
+    case CHANGE_AUTHOR_FIELD:
+      return {
+        ...state,
+        new: {
+          ...state.new,
+          author: {
+            ...state.new.author,
+            [action.key]: action.value,
+          },
+        },
+      };
+    case SAVE_ADD_AUTHOR:
+      return {
+        ...state,
+        author: [...state.author, action.value],
+      };
+    case SAVE_EDIT_AUTHOR: {
+      const tab = state.author;
+      const newTab = tab.map((entry) => {
+        if (Number(entry.id) === Number(action.value.id)) {
+          entry.firstname = action.value.firstname;
+          entry.lastname = action.value.lastname;
+        }
+        return entry;
+      });
+      return {
+        ...state,
+        author: [...newTab],
+        new: {
+          ...state.new,
+          author: {
+            firstname: '',
+            lastname: '',
+          },
+        },
+      };
+    }
     default:
       return state;
   }

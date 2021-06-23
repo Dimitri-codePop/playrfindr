@@ -5,12 +5,12 @@ import Flash from 'src/components/Flash';
 import Themes from 'src/containers/Admin/Content/Themes';
 import Categories from 'src/containers/Admin/Content/Categories';
 import Editors from 'src/containers/Admin/Content/Editors';
+import Authors from 'src/containers/Admin/Content/Authors';
 
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
 import Users from './Content/Users';
 import Events from './Content/Events';
-import Authors from './Content/Authors';
 import './style.scss';
 
 export default function Admin(
@@ -30,6 +30,9 @@ export default function Admin(
     addElementType,
     onChangefieldType,
     editElementType,
+    addElementAuthor,
+    onChangefieldAuthor,
+    editElementAuthor,
   },
 ) {
   const [showMessage, setShowMessage] = useState(false);
@@ -127,7 +130,13 @@ export default function Admin(
             exact
             path="/admin/authors"
           >
-            <Authors authors={authors} deleteElement={deleteElement} />
+            <Authors
+              authors={authors}
+              deleteElement={deleteElement}
+              addElementAuthor={addElementAuthor}
+              editElementAuthor={editElementAuthor}
+              onChangefieldAuthor={onChangefieldAuthor}
+            />
           </Route>
           <Route
             exact
@@ -150,6 +159,9 @@ Admin.propTypes = {
   addElementType: PropTypes.func.isRequired,
   editElementType: PropTypes.func.isRequired,
   onChangefieldType: PropTypes.func.isRequired,
+  addElementAuthor: PropTypes.func.isRequired,
+  onChangefieldAuthor: PropTypes.func.isRequired,
+  editElementAuthor: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
   themes: PropTypes.array.isRequired,

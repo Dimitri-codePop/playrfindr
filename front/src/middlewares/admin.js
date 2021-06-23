@@ -13,8 +13,11 @@ import {
   saveAllType,
   DELETE_ONE_ENTRY,
   saveAfterDelete,
+  ADD_AUTHOR,
+  saveAddAuthor,
+  EDIT_AUTHOR,
+  saveEditAuthor,
 } from 'src/actions/admin';
-import { FindGoodTypeId } from 'src/selectors/find';
 import axios from 'axios';
 
 const admin = (store) => (next) => (action) => {
@@ -90,7 +93,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(`author`, response.data);
           const authors = saveAuthors(response.data.data);
           store.dispatch(authors);
         })
@@ -166,6 +168,48 @@ const admin = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           const data = saveEditElementType(response.data.data, action.key);
+          store.dispatch(data);
+        })
+        .catch((error) => console.log(`error`, error));
+      break;
+    }
+    case ADD_AUTHOR: {
+      const state = store.getState();
+      const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log('MDW ', action.key, action.value);
+      axios.post(`https://playrfindr.herokuapp.com/admin/author`, {
+        ...state.admin.new.author,
+      }, {
+        headers: {
+          "Authorization": `${token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
+        .then((response) => {
+          console.log(response.data.author.dataValues);
+          const data = saveAddAuthor(response.data.author.dataValues);
+          store.dispatch(data);
+        })
+        .catch((error) => console.log(`error`, error));
+      break;
+    }
+    case EDIT_AUTHOR: {
+      const state = store.getState();
+      const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log(action.id);
+      axios.patch(`https://playrfindr.herokuapp.com/admin/author/${action.id}`, {
+        ...state.admin.new.author,
+      }, {
+        headers: {
+          "Authorization": `${token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
+        .then((response) => {
+          console.log(response.data.data);
+          const data = saveEditAuthor(response.data.data, action.key);
           store.dispatch(data);
         })
         .catch((error) => console.log(`error`, error));

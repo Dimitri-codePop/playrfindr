@@ -9,7 +9,10 @@ import {
   addElementType,
   changeFieldType,
   editElementType,
+  changeFieldAuthor,
+  editElementAuthor,
 } from 'src/actions/admin';
+import { addElementAuthor } from '../../actions/admin';
 
 const mapStateToProps = (state) => ({
   games: state.admin.jeux,
@@ -28,15 +31,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchAllType());
   },
   loadUsers: () => {
-    console.log("admin users");
     dispatch(fetchUsers());
   },
   loadEditors: () => {
-    console.log("admin Editors");
     dispatch(fetchEditors());
   },
   loadAuthors: () => {
-    console.log("admin Authors");
     dispatch(fetchAuthors());
   },
   deleteElement: (value, key) => {
@@ -53,6 +53,16 @@ const mapDispatchToProps = (dispatch) => ({
   onChangefieldType: (value, key) => {
     console.log(value);
     dispatch(changeFieldType(value, key));
+  },
+  onChangefieldAuthor: (value, key) => {
+    console.log(value, key);
+    dispatch(changeFieldAuthor(value, key));
+  },
+  addElementAuthor: (value, key) => {
+    dispatch(addElementAuthor(value, key));
+  },
+  editElementAuthor: (id) => {
+    dispatch(editElementAuthor(id));
   },
 });
 

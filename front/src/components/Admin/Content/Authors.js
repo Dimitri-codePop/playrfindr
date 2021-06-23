@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import AuthorModal from 'src/components/Admin/AuthorModal';
 
-export default function Authors({ authors, deleteElement }) {
-  const handleOnClick = (event) => {
+export default function Authors({
+  authors,
+  deleteElement,
+  addElementAuthor,
+  editElementAuthor,
+  onChangefieldAuthor,
+  firstname,
+  lastname,
+}) {
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState(0);
+  function openModal() {
+    setShowModal(!showModal);
+  }
+  function openEditModal(event) {
+    setShowEditModal(!showEditModal);
+    setId(event.target.id);
+  }
+  const onClickDelete = (event) => {
     const name = 'author';
     console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
-  console.log(authors);
   const tr = authors.map(obj => {
     return(
       <tr key={obj.label}>
         <td>{obj.firstname} {obj.lastname}</td>
-        <td>Edit /
-          <button type="button" id={obj.id} onClick={handleOnClick} className="profil__delete-btn">
+        <td><button type="button" id={obj.id} onClick={openEditModal} className="profil__delete-btn">
+            Edit
+          </button> /
+          <button type="button" id={obj.id} onClick={onClickDelete} className="profil__delete-btn">
             <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
           </button>
         </td>
@@ -23,8 +43,33 @@ export default function Authors({ authors, deleteElement }) {
     )
   });
   return (
-    <div className="admin__content">App
-ADD
+    <div className="admin__content">{showModal && (
+      <AuthorModal
+        setShowModal={setShowModal}
+        showModal={showModal}
+        title="Nouvelle Entrée Autheur"
+        firstname={firstname}
+        lastname={lastname}
+        addElementAuthor={addElementAuthor}
+        onChangefieldAuthor={onChangefieldAuthor}
+      />
+    )}
+      {showEditModal && (
+      <AuthorModal
+        setShowModal={setShowEditModal}
+        showtModal={showEditModal}
+        title="Nouvelle Entrée Autheur"
+        firstname={firstname}
+        lastname={lastname}
+        addElementAuthor={editElementAuthor}
+        onChangefieldAuthor={onChangefieldAuthor}
+        authorId={id}
+      />
+      )}
+      <button type="button" onClick={openModal} className="btn profil__btn">
+        Ajouter un élément
+        <FontAwesomeIcon className="profil__delete no-pointer" icon={faPlusSquare} />
+      </button>
       <table className="admin__games_table">
         <thead>
           <tr>
@@ -36,11 +81,16 @@ ADD
           {tr}
         </tbody>
       </table>
-</div>
-);
+    </div>
+  );
 }
 
 Authors.propTypes = {
   authors: PropTypes.array.isRequired,
   deleteElement: PropTypes.func.isRequired,
+  addElementAuthor: PropTypes.func.isRequired,
+  editElementAuthor: PropTypes.func.isRequired,
+  onChangefieldAuthor: PropTypes.func.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
 };
