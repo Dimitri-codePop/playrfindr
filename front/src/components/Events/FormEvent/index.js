@@ -10,12 +10,15 @@ export default function FormEvent({
   handleEndModal,
   label,
   date,
-  location,
+  address,
+  number_address,
+  town,
   content,
   max_player,
   changefieldEvent,
   handleNewEvent,
 }) {
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,18 +38,32 @@ export default function FormEvent({
             value={label}
           />
           <Field
-            type="date"
+            type="datetime-local"
             name="date"
-            placeholder="Date"
+            placeholder=""
             onChange={changefieldEvent}
             value={date}
           />
           <Field
             type="text"
-            name="location"
+            name="address"
             placeholder="Adresse"
             onChange={changefieldEvent}
-            value={location}
+            value={address}
+          />
+          <Field
+            type="text"
+            name="number_address"
+            placeholder="Code Postal"
+            onChange={changefieldEvent}
+            value={number_address}
+          />
+          <Field
+            type="text"
+            name="town"
+            placeholder="Ville"
+            onChange={changefieldEvent}
+            value={town}
           />
           <Field
             type="number"

@@ -5,6 +5,11 @@ import {
   CHANGE_VALUE_EVENT,
   SAVE_NEW_EVENT,
   SAVE_ADD_TO_EVENT,
+  SAVE_REMOVE_FROM_EVENT,
+  SAVE_EDIT_EVENT,
+  EDIT_VALUE_EVENT,
+  SET_EVENT,
+  SAVE_REMOVE_EVENT,
 } from 'src/actions/events';
 
 const initialState = {
@@ -13,9 +18,14 @@ const initialState = {
   id: '',
   label: '',
   date: '',
-  location: '',
+  address: '',
+  number_address:'',
+  town:'',
   content: '',
   max_player: '',
+  lat: '',
+  long: '',
+  trigger: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,20 +45,60 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.key]: action.value,
       };
+    case EDIT_VALUE_EVENT: 
+      return {
+        ...state,
+        [action.key]: action.value,
+      };
     case SAVE_NEW_EVENT:
       return {
         ...state,
-        label: action.label, 
-        date: action.date, 
-        location: action.location, 
-        content: action.content, 
-        max_player: action.max_player,
+        lat: action.lat,
+        long: action.long,
+        trigger: !(state.trigger)
       };
     case SAVE_ADD_TO_EVENT: 
       return {
         ...state,
-        events: FindGoodEvent(state.events, action.event)
+        events: FindGoodEvent(state.events, action.event),
+        trigger: !(state.trigger)
       };
+    case SAVE_REMOVE_FROM_EVENT:
+      return {
+        ...state,
+        events: FindGoodEvent(state.events, action.event),
+        trigger: !(state.trigger)
+      };
+    case SAVE_EDIT_EVENT:
+      console.log(`action`, action)
+      return {
+        ...state,
+        label: '',
+        date: '', 
+        address: '', 
+        number_address: '', 
+        town: '', 
+        content: '',
+        max_player: '',
+        trigger: !(state.trigger)
+      };
+    case SET_EVENT:
+      return {
+        ...state,
+        label: action.event.label, 
+        date: action.event.date, 
+        address: action.event.address, 
+        number_address: action.event.number_address, 
+        town: action.event.town, 
+        content: action.event.content,
+        max_player: action.event.max_player,
+        trigger: !(state.trigger)
+        };
+    case SAVE_REMOVE_EVENT:
+      return {
+        ...state,
+        trigger: !(state.trigger),
+        };
     default:
       return state;
   }

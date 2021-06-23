@@ -17,16 +17,18 @@ export default function Events({
   events, 
   loadEvents, 
   loading,
-  id,
+  trigger
 }) {
 
   
+  useEffect(() => {
+    loadEvents();
+  }, []);
 
   useEffect(() => {
     loadEvents();
-  }, [events.firstname]);
+  }, [trigger]);
 
-  console.log(`events`, events)
   const [modal, setModal] = useState(false);
 
   const handleModal = () => {
@@ -52,7 +54,7 @@ export default function Events({
       <div className="events__main">
         <nav className="events__main__nav">
           <ul className="events__main__nav--list">
-            <li className="events__main__nav--mainItem">Evenement</li>
+            <li className="events__main__nav--mainItem">Evenements</li>
             <li className="events__main__nav--item">Nb de joueurs</li>
             <li className="events__main__nav--item">Date/heure</li>
             <li className="events__main__nav--item">Adresse</li>
@@ -64,7 +66,6 @@ export default function Events({
       <Modal isOpen={modal}>
         < FormEvent 
           handleEndModal={handleEndModal} 
-          id={id}
         />
       </Modal>
       </div>

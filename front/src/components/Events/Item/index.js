@@ -1,23 +1,37 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import Modal from 'react-modal';
 import { FindGoodGame } from 'src/selectors/find';
+import Check from 'src/containers/Events/Item/Check';
+import EditEvent from 'src/containers/Events/Item/EditEvent';
+import moment from 'moment';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import momentTz from 'moment-timezone';
+
 
 Modal.setAppElement('#root');
 
 import './style.scss';
 
-export default function Item({events, handleAddToEvent}) {
+export default function Item({
+  events, 
+  handleAddToEvent, 
+  id,
+  handleDeleteEvent,
+  setUpEvent,
+}) {
 
   const {
     user_id,
   } = events
 
-  console.log(`participant`, events.participant)
+  
 
   const [modalIsOpen, setModalIdOpen] = useState (false);
+  const [modalEditOpen, setModalEditOpen] = useState (false);
   const [goodModal, setGoodModal] = useState ('');
 
   const handleClick = (event) => {
@@ -27,13 +41,35 @@ export default function Item({events, handleAddToEvent}) {
   const handleClickModal = (event) => {
     setModalIdOpen(true);
     setGoodModal(FindGoodGame(events, event.target.id))
+
   };
   const handleClickEndModal = () => {
     setModalIdOpen(false);
   };
+  const handleDelete = (event) => {
+    handleDeleteEvent(event.target.value);
+    setModalIdOpen(false);
+  };
+  const handleEdit = (event) => {
+    setUpEvent(goodModal);
+ 
+    setModalEditOpen(true);
+    console.log(event.target.value);
+  };
+  const handleClickEndEditModal = () => {
+    setModalEditOpen(false);
+    setModalIdOpen(false);
+  };
+
+  moment.locale('fr')
+  const timeZone = 'Atlantic/Azores'
+  
 
   const event = events.map((element) => {
-    const path = `/profil/${user_id}`;
+    const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
+    const momentHeure = moment(element.date).tz(timeZone).format("HH:mm")
+    const test = (element.visitors[0].f1 == null) ? (1) : (element.visitors.length + 1);
+    const path = `/profil/${element.user_id}`;
     return(
     <div key={element.id} className="events__main__items">
       <a 
@@ -44,38 +80,77 @@ export default function Item({events, handleAddToEvent}) {
         >
         {element.label}
       </a>
-      <p>{element.firstname.length}/{element.max_player}</p>
-      <p>{element.date}</p>
-      <p>{element.location}</p>
+      <p>{test}/{element.max_player}</p>  
+      <div className="events__main__items--date">
+        <p>{momentDate}</p>
+        <p>{momentHeure}</p>
+      </div>
+      <div className="events__main__items--address">
+      <p>{element.address}</p>
+      <p>{element.number_address}</p>
+      <p>{element.town}</p>
+      </div>
       <a 
         className="events__main__items--linkprofil"
         href={path} >
-          {element.firstname[0]} {element.lastname[0]}
+          {element.creator_firstname} {element.creator_lastname}
       </a>
-      <form className="custom-checkbox">
-          <input 
-            type="checkbox" 
-            onChange={handleClick} 
-            name={element.id} 
-            className="events__main__items--icon"
-          />
-      </form>
-
+        < Check 
+          handleClick={handleClick}
+          name={element.id} 
+          event={element}
+          handleClickModal={handleClickModal}
+        />
     </div>
     )
-  })
+  });
+
+
+  const position = [goodModal.latitude, goodModal.longitude];
+  console.log(`position`, position)
   return(
         <div>
           {event}
           <Modal isOpen={modalIsOpen}>
             <h2>{goodModal.label}</h2>
             <p>{goodModal.location}</p>
-            <p>{goodModal.date}</p>
+            <p>{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
             <h3>Infos Complémentaires</h3>
             <p>{goodModal.content}</p>
+            <p>{goodModal.creator_firstname} {goodModal.creator_lastname}</p>
             <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
+            { (goodModal.user_id == id) && 
+              <div className="all_btn">
+                <button onClick={handleDelete} value={goodModal.id}>
+                  <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
+                </button>
+                <button onClick={handleEdit} value={goodModal.id}>
+                <FontAwesomeIcon className="edit_event" icon={faPen} />
+                </button>
+              </div>
+            }
+            <div id="mapid">
+              <MapContainer className="map" center={position} zoom={13} scrollWheelZoom={true}>
+                <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={position}>
+                <Popup>
+                  Place de la Bourse, Toulouse.
+                </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+          </Modal>
+          <Modal isOpen={modalEditOpen}>
+            <EditEvent 
+              handleClickEndEditModal={handleClickEndEditModal}
+              {...goodModal}
+            />
           </Modal>
         </div>
+        
   );
 }
 

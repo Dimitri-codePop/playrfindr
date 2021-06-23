@@ -5,8 +5,10 @@ import './style.scss';
 import Form from 'src/containers/Home/Modals/Login/Form';
 
 export default function Login({ 
-  loginIsHidden, 
+  loginIsHidden,
   setLoginIsHidden,
+  showMessage,
+  setShowMessage,
 }) {
   Modal.setAppElement('#root')
   
@@ -18,7 +20,10 @@ export default function Login({
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
-    }
+    },
+    overlay: {
+      backgroundColor: '#ffffff',
+    },
   };
 
   function afterOpenModal() {
@@ -38,9 +43,12 @@ export default function Login({
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Connexion"
+        closeTimeoutMS={500}
       >
         <Form 
         closeModal={closeModal}
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
         />
       </Modal>
     </div>

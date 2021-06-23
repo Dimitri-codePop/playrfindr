@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Form from 'src/components/Home/Modals/Signup/Form';
-import { signUp, changeValueSignup, changeSelectField } from 'src/actions/user';
+import { signUp, changeValueSignup, changeSelectField, deleteSelectSignupField } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
@@ -29,7 +29,11 @@ const mapDispatchToProps = (dispatch) => ({
   changeSelectField: (value, field) => {
     const action = changeSelectField(value, field);
     dispatch(action);
-  }
+  },
+  deleteSelectField: (value, field) => {
+    const action = deleteSelectSignupField(value, field);
+    dispatch(action);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

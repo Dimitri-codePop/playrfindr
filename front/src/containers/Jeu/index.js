@@ -8,6 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
   id:ownProps.match.params.id,
   game: state.games.oneGame,
   loading: state.games.loadingOneGame,
+  message: state.systemMessages.message,
+  isOk: state.systemMessages.isOk,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

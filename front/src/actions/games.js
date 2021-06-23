@@ -4,7 +4,17 @@ export const FETCH_TYPES = 'FETCH_TYPES';
 export const SAVE_TYPES = 'SAVE_TYPES';
 export const FETCH_GAME = 'FETCH_GAME';
 export const SAVE_GAME = 'SAVE_GAME';
+export const ADD_GAME_TO_LIB = 'ADD_GAME_TO_LIB'; 
+export const SAVE_GAME_TO_LIB = 'SAVE_GAME_TO_LIB';
+export const DELETE_GAME_FROM_LIB = 'DELETE_GAME_FROM_LIB';
+export const SAVE_CURRENT_LIB_AFTER_DELETE = 'SAVE_CURRENT_LIB_AFTER_DELETE';
+export const CHANGE_SEARCH_GAME = 'CHANGE_SEARCH_GAME';
 
+
+export const addGameToLib = (gameId) => ({
+  type: ADD_GAME_TO_LIB,
+  gameId,
+});
 
 export const changeTheme = (theme) => ({
   type: CHANGE_THEME,
@@ -46,5 +56,21 @@ export const fetchGame = (id) => ({
 export const saveGame = (game) => ({
   type: SAVE_GAME,
   game,
+});
+
+export const deleteGameFromLib = (gameId, name) => ({
+  type: DELETE_GAME_FROM_LIB,
+  gameId,
+  name,
+});
+
+export const saveCurrentLibAfterDelete = (gameName) => ({
+  type: SAVE_CURRENT_LIB_AFTER_DELETE,
+  gameName,
+});
+
+export const changeSearchGame = (value) => ({
+  type: CHANGE_SEARCH_GAME,
+  value,
 });
 
