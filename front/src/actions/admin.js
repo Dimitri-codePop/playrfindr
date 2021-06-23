@@ -12,6 +12,22 @@ export const SAVE_ALL_TYPE = 'SAVE_ALL_TYPE';
 export const ADD_ELEMENTS_TYPE = 'ADD_ELEMENTS_TYPE';
 export const SAVE_ELEMENTS_TYPE = 'SAVE_ELEMENTS_TYPE';
 export const CHANGE_ADD_TYPE_FIELD = 'CHANGE_ADD_TYPE_FIELD';
+export const EDIT_TYPE_FIELD = 'EDIT_TYPE_FIELD';
+export const SAVE_EDIT_TYPE_FIELD = 'SAVE_EDIT_TYPE_FIELD';
+
+export const saveEditElementType = (value, key, id) => ({
+  type: SAVE_EDIT_TYPE_FIELD,
+  value,
+  key,
+  id,
+});
+
+export const editElementType = (value, key, id) => ({
+  type: EDIT_TYPE_FIELD,
+  value,
+  key,
+  id,
+});
 
 export const changeFieldType = (value, key) => ({
   type: CHANGE_ADD_TYPE_FIELD,

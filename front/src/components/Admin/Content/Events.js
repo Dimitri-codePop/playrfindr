@@ -12,13 +12,12 @@ export default function Events({ events, deleteElement }) {
   console.log(events);
   const tr = events.map(obj => {
     return(
-      <tr key={obj.dataValues.label}>
-        <td>{obj.dataValues.id}</td>
-        <td>{obj.dataValues.label}</td>
-        <td>{obj.dataValues.address}</td>
-        <td>{obj.dataValues.town}</td>
-        <td>{obj.dataValues.creator_firstname}{obj.creator_lastname}</td>
-        <td>{obj.dataValues.max_player}</td>
+      <tr key={obj.label}>
+        <td>{obj.label}</td>
+        <td>{obj.address}</td>
+        <td>{obj.town}</td>
+        <td>{obj.creator_firstname}{obj.creator_lastname}</td>
+        <td>{obj.max_player}</td>
         <td>
           <button type="button" id={obj.id} onClick={handleOnClick} className="profil__delete-btn">
             <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
@@ -33,7 +32,6 @@ export default function Events({ events, deleteElement }) {
       <table className="admin__games_table">
         <thead>
           <tr>
-            <th className="admin__games_table_th">id</th>
             <th className="admin__games_table_th">label</th>
             <th className="admin__games_table_th">Adresse</th>
             <th className="admin__games_table_th">Ville</th>

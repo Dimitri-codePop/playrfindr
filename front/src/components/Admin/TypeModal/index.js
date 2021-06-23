@@ -12,6 +12,9 @@ export default function TypeModal({
   champs,
   addElementType,
   onChangefieldType,
+  title,
+  targetId,
+  changeCat,
 }) {
   Modal.setAppElement('#root');
 
@@ -28,21 +31,19 @@ export default function TypeModal({
     },
   };
   function openModal() {
-    console.log('openModal');
     setShowModal(!showModal);
   }
   function closeModal() {
-    console.log('closeModal', showModal);
     setShowModal(!showModal);
-    console.log(showModal);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    addElementType(champs, type);
+    console.log(targetId);
+    addElementType(champs, type, targetId);
     closeModal();
     // setShowMessage(!showMessage);
   };
-  const placeHolder = `Nouvelle entrée ${type}`;
+  const placeHolder = title;
   return (
     <Modal
       bodyOpenClassName={placeHolder}
@@ -79,4 +80,5 @@ TypeModal.propTypes = {
   champs: PropTypes.string.isRequired,
   addElementType: PropTypes.func.isRequired,
   onChangefieldType: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
 };

@@ -8,6 +8,7 @@ import {
   deleteElement,
   addElementType,
   changeFieldType,
+  editElementType,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -42,9 +43,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(deleteElement(value, key));
   },
   addElementType: (value, key) => {
+    console.log(value);
     dispatch(addElementType(value, key));
   },
+  editElementType: (value, key, id) => {
+    console.log(value, key, id);
+    dispatch(editElementType(value, key, id));
+  },
   onChangefieldType: (value, key) => {
+    console.log(value);
     dispatch(changeFieldType(value, key));
   },
 });

@@ -5,6 +5,7 @@ import {
   SAVE_AFTER_DELETE,
   SAVE_ALL_TYPE,
   SAVE_ELEMENTS_TYPE,
+  SAVE_EDIT_TYPE_FIELD,
   CHANGE_ADD_TYPE_FIELD,
 } from 'src/actions/admin';
 
@@ -62,14 +63,14 @@ const reducer = (state = initialState, action = {}) => {
         [action.key]: [...newTab],
       };
     }
-    case SAVE_ALL_TYPE:
+    case SAVE_ALL_TYPE: {
       return {
         ...state,
         jeux: [...action.games],
         category: [...action.categories],
         theme: [...action.themes],
         event: [...action.events],
-      };
+      };}
     case SAVE_ELEMENTS_TYPE:
       return {
         ...state,
@@ -78,6 +79,23 @@ const reducer = (state = initialState, action = {}) => {
           action.value,
         ],
       };
+    case SAVE_EDIT_TYPE_FIELD: {
+      const tab = state[action.key];
+      console.log(`action.value`, action.value);
+      console.log(action.value.id);
+      const newTab = tab.map((entry) => {
+        if (Number(entry.id) === Number(action.value.id)) {
+          entry.label = action.value.label;
+        }
+        return entry;
+      });
+      return {
+        ...state,
+        [action.key]: [
+          ...newTab,
+        ],
+      };
+    }
     case CHANGE_ADD_TYPE_FIELD:
       return {
         ...state,

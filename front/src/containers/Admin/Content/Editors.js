@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import Themes from 'src/components/Admin/Content/Themes';
+import Editors from 'src/components/Admin/Content/Editors';
 import { } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
-  changeTheme: state.admin.new.theme,
+  changeEditor: state.admin.new.editor,
 });
 
 const mapDispatchToProps = (dispatch) => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Themes);
+export default connect(mapStateToProps, mapDispatchToProps)(Editors);

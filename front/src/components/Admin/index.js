@@ -3,14 +3,14 @@ import { Switch, Route, Navlink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Flash from 'src/components/Flash';
 import Themes from 'src/containers/Admin/Content/Themes';
+import Categories from 'src/containers/Admin/Content/Categories';
+import Editors from 'src/containers/Admin/Content/Editors';
 
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
 import Users from './Content/Users';
-import Categories from './Content/Categories';
 import Events from './Content/Events';
 import Authors from './Content/Authors';
-import Editors from './Content/Editors';
 import './style.scss';
 
 export default function Admin(
@@ -29,10 +29,13 @@ export default function Admin(
     deleteElement,
     addElementType,
     onChangefieldType,
+    editElementType,
   },
 ) {
   const [showMessage, setShowMessage] = useState(false);
   const [showModalTheme, setShowModalTheme] = useState(false);
+  const [showModalCategory, setShowModalCategory] = useState(false);
+  const [showModalEditor, setShowModalEditor] = useState(false);
   useEffect(() => {
     loadUsers();
     loadTypes();
@@ -45,7 +48,6 @@ export default function Admin(
     showMessage={showMessage}
     setShowMessage={setShowMessage}
   /> */}
-
   return (
     <div className="admin">
       <div className="admin__nav">
@@ -90,6 +92,7 @@ export default function Admin(
               showModal={showModalTheme}
               setShowModal={setShowModalTheme}
               onChangefieldType={onChangefieldType}
+              editElementType={editElementType}
             />
           </Route>
           <Route
@@ -100,6 +103,10 @@ export default function Admin(
               categories={categories}
               deleteElement={deleteElement}
               addElementType={addElementType}
+              showModal={showModalCategory}
+              setShowModal={setShowModalCategory}
+              onChangefieldType={onChangefieldType}
+              editElementType={editElementType}
             />
           </Route>
           <Route
@@ -110,6 +117,10 @@ export default function Admin(
               editors={editors}
               deleteElement={deleteElement}
               addElementType={addElementType}
+              showModal={showModalEditor}
+              setShowModal={setShowModalEditor}
+              onChangefieldType={onChangefieldType}
+              editElementType={editElementType}
             />
           </Route>
           <Route
@@ -137,6 +148,7 @@ Admin.propTypes = {
   loadAuthors: PropTypes.func.isRequired,
   deleteElement: PropTypes.func.isRequired,
   addElementType: PropTypes.func.isRequired,
+  editElementType: PropTypes.func.isRequired,
   onChangefieldType: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,

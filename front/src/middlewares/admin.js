@@ -4,15 +4,18 @@ import {
   FETCH_ALL_EDITORS,
   FETCH_ALL_TYPE,
   ADD_ELEMENTS_TYPE,
+  EDIT_TYPE_FIELD,
+  saveEditElementType,
   saveElementsType,
   saveUsers,
   saveAuthors,
   saveEditors,
   saveAllType,
+  DELETE_ONE_ENTRY,
+  saveAfterDelete,
 } from 'src/actions/admin';
-
+import { FindGoodTypeId } from 'src/selectors/find';
 import axios from 'axios';
-import { DELETE_ONE_ENTRY, saveAfterDelete } from '../actions/admin';
 
 const admin = (store) => (next) => (action) => {
   switch (action.type) {
@@ -88,7 +91,7 @@ const admin = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(`author`, response.data);
-          const authors = saveAuthors(response.data.authors);
+          const authors = saveAuthors(response.data.data);
           store.dispatch(authors);
         })
         .catch((error) => console.log(`error`, error));
@@ -141,8 +144,28 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.theme.dataValues);
-          const data = saveElementsType(response.data.theme.dataValues, action.key);
+          console.log(response.data.data);
+          const data = saveElementsType(response.data.data, action.key);
+          store.dispatch(data);
+        })
+        .catch((error) => console.log(`error`, error));
+      break;
+    }
+    case EDIT_TYPE_FIELD: {
+      const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      console.log('MDW ', action.key, action.value, action.id);
+      axios.patch(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.id}`,{
+        label: action.value,
+      }, {
+        headers: {
+          "Authorization": `${token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          const data = saveEditElementType(response.data.data, action.key);
           store.dispatch(data);
         })
         .catch((error) => console.log(`error`, error));
