@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, Navlink } from 'react-router-dom';
+import { Switch, Route, Navlink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Flash from 'src/components/Flash';
 import Themes from 'src/containers/Admin/Content/Themes';
@@ -35,10 +35,17 @@ export default function Admin(
     editElementAuthor,
   },
 ) {
+  const [isAdmin, setIsAdmin] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
   const [showModalTheme, setShowModalTheme] = useState(false);
   const [showModalCategory, setShowModalCategory] = useState(false);
   const [showModalEditor, setShowModalEditor] = useState(false);
+  useEffect(() => {
+    const { is_admin } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+    console.log(is_admin);
+    is_admin ? (setIsAdmin(true)) : (setIsAdmin(false));
+    console.log('use', isAdmin);
+  }, []);
   useEffect(() => {
     loadUsers();
     loadTypes();
@@ -52,101 +59,103 @@ export default function Admin(
     setShowMessage={setShowMessage}
   /> */}
   return (
-    <div className="admin">
-      <div className="admin__nav">
-        <Navbar />
-      </div>
-      <div className="admin__content">
+    isAdmin ? (
+      <div className="admin">
+        <div className="admin__nav">
+          <Navbar />
+        </div>
+        <div className="admin__content">
 
-        <Switch>
-          <Route
-            exact
-            path="/admin/home"
-          >
-            Home Admin
-          </Route>
-          <Route
-            exact
-            path="/admin/users"
-            key="users"
-          >
-            <Users
-              users={users}
-              deleteElement={deleteElement}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/games"
-          >
-            <Jeux
-              games={games}
-              deleteElement={deleteElement}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/themes"
-          >
-            <Themes
-              themes={themes}
-              deleteElement={deleteElement}
-              addElementType={addElementType}
-              showModal={showModalTheme}
-              setShowModal={setShowModalTheme}
-              onChangefieldType={onChangefieldType}
-              editElementType={editElementType}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/categories"
-          >
-            <Categories
-              categories={categories}
-              deleteElement={deleteElement}
-              addElementType={addElementType}
-              showModal={showModalCategory}
-              setShowModal={setShowModalCategory}
-              onChangefieldType={onChangefieldType}
-              editElementType={editElementType}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/editors"
-          >
-            <Editors
-              editors={editors}
-              deleteElement={deleteElement}
-              addElementType={addElementType}
-              showModal={showModalEditor}
-              setShowModal={setShowModalEditor}
-              onChangefieldType={onChangefieldType}
-              editElementType={editElementType}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/authors"
-          >
-            <Authors
-              authors={authors}
-              deleteElement={deleteElement}
-              addElementAuthor={addElementAuthor}
-              editElementAuthor={editElementAuthor}
-              onChangefieldAuthor={onChangefieldAuthor}
-            />
-          </Route>
-          <Route
-            exact
-            path="/admin/events"
-          >
-            <Events events={events} deleteElement={deleteElement} />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route
+              exact
+              path="/admin/home"
+            >
+              Home Admin
+            </Route>
+            <Route
+              exact
+              path="/admin/users"
+              key="users"
+            >
+              <Users
+                users={users}
+                deleteElement={deleteElement}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/games"
+            >
+              <Jeux
+                games={games}
+                deleteElement={deleteElement}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/themes"
+            >
+              <Themes
+                themes={themes}
+                deleteElement={deleteElement}
+                addElementType={addElementType}
+                showModal={showModalTheme}
+                setShowModal={setShowModalTheme}
+                onChangefieldType={onChangefieldType}
+                editElementType={editElementType}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/categories"
+            >
+              <Categories
+                categories={categories}
+                deleteElement={deleteElement}
+                addElementType={addElementType}
+                showModal={showModalCategory}
+                setShowModal={setShowModalCategory}
+                onChangefieldType={onChangefieldType}
+                editElementType={editElementType}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/editors"
+            >
+              <Editors
+                editors={editors}
+                deleteElement={deleteElement}
+                addElementType={addElementType}
+                showModal={showModalEditor}
+                setShowModal={setShowModalEditor}
+                onChangefieldType={onChangefieldType}
+                editElementType={editElementType}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/authors"
+            >
+              <Authors
+                authors={authors}
+                deleteElement={deleteElement}
+                addElementAuthor={addElementAuthor}
+                editElementAuthor={editElementAuthor}
+                onChangefieldAuthor={onChangefieldAuthor}
+              />
+            </Route>
+            <Route
+              exact
+              path="/admin/events"
+            >
+              <Events events={events} deleteElement={deleteElement} />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    ) : (<Redirect to="/" />)
   );
 }
 
