@@ -114,7 +114,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzNzM0MSwiZXhwIjoxNjI0NDQwOTQxfQ.OKx24guH-MGI4jM4Ut-W3_Y6vr2BLiWVp7b_BhtnzfU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NDIyMTAsImV4cCI6MTYyNDQ0NTgxMH0.0wUyxNmKZATNCzuYKtWjkQPQdiPup_Pf5zrvyDkMwhQc
 Content-Type: application/json
 
 {
@@ -122,10 +122,10 @@ Content-Type: application/json
     "content": "Petite partie de Mysterium",
     "date": "2021-09-12",
     "number_address": 84,
-    "address": "rue de la bicyclette",
-    "town": "Marseille",
+    "address": "avenue du peuple belge",
+    "town": "Lille",
     "max_player": 7,
-    "user_id": 2
+    "user_id": 29
 }
 
 ### Ajout d'un evenement

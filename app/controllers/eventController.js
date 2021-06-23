@@ -8,10 +8,11 @@ module.exports = {
             const apiUrl = process.env.API_URL;
             const event = new EventModel(req.body);
             await event.insert();
-            console.log(event);
-            const result = await fetch(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.number_address}${event.address}${event.town}`)
+
+            const result = await fetch(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.dataValues.number_address} ${event.dataValues.address} , ${event.dataValues.town}`)
+         
             const body = await result.json();
-            console.log(body);
+            console.log(body.data[0].latitude);
             //return res.json({data: event});
         } catch (error) {
             console.trace(error);
