@@ -10,6 +10,7 @@ import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import momentTz from 'moment-timezone';
+import Geocode from "react-geocode";
 
 
 Modal.setAppElement('#root');
@@ -24,6 +25,7 @@ export default function Item({
   setUpEvent,
 }) {
 
+  Geocode.setApiKey("AIzaSyBLL84eJwbtgtNskDiYs8zsy6E1U9BP6N0");
   const {
     user_id,
   } = events
@@ -61,6 +63,15 @@ export default function Item({
 
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
+  Geocode.fromAddress("Eiffel Tower").then(
+    (response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      console.log(lat, lng);
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
   const position = [43.601400, 1.442130];
 
   const event = events.map((element) => {
