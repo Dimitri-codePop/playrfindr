@@ -69,6 +69,7 @@ export default function Web({
             <span> FindR </span>
           </h1>
         </Link>
+        {isLogged && 
         <form onSubmit={handleSubmit}>
           <span className="input input--madoka skin-search">
             <input 
@@ -86,6 +87,7 @@ export default function Web({
             </label>
           </span>
         </form>
+        }
         {/*<form onSubmit={handleSubmit} className="navbar__search-form">
           <fieldset>
             <legend>Rechercher</legend>

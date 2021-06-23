@@ -41,6 +41,7 @@ export default function Item({
   const handleClickModal = (event) => {
     setModalIdOpen(true);
     setGoodModal(FindGoodGame(events, event.target.id))
+
   };
   const handleClickEndModal = () => {
     setModalIdOpen(false);
@@ -51,6 +52,7 @@ export default function Item({
   };
   const handleEdit = (event) => {
     setUpEvent(goodModal);
+ 
     setModalEditOpen(true);
     console.log(event.target.value);
   };
@@ -61,7 +63,7 @@ export default function Item({
 
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
-  const position = [43.601400, 1.442130];
+  
 
   const event = events.map((element) => {
     const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
@@ -103,6 +105,9 @@ export default function Item({
     )
   });
 
+
+  const position = [goodModal.latitude, goodModal.longitude];
+  console.log(`position`, position)
   return(
         <div>
           {event}
@@ -112,6 +117,7 @@ export default function Item({
             <p>{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
             <h3>Infos Complémentaires</h3>
             <p>{goodModal.content}</p>
+            <p>{goodModal.creator_firstname} {goodModal.creator_lastname}</p>
             <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
             { (goodModal.user_id == id) && 
               <div className="all_btn">

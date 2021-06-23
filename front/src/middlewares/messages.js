@@ -9,7 +9,6 @@ import axios from 'axios';
 
 const messages = (store) => (next) => (action) => {
   const state = store.getState();
-  console.log("hello")
   switch (action.type) {
     case FETCH_MESSAGES: {
       console.log("hello")

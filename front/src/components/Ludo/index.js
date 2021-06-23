@@ -15,6 +15,8 @@ export default function Ludo({
   isOk,
   showMessage,
   setShowMessage,
+  onChangeInputValue,
+  search,
 }) {
   const [profilGames, setProfilGames] = useState([]);
 
@@ -23,9 +25,24 @@ export default function Ludo({
     deleteGameFromLib(event.target.id, gameName.label);
   };
 
+  const filterGames = () => {
+    const filteredGames = game.filter((game) => {
+
+      const loweredGameLabel = game.toLowerCase();
+      const loweredSearch = search.toLowerCase();
+
+      return loweredGameLabel.includes(loweredSearch);
+    });
+
+    return filteredGames;
+  }
+
+  const filters = filterGames();
+  console.log(`filters`, filters)
   useEffect(() => {
     if (game) {
-      const gameList = game.map((obj) => {
+      const gameList = filters.map((obj) => {
+        console.log(`obj`, obj)
         const oneGame = FindGoodGameByName(games, obj);
 
         const path = `/jeu/${oneGame.id}`;
@@ -45,7 +62,12 @@ export default function Ludo({
       });
       setProfilGames(gameList);
     }
-  }, [game]);
+  }, [game, search]);
+
+  const handleOnChange = (event) => {
+    console.log('handleOnChange', event.target.value);
+    onChangeInputValue(event.target.value);
+  };
 
   return (
     <>
@@ -58,7 +80,13 @@ export default function Ludo({
       <div className="profil__section2">
         <div className="profil__ludo__title">
           <h3 className="profil__ludo__title__content">Jeux dans sa ludothèque</h3>
-          <input type="text" className="profil__ludo__title__search" placeholder="rechercher..."/>
+          <input 
+            type="text" 
+            className="profil__ludo__title__search" 
+            placeholder="rechercher..."
+            value={search}
+            onChange={handleOnChange}
+          />
         </div>
         <div className="profil__ludo__games">
           {profilGames}

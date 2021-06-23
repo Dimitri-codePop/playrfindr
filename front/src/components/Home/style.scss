@@ -33,6 +33,24 @@
     &--content {
       text-shadow: 0 0 5px black;
     }
+    &--name {
+      font-size: 4rem;
+      color: v.$primary;
+      text-shadow: 5px 5px 10px black;
+      &::after {
+        content: "\"Il me fait chier ce goéland\", Etienne";
+        height: 20%;
+        align-items: center;
+        width: 160%;
+        background-color: black;
+        border-radius: 20px;
+        opacity: .5;
+        position: absolute;
+        top: 85%;
+        left: -30%;
+        animation: load 5s infinite;
+      }
+    }
   }
   &__subtitle {
     display: block;

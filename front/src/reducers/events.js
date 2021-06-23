@@ -23,6 +23,8 @@ const initialState = {
   town:'',
   content: '',
   max_player: '',
+  lat: '',
+  long: '',
   trigger: true,
 };
 
@@ -51,13 +53,8 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_NEW_EVENT:
       return {
         ...state,
-        label: action.label,
-        date: action.date, 
-        address: action.address, 
-        number_address: action.number_address, 
-        town: action.town, 
-        content: action.content, 
-        max_player: action.max_player,
+        lat: action.lat,
+        long: action.long,
         trigger: !(state.trigger)
       };
     case SAVE_ADD_TO_EVENT: 
@@ -100,7 +97,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_REMOVE_EVENT:
       return {
         ...state,
-        trigger: !(state.trigger)
+        trigger: !(state.trigger),
         };
     default:
       return state;

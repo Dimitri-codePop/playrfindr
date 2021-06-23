@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Login from 'src/components/Home/Modals/Login';
 import Signup from 'src/components/Home/Modals/Signup';
 import Flash from 'src/components/Flash';
-
+import Button from '@material-ui/core/Button';
+ 
 import {
   faAngleDoubleRight,
   faStar,
@@ -23,6 +24,7 @@ export default function Home({
   showMessage,
   setShowMessage,
   isLogged,
+  firstname,
 }) {
   const [loginIsHidden, setLoginIsHidden] = useState(false);
   const [signupIsHidden, setSignupIsHidden] = useState(false);
@@ -59,6 +61,9 @@ export default function Home({
             PlayRfindR est une plateforme qui facilite la mise en relation de plusieurs 
             jouers afin qu'ils se retrouvent autour d'un jeu de société
           </span>
+          {(isLogged) &&
+          <span className="home__title--name">Bonjour {firstname}</span>
+          }
           {!(isLogged) &&
           <div>
             <button type="button" onClick={handleModalLogin} className="btn btn-login" id="modal_login">Connexion<FontAwesomeIcon icon={faAngleDoubleRight} /></button>
