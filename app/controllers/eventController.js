@@ -13,7 +13,7 @@ module.exports = {
          
             const body = await result.json();
             console.log(body.data[0].latitude);
-            //return res.json({data: event});
+            return res.json({data: event.dataValues, latitude: body.data[0].latitude, longitude: body.data[0].longitude});
         } catch (error) {
             console.trace(error);
             res.json({ error });
