@@ -5,8 +5,10 @@ const AuthorModel = require('../models/authorModel');
 module.exports = {
     async getAll(_, res){
         try {
+            
             const authors = await AuthorModel.findAll();
-            res.status(200).json({data: authors.map(author => dataValues)});
+           
+            res.status(200).json({data: authors.map(author => author.dataValues)});
         } catch (error) {
             console.trace(error);
             res.json({error})

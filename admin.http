@@ -299,7 +299,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des auteur
 GET   https://playrfindr.herokuapp.com/admin/author
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0NzgzOSwiZXhwIjoxNjI0NDUxNDM5fQ.GUilsdSQoHG6gbfcKrMcUpG75QyrPlTk09_2qyhIYbk
 
 ### Insert  des auteurs
 POST   https://playrfindr.herokuapp.com/admin/author
