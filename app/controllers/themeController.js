@@ -23,7 +23,7 @@ module.exports = {
 
             await theme.insert();
             
-            return res.json({theme})
+            return res.json({data: theme.dataValues})
 
         } catch (error) {
             console.log(error);

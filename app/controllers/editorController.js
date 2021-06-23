@@ -19,7 +19,7 @@ module.exports = {
 
             await editors.insert();
             
-            return res.json({editors})
+            return res.json({data: editors.dataValues})
 
         } catch (error) {
             console.log(error);

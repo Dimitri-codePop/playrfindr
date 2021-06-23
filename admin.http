@@ -77,14 +77,15 @@ DELETE   http://localhost:4000/admin/editor/1
 
 ### Page des themes
 GET  http://localhost:4000/admin/theme
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzNjUyMiwiZXhwIjoxNjI0NDQwMTIyfQ.j7mSWT15_sjH367Vzsgwx-DiMRj92FSbf_Jx1izVV9I
 
 ### Insert  des themes
 POST  http://localhost:4000/admin/theme
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzNjUyMiwiZXhwIjoxNjI0NDQwMTIyfQ.j7mSWT15_sjH367Vzsgwx-DiMRj92FSbf_Jx1izVV9I
 Content-Type: application/json
 
 {
-    "label": "Histoire"
+    "label": "Science fiction"
 }
 
 ### Update  des editor
