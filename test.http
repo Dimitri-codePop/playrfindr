@@ -114,7 +114,7 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTIwMTQsImV4cCI6MTYyNDQ1NTYxNH0.51vojQ9xuGTpXZKdT575F4sV8eLpWG7BnmnWHekZebw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTI3NDEsImV4cCI6MTYyNDQ1NjM0MX0.1o6EuvHv3q8M0ek1OjJNjpURYs90axlnP8JSMv8OfX0
 Content-Type: application/json
 
 {

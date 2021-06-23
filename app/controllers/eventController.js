@@ -21,8 +21,9 @@ module.exports = {
             const apiUrl = process.env.API_URL;
             const event = new EventModel(req.body);
             await event.insert();
-
-            const result = await fetch(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.dataValues.number_address} ${event.dataValues.address} , ${event.dataValues.town}`)
+            const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.dataValues.number_address} ${event.dataValues.address} , ${event.dataValues.town}`);
+            console.log(newUrl);
+            const result = await fetch(newUrl);
             const body = await result.json();
             console.log("Body : ",body);
             return res.json({data: event.dataValues, latitude: body.data[0].latitude, longitude: body.data[0].longitude});
