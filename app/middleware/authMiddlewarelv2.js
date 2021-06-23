@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
             return res.status(403).json({error: 'Accès non authoriser'});
         }
         const verify = jwt.verify(token, process.env.TOKEN_SECRET);
-    
+      
         if(verify.isAdmin ===  false || verify.isAdmin === null){
             return res.json({error: `Vous n'avez pas les droits`});
         }

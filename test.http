@@ -150,8 +150,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "oclock@oclock.io",
-    "password": "123456"
+    "email": "a@a.com",
+    "password": "coucou"
  
 }
 

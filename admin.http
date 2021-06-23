@@ -1,5 +1,6 @@
 ### Page d'acceuil
 GET http://localhost:4000/admin/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDQ2Nzc4OCwiZXhwIjoxNjI0NDcxMzg4fQ.SLeURkAUDyynrcWpAB_eY3NMR95WdXp_WtLZLExogno
 
 ### Page des jeux
 GET http://localhost:4000/admin/jeux
