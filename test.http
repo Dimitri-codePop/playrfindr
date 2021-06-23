@@ -114,32 +114,32 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NDIzMTIsImV4cCI6MTYyNDQ0NTkxMn0.bYqP1fhrGizCGR0xqW2F-tJAKl9weMKv-ZnJEu4mvZg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTIwMTQsImV4cCI6MTYyNDQ1NTYxNH0.51vojQ9xuGTpXZKdT575F4sV8eLpWG7BnmnWHekZebw
 Content-Type: application/json
 
 {
-    "label": "Partie de Mysterium",
-    "content": "Petite partie de Mysterium",
-    "date": "2021-09-12",
+    "label": "Partie de Cyclades",
+    "content": "Petite partie de Cyclades",
+    "date": "2021-09-15",
     "number_address": 84,
     "address": "avenue du peuple belge",
     "town": "Lille",
     "max_player": 7,
-    "user_id": 29
+    "user_id": 2
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5Mzc1NCwiZXhwIjoxNjI0MTk3MzU0fQ.8JbQcg5jjODhn5kDrDBkILIqzmyPF74sXid-rsC5_qs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ1MTkyNiwiZXhwIjoxNjI0NDU1NTI2fQ.QMmk_c3QwyEPJ3C_ZlPQTpqPdkvOPCh0w1zr_rIl2CU
 Content-Type: application/json
 
 {
    "label": "Partie de Cyclades",
     "content": "Petite partie de Cyclades",
     "date": "2021-09-15",
-    "number_address": 30000,
-    "address": "35 rue de la moto",
-    "town": "Nimes",
+    "number_address": 84,
+    "address": "avenue du peuple belge",
+    "town": "Lille",
     "max_player": 7,
     "user_id": 2
 }
