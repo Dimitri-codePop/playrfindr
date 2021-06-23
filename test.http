@@ -31,7 +31,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWlu
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5Mzc1NCwiZXhwIjoxNjI0MTk3MzU0fQ.8JbQcg5jjODhn5kDrDBkILIqzmyPF74sXid-rsC5_qs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTUyMjMsImV4cCI6MTYyNDQ1ODgyM30.cxzhs9EGGWaK2sfB1Ao7FACWaxHYg4pXpwqnxwhafe0
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -114,16 +114,16 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTI3NDEsImV4cCI6MTYyNDQ1NjM0MX0.1o6EuvHv3q8M0ek1OjJNjpURYs90axlnP8JSMv8OfX0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTY0MjEsImV4cCI6MTYyNDQ2MDAyMX0.1I3RCdIIykTtz-ySsfPbtSIQ52pApHLyMWqKlESxXag
 Content-Type: application/json
 
 {
     "label": "Partie de Cyclades",
     "content": "Petite partie de Cyclades",
     "date": "2021-09-15",
-    "number_address": 84,
-    "address": "avenue du peuple belge",
-    "town": "Lille",
+    "number_address": 69,
+    "address": "rue de moncul",
+    "town": "Momo",
     "max_player": 7,
     "user_id": 29
 }
