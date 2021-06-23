@@ -6,7 +6,7 @@ module.exports = {
     async getAll(_, res){
         try {
             const authors = await AuthorModel.findAll();
-            res.status(200).json({authors});
+            res.status(200).json({data: authors.dataValues});
         } catch (error) {
             console.trace(error);
             res.json({error})
