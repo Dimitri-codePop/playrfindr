@@ -1,12 +1,18 @@
 const EventModel = require ('../models/eventModel');
+const fetch = require('node-fetch');
 
 
 module.exports = {
     async addEvent(req, res){
         try { 
+            const apiUrl = process.env.API_URL;
             const event = new EventModel(req.body);
             await event.insert();
-            return res.json({data: event});
+            console.log(event);
+            const result = await fetch(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.number_address}${event.address}${event.town}`)
+            const body = await result.json();
+            console.log(body);
+            //return res.json({data: event});
         } catch (error) {
             console.trace(error);
             res.json({ error });
