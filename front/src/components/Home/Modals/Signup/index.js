@@ -21,10 +21,9 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
     }
   };
 
-  function closeModal(){
+  function closeModal() {
     setSignupIsHidden(!signupIsHidden);
   }
-
 
   return (
     <div className="modalstyle">

@@ -5,6 +5,7 @@ const mapStateToProps = (state) => ({
   topTendances: state.games.topTendances,
   message: state.systemMessages.message,
   isOk: state.systemMessages.isOk,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

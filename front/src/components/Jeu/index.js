@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Proptypes from 'prop-types'
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types'
 import Loading from 'src/components/Loading'
 import Content from 'src/containers/Jeu/Content'
 
@@ -13,27 +13,34 @@ export default function Jeu({
   showMessage,
   setShowMessage,
 }) {
-
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     loadGame(id);
-  }, []);
-  console.log(`game`, game)
+    setTimeout(() => {
+      setLoader(!loader);
+    }, 1000);
+  }, [id]);
 
-  if (loading) {
+  if (loader) {
     return <Loading />;
   }
-  return(
+  return (
     <main className="game">
-      < Content 
-      {...game} 
-      loading={loading}
-      showMessage={showMessage}
-      setShowMessage={setShowMessage}
+      <Content
+        {...game}
+        loading={loading}
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
       />
     </main>
   );
 }
 
-Jeu.propTypes = {};
-
-//< Content {...game} loading={loading}/>
+Jeu.propTypes = {
+  id: PropTypes.number.isRequired,
+  game: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  loadGame: PropTypes.func.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+};

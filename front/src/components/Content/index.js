@@ -19,6 +19,7 @@ export default function Content({
   idCurrent,
   changefieldMessage,
   contentMessage,
+  sendMessageContent,
 }) {
   const [currentUser, setCurrentUser] = useState(true);
   const [modalEditOpen, setModalEditOpen] = useState(false);
@@ -51,7 +52,7 @@ export default function Content({
     } else {
       setCurrentUser(false);
     }
-  }, []);
+  }, [paramsId]);
 
   const handleModalEdit = () => {
     setModalEditOpen(!modalEditOpen);
@@ -65,11 +66,12 @@ export default function Content({
   const handleEndModal = () => {
     setModalMessage(false);
   };
-  const handleSubmitMessage = () => {
-
+  const handleSubmitMessage = (event) => {
+    event.preventDefault();
+    sendMessageContent(contentMessage, paramsId);
+    setModalMessage(false);
   }
   
-  console.log(`contentMessage`, contentMessage)
   // END GESTION EDIT
   return (
     <>
