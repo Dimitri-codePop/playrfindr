@@ -125,7 +125,7 @@ Content-Type: application/json
     "address": "avenue du peuple belge",
     "town": "Lille",
     "max_player": 7,
-    "user_id": 2
+    "user_id": 29
 }
 
 ### Ajout d'un evenement
