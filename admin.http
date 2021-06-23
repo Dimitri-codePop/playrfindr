@@ -299,26 +299,26 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des auteur
 GET   https://playrfindr.herokuapp.com/admin/author
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0NzgzOSwiZXhwIjoxNjI0NDUxNDM5fQ.GUilsdSQoHG6gbfcKrMcUpG75QyrPlTk09_2qyhIYbk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 
 ### Insert  des auteurs
-POST   https://playrfindr.herokuapp.com/admin/author
+POST   https://playrfindr.herokuapp.com/admin/author/78
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 
 }
 
 ### Update  des aueurs
-Patch   https://playrfindr.herokuapp.com/admin/author/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Patch   https://playrfindr.herokuapp.com/admin/author/78
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 }
 
 
