@@ -65,6 +65,8 @@ router.route('/author/:id')
     .patch( authorisationAdmin, validate.body(schemas.authorUpdateSchema), authorController.updateAuthor)
     .delete( authorisationAdmin,  authorController.deleteAuthor);
 
+router.route('/event')
+    .get(authorisationAdmin, eventController.getAll)
     
 router.route('/event/:id')
     .delete( authorisationAdmin, eventController.deleteEvent);

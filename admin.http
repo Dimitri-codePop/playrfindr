@@ -169,7 +169,7 @@ DELETE  http://localhost:4000/admin/users/4
 
 ### Page des event
 GET http://localhost:4000/admin/event
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzODAxNSwiZXhwIjoxNjI0NDQxNjE1fQ.pCNn8D7ls7wOOz_GPINDBwJryAItgIE-SnwC1NbNIiM
 
 ### Delete des event
 DELETE  http://localhost:4000/admin/event/2
