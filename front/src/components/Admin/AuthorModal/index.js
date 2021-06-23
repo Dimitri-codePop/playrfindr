@@ -5,16 +5,15 @@ import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export default function TypeModal({
+export default function AuthorModal({
   setShowModal,
   showModal,
-  type,
-  champs,
-  addElementType,
-  onChangefieldType,
+  firstname,
+  lastname,
+  addElementAuthor,
+  onChangefieldAuthor,
   title,
-  targetId,
-  changeCat,
+  authorId,
 }) {
   Modal.setAppElement('#root');
 
@@ -38,8 +37,8 @@ export default function TypeModal({
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(targetId);
-    addElementType(champs, type, targetId);
+    console.log(authorId);
+    addElementAuthor(authorId);
     closeModal();
     // setShowMessage(!showMessage);
   };
@@ -58,10 +57,17 @@ export default function TypeModal({
       <form className="form__login" onSubmit={handleSubmit}>
         <Field
           type="text"
-          name={type}
-          placeholder={placeHolder}
-          onChange={onChangefieldType}
-          value={champs}
+          name="firstname"
+          placeholder="Prénom de l'auteur"
+          onChange={onChangefieldAuthor}
+          value={firstname}
+        />
+        <Field
+          type="text"
+          name="lastname"
+          placeholder="Nom de de l'auteur"
+          onChange={onChangefieldAuthor}
+          value={lastname}
         />
         <button onClick={closeModal} type="button">
           Annuler
@@ -73,12 +79,13 @@ export default function TypeModal({
   );
 }
 
-TypeModal.propTypes = {
+AuthorModal.propTypes = {
   setShowModal: PropTypes.func.isRequired,
+  addElementAuthor: PropTypes.func.isRequired,
+  onChangefieldAuthor: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
-  type: PropTypes.string.isRequired,
-  champs: PropTypes.string.isRequired,
-  addElementType: PropTypes.func.isRequired,
-  onChangefieldType: PropTypes.func.isRequired,
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  authorId: PropTypes.number.isRequired,
 };

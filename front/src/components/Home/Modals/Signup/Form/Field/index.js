@@ -38,4 +38,3 @@ Field.propTypes = {
 Field.defaultProps = {
   type: 'text',
 };
-
