@@ -18,15 +18,12 @@ module.exports = {
 
     async addEvent(req, res){
         try { 
-            const apiUrl = process.env.API_URL;
+            
             const event = new EventModel(req.body);
             await event.insert();
-            const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.dataValues.number_address} ${event.dataValues.address} , ${event.dataValues.town}`);
+            
           
-            const result = await fetch(newUrl);
-            const body = await result.json();
-          
-            return res.json({data: event.dataValues, latitude: body.data[0].latitude, longitude: body.data[0].longitude});
+            return res.json({data: event.dataValues});
         } catch (error) {
             console.trace(error);
             res.json({ error });
