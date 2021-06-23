@@ -35,15 +35,10 @@ export const newEvent = () => ({
   type: NEW_EVENT,
 });
 
-export const saveNewEvent = (label, date, address, number_address, town, content, max_player) => ({
+export const saveNewEvent = (lat, long) => ({
   type: SAVE_NEW_EVENT,
-  label, 
-  date, 
-  address,
-  number_address,
-  town,
-  content, 
-  max_player
+  lat,
+  long,
 });
 
 export const addToEvent = (value) => ({

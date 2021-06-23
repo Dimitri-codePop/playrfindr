@@ -8,6 +8,8 @@ export const ADD_GAME_TO_LIB = 'ADD_GAME_TO_LIB';
 export const SAVE_GAME_TO_LIB = 'SAVE_GAME_TO_LIB';
 export const DELETE_GAME_FROM_LIB = 'DELETE_GAME_FROM_LIB';
 export const SAVE_CURRENT_LIB_AFTER_DELETE = 'SAVE_CURRENT_LIB_AFTER_DELETE';
+export const CHANGE_SEARCH_GAME = 'CHANGE_SEARCH_GAME';
+
 
 export const addGameToLib = (gameId) => ({
   type: ADD_GAME_TO_LIB,
@@ -65,4 +67,10 @@ export const deleteGameFromLib = (gameId, name) => ({
 export const saveCurrentLibAfterDelete = (gameName) => ({
   type: SAVE_CURRENT_LIB_AFTER_DELETE,
   gameName,
-})
+});
+
+export const changeSearchGame = (value) => ({
+  type: CHANGE_SEARCH_GAME,
+  value,
+});
+
