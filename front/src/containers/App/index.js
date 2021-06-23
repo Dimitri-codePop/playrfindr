@@ -4,6 +4,7 @@ import { fetchTopTendances, fetchTypes } from 'src/actions/games';
 import { fetchDepartements, fetchUser } from 'src/actions/user';
 const mapStateToProps = (state) => ({
   loading: state.games.loading,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

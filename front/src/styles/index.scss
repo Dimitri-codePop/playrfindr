@@ -1,11 +1,18 @@
 @use 'reset';
 @use 'vars' as v;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 body {
-  font-family: sans-serif;
+  font-family: 'Indie Flower', cursive;
   background-color: v.$light;
 }
 
+.green {
+  background-color: lightgreen;
+}
+.red {
+  background-color: lightsalmon;
+}
 /* 
   // or you can import your own font
   @font-face {

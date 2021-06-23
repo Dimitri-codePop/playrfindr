@@ -1,0 +1,15 @@
+.close_delete {
+  pointer-events: none;
+}
+
+.edit_event {
+  pointer-events: none;
+}
+
+.leaflet-container {
+  margin-top:2rem;
+  width: 20vw;
+  height:40vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}

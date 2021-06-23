@@ -24,20 +24,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     height: 320px;
     top: 15%;
     font-size: 2rem;
     font-weight: bold;
     color: v.$light;
     padding: 1rem 0;
+    &--content {
+      text-shadow: 0 0 5px black;
+    }
+    &--name {
+      font-size: 4rem;
+      color: v.$primary;
+      text-shadow: 5px 5px 10px black;
+      &::after {
+        content: "\"Il me fait chier ce goéland\", Etienne";
+        height: 20%;
+        align-items: center;
+        width: 160%;
+        background-color: black;
+        border-radius: 20px;
+        opacity: .5;
+        position: absolute;
+        top: 85%;
+        left: -30%;
+        animation: load 5s infinite;
+      }
+    }
   }
   &__subtitle {
     display: block;
     padding: 1rem 0.3rem;
     font-size: 1rem;
-    text-shadow: 2px 2px 1px rgba(100,100,100,0.7);
+    text-shadow: 1px 2px 1px v.$grey;
     font-weight: lighter;
+    margin-bottom: 4rem;
   }
   &__top {
     background-color: #e7e7e7;
@@ -68,15 +89,118 @@
   z-index: 1;
   width: 130px;
   height: 2rem;
-  border-radius: 15px;
+  font-size: 1.5rem;;
 }
 
 .btn-login {
   background-color: v.$light;
+  margin-bottom: 2rem;
 }
 .btn-signup {
   background-color: v.$primary;
   color: v.$light;
+}
+
+
+.modal_signup {
+  display: flex;
+  height: 100%;
+  &--part1 {
+    width: 30%;
+    background-color: v.$primary;
+  }
+  &--part2 {
+    padding: 2rem 7rem 1rem 7rem;
+    width: 70%;
+    box-shadow: 0 0 10px v.$grey;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--img {
+    width: 100%;
+    height: 100%;
+  }
+  &--close {
+    position: absolute;
+    top: 15px;
+    font-size: 24px;
+    left: 15px;
+  }
+  &--form {
+    width: 100%;
+    height: 100%;
+    display: contents;
+  }
+
+  &--name {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  &--title {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &--pwdate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &--types {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 180px;
+  }
+  &--cat {
+    display: flex;
+    flex-direction: column;
+  }
+  &--themes {
+    display: flex;
+    flex-direction: column;
+  }
+  &--typesresultscat {
+    display: flex;
+    margin: 1rem 0 0 1rem;
+    &__label {
+      pointer-events: none;
+      margin-left: 0.5rem;
+      color: v.$alternate;
+    }
+  }
+  &--typesresultsthemes {
+    display: flex;
+    margin: 1rem 0 0 1rem;
+    &__label {
+      pointer-events: none;
+      margin-left: 0.5rem;
+      color: v.$primary;
+    }
+  }
+  &--maxtypes {
+    color: v.$primary;
+  }
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateX(-100px);
 }
 
 @media screen and(min-width: 960px) {

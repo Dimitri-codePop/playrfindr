@@ -71,12 +71,12 @@
     font-size: 1.1rem;
     width: 190px;
     background-color: v.$light;
-    color: white;
+    color: black;
     &:focus {
       border-bottom: 2px solid v.$alternate;
     }
     &::placeholder {
-      color: #ccc;
+      color: black;
     }
   }
 }

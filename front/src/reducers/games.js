@@ -8,6 +8,7 @@ import {
   SAVE_TOP_GAMES,
   SAVE_TYPES,
   SAVE_GAME,
+  CHANGE_SEARCH_GAME,
 } from 'src/actions/games';
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   loadingOneGame: true,
   oneGame: '',
   topTendances: [],
+  search:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -32,7 +34,6 @@ const reducer = (state = initialState, action = {}) => {
       };
     case CHANGE_THEME:
       const newThemes = addOrRemove(state.themeSearch, action.theme);
-      console.log(`newThemes`, newThemes);
       return {
         ...state,
         themeSearch: newThemes,
@@ -65,6 +66,11 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           oneGame: action.game,
           loadingOneGame: false,
+        };
+      case CHANGE_SEARCH_GAME:
+        return {
+          ...state,
+          search: action.value
         };
     default:
       return state;
