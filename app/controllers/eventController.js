@@ -25,7 +25,7 @@ module.exports = {
             const result = await fetch(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.dataValues.number_address} ${event.dataValues.address} , ${event.dataValues.town}`)
          
             const body = await result.json();
-            console.log(body.data[0].latitude);
+          
             return res.json({data: event.dataValues, latitude: body.data[0].latitude, longitude: body.data[0].longitude});
         } catch (error) {
             console.trace(error);
