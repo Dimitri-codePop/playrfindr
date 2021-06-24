@@ -52,10 +52,8 @@ const events = (store) => (next) => (action) => {
       }}
       )
         .then((response) => {
-          /*const lat = response.data.latitude
-          const long = response.data.longitude
-          const saveEventAction = saveNewEvent(lat, long);
-          store.dispatch(saveEventAction);*/
+          const saveEventAction = saveNewEvent();
+          store.dispatch(saveEventAction);
         })
         .catch((error) => console.log( error ) );
       break;

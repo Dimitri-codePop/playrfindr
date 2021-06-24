@@ -136,7 +136,7 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage}>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal}>
         <form onSubmit={handleSubmitMessage}>
         <Field
             type="text"

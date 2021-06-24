@@ -1,15 +1,91 @@
+@use 'src/styles/vars' as v;
+
 .close_delete {
   pointer-events: none;
 }
 
 .edit_event {
   pointer-events: none;
+
+}
+.all_btn {
+  display: flex;
+  width: 30px;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+.all_btn button {
+  border: none;
+  background: none;
+}
+
+#mapid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  box-shadow: 0 0 3px black;
+  height:40vh;
 }
 
 .leaflet-container {
-  margin-top:2rem;
-  width: 20vw;
+  position: absolute;
+  width: 30vw;
   height:40vh;
-  border-radius: 10px;
-  box-shadow: 0 0 10px black;
+
+}
+.close_modal{
+  position: absolute;
+  top: 15px;
+  font-size: 24px;
+  right: 15px;
+}
+
+.eventModal{
+  display: flex;
+  height: 100%;
+  overflow-y: hidden;
+  &-part1 {  
+    width: 30%;
+    background-color: v.$primary;
+  }
+  &-img {
+    width: 100%;
+    height: 100vh;
+  }
+  &-part2 {
+    width: 70%;
+    box-shadow: 0 0 10px v.$grey;
+    display: flex;
+    flex-direction: column;
+  }
+  &-head {
+    padding: 2rem 7rem 1rem 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-bottom: auto;
+  }
+  &-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+  }
+  &-date {
+    color: v.$primary;
+    margin-top: 1rem;
+  }
+  &-creator {
+    margin-bottom: 4rem;
+  }
+  &-main {
+    
+  }
+  &-content {
+
+  }
+
+
 }
