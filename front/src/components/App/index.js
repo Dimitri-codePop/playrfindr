@@ -18,6 +18,7 @@ import 'src/styles/index.scss';
 import './style.scss';
 import Loading from './Loading';
 import About from '../About';
+import Cgu from '../CGU';
 // == Composant
 export default function App({
   topConnect,
@@ -86,6 +87,9 @@ export default function App({
         </Route>
         <Route path="/about">
           <About/>
+        </Route>
+        <Route path="/cgu">
+          <Cgu/>
         </Route>
       </Switch>
       <Footer />
