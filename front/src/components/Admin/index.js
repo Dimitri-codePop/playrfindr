@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, Navlink, Redirect } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Flash from 'src/components/Flash';
 import Themes from 'src/containers/Admin/Content/Themes';
 import Categories from 'src/containers/Admin/Content/Categories';
 import Editors from 'src/containers/Admin/Content/Editors';
 import Authors from 'src/containers/Admin/Content/Authors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome
+} from '@fortawesome/free-solid-svg-icons';
 
 import Navbar from './Navbar';
 import Jeux from './Content/Jeux';
@@ -72,6 +76,9 @@ export default function Admin(
               path="/admin/home"
             >
               Home Admin
+              <Link to="/">
+                <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faHome} /> Retour Site</button>
+              </Link>
             </Route>
             <Route
               exact
