@@ -23,7 +23,7 @@ export default function Profil({
   if (loading) {
     return <Loading />;
   }
-
+console.log(message, isOk);
   return (
     <>
       <Flash
