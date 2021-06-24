@@ -17,6 +17,7 @@ import 'src/styles/index.scss';
 
 import './style.scss';
 import Loading from './Loading';
+import About from '../About';
 // == Composant
 export default function App({
   topConnect,
@@ -82,6 +83,9 @@ export default function App({
         </Route>
         <Route path="/messagerie">
           <Messages />
+        </Route>
+        <Route path="/about">
+          <About/>
         </Route>
       </Switch>
       <Footer />
