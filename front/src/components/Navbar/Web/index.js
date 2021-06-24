@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { tympanus2 } from 'src/selectors/madoka'
@@ -12,6 +12,7 @@ import {
   faChessKnight,
   faCalendarDay,
   faSearch,
+  faTools,
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Web({
@@ -24,6 +25,13 @@ export default function Web({
   handleChangeSearchValue,
   search,
 }) {
+  const [isAdmin, setIsAdmin] = useState(false);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('UserKeysUsed'))){
+      const { is_admin } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      is_admin ? setIsAdmin(true) : setIsAdmin(false);
+    }
+  }, [localStorage.getItem('UserKeysUsed')])
   const history = useHistory();
   const handleOnClick = () => {
     handleDisconnect();
@@ -108,6 +116,9 @@ export default function Web({
           </Link>
           {isLogged && (
             <>
+              {isAdmin && (<Link to="/admin/home">
+                <button type="button" className={classname2}><FontAwesomeIcon icon={faTools} />  Admin</button>
+              </Link>)}
               <Link to="/events">
                 <button type="button" className={classname2}><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>

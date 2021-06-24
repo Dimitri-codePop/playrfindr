@@ -9,7 +9,7 @@ import Check from 'src/containers/Events/Item/Check';
 import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import momentTz from 'moment-timezone';
+import momentTz from 'moment-timezone';
 
 
 Modal.setAppElement('#root');
