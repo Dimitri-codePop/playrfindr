@@ -30,10 +30,7 @@ export default function Footer() {
       <div className="footer__grid">
         <h2 className="footer__title">A propos</h2>
         <Link to="/cgu">
-        <span>CGU</span>
-        </Link>
-        <Link to="/legals">
-        <span>Mentions légales</span>
+        <span>Conditions Général d'Utilisation</span>
         </Link>
         <span><FontAwesomeIcon icon={faCopyright} /> PlayrFindr</span>
       </div>
