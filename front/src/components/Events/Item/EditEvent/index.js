@@ -38,9 +38,8 @@ export default function EditEvent({
   };
 
   moment.locale('fr')
-  const stillUtc = moment.utc(date).toDate();
-  console.log(stillUtc)
-  const dateSetUp = moment(stillUtc).local().format("yyyy-MM-DDTHH:mm");
+  const timeZone = 'Atlantic/Azores'
+  const dateSetUp = moment(date).tz(timeZone).format("yyyy-MM-DDTHH:mm");
 
   return(
     <>
