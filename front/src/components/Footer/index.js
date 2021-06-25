@@ -6,9 +6,9 @@ import {
   faCopyright,
 } from '@fortawesome/free-solid-svg-icons'
 import { 
-  faFacebookSquare,
-  faInstagramSquare,
-  faTwitterSquare,
+  faFacebookF,
+  faInstagram,
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import './style.scss';
 
@@ -38,13 +38,13 @@ export default function Footer() {
         <h2 className="footer__title">Retrouvez nous</h2>
         <div>
         <a href="http://www.facebook.com">
-        <FontAwesomeIcon icon={faFacebookSquare} className="footer__brands-icons"/>
+        <FontAwesomeIcon icon={faFacebookF} className="footer__brands-icons"/>
           </a>
           <a href="http://www.instagram.com">
-        <FontAwesomeIcon icon={faInstagramSquare} className="footer__brands-icons"/>
+        <FontAwesomeIcon icon={faInstagram} className="footer__brands-icons"/>
           </a>
           <a href="http://www.twitter.com">
-        <FontAwesomeIcon icon={faTwitterSquare} className="footer__brands-icons"/>
+        <FontAwesomeIcon icon={faTwitter} className="footer__brands-icons"/>
           </a>
         </div>
       </div>
