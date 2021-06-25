@@ -11,6 +11,9 @@ import {
   editElementType,
   changeFieldAuthor,
   editElementAuthor,
+  changeFieldGame,
+  changeSelectGame,
+  addElementGame,
 } from 'src/actions/admin';
 import { addElementAuthor } from '../../actions/admin';
 
@@ -64,6 +67,15 @@ const mapDispatchToProps = (dispatch) => ({
   editElementAuthor: (id) => {
     dispatch(editElementAuthor(id));
   },
+  onChangefieldGame: (value, key) => {
+    dispatch(changeFieldGame(value, key));
+  },
+  onChangeSelectField: (value, key) => {
+    dispatch(changeSelectGame(value, key))
+  },
+  addElementGame:() => {
+    dispatch(addElementGame());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

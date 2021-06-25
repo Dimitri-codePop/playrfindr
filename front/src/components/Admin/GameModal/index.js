@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { TextField, Select, MenuItem } from '@material-ui/core';
+import { TextField, Select, MenuItem, Chip } from '@material-ui/core';
 export default function GameModal({
   setShowModal,
   showModal,
@@ -18,8 +18,8 @@ export default function GameModal({
   describe,
   author,
   editor,
-  theme_all,
-  category_all,
+  theme,
+  category,
   addElementGame,
   onChangefieldGame,
   onChangeSelectField,
@@ -28,6 +28,7 @@ export default function GameModal({
   themes,
   categories,
   editors,
+  authors,
 }) {
   Modal.setAppElement('#root');
 
@@ -55,18 +56,22 @@ export default function GameModal({
     addElementGame(gameId);
     closeModal();
   };
+  const handleOnChangeSelectField = (event) => {
+    console.log(event.target);
+    onChangeSelectField(event.target.value, event.target.name)
+  }
   return (
     <Modal
-    bodyOpenClassName={placeHolder}
+    bodyOpenClassName={title}
     isOpen={openModal}
     onRequestClose={closeModal}
     style={customStyles}
-    contentLabel="Inscription"
+    contentLabel="Ajout d'un Jeu"
   >
     <button onClick={closeModal} type="button">
       <FontAwesomeIcon className="" icon={faTimes} />
     </button>
-    <form className="form__login" onSubmit={handleSubmit}>
+    <form className="modal_signup--form" onSubmit={handleSubmit}>
         <Field
           type="text"
           name="label"
@@ -120,41 +125,56 @@ export default function GameModal({
         <Select
         multiple
         value={author}
-        onChange={onChangeSelectField}
+        onChange={handleOnChangeSelectField}
+        name="author"
         >
           <MenuItem value=""><em>None</em></MenuItem>
           {authors.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname} </MenuItem>)
+            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname}</MenuItem>)
           })}
         </Select>
+        <div className="modal_signup--pwdate">
+
         <Select
         multiple
         value={editor}
-        onChange={onChangeSelectField}
+        onChange={handleOnChangeSelectField}
+        fullWidth={true}
+        name="editor"
+        renderValue={(selected) => (
+          <div className="">
+            {selected.map((value) => (
+              <Chip key={value} label={value} className="modal_signup--typesresultsthemes" />
+              ))}
+          </div>
+        )}
         >
           <MenuItem value=""><em>None</em></MenuItem>
           {editors.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname} </MenuItem>)
+            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
           })}
         </Select>
+          </div>
         <Select
         multiple
         value={theme}
-        onChange={onChangeSelectField}
+        onChange={handleOnChangeSelectField}
+        name="theme"
         >
           <MenuItem value=""><em>None</em></MenuItem>
           {themes.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname} </MenuItem>)
+            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
           })}
         </Select>
         <Select
         multiple
         value={category}
-        onChange={onChangeSelectField}
+        onChange={handleOnChangeSelectField}
+        name="category"
         >
           <MenuItem value=""><em>None</em></MenuItem>
           {categories.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname} </MenuItem>)
+            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
           })}
         </Select>
         <button onClick={closeModal} type="button">

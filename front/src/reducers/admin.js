@@ -10,6 +10,8 @@ import {
   CHANGE_AUTHOR_FIELD,
   SAVE_EDIT_AUTHOR,
   SAVE_ADD_AUTHOR,
+  CHANGE_ADD_GAME_FIELD,
+  CHANGE_ADD_GAME_FIELD_SELECT,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -24,7 +26,19 @@ const initialState = {
     editor: '',
     theme: '',
     category: '',
-    jeux: {},
+    jeu: {
+      label: '',
+      duration: 0,
+      player_min: 0,
+      player_max: 0,
+      age_min: 0,
+      year: 2000,
+      describe: '',
+      author: [],
+      editor: [],
+      theme: [],
+      category: [],
+    },
     author: {
       firstname: '',
       lastname: '',
@@ -144,6 +158,28 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     }
+case CHANGE_ADD_GAME_FIELD: 
+return {
+  ...state,
+  new: {
+    ...state.new,
+    jeu: {
+      ...state.new.jeu,
+      [action.key]: action.value,
+    }
+  }
+}
+    case CHANGE_ADD_GAME_FIELD_SELECT: 
+    return {
+      ...state,
+      new: {
+        ...state.new,
+        jeu: {
+          ...state.new.jeu,
+          [action.key]: [...action.value],
+        },
+      },
+    };
     default:
       return state;
   }

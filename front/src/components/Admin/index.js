@@ -6,13 +6,13 @@ import Themes from 'src/containers/Admin/Content/Themes';
 import Categories from 'src/containers/Admin/Content/Categories';
 import Editors from 'src/containers/Admin/Content/Editors';
 import Authors from 'src/containers/Admin/Content/Authors';
+import Jeux from 'src/containers/Admin/Content/Jeux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome
 } from '@fortawesome/free-solid-svg-icons';
 
 import Navbar from './Navbar';
-import Jeux from './Content/Jeux';
 import Users from './Content/Users';
 import Events from './Content/Events';
 import './style.scss';
@@ -37,12 +37,16 @@ export default function Admin(
     addElementAuthor,
     onChangefieldAuthor,
     editElementAuthor,
+    onChangefieldGame,
+    onChangeSelectField,
+    addElementGame,
   },
 ) {
   const [isAdmin, setIsAdmin] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
   const [showModalTheme, setShowModalTheme] = useState(false);
   const [showModalCategory, setShowModalCategory] = useState(false);
+  const [showModalGame, setShowModalGame] = useState(false);
   const [showModalEditor, setShowModalEditor] = useState(false);
   useEffect(() => {
     const { is_admin } = JSON.parse(localStorage.getItem('UserKeysUsed'));
@@ -96,7 +100,16 @@ export default function Admin(
             >
               <Jeux
                 games={games}
+                themes={themes}
+                categories={categories}
+                authors={authors}
+                editors={editors}
                 deleteElement={deleteElement}
+                showModal={showModalGame}
+                setShowModal={setShowModalGame}
+                onChangefieldGame={onChangefieldGame}
+                onChangeSelectField={onChangeSelectField}
+                addElementGame={addElementGame}
               />
             </Route>
             <Route
