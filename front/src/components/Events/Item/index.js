@@ -9,8 +9,8 @@ import Check from 'src/containers/Events/Item/Check';
 import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import momentTz from 'moment-timezone';
-import imageModale from 'src/assets/Imageevent.png'
+ import momentTz from 'moment-timezone';
+ import imageModale from 'src/assets/Imageevent.png'
 
 
 Modal.setAppElement('#root');
@@ -75,6 +75,7 @@ export default function Item({
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
+      height                : '80%',
       transform             : 'translate(-50%, -50%)',
     },
   };

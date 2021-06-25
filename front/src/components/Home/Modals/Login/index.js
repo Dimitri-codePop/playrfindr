@@ -19,6 +19,7 @@ export default function Login({
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
+      height                : '50%',
       transform             : 'translate(-50%, -50%)',
     },
   };
