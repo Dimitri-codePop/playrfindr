@@ -17,6 +17,7 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
       height                : '450px',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
+      height                : '80%',
       zIndex                : '1000',
     }
   };

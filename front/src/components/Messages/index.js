@@ -6,9 +6,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faComment, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import moment from 'moment';
 import imageModale from 'src/assets/Imageevent.png'
+import TextField from '@material-ui/core/TextField';
 
 import './style.scss';
 
@@ -21,7 +21,6 @@ export default function Messages({
   sendMessageContent,
   contentMessage,
   deleteMessageContent,
-  
 }) {
   const [modalMessage, setModalMessage] = useState(false);
   const [goodTargetId, setGoodTargetId] = useState('');
@@ -39,13 +38,16 @@ export default function Messages({
   };
   const handleSubmitMessage = (event) => {
     event.preventDefault();
-    sendMessageContent(contentMessage, event.target.name);
-    setShowMessage(!showMessage);
+    sendMessageContent(contentMessage, event.target.name)
     setModalMessage(false);
   }
   const handleDeleteMessage = (event) => {
     deleteMessageContent(event.target.value)
   }
+  const handleOnChange = (event) => {
+    changefieldMessage(event.target.value, event.target.name)
+  }
+
 
   const customStyles = {
     content : {
@@ -56,6 +58,7 @@ export default function Messages({
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
+      height                : '50%',
       transform             : 'translate(-50%, -50%)',
     },
   };
@@ -110,17 +113,22 @@ export default function Messages({
           <img className="eventModal-img" src={imageModale} alt=""/>
           </div>
           <div className="eventModal-part2">
-            <div className="eventModal-head">   
-              <h1 className="eventModal-title">Ecrire un message</h1>
+            <div className="messages-head">   
+              <h1 className="messages-titlemodal">Ecrire un message</h1>
               <form className="messages-form" onSubmit={handleSubmitMessage} name={goodTargetId}>
-              <Field
+              <div className="messages-textmodal">
+              <TextField 
+                  fullWidth={true}
+                  multiline
+                  rows={5}
+                  rowsMax={5}
                   type="text"
                   name="contentMessage"
                   placeholder="Votre message..."
-                  onChange={changefieldMessage}
+                  onChange={handleOnChange}
                   value={contentMessage}
-                  className="messages-field"
                 />
+              </div>
                 <button className="messages-btn" type="submit">Envoyer</button>
                 <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
               </form>
