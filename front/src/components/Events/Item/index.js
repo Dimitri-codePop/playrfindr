@@ -158,7 +158,7 @@ export default function Item({
                   {goodModal.visitors.map((visitor) => {
                     const pathname = `profil/${visitor.f1}`
                     return (
-                      <a href={pathname} className="eventModal-players--content">{visitor.f2} {visitor.f3}</a>
+                      <a key={visitor.f1} href={pathname} className="eventModal-players--content">{visitor.f2} {visitor.f3}</a>
                   )})}
                   </div>
                   }
