@@ -31,7 +31,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4i
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTUyMjMsImV4cCI6MTYyNDQ1ODgyM30.cxzhs9EGGWaK2sfB1Ao7FACWaxHYg4pXpwqnxwhafe0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ2MDYzMjIsImV4cCI6MTYyNDYwOTkyMn0.DDmnqjavhMj2QxXAKvKENp7pxBKeo-7MKKLM1lqkU5c
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -114,16 +114,16 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDYwNDc3MCwiZXhwIjoxNjI0NjA4MzcwfQ.4mlNhI5wnqObq01oXSxHNGRtxKh0RoEH1Z_A8yElCrk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ2MDYzMjIsImV4cCI6MTYyNDYwOTkyMn0.DDmnqjavhMj2QxXAKvKENp7pxBKeo-7MKKLM1lqkU5c
 Content-Type: application/json
 
 {
-    "label": "Partie de Cyclades",
-    "content": "Petite partie de Cyclades",
+   "label": "Partie de Master Words",
+    "content": "Petite partie de Master Words",
     "date": "2021-09-15",
-    "number_address": 59000,
-    "address": "84 Avenue du peuple belge",
-    "town": "Lille",
+    "number_address": 94360,
+    "address": "15 Bis rue Leopold Bellan",
+    "town": "Bry-sur-Marne",
     "max_player": 7,
     "user_id": 29
 }

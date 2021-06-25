@@ -67,7 +67,7 @@ module.exports = {
             
             for(let event of events){
                 const apiUrl = process.env.API_URL;
-                const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.number_address} , ${event.address} , ${event.town}`);            
+                const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.address} , ${event.town}, ${event.number_address} `);
                 const result = await fetch(newUrl);
                 const body = await result.json();    
                 
