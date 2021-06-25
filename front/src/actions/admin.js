@@ -19,6 +19,32 @@ export const SAVE_ADD_AUTHOR = 'SAVE_ADD_AUTHOR';
 export const SAVE_EDIT_AUTHOR = 'SAVE_EDIT_AUTHOR';
 export const ADD_AUTHOR = 'ADD_AUTHOR';
 export const EDIT_AUTHOR = 'EDIT_AUTHOR';
+export const CHANGE_ADD_GAME_FIELD = 'CHANGE_ADD_GAME_FIELD';
+export const CHANGE_ADD_GAME_FIELD_SELECT = 'CHANGE_ADD_GAME_FIELD_SELECT';
+export const ADD_ELEMENT_GAME = 'ADD_ELEMENT_GAME';
+export const SAVE_ELEMENT_GAME = 'SAVE_ELEMENT_GAME';
+
+export const saveElementGame = (value) => ({
+  type: SAVE_ELEMENT_GAME,
+  value,
+});
+
+export const addElementGame = () => ({
+  type: ADD_ELEMENT_GAME,
+});
+
+export const changeFieldGame = (value, key) => ({
+  type: CHANGE_ADD_GAME_FIELD,
+  value,
+  key,
+});
+
+export const changeSelectGame = (value, key) => ({
+  type: CHANGE_ADD_GAME_FIELD_SELECT,
+  value,
+  key,
+});
+
 export const addElementAuthor = (value, key) => ({
   type: ADD_AUTHOR,
   value,

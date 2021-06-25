@@ -11,8 +11,9 @@ export const DELETE_EVENT = 'DELETE_EVENT';
 export const EDIT_EVENT = 'EDIT_EVENT';
 export const SAVE_EDIT_EVENT = 'SAVE_EDIT_EVENT';
 export const EDIT_VALUE_EVENT = 'EDIT_VALUE_EVENT';
-export const SET_EVENT = 'SET_EVENT'
-export const SAVE_REMOVE_EVENT = 'SAVE_REMOVE_EVENT'
+export const SET_EVENT = 'SET_EVENT';
+export const SAVE_REMOVE_EVENT = 'SAVE_REMOVE_EVENT';
+export const REINI_EVENT = 'REINI_EVENT';
 
 
 
@@ -35,10 +36,8 @@ export const newEvent = () => ({
   type: NEW_EVENT,
 });
 
-export const saveNewEvent = (lat, long) => ({
+export const saveNewEvent = () => ({
   type: SAVE_NEW_EVENT,
-  lat,
-  long,
 });
 
 export const addToEvent = (value) => ({
@@ -90,5 +89,11 @@ export const setEvent = (event) => ({
 export const saveRemoveEvent = () => ({
   type: SAVE_REMOVE_EVENT,
 });
+
+export const reiniEvent = () => ({
+  type: REINI_EVENT,
+});
+
+
 
 

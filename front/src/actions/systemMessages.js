@@ -3,7 +3,14 @@ export const SHOW_LOGIN_MESSAGE = 'SHOW_LOGIN_MESSAGE';
 export const SHOW_LOGOUT_MESSAGE = 'SHOW_LOGOUT_MESSAGE';
 export const SHOW_ADD_GAME_TO_LIB_MESSAGE = 'SHOW_ADD_GAME_TO_LIB_MESSAGE';
 export const SHOW_DELETE_GAME_FROM_LIB_MESSAGE = 'SHOW_DELETE_GAME_FROM_LIB_MESSAGE';
+export const SHOW_SEND_MESSAGE = 'SHOW_SEND_MESSAGE';
 
+
+export const messageSend = (value, key) => ({
+  type: SHOW_SEND_MESSAGE,
+  value,
+  key,
+})
 export const messageLogOut = (value, key) => ({
   type: SHOW_LOGOUT_MESSAGE,
   value,

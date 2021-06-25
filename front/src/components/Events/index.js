@@ -17,10 +17,11 @@ export default function Events({
   events, 
   loadEvents, 
   loading,
-  trigger
+  trigger,
+  reiniFormEvent,
 }) {
 
-  
+  console.log(`trigger1`, trigger)
   useEffect(() => {
     loadEvents();
   }, []);
@@ -36,9 +37,22 @@ export default function Events({
   };
 
   const handleEndModal = () => {
+
     setModal(false);
   };
 
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)',
+    },
+  };
+
+  console.log(`trigger2`, trigger)
   if (loading) {
     return <Loading />;
   }
@@ -62,10 +76,14 @@ export default function Events({
             <li className="events__main__nav--item">S'inscrire</li>
           </ul>
         </nav> 
-      < Item events={events}/>
-      <Modal isOpen={modal}>
+      < Item 
+        events={events}
+        reiniFormEvent={reiniFormEvent}
+      />
+      <Modal isOpen={modal} style={customStyles} onRequestClose={handleEndModal}>
         < FormEvent 
           handleEndModal={handleEndModal} 
+          
         />
       </Modal>
       </div>

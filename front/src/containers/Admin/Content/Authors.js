@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Authors from 'src/components/Admin/Content/Authors';
 import { } from 'src/actions/admin';
+import Content from '../../../components/Jeu/Content';
 
 const mapStateToProps = (state) => ({
   firstname: state.admin.new.author.firstname,

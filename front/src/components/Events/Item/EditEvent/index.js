@@ -4,6 +4,8 @@ import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
+import imageModale from 'src/assets/Imageevent.png'
+import TextField from '@material-ui/core/TextField';
 
 import './style.scss';
 
@@ -31,6 +33,10 @@ export default function EditEvent({
     handleClickEndEditModal();
   };
 
+  const handleOnChange = (event) => {
+    changefieldEvent(event.target.value, event.target.name);
+  };
+
   moment.locale('fr')
   const stillUtc = moment.utc(date).toDate();
   console.log(stillUtc)
@@ -38,59 +44,82 @@ export default function EditEvent({
 
   return(
     <>
-        <form onSubmit={handleSubmit}>
-          <h1>Modifier l'évènement</h1>
-          <Field
-            type="text"
-            name="label"
-            onChange={changefieldEvent}
-            placeholder="Titre de l'évènement"
-            value={label}
-          />
-          <Field
-            type="datetime-local"
-            name="date"
-            onChange={changefieldEvent}
-            value={dateSetUp}
-          />
-          <Field
-            type="text"
-            name="address"
-            onChange={changefieldEvent}
-            placeholder="Adresse"
-            value={address}
-          />
-          <Field
-            type="text"
-            name="number_address"
-            onChange={changefieldEvent}
-            placeholder="Code Postal"
-            value={number_address}
-          />
-          <Field
-            type="text"
-            name="town"
-            onChange={changefieldEvent}
-            placeholder="Ville"
-            value={town}
-          />
-          <Field
-            type="number"
-            name="max_player"
-            onChange={changefieldEvent}
-            placeholder="Nombre max de joueurs"
-            value={max_player}
-          />
-          <Field
-            type="text"
-            name="content"
-            onChange={changefieldEvent}
-            placeholder="Description de l'évènement..."
-            value={content}
-          />
-          <button type="submit">Valider</button>
-          <FontAwesomeIcon onClick={handleClickClose} className="close_modal" icon={faTimes} />
-        </form>
+      <div className="eventModal">
+        <div className="eventModal-part1">
+          <img className="eventModal-img" src={imageModale} alt=""/>
+        </div>
+        <div className="eventModal-part3">
+          <form className="eventModal-formevent" onSubmit={handleSubmit}>
+            <h1 className="eventModal-titleform">Modifier l'évènement</h1>
+            <div className="eventModal-titleformevent">
+              <Field
+                type="text"
+                name="label"
+                onChange={changefieldEvent}
+                placeholder="Titre de l'évènement"
+                value={label}
+              />
+            </div>
+            <div className="eventModal-datehour">
+              <Field
+                type="datetime-local"
+                name="date"
+                onChange={changefieldEvent}
+                value={dateSetUp}
+              />
+            </div>
+            <Field
+              type="text"
+              name="address"
+              onChange={changefieldEvent}
+              placeholder="Adresse"
+              value={address}
+            />
+            <div className="eventModal-codetown">
+              <div className="eventModal-code">
+                <Field
+                  type="text"
+                  name="number_address"
+                  onChange={changefieldEvent}
+                  placeholder="Code Postal"
+                  value={number_address}
+                />
+              </div>
+              <div className="eventModal-town">
+                <Field
+                  type="text"
+                  name="town"
+                  onChange={changefieldEvent}
+                  placeholder="Ville"
+                  value={town}
+                />
+              </div>
+            </div>
+            <Field
+              type="number"
+              name="max_player"
+              onChange={changefieldEvent}
+              placeholder="Nombre max de joueurs"
+              value={max_player}
+            />
+            <div className="eventModal-textarea">
+              <TextField 
+                fullWidth={true}
+                multiline
+                rows={5}
+                rowsMax={5}
+                type="text"
+                name="content"
+                placeholder="Description de l'évènement..."
+                onChange={handleOnChange}
+                value={content}
+              />
+            </div>
+            <button className="eventModal-btnformevent" type="submit">Valider</button>
+            <FontAwesomeIcon onClick={handleClickClose} className="close_modal" icon={faTimes} />
+          </form>
+        </div>
+      </div>
     </>
   );
 }
