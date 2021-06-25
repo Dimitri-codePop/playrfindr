@@ -34,9 +34,9 @@ module.exports = {
 
             authors.data = req.body;
 
-            await author.update();
+            await authors.update();
 
-            res.status(200).json({data: authorsauthor.dataValues})
+            res.status(200).json({data: authors.dataValues})
         } catch (error) {
             console.log(error);
             res.status(500).json({error});

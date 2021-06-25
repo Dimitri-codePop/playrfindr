@@ -116,7 +116,7 @@ class UserModel extends CoreModel {
 
     static async searchUser(body){
     
-        const result = await client.query(`SELECT * FROM "user" WHERE "firstname" LIKE $1 or "lastname" LIKE $1;`, [body + '%']);
+        const result = await client.query(`SELECT * FROM "user" WHERE "firstname" LIKE $1 or "lastname" LIKE $1;`, ['%' + body + '%']);
         return result.rows;
     }
 

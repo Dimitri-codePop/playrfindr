@@ -23,6 +23,9 @@ export default function Footer() {
         <Link to="/faq">
         <span>FAQ</span>
         </Link>
+        <Link to="/about">
+        <span>A propos de nous</span>
+        </Link>
       </div>
       <div className="footer__grid">
         <h2 className="footer__title">A propos</h2>
