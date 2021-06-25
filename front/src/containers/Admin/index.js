@@ -9,13 +9,14 @@ import {
   addElementType,
   changeFieldType,
   editElementType,
+  addElementAuthor,
   changeFieldAuthor,
   editElementAuthor,
   changeFieldGame,
   changeSelectGame,
   addElementGame,
+  changeSelectFieldUnique,
 } from 'src/actions/admin';
-import { addElementAuthor } from '../../actions/admin';
 
 const mapStateToProps = (state) => ({
   games: state.admin.jeux,
@@ -46,19 +47,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(deleteElement(value, key));
   },
   addElementType: (value, key) => {
-    console.log(value);
     dispatch(addElementType(value, key));
   },
   editElementType: (value, key, id) => {
-    console.log(value, key, id);
     dispatch(editElementType(value, key, id));
   },
   onChangefieldType: (value, key) => {
-    console.log(value);
     dispatch(changeFieldType(value, key));
   },
   onChangefieldAuthor: (value, key) => {
-    console.log(value, key);
     dispatch(changeFieldAuthor(value, key));
   },
   addElementAuthor: (value, key) => {
@@ -71,11 +68,14 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeFieldGame(value, key));
   },
   onChangeSelectField: (value, key) => {
-    dispatch(changeSelectGame(value, key))
+    dispatch(changeSelectGame(value, key));
   },
-  addElementGame:() => {
+  onChangeSelectFieldUnique: (value, key) => {
+    dispatch(changeSelectFieldUnique(value, key));
+  },
+  addElementGame: () => {
     dispatch(addElementGame());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

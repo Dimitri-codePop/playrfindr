@@ -39,6 +39,7 @@ export default function Admin(
     editElementAuthor,
     onChangefieldGame,
     onChangeSelectField,
+    onChangeSelectFieldUnique,
     addElementGame,
   },
 ) {
@@ -109,6 +110,7 @@ export default function Admin(
                 setShowModal={setShowModalGame}
                 onChangefieldGame={onChangefieldGame}
                 onChangeSelectField={onChangeSelectField}
+                onChangeSelectFieldUnique={onChangeSelectFieldUnique}
                 addElementGame={addElementGame}
               />
             </Route>

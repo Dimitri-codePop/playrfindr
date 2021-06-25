@@ -8,6 +8,7 @@ export default function Jeux({
   games,
   deleteElement,
   onChangeSelectField,
+  onChangeSelectFieldUnique,
   onChangefieldGame,
   categories,
   addElementGame,
@@ -16,7 +17,6 @@ export default function Jeux({
   editors,
 }) {
   const [showModal, setShowModal] = useState(false);
-  console.log('games', games);
   const handleOnClick = (event) => {
     const name = 'jeux';
     console.log(event.target.id, name);
@@ -25,8 +25,7 @@ export default function Jeux({
   function openModal() {
     setShowModal(!showModal);
   }
-  const tr = games.map(obj => {
-    console.log(obj);
+  const tr = games.map((obj) => {
     return(
       <tr key={obj.label}>
         <td>{obj.label}</td>
@@ -42,25 +41,26 @@ export default function Jeux({
   })
   return (
     <div className="admin__content">
-        {showModal && (
-          <GameModal
-            setShowModal={setShowModal}
-            type="game"
-            title="Ajout d'un jeu"
-            showModal={showModal}
-            onChangefieldGame={onChangefieldGame}
-            onChangeSelectField={onChangeSelectField}
-            addElementGame={addElementGame}
-            categories={categories}
-            themes={themes}
-            authors={authors}
-            editors={editors}
-          />
-        )}
-        <button type="button" onClick={openModal} className="btn profil__btn">
-          Ajouter un élément
-          <FontAwesomeIcon className="profil__delete no-pointer" icon={faPlusSquare} />
-        </button>
+      {showModal && (
+        <GameModal
+          setShowModal={setShowModal}
+          type="game"
+          title="Ajout d'un jeu"
+          showModal={showModal}
+          onChangefieldGame={onChangefieldGame}
+          onChangeSelectField={onChangeSelectField}
+          onChangeSelectFieldUnique={onChangeSelectFieldUnique}
+          addElementGame={addElementGame}
+          categories={categories}
+          themes={themes}
+          authors={authors}
+          editors={editors}
+        />
+      )}
+      <button type="button" onClick={openModal} className="btn profil__btn">
+        Ajouter un élément
+        <FontAwesomeIcon className="profil__delete no-pointer" icon={faPlusSquare} />
+      </button>
       <table className="admin__games_table">
         <thead>
           <tr>
