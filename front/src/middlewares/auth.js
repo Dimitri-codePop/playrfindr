@@ -11,7 +11,6 @@ import {
   messageLogOut,
 } from 'src/actions/systemMessages';
 import axios from 'axios';
-import profil_picture from 'src/assets/default_profile_picture.jpg';
 
 const login = (store) => (next) => (action) => {
   switch (action.type) {

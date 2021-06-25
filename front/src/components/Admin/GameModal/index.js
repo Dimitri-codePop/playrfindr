@@ -4,7 +4,16 @@ import Modal from 'react-modal';
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { TextField, Select, MenuItem, Chip } from '@material-ui/core';
+import {
+  TextField,
+  Select,
+  MenuItem,
+  Chip,
+  InputLabel,
+} from '@material-ui/core';
+
+import './style.scss';
+
 export default function GameModal({
   setShowModal,
   showModal,
@@ -23,6 +32,7 @@ export default function GameModal({
   addElementGame,
   onChangefieldGame,
   onChangeSelectField,
+  onChangeSelectFieldUnique,
   title,
   gameId,
   themes,
@@ -52,54 +62,63 @@ export default function GameModal({
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(gameId);
     addElementGame(gameId);
     closeModal();
   };
   const handleOnChangeSelectField = (event) => {
-    console.log(event.target);
-    onChangeSelectField(event.target.value, event.target.name)
-  }
+    onChangeSelectField(event.target.value, event.target.name);
+  };
+
+  const handleOnChangeSelectFieldUnique = (event) => {
+    onChangeSelectFieldUnique(event.target.value, event.target.name);
+  };
+  const handleDescribeField = (event) => {
+    onChangefieldGame(event.target.value, event.target.name);
+  };
   return (
     <Modal
-    bodyOpenClassName={title}
-    isOpen={openModal}
-    onRequestClose={closeModal}
-    style={customStyles}
-    contentLabel="Ajout d'un Jeu"
-  >
-    <button onClick={closeModal} type="button">
-      <FontAwesomeIcon className="" icon={faTimes} />
-    </button>
-    <form className="modal_signup--form" onSubmit={handleSubmit}>
-        <Field
-          type="text"
-          name="label"
-          placeholder="Nom du jeux"
-          onChange={onChangefieldGame}
-          value={label}
-        />
-        <Field
-          type="number"
-          name="duration"
-          placeholder="Temps moyen d'une partie"
-          onChange={onChangefieldGame}
-          value={duration}
-        />
-        <Field
-          type="number"
-          name="player_min"
-          placeholder="Nombre de joueurs Min"
-          onChange={onChangefieldGame}
-          value={player_min}
-        />
-        <Field
-          type="number"
-          name="player_max"
-          placeholder="Nombre de joueurs Max"
-          onChange={onChangefieldGame}
-          value={player_max}
-        />
+      bodyOpenClassName={title}
+      isOpen={openModal}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Ajout d'un Jeu"
+    >
+      <button onClick={closeModal} type="button">
+        <FontAwesomeIcon className="" icon={faTimes} />
+      </button>
+      <form className="modal__add-game" onSubmit={handleSubmit}>
+        <div>
+          <Field
+            type="text"
+            name="label"
+            placeholder="Nom du jeux"
+            onChange={onChangefieldGame}
+            value={label}
+          />
+        </div>
+        <div className="modal__add-game--number">
+          <Field
+            type="number"
+            name="duration"
+            placeholder="Temps moyen d'une partie"
+            onChange={onChangefieldGame}
+            value={duration}
+          />
+          <Field
+            type="number"
+            name="player_min"
+            placeholder="Nombre de joueurs Min"
+            onChange={onChangefieldGame}
+            value={player_min}
+          />
+          <Field
+            type="number"
+            name="player_max"
+            placeholder="Nombre de joueurs Max"
+            onChange={onChangefieldGame}
+            value={player_max}
+          />
+        </div>
         <Field
           type="number"
           name="age_min"
@@ -114,69 +133,79 @@ export default function GameModal({
           onChange={onChangefieldGame}
           value={year}
         />
-        <TextField 
+        <TextField
           multiline
           placeholder="Description du jeux"
+          onChange={handleDescribeField}
+          name="describe"
           rows={4}
           rowsMax={6}
-          fullWidth={true}
+          autoWidth={true}
           value={describe}
         />
-        <Select
-        multiple
-        value={author}
-        onChange={handleOnChangeSelectField}
-        name="author"
-        >
-          <MenuItem value=""><em>None</em></MenuItem>
-          {authors.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.firstname} {obj.lastname}</MenuItem>)
-          })}
-        </Select>
-        <div className="modal_signup--pwdate">
-
-        <Select
-        multiple
-        value={editor}
-        onChange={handleOnChangeSelectField}
-        fullWidth={true}
-        name="editor"
-        renderValue={(selected) => (
-          <div className="">
-            {selected.map((value) => (
-              <Chip key={value} label={value} className="modal_signup--typesresultsthemes" />
-              ))}
-          </div>
-        )}
-        >
-          <MenuItem value=""><em>None</em></MenuItem>
-          {editors.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
-          })}
-        </Select>
-          </div>
-        <Select
-        multiple
-        value={theme}
-        onChange={handleOnChangeSelectField}
-        name="theme"
-        >
-          <MenuItem value=""><em>None</em></MenuItem>
-          {themes.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
-          })}
-        </Select>
-        <Select
-        multiple
-        value={category}
-        onChange={handleOnChangeSelectField}
-        name="category"
-        >
-          <MenuItem value=""><em>None</em></MenuItem>
-          {categories.map((obj) => {
-            return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
-          })}
-        </Select>
+        <div>
+          <InputLabel id="author">Autheurs</InputLabel>
+          <Select
+            labelId="author"
+            multiple
+            value={author}
+            onChange={handleOnChangeSelectField}
+            name="author"
+          >
+            <MenuItem value=""><em>None</em></MenuItem>
+            {authors.map((obj) => {
+              const name = `${obj.lastname} ${obj.firstname}`;
+              return (<MenuItem value={obj.id}>{name}</MenuItem>);
+            })}
+          </Select>
+        </div>
+        <div>
+          <InputLabel id="editor">Editeur</InputLabel>
+          <Select
+            labelId="editor"
+            value={editor}
+            onChange={handleOnChangeSelectFieldUnique}
+            autoWidth={true}
+            name="editor"
+          >
+            <MenuItem value=""><em>None</em></MenuItem>
+            {editors.map((obj) => {
+              return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
+            })}
+          </Select>
+        </div>
+        <div className="">
+          <InputLabel id="theme">Thèmes</InputLabel>
+          <Select
+            labelId="theme"
+            multiple
+            value={theme}
+            autoWidth={true}
+            onChange={handleOnChangeSelectField}
+            name="theme"
+          >
+            <MenuItem value=""><em>None</em></MenuItem>
+            {themes.map((obj) => {
+              return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
+            })}
+          </Select>
+        </div>
+        <div className="">
+          <InputLabel id="category">Catégories</InputLabel>
+          <Select
+            labelId="category"
+            multiple
+            autoWidth={true}
+            value={category}
+            onChange={handleOnChangeSelectField}
+            name="category"
+          >
+            <MenuItem value=""><em>None</em></MenuItem>
+            {categories.map((obj) => {
+              return(<MenuItem value={obj.id}>{obj.label}</MenuItem>)
+            })}
+          </Select>
+        </div>
         <button onClick={closeModal} type="button">
           Annuler
           <FontAwesomeIcon className="no-pointer" icon={faTimes} />
@@ -184,7 +213,7 @@ export default function GameModal({
         <button type="submit" className="form__login-button">Envoyer</button>
       </form>
     </Modal>
-);
+  );
 }
 
 GameModal.propTypes = {

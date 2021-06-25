@@ -1,0 +1,13 @@
+@use 'src/styles/vars' as v;
+
+.modal__add-game {
+  color: v.$primary;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  flex-direction: column;
+
+  &--number {
+    flex-direction: row;
+  }
+}

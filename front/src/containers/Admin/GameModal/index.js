@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   label: state.admin.new.jeu.label,
   duration: state.admin.new.jeu.duration,
   player_min: state.admin.new.jeu.player_min,
-  player_max:  state.admin.new.jeu.player_max,
+  player_max: state.admin.new.jeu.player_max,
   age_min: state.admin.new.jeu.age_min,
   year: state.admin.new.jeu.year,
   describe: state.admin.new.jeu.describe,
