@@ -11,6 +11,8 @@ const mapStateToProps = (state) => ({
   town: state.events.town,
   content: state.events.content,
   max_player: state.events.max_player,
+  lat: state.events.lat,
+  long: state.events.long,
 });
 
 const mapDispatchToProps = (dispatch) => ({

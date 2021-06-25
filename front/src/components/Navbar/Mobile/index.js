@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ import {
   faCalendarDay,
   faUser,
   faSearch,
+  faTools,
 } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
 
@@ -23,6 +24,13 @@ export default function Mobile({
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(true);
   const [navBarSearchValue, setNavBarSearchValue] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('UserKeysUsed'))){
+      const { is_admin } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      is_admin ? setIsAdmin(true) : setIsAdmin(false);
+    }
+  }, [localStorage.getItem('UserKeysUsed')])
   const toggleNavbar = () => {
     setToggleMenu(!toggleMenu);
   };
@@ -65,6 +73,18 @@ export default function Mobile({
         </NavLink>
         {isLogged && (
           <>
+            {isAdmin && (
+            <NavLink
+              className="navbar__items"
+              activeClassName="navbar__items-active"
+              onClick={toggleNavbar}
+              exact
+              to="/admin/home"
+              key="admin"
+            >
+              <FontAwesomeIcon icon={faTools} />  Admin
+            </NavLink>
+            )}
             <NavLink
               className="navbar__items"
               activeClassName="navbar__items-active"

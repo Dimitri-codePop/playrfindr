@@ -27,11 +27,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNzAxMzEsImV4cCI6MTYyNDI3MzczMX0.REj24Gp3DdhuwYA6Z43xZjS6t-K5k0QyyDFMzfj-Eag
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ1NzM4NywiZXhwIjoxNjI0NDYwOTg3fQ.k2d7QPH8K_VmAf9ujRZokmHPD55Mgog1MSQJDTKuX00
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5Mzc1NCwiZXhwIjoxNjI0MTk3MzU0fQ.8JbQcg5jjODhn5kDrDBkILIqzmyPF74sXid-rsC5_qs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTUyMjMsImV4cCI6MTYyNDQ1ODgyM30.cxzhs9EGGWaK2sfB1Ao7FACWaxHYg4pXpwqnxwhafe0
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -44,7 +44,8 @@ GET http://localhost:4000/api/departements
 GET https://playrfindr.herokuapp.com/api/departements
 
 ### Récupération d'un jeu
-GET https://playrfindr.herokuapp.com/api/jeu/1
+GET https://playrfindr.herokuapp.com/api/jeu/40
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM1MTA5NiwiZXhwIjoxNjI0MzU0Njk2fQ.VYQyJbQw-980pssuBTV2gxk8_nqOalbSLzP-kBNk0vo
 
 ### Récupération d'un jeu
 GET http://localhost:4000/api/jeu/6
@@ -62,8 +63,8 @@ GET http://localhost:4000/api/profil/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMzY4ODMsImV4cCI6MTYyNDA0MDQ4M30.Kfo2GwI3BhmVtiWmRIa_F4q6XKgWg41Y3iopd-wQpFQ
 
 ### Récupération de la collection d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/3/collection
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjM3NTEzOTYsImV4cCI6MTYyMzc1NDk5Nn0.GaBew1SaWtLDL5ntO7ormhGdKSCKKbQT1bgWBP5mTpk
+GET https://playrfindr.herokuapp.com/api/messagerie
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM2MTQ3OSwiZXhwIjoxNjI0MzY1MDc5fQ.29iyFygxB01B-eDFwj-sb-scQc_IlHEYK6-mJLbt6Wc
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -82,14 +83,15 @@ POST https://playrfindr.herokuapp.com/api/inscription
 Content-Type: application/json
 
 {
-    "firstname": "Jean",
-    "lastname": "Jean",
-    "email": "jean@gmail.com",
+    "firstname": "Yvon",
+    "lastname": "Fumer-des-goelands",
+    "email": "yvone@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
+    "picture": "https://images-ext-1.discordapp.net/external/ildAxySpuZ_bCsme5AjFzpkaELagwQNtDNyQQ4tuOks/https/moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg?width=676&height=676",
     "birthdate": "1995-07-19",
     "department_id": 36,
-    "theme_id": [1, 6, 2, 3],
+    "theme_id": [1, 6, 2],
     "category_id": [2, 9, 12]
 }
 
@@ -100,11 +102,11 @@ Content-Type: application/json
 {
      "firstname": "Dimitri",
     "lastname": "Mart",
-    "email": "dimitae@gmail.com",
+    "email": "dimitaae@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456",
     "birthdate": "1995-07-19",
-    "picture": "https://cdn.pixabay.com/photo/2021/06/04/15/10/sand-6310118_960_720.jpg",
+    "picture": null,
     "department_id": 36,
     "theme_id": [6, 2],
     "category_id": [2, 9, 12]
@@ -112,32 +114,32 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MDM2OSwiZXhwIjoxNjI0MjYzOTY5fQ.DU2Ggsfhbpfsvsp3rEFlz50GdenVsaiMWZzKDZeNI8o
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTY0MjEsImV4cCI6MTYyNDQ2MDAyMX0.1I3RCdIIykTtz-ySsfPbtSIQ52pApHLyMWqKlESxXag
 Content-Type: application/json
 
 {
-    "label": "Partie de Mysterium",
-    "content": "Petite partie de Mysterium",
-    "date": "2021-09-12",
-    "number_address": 84,
-    "address": "rue de la bicyclette",
-    "town": "Marseille",
+    "label": "Partie de Cyclades",
+    "content": "Petite partie de Cyclades",
+    "date": "2021-09-15",
+    "number_address": 69,
+    "address": "rue de moncul",
+    "town": "Momo",
     "max_player": 7,
-    "user_id": 2
+    "user_id": 29
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDE5Mzc1NCwiZXhwIjoxNjI0MTk3MzU0fQ.8JbQcg5jjODhn5kDrDBkILIqzmyPF74sXid-rsC5_qs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ1MTkyNiwiZXhwIjoxNjI0NDU1NTI2fQ.QMmk_c3QwyEPJ3C_ZlPQTpqPdkvOPCh0w1zr_rIl2CU
 Content-Type: application/json
 
 {
    "label": "Partie de Cyclades",
     "content": "Petite partie de Cyclades",
     "date": "2021-09-15",
-    "number_address": 30000,
-    "address": "35 rue de la moto",
-    "town": "Nimes",
+    "number_address": 84,
+    "address": "avenue du peuple belge",
+    "town": "Lille",
     "max_player": 7,
     "user_id": 2
 }
@@ -148,8 +150,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "oclock@oclock.io",
-    "password": "123456"
+    "email": "a@a.com",
+    "password": "coucou"
  
 }
 
@@ -158,7 +160,7 @@ POST http://localhost:4000/api/connexion
 Content-Type: application/json
 
 {
-    "email": "dimiti@gmail.com",
+    "email": "dimitaae@gmail.com",
     "password": "123456"
  
 }
@@ -193,12 +195,11 @@ Content-Type: application/json
 
 ### Update d'un utilisateur
 PATCH http://localhost:4000/api/profil/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDI2MDk2NSwiZXhwIjoxNjI0MjY0NTY1fQ._4VTIYY12eTy28Yz6zzdcgtU3Dl4FjD_c7RTr0ZZUt0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDQzNjQ3NiwiZXhwIjoxNjI0NDQwMDc2fQ.2XfkSj9opLcmRu-E197qr8jZxFTYqMX9zBc-kDhWVnY
 Content-Type: application/json
 
 {
-   "lastname": "Momo",
-   "theme_id": [3, 6, 8]
+   "is_admin": true
 }
 
 ### Suppression d'un utilisateur a un event

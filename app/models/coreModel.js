@@ -46,7 +46,7 @@ class CoreModel {
      * @returns {object[]} Liste d'es 'instances
      */
     static async findAll() {
-        console.log(this.tableName);
+       
         const result = await client.query(`SELECT * FROM ${this.tableName}`);
         
         const instanceList = [];

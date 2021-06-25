@@ -4,6 +4,7 @@ import { fetchMessages, sendMessage, changeValueMessage, deleteMessage } from 's
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
+  proc: state.messages.proc,
   messages: state.messages.messages,
   contentMessage: state.messages.contentMessage,
 });

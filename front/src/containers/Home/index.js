@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
   message: state.systemMessages.message,
   isOk: state.systemMessages.isOk,
   isLogged: state.user.isLogged,
+  firstname: state.user.firstname,
 });
 
 const mapDispatchToProps = (dispatch) => ({

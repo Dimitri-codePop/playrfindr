@@ -10,6 +10,7 @@ import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import momentTz from 'moment-timezone';
+import imageModale from 'src/assets/Imageevent.png'
 
 
 Modal.setAppElement('#root');
@@ -22,6 +23,7 @@ export default function Item({
   id,
   handleDeleteEvent,
   setUpEvent,
+  reiniFormEvent,
 }) {
 
   const {
@@ -41,8 +43,10 @@ export default function Item({
   const handleClickModal = (event) => {
     setModalIdOpen(true);
     setGoodModal(FindGoodGame(events, event.target.id))
+
   };
   const handleClickEndModal = () => {
+    reiniFormEvent();
     setModalIdOpen(false);
   };
   const handleDelete = (event) => {
@@ -51,17 +55,30 @@ export default function Item({
   };
   const handleEdit = (event) => {
     setUpEvent(goodModal);
+ 
     setModalEditOpen(true);
     console.log(event.target.value);
   };
   const handleClickEndEditModal = () => {
+    reiniFormEvent();
     setModalEditOpen(false);
     setModalIdOpen(false);
   };
 
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
-  const position = [43.601400, 1.442130];
+
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)',
+    },
+  };
+  
 
   const event = events.map((element) => {
     const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
@@ -103,41 +120,55 @@ export default function Item({
     )
   });
 
+
+  const position = [goodModal.latitude, goodModal.longitude];
+  console.log(`position`, position)
   return(
         <div>
           {event}
-          <Modal isOpen={modalIsOpen}>
-            <h2>{goodModal.label}</h2>
-            <p>{goodModal.location}</p>
-            <p>{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
-            <h3>Infos Complémentaires</h3>
-            <p>{goodModal.content}</p>
-            <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
-            { (goodModal.user_id == id) && 
-              <div className="all_btn">
-                <button onClick={handleDelete} value={goodModal.id}>
-                  <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
-                </button>
-                <button onClick={handleEdit} value={goodModal.id}>
-                <FontAwesomeIcon className="edit_event" icon={faPen} />
-                </button>
+          <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={handleClickEndModal}>
+            <div className="eventModal">
+              <div className="eventModal-part1">
+              <img className="eventModal-img" src={imageModale} alt=""/>
               </div>
-            }
-            <div id="mapid">
-              <MapContainer className="map" center={position} zoom={13} scrollWheelZoom={true}>
-                <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={position}>
-                <Popup>
-                  Place de la Bourse, Toulouse.
-                </Popup>
-                </Marker>
-              </MapContainer>
+              <div className="eventModal-part2">
+                <div className="eventModal-head">
+                  <h2 
+                    className="eventModal-title">{goodModal.label}
+                    { (goodModal.user_id == id) &&
+                  <div className="all_btn">
+                    <button onClick={handleEdit} value={goodModal.id}>
+                    <FontAwesomeIcon className="edit_event" icon={faPen} />
+                    </button>
+                    <button onClick={handleDelete} value={goodModal.id}>
+                      <FontAwesomeIcon className="close_delete" icon={faTrashAlt} />
+                    </button>
+                  </div>
+                }
+                  </h2>
+                  <p className="eventModal-date">{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
+                  <p className="eventModal-creator">Evènement créée par {goodModal.creator_firstname} {goodModal.creator_lastname}</p>
+                  <p className="eventModal-content">{goodModal.content}</p>
+                  <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
+                </div>            
+                
+                <div id="mapid">
+                  <MapContainer className="map" center={position} zoom={13} scrollWheelZoom={true}>
+                    <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={position}>
+                    <Popup>
+                      Place de la Bourse, Toulouse.
+                    </Popup>
+                    </Marker>
+                  </MapContainer>
+                </div>
+              </div>
             </div>
           </Modal>
-          <Modal isOpen={modalEditOpen}>
+          <Modal isOpen={modalEditOpen} style={customStyles} onRequestClose={handleClickEndEditModal}>
             <EditEvent 
               handleClickEndEditModal={handleClickEndEditModal}
               {...goodModal}

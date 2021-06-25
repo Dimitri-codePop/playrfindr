@@ -1,9 +1,10 @@
 ### Page d'acceuil
 GET http://localhost:4000/admin/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDQ2Nzc4OCwiZXhwIjoxNjI0NDcxMzg4fQ.SLeURkAUDyynrcWpAB_eY3NMR95WdXp_WtLZLExogno
 
 ### Page des jeux
 GET http://localhost:4000/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDE5NTIwMCwiZXhwIjoxNjI0MTk4ODAwfQ.Qw6inJbBg8n3cM-zvmKLnf6Ve3XEQgJynagLKLiW_9M
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 
 
@@ -51,7 +52,7 @@ DELETE http://localhost:4000/admin/jeux/60
 
 ### Page des Editors
 GET  http://localhost:4000/admin/editor
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 
 ### Update  des editor
@@ -70,14 +71,15 @@ DELETE   http://localhost:4000/admin/editor/1
 
 ### Page des themes
 GET  http://localhost:4000/admin/theme
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzNjUyMiwiZXhwIjoxNjI0NDQwMTIyfQ.j7mSWT15_sjH367Vzsgwx-DiMRj92FSbf_Jx1izVV9I
 
 ### Insert  des themes
 POST  http://localhost:4000/admin/theme
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzNjUyMiwiZXhwIjoxNjI0NDQwMTIyfQ.j7mSWT15_sjH367Vzsgwx-DiMRj92FSbf_Jx1izVV9I
 Content-Type: application/json
 
 {
-    "label": "Histoire"
+    "label": "Science fiction"
 }
 
 ### Update  des editor
@@ -153,7 +155,7 @@ DELETE   http://localhost:4000/admin/author/88
 
 ### Page des users
 GET http://localhost:4000/admin/users
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Delete des users
 DELETE  http://localhost:4000/admin/users/4
@@ -161,7 +163,7 @@ DELETE  http://localhost:4000/admin/users/4
 
 ### Page des event
 GET http://localhost:4000/admin/event
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQzODAxNSwiZXhwIjoxNjI0NDQxNjE1fQ.pCNn8D7ls7wOOz_GPINDBwJryAItgIE-SnwC1NbNIiM
 
 ### Delete des event
 DELETE  http://localhost:4000/admin/event/2
@@ -171,10 +173,11 @@ DELETE  http://localhost:4000/admin/event/2
 
 ### Page d'acceuil
 GET  https://playrfindr.herokuapp.com/admin/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Page des jeux
 GET  https://playrfindr.herokuapp.com/admin/jeux
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 
 ### Insert  des jeux
@@ -197,7 +200,7 @@ Content-Type: application/json
 
 
 ### Update  des jeux
-PATCH   https://playrfindr.herokuapp.com/admin/jeux/4
+Patch   https://playrfindr.herokuapp.com/admin/jeux/4
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
 Content-Type: application/json
 
@@ -211,7 +214,7 @@ DELETE  https://playrfindr.herokuapp.com/admin/jeux/60
 
 ### Page des Editors
 GET   https://playrfindr.herokuapp.com/admin/editor
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des editors
 POST   https://playrfindr.herokuapp.com/admin/editor
@@ -237,7 +240,7 @@ DELETE    https://playrfindr.herokuapp.com/admin/editor/1
 
 ### Page des themes
 GET   https://playrfindr.herokuapp.com/admin/theme
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des themes
 POST   https://playrfindr.herokuapp.com/admin/theme
@@ -263,7 +266,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des category
 GET   https://playrfindr.herokuapp.com/admin/category
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
 ### Insert  des categories
 POST   https://playrfindr.herokuapp.com/admin/category
@@ -289,26 +292,26 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des auteur
 GET   https://playrfindr.herokuapp.com/admin/author
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 
 ### Insert  des auteurs
-POST   https://playrfindr.herokuapp.com/admin/author
+POST   https://playrfindr.herokuapp.com/admin/author/78
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 
 }
 
 ### Update  des aueurs
-Patch   https://playrfindr.herokuapp.com/admin/author/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Patch   https://playrfindr.herokuapp.com/admin/author/78
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 }
 
 
@@ -327,3 +330,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 DELETE  https://playrfindr.herokuapp.com/admin/users/5
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDI1OTMyNSwiZXhwIjoxNjI0MjYyOTI1fQ.5IUZdzSHnvXmz4dtdG9qdZPTvsnYhonEFN1boMEmdf8
+
+
+###Event
+
+GET https://playrfindr.herokuapp.com/admin/event
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI

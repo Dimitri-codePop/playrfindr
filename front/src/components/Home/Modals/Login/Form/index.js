@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import imageModale from 'src/assets/Imagemodale.png'
 
+
 import './style.scss';
 
 export default function Form({

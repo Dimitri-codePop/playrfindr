@@ -11,6 +11,7 @@ export default function Flash({
 }) {
   useEffect(() => {
     setTimeout(() => setShowMessage(false), 3000);
+    console.log('on montre le message')
   }, [showMessage]);
   const classMessageSwap = isOk ? 'flash green' : 'flash red';
   return (

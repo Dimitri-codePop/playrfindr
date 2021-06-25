@@ -89,7 +89,7 @@ module.exports = {
 
             if(validPwd){
                 isLogged = true;
-
+                
                 res.status(200).json({
                 id: user.id,
                 firstname: user.firstname,
@@ -100,7 +100,8 @@ module.exports = {
                 department_number: user.number,
                 department_label: user.label,
                 token: jwt.generateTokenForUser(user),
-                isLogged
+                isLogged,
+                is_admin: user.is_admin
             });
         }
         } catch (error) {
@@ -252,7 +253,7 @@ module.exports = {
     async getAll(_, res, next){
         try {
             const users = await UserModel.findAllUser();
-            console.log(users);
+            
             res.json({ data: users.map(user => user)});
         } catch (error) {
             console.trace(error);

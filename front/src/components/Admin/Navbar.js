@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './style.scss';
 
 export default function Navbar() {
   return (
     <>
+    <Link to="/admin/home" >
       <h1> Sommaire </h1>
+    </Link>
       <NavLink
         exact
         to="/admin/users"

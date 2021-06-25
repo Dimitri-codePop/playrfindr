@@ -52,9 +52,7 @@ const events = (store) => (next) => (action) => {
       }}
       )
         .then((response) => {
-          console.log(response);
-          const { data } = response;
-          const saveEventAction = saveNewEvent(data);
+          const saveEventAction = saveNewEvent();
           store.dispatch(saveEventAction);
         })
         .catch((error) => console.log( error ) );

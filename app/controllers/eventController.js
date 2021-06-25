@@ -1,12 +1,29 @@
 const EventModel = require ('../models/eventModel');
+const fetch = require('node-fetch');
 
 
 module.exports = {
+
+    async getAll(_, res) {
+        try {
+            const events = await EventModel.findAll();
+
+            return res.status(200).json({data: events.map(event =>event.dataValues)})
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
+
+
     async addEvent(req, res){
         try { 
+            
             const event = new EventModel(req.body);
             await event.insert();
-            return res.json({data: event});
+            
+          
+            return res.json({data: event.dataValues});
         } catch (error) {
             console.trace(error);
             res.json({ error });
@@ -41,13 +58,25 @@ module.exports = {
 
     async findEvent(_, res){
         try {
-            const event = await EventModel.findEvent();
+            const events = await EventModel.findEvent();
 
 
-            if(!event){
+            if(!events){
                 return res.status(401).json({error: `Cet événement n'existe pas`})
-            }            
-            res.status(200).json({data: event})
+            }
+            
+            for(let event of events){
+                const apiUrl = process.env.API_URL;
+                const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.number_address} ${event.address} , ${event.town}`);            
+                const result = await fetch(newUrl);
+                const body = await result.json();    
+                
+                event['latitude'] = body.data[0].latitude
+                event['longitude'] = body.data[0].longitude
+            }
+
+            res.status(200).json({data: events})
+            
         } catch (error) {
             console.trace(error);
             res.json({ error });
@@ -121,17 +150,6 @@ module.exports = {
             res.json({ error });
         }
         
-    },
-
-    async getAll(_, res) {
-        try {
-            const events = await EventModel.findAll();
-
-            return res.status(200).json({data: events})
-        } catch (error) {
-            console.trace(error);
-            res.json({ error });
-        }
     },
     async deleteEvent(req, res, next) {
         try {

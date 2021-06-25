@@ -69,6 +69,7 @@ export default function Content({
   const handleSubmitMessage = (event) => {
     event.preventDefault();
     sendMessageContent(contentMessage, paramsId);
+    setShowMessage(!showMessage);
     setModalMessage(false);
   }
   
@@ -136,7 +137,7 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage}>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal}>
         <form onSubmit={handleSubmitMessage}>
         <Field
             type="text"

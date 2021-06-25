@@ -2,7 +2,7 @@ const MessageModel = require('../models/messageModel');
 const UserModel = require('../models/userModel')
 
 module.exports = {
-    async getAll(req, res, next){
+    async getAllMessageReceive(req, res, next){
         try {
             const message = await MessageModel.findAllMessageByUser(req.user.userId);
             if(!message){
@@ -38,7 +38,7 @@ module.exports = {
             if(!messageFound){
                 return next();
             }
-            console.log(messageFound);
+          
 
             if (req.user.userId !== messageFound.dataValues.recipient_id){
                 return res.status(403).json({error: `Delete not possible`})
