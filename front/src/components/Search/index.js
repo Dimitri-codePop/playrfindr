@@ -26,7 +26,7 @@ export default function Search({
       to={`/profil/${user.id}`}
     >
     <article className="resultcard-article" key={user.id}>
-      <img className="resultcard-img" src="https://st.depositphotos.com/thumbs/1008939/image/1880/18807295/api_thumb_450.jpg" alt={user.firstname} />
+      <img className="resultcard-img" src={user.picture} alt={user.firstname} />
       <h2 className="resultcard-title">{user.firstname} {user.lastname}</h2>
     </article>
     </Link>

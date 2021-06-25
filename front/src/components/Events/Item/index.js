@@ -43,7 +43,6 @@ export default function Item({
   const handleClickModal = (event) => {
     setModalIdOpen(true);
     setGoodModal(FindGoodGame(events, event.target.id))
-
   };
   const handleClickEndModal = () => {
     reiniFormEvent();
@@ -75,7 +74,8 @@ export default function Item({
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
-      height                : '80%',
+      height                : '70%',
+      width                 : '50%',
       transform             : 'translate(-50%, -50%)',
     },
   };
@@ -124,6 +124,8 @@ export default function Item({
 
   const position = [goodModal.latitude, goodModal.longitude];
   console.log(`position`, position)
+  console.log(`goodModal`, goodModal.visitors)
+
   return(
         <div>
           {event}
@@ -150,6 +152,16 @@ export default function Item({
                   <p className="eventModal-date">{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
                   <p className="eventModal-creator">Evènement créée par {goodModal.creator_firstname} {goodModal.creator_lastname}</p>
                   <p className="eventModal-content">{goodModal.content}</p>
+                  {(goodModal) && 
+                  <div className="eventModal-players">
+                  <p className="eventModal-players--title">Participants inscrits</p>
+                  {goodModal.visitors.map((visitor) => {
+                    const pathname = `profil/${visitor.f1}`
+                    return (
+                      <a key={visitor.f1} href={pathname} className="eventModal-players--content">{visitor.f2} {visitor.f3}</a>
+                  )})}
+                  </div>
+                  }
                   <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
                 </div>            
                 

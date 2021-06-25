@@ -25,15 +25,18 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: black;
-  box-shadow: 0 0 3px black;
+  //background-color: black;
+  
   height:40vh;
 }
 
 .leaflet-container {
   position: absolute;
-  width: 30vw;
+  bottom: 4px;
+  border-radius: 5px;
+  width: 34vw;
   height:40vh;
+  border: 1px solid v.$grey;
 
 }
 .close_modal{
@@ -80,12 +83,26 @@
   &-creator {
     margin-bottom: 4rem;
   }
-  &-main {
-    
+  &-players {
+    width: 160px;
+    height: fit-content;
+    background-color: v.$light;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 2rem;
+    left: 22%;
+    padding: 3px;
+    &--title {
+      color: v.$alternate;
+      margin-bottom: 1rem;
+    }
+    &--content {
+      margin-bottom: 1rem;
+      text-decoration: underline;
+    }
   }
-  &-content {
-
-  }
-
-
 }
