@@ -21,6 +21,7 @@ export default function Messages({
   sendMessageContent,
   contentMessage,
   deleteMessageContent,
+  
 }) {
   const [modalMessage, setModalMessage] = useState(false);
   const [goodTargetId, setGoodTargetId] = useState('');
@@ -38,7 +39,8 @@ export default function Messages({
   };
   const handleSubmitMessage = (event) => {
     event.preventDefault();
-    sendMessageContent(contentMessage, event.target.name)
+    sendMessageContent(contentMessage, event.target.name);
+    setShowMessage(!showMessage);
     setModalMessage(false);
   }
   const handleDeleteMessage = (event) => {

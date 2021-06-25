@@ -39,7 +39,6 @@ export default function App({
   if (loading) {
     return <Loading />;
   }
-
   return (
     <div className="app">
       <NavBar

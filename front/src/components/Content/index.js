@@ -69,6 +69,7 @@ export default function Content({
   const handleSubmitMessage = (event) => {
     event.preventDefault();
     sendMessageContent(contentMessage, paramsId);
+    setShowMessage(!showMessage);
     setModalMessage(false);
   }
   

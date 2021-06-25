@@ -5,6 +5,9 @@ import {
   DELETE_MESSAGE,
   saveDelMsg,
 } from 'src/actions/messages';
+import {
+  messageSend
+} from 'src/actions/systemMessages';
 import axios from 'axios';
 
 
@@ -40,9 +43,20 @@ const messages = (store) => (next) => (action) => {
       }}
       )
         .then((res) => {
-          console.log(res)
+          console.log('Ici ?', res);
+          const message = 'Le message a bin été envoyé.';
+          const isOk = true;
+          const actionmessageSend = messageSend(message, isOk);
+          store.dispatch(actionmessageSend);
         })
-        .catch((error) => console.log('error :', error));
+        .catch((error) => {
+          console.log('error :', error)
+          console.log('errot', error);
+          const message = "Une erreur s'est produite, veuillez réessayer plus tard !";
+          const isOk = false;
+          const actionmessageSend = messageSend(message, isOk);
+          store.dispatch(actionmessageSend);
+        });
 
         break;
     }
