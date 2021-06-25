@@ -10,6 +10,7 @@ import {
   EDIT_VALUE_EVENT,
   SET_EVENT,
   SAVE_REMOVE_EVENT,
+  REINI_EVENT,
 } from 'src/actions/events';
 
 const initialState = {
@@ -53,8 +54,6 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_NEW_EVENT:
       return {
         ...state,
-        lat: action.lat,
-        long: action.long,
         trigger: !(state.trigger)
       };
     case SAVE_ADD_TO_EVENT: 
@@ -80,7 +79,7 @@ const reducer = (state = initialState, action = {}) => {
         town: '', 
         content: '',
         max_player: '',
-        trigger: !(state.trigger)
+        trigger: !state.trigger,
       };
     case SET_EVENT:
       return {
@@ -99,6 +98,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         trigger: !(state.trigger),
         };
+    case REINI_EVENT:
+      return {
+        ...state,
+        label: '',
+        date: '', 
+        address: '', 
+        number_address: '', 
+        town: '', 
+        content: '',
+        max_player: '',
+        trigger: !state.trigger,
+      };
     default:
       return state;
   }
