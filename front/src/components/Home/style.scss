@@ -152,6 +152,7 @@
     flex-direction: column;
   }
   &--typesresultscat {
+    cursor: pointer;
     display: flex;
     margin: 1rem 0 0 1rem;
     &__label {
@@ -161,6 +162,7 @@
     }
   }
   &--typesresultsthemes {
+    cursor: pointer;
     display: flex;
     margin: 1rem 0 0 1rem;
     &__label {

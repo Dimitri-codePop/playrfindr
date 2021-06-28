@@ -86,6 +86,7 @@ export default function Home({
         setLoginIsHidden={setLoginIsHidden}
         showMessage={showMessage}
         setShowMessage={setShowMessage}
+        setSignupIsHidden={setSignupIsHidden}
       />
       )}
       {signupIsHidden && (
@@ -94,6 +95,8 @@ export default function Home({
         setSignupIsHidden={setSignupIsHidden}
         showMessage={showMessage}
         setShowMessage={setShowMessage}
+        loginIsHidden={loginIsHidden}
+        setLoginIsHidden={setLoginIsHidden}
       />
       )}
     </div>

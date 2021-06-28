@@ -9,6 +9,8 @@ export default function Login({
   setLoginIsHidden,
   showMessage,
   setShowMessage,
+  signupIsHidden,
+  setSignupIsHidden,
 }) {
   Modal.setAppElement('#root')
   
@@ -47,6 +49,7 @@ export default function Login({
         closeModal={closeModal}
         showMessage={showMessage}
         setShowMessage={setShowMessage}
+        setSignupIsHidden={setSignupIsHidden}
         />
       </Modal>
     </div>
