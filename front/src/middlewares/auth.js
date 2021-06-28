@@ -94,8 +94,9 @@ const login = (store) => (next) => (action) => {
           department_number,
           department_label,
           isLogged,
+          remindMe,
         } = fetchUser;
-        if (fetchUser.remindMe) {
+        if (remindMe) {
           store.dispatch(saveUser(
             Number(id),
             token,
