@@ -80,7 +80,6 @@ const login = (store) => (next) => (action) => {
       break;
     }
     case FETCH_USER: {
-      console.log(localStorage);
       let fetchUser = localStorage.getItem('UserKeysUsed');
       fetchUser = JSON.parse(fetchUser);
       if (fetchUser) {

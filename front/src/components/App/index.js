@@ -31,7 +31,9 @@ export default function App({
 }) {
   const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
-    loadUser();
+    if (!isLogged) {
+      loadUser();
+    }
     topConnect();
     loadTypes();
     loadDepartements();
