@@ -19,7 +19,6 @@ export default function Jeux({
   const [showModal, setShowModal] = useState(false);
   const handleOnClick = (event) => {
     const name = 'jeux';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   function openModal() {

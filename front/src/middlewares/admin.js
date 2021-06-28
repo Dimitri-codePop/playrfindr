@@ -118,7 +118,6 @@ const admin = (store) => (next) => (action) => {
       break;
     }
     case DELETE_ONE_ENTRY: {
-      console.log('MDW ', action.key, action.value);
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
       axios.delete(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.value}`, {
         headers: {
@@ -128,7 +127,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           const data = saveAfterDelete(action.value, action.key);
           store.dispatch(data);
         })
@@ -137,7 +135,6 @@ const admin = (store) => (next) => (action) => {
     }
     case ADD_ELEMENTS_TYPE: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value);
       axios.post(`https://playrfindr.herokuapp.com/admin/${action.key}`, {
         label: action.value,
       }, {
@@ -148,7 +145,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.data);
           const data = saveElementsType(response.data.data, action.key);
           store.dispatch(data);
         })
@@ -157,7 +153,6 @@ const admin = (store) => (next) => (action) => {
     }
     case EDIT_TYPE_FIELD: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value, action.id);
       axios.patch(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.id}`,{
         label: action.value,
       }, {
@@ -168,7 +163,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           const data = saveEditElementType(response.data.data, action.key);
           store.dispatch(data);
         })
@@ -178,7 +172,6 @@ const admin = (store) => (next) => (action) => {
     case ADD_AUTHOR: {
       const state = store.getState();
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value);
       axios.post(`https://playrfindr.herokuapp.com/admin/author`, {
         ...state.admin.new.author,
       }, {
@@ -189,7 +182,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.author.dataValues);
           const data = saveAddAuthor(response.data.author.dataValues);
           store.dispatch(data);
         })
@@ -209,7 +201,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.data);
           const data = saveEditAuthor(response.data.data, action.key);
           store.dispatch(data);
         })
@@ -218,7 +209,6 @@ const admin = (store) => (next) => (action) => {
     }
     case ADD_ELEMENT_GAME: {
       const state = store.getState();
-      console.log(state.admin.new.jeu);
       let describe;
       if (state.admin.new.jeu.describe) {
         describe = state.admin.new.jeu.describe;

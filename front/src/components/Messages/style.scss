@@ -78,6 +78,7 @@
     font-weight: bold;
     display: flex;
     margin-bottom: 4rem;
+    text-align: center;
   }
   &-form {
     width: 100%;
@@ -99,6 +100,53 @@
 
 
 }
+
+.customStylesMsg {
+  position: absolute;
+  top                   : 50%;
+  left                  : 50%;
+  right                 : auto;
+  bottom                : auto;
+  margin-right           : -50%;
+  height                : 50%;
+  width                 : 50%;
+  transform             : translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  outline: none;
+}
+
+@media screen and (max-width: 960px) {
+  .customStylesMsg { 
+    position: absolute;
+    top                   : 50%;
+    left                  : 50%;
+    right                 : auto;
+    bottom                : auto;
+    margin-right           : -50%;
+    height                : fit-content;
+    width                 : 90%;
+    transform             : translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    outline: none;
+  };
+
+  .messages {
+    &-titlemodal {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    &-head {
+      padding: 1rem;
+    }
+    &-btn {
+      margin-top: 2rem;
+    }
+  }
+}
+
+
 
 @media screen and(max-width: 960px){
   .iconSend{

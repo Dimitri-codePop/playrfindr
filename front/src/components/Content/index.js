@@ -77,18 +77,6 @@ export default function Content({
     changefieldMessage(event.target.value, event.target.name)
   };
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  
   // END GESTION EDIT
   return (
     <>
@@ -127,10 +115,10 @@ export default function Content({
           )}
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">
-            <div>
+            <div className="profil__cat">
               {categories}
             </div>
-            <div>
+            <div className="profil__themes">
               {themes}
             </div>
           </div>
@@ -153,30 +141,32 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} style={customStyles}>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} className="customStylesMsg">
         <div className="eventModal">
           <div className="eventModal-part1">
             <img className="eventModal-img" src={imageModale} alt=""/>
           </div>
           <div className="eventModal-part3">
-          <h1 className="messages-titlemodal">Ecrire un message</h1>
-          <form className="messages-form" onSubmit={handleSubmitMessage}>
-          <div className="messages-textmodal">
-          <TextField 
-                  fullWidth={true}
-                  multiline
-                  rows={5}
-                  rowsMax={5}
-                  type="text"
-                  name="contentMessage"
-                  placeholder="Votre message..."
-                  onChange={handleOnChange}
-                  value={contentMessage}
-                />
-            </div>
-            <button className="messages-btn" type="submit">Envoyer</button>
-            <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
-          </form>
+          <div className="messages-head"> 
+            <h1 className="messages-titlemodal">Ecrire un message</h1>
+            <form className="messages-form" onSubmit={handleSubmitMessage}>
+            <div className="messages-textmodal">
+            <TextField 
+                    fullWidth={true}
+                    multiline
+                    rows={5}
+                    rowsMax={5}
+                    type="text"
+                    name="contentMessage"
+                    placeholder="Votre message..."
+                    onChange={handleOnChange}
+                    value={contentMessage}
+                  />
+              </div>
+              <button className="messages-btn" type="submit">Envoyer</button>
+              <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
+            </form>
+          </div>
           </div>
         </div>
       </Modal>

@@ -12,19 +12,8 @@ export default function Login({
   signupIsHidden,
   setSignupIsHidden,
 }) {
-  Modal.setAppElement('#root');
-
-  const customStyles = {
-    content: {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
+  Modal.setAppElement('#root')
+  
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -41,7 +30,7 @@ export default function Login({
         isOpen={loginIsHidden}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="customStyles"
         contentLabel="Connexion"
         closeTimeoutMS={500}
       >

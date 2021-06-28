@@ -40,13 +40,11 @@ export default function Mobile({
 
   const changeField = (event) => {
     event.preventDefault();
-    // console.log('ici la touche', event.target.value)
     setNavBarSearchValue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('la recherche suivante se fait : ', event.target[0].value);
     handleNavBarSearch(event.target[0].value);
   };
   const history = useHistory();

@@ -20,7 +20,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changefieldSignup: (value, field) => {
     const action = changeValueSignup(value, field);
-    // console.log('ici je lance ma nouvelle fonction', action);
     dispatch(action);
   },
   handleSignup: () => {

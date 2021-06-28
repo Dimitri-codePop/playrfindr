@@ -35,7 +35,6 @@ const profil = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('error', error);
-          console.log('');
         });
 
       break;
@@ -52,7 +51,6 @@ const profil = (store) => (next) => (action) => {
         const found = FindGoodGameByName(state.games.themes, obj);
         goodTheme.push(found.id);
       });
-      console.log(state.user.profil, goodCat, goodTheme, state.user.profil.department);
       axios.patch(`https://playrfindr.herokuapp.com/api/profil/${state.user.profil.id}`, {
         firstname: state.user.profil.firstname,
         lastname: state.user.profil.lastname,
@@ -69,10 +67,8 @@ const profil = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           state.user.profil.token = state.user.token;
           const actionSaveEditUser = saveEditUser(response.data);
-          console.log(state.user.profil);
           localStorage.setItem('UserKeysUsed', JSON.stringify(state.user.profil));
           store.dispatch(actionSaveEditUser);
           const message = 'Votre profil a bien été édité';
@@ -120,7 +116,6 @@ const profil = (store) => (next) => (action) => {
     case ADD_GAME_TO_LIB:{
       const state = store.getState();
       const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log(user.id, action.gameId, user.token);
       axios.post(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`,{}, {
         headers: {
           "Authorization": `${state.user.token}`,
@@ -129,7 +124,6 @@ const profil = (store) => (next) => (action) => {
         },
       })
       .then((res) => {
-        console.log("responses", res.data);
         let message='';
         let isOk = false;
         if(res.data.message){
@@ -152,7 +146,6 @@ const profil = (store) => (next) => (action) => {
     case DELETE_GAME_FROM_LIB:
       const state = store.getState();
       const user = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log(user.id, action.gameId, state.user.token);
       axios.delete(`https://playrfindr.herokuapp.com/api/profil/${user.id}/collection/${action.gameId}`, {
         headers: {
           "Authorization": `${state.user.token}`,
@@ -161,7 +154,6 @@ const profil = (store) => (next) => (action) => {
         },
       })
       .then((res) => {
-        console.log("responses", res.data);
         const message= 'Le jeux à bien été supprimé de votre ludothèque';
         let isOk = true;
         const actionStateDeleteGame = saveCurrentLibAfterDelete(action.name);

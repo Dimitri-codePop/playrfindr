@@ -56,7 +56,6 @@ export default function Item({
     setUpEvent(goodModal);
  
     setModalEditOpen(true);
-    console.log(event.target.value);
   };
   const handleClickEndEditModal = () => {
     reiniFormEvent();
@@ -123,13 +122,11 @@ export default function Item({
 
 
   const position = [goodModal.latitude, goodModal.longitude];
-  console.log(`position`, position)
-  console.log(`goodModal`, goodModal.visitors)
 
   return(
         <div>
           {event}
-          <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={handleClickEndModal}>
+          <Modal isOpen={modalIsOpen} className="customStylesEvent" onRequestClose={handleClickEndModal}>
             <div className="eventModal">
               <div className="eventModal-part1">
               <img className="eventModal-img" src={imageModale} alt=""/>
@@ -181,7 +178,7 @@ export default function Item({
               </div>
             </div>
           </Modal>
-          <Modal isOpen={modalEditOpen} style={customStyles} onRequestClose={handleClickEndEditModal}>
+          <Modal isOpen={modalEditOpen} className="customStylesEvent" onRequestClose={handleClickEndEditModal}>
             <EditEvent 
               handleClickEndEditModal={handleClickEndEditModal}
               {...goodModal}
