@@ -112,6 +112,7 @@
     flex-direction: column;
     width: 100vw;
     &__btn {
+      width: 100%;
       color: vars.$primary;
     }
     &__section1 {
@@ -119,9 +120,10 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      margin: 2rem 4rem 0 4rem;
+      margin: 2rem 0;
       height: fit-content;
     }
+    
     &__image {
       height: 150px;
       width: 150px;
@@ -130,7 +132,6 @@
     
 
     &__content {
-      margin: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -149,10 +150,12 @@
         color: vars.$grey;
         font-size: 30px;
         text-shadow: 0 0 2px vars.$primary;
+        margin-right: 0.5rem;
       }
       &__envelop {
         color: vars.$grey;
         font-size: 30px;
+        margin-left: 1rem;
       }
     }
 
