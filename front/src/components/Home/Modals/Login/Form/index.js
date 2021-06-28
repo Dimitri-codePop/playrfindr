@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Field from 'src/components/Home/Modals/Login/Form/Field';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,29 +17,32 @@ export default function Form({
   password,
   setSignupIsHidden,
 }) {
-  
+  const [remindMe, setRemindMe] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLogin();
+    handleLogin(remindMe);
     closeModal();
-    //setLoginIsHidden(!loginIsHidden)
   };
 
   const handleOnSignup = () => {
     setSignupIsHidden(true);
     closeModal();
   };
-  
+
+  const handleClickCheck = () => {
+    setRemindMe(!remindMe);
+    console.log(remindMe);
+  };
 
   return (
     <div className="modal_signup">
       <div className="modal_signup--part1">
         <FontAwesomeIcon onClick={closeModal} className="modal_signup--close" icon={faTimes} />
-        <img className="modal_signup--img" src={imageModale} alt=""/>
+        <img className="modal_signup--img" src={imageModale} alt="" />
       </div>
       <div className="modal_signup--part2">
         <form className="modal_signup--form" noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <h1 className="modal_signup--titleconnect">Connection</h1>
+          <h1 className="modal_signup--titleconnect">Connection</h1>
           <Field
             type="email"
             name="email"
@@ -56,14 +59,14 @@ export default function Form({
               value={password}
             />
             <div>
-              <input
-                type="checkbox"
-                //onChange={handleClickCheck}
-                //name={name}
-                className="events__main__items--icon"
-                //onClick={handleClickSetEvent}
-              />
-              <label >Retenir mes identifiants</label>
+              <label htmlFor="remindMe">Retenir mes identifiants
+                <input
+                  type="checkbox"
+                  onChange={handleClickCheck}
+                  id="remindMe"
+                  className="events__main__items--icon"
+                />
+              </label>
             </div>
           </div>
           <div className="form__login-connect">
@@ -82,6 +85,7 @@ Form.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
+  setSignupIsHidden: PropTypes.func.isRequired,
 };
 
 Form.defaultProps = {

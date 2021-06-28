@@ -83,8 +83,9 @@ export const saveUser = (
   birthdate,
 });
 
-export const login = () => ({
+export const login = (remindMe) => ({
   type: LOGIN,
+  remindMe,
 });
 
 export const changeValueLogin = (value, key) => ({
