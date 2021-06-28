@@ -9,6 +9,8 @@ export default function Login({
   setLoginIsHidden,
   showMessage,
   setShowMessage,
+  signupIsHidden,
+  setSignupIsHidden,
 }) {
   Modal.setAppElement('#root')
   
@@ -19,10 +21,8 @@ export default function Login({
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
+      height                : '50%',
       transform             : 'translate(-50%, -50%)',
-    },
-    overlay: {
-      backgroundColor: '#ffffff',
     },
   };
 
@@ -49,6 +49,7 @@ export default function Login({
         closeModal={closeModal}
         showMessage={showMessage}
         setShowMessage={setShowMessage}
+        setSignupIsHidden={setSignupIsHidden}
         />
       </Modal>
     </div>

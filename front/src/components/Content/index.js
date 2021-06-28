@@ -9,7 +9,9 @@ import { faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { getAge } from 'src/selectors/date';
 import Modal from 'react-modal';
+import imageModale from 'src/assets/Imageevent.png'
 import './style.scss';
+import TextField from '@material-ui/core/TextField';
 
 export default function Content({
   user,
@@ -69,9 +71,23 @@ export default function Content({
   const handleSubmitMessage = (event) => {
     event.preventDefault();
     sendMessageContent(contentMessage, paramsId);
-    setShowMessage(!showMessage);
     setModalMessage(false);
-  }
+  };
+  const handleOnChange = (event) => {
+    changefieldMessage(event.target.value, event.target.name)
+  };
+
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      height                : '50%',
+      transform             : 'translate(-50%, -50%)',
+    },
+  };
   
   // END GESTION EDIT
   return (
@@ -137,18 +153,32 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage}>
-        <form onSubmit={handleSubmitMessage}>
-        <Field
-            type="text"
-            name="contentMessage"
-            placeholder="Votre message..."
-            onChange={changefieldMessage}
-            value={contentMessage}
-          />
-          <button type="submit">Envoyer</button>
-          <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
-        </form>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} style={customStyles}>
+        <div className="eventModal">
+          <div className="eventModal-part1">
+            <img className="eventModal-img" src={imageModale} alt=""/>
+          </div>
+          <div className="eventModal-part3">
+          <h1 className="messages-titlemodal">Ecrire un message</h1>
+          <form className="messages-form" onSubmit={handleSubmitMessage}>
+          <div className="messages-textmodal">
+          <TextField 
+                  fullWidth={true}
+                  multiline
+                  rows={5}
+                  rowsMax={5}
+                  type="text"
+                  name="contentMessage"
+                  placeholder="Votre message..."
+                  onChange={handleOnChange}
+                  value={contentMessage}
+                />
+            </div>
+            <button className="messages-btn" type="submit">Envoyer</button>
+            <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
+          </form>
+          </div>
+        </div>
       </Modal>
     </>
   );

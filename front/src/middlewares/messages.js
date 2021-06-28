@@ -3,6 +3,7 @@ import {
   FETCH_MESSAGES, 
   saveMessages ,
   DELETE_MESSAGE,
+  saveDelMsg,
 } from 'src/actions/messages';
 import {
   messageSend
@@ -68,7 +69,8 @@ const messages = (store) => (next) => (action) => {
       }}
       )
         .then((res) => {
-          console.log(res)
+          const actionDelMsg = saveDelMsg();
+          store.dispatch(actionDelMsg);
         })
         .catch((error) => console.log('error :', error));
 

@@ -1,13 +1,15 @@
 
 import {
   CHANGE_VALUE_MESSAGE,
-  SAVE_MESSAGES
+  SAVE_MESSAGES,
+  SAVE_DEL_MSG,
 } from 'src/actions/messages';
 
 const initialState = {
   contentMessage:'',
   loading: true,
   messages:[],
+  proc: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -25,6 +27,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case SAVE_DEL_MSG:
+      return {
+        ...state,
+        proc: !state.proc,
       };
     default:
       return state;

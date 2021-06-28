@@ -3,6 +3,8 @@ export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const SAVE_MESSAGES = 'SAVE_MESSAGES';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
+export const SAVE_DEL_MSG = 'SAVE_DEL_MSG';
+
 
 
 export const changeValueMessage = (value, key) => ({
@@ -30,5 +32,10 @@ export const deleteMessage = (id) => ({
   type: DELETE_MESSAGE,
   id,
 });
+
+export const saveDelMsg = () => ({
+  type: SAVE_DEL_MSG,
+});
+
 
 

@@ -1,5 +1,6 @@
 ### Page d'acceuil
 GET http://localhost:4000/admin/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDQ2Nzc4OCwiZXhwIjoxNjI0NDcxMzg4fQ.SLeURkAUDyynrcWpAB_eY3NMR95WdXp_WtLZLExogno
 
 ### Page des jeux
 GET http://localhost:4000/admin/jeux
@@ -30,7 +31,7 @@ Content-Type: application/json
 
 ### Update  des jeux
 Patch  http://localhost:4000/admin/jeux/60
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDM0ODA0NywiZXhwIjoxNjI0MzUxNjQ3fQ.QFISHENtkTTVFN6otdmQenA2XKqeDK3EvGgyqaiPvtg
 Content-Type: application/json
 
 {
@@ -53,13 +54,6 @@ DELETE http://localhost:4000/admin/jeux/60
 GET  http://localhost:4000/admin/editor
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0MzU1NCwiZXhwIjoxNjI0NDQ3MTU0fQ.5B6nfyuJu3vOznSMsoYXZbLY4ufPZdiODSa4ETiVHiI
 
-### Insert  des editors
-POST  http://localhost:4000/admin/editor
-Content-Type: application/json
-
-{
-    "label": "Artipia Games"
-}
 
 ### Update  des editor
 Patch  http://localhost:4000/admin/editor/1
@@ -211,7 +205,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 Content-Type: application/json
 
 {
-
     "picture": "https://www.zupimages.net/up/21/24/3io7.png"
 }
 
@@ -299,26 +292,26 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4i
 
 ### Page des auteur
 GET   https://playrfindr.herokuapp.com/admin/author
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ0NzgzOSwiZXhwIjoxNjI0NDUxNDM5fQ.GUilsdSQoHG6gbfcKrMcUpG75QyrPlTk09_2qyhIYbk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 
 ### Insert  des auteurs
-POST   https://playrfindr.herokuapp.com/admin/author
+POST   https://playrfindr.herokuapp.com/admin/author/78
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 
 }
 
 ### Update  des aueurs
-Patch   https://playrfindr.herokuapp.com/admin/author/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDEwNjMzMywiZXhwIjoxNjI0MTA5OTMzfQ.n9FWPeXKz2HJVLnKRlhFGvEl8fqk6DUlIPmfUUiD768
+Patch   https://playrfindr.herokuapp.com/admin/author/78
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ2NjEwOCwiZXhwIjoxNjI0NDY5NzA4fQ.-REH-E-bqnvwYnYhApOdNh5X23kU6caHJz6xYfQzSoM
 Content-Type: application/json
 
 {
-    "firstname": "Regis",
-    "lastname": "Bonnessée"
+    "firstname": "Paul",
+    "lastname": "Leconard"
 }
 
 

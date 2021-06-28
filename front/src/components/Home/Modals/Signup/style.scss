@@ -1,7 +1,7 @@
 @use 'src/styles/vars' as v;
 .ReactModal__Content--after-open{
   width: 60%;
-  height: 80% !important;
+  height: 80%;
   padding: 0 !important;
   border: none !important;
   box-shadow: 0 0 100px v.$grey;
