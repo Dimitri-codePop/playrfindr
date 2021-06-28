@@ -92,24 +92,18 @@ const login = (store) => (next) => (action) => {
           department_number,
           department_label,
           isLogged,
-          remindMe,
         } = fetchUser;
-        if (remindMe) {
-          store.dispatch(saveUser(
-            Number(id),
-            token,
-            email,
-            Number(department_number),
-            department_label,
-            isLogged,
-            firstname,
-            lastname,
-            birthdate,
-          ));
-        }
-        else {
-          localStorage.clear();
-        }
+        store.dispatch(saveUser(
+          Number(id),
+          token,
+          email,
+          Number(department_number),
+          department_label,
+          isLogged,
+          firstname,
+          lastname,
+          birthdate,
+        ));
       }
       break;
     }

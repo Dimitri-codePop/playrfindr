@@ -1,16 +1,10 @@
-import axios from 'axios';
-import { fetchUser } from 'src/actions/user';
-
 const checkTokenExpirationMiddleware = (store) => (next) => (action) => {
   const token = JSON.parse(localStorage.getItem('tokenLimits'));
-  if (token < Date.now() / 1000) {
-    console.log('tokent', token);
-    store.dispatch(fetchUser());
+  const tokenDate = Date.parse(token);
+  const dateNow = (Date.now() / 1000);
+  if (tokenDate < dateNow) {
+    localStorage.clear();
   }
-  // if (jwtDecode(token).exp < Date.now() / 1000) {
-  //   next(action);
-  //   localStorage.clear();
-  // }
   next(action);
 };
 

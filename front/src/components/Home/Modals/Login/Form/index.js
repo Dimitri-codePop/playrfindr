@@ -17,10 +17,10 @@ export default function Form({
   password,
   setSignupIsHidden,
 }) {
-  const [remindMe, setRemindMe] = useState(false);
+  // const [remindMe, setRemindMe] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLogin(remindMe);
+    handleLogin();
     closeModal();
   };
 
@@ -29,10 +29,11 @@ export default function Form({
     closeModal();
   };
 
-  const handleClickCheck = () => {
-    setRemindMe(!remindMe);
-    console.log(remindMe);
-  };
+  // REMIND ME CUT FOR NOW
+  // const handleClickCheck = () => {
+  //   setRemindMe(!remindMe);
+  //   console.log(remindMe);
+  // };
 
   return (
     <div className="modal_signup">
@@ -59,14 +60,14 @@ export default function Form({
               value={password}
             />
             <div>
-              <label htmlFor="remindMe">Retenir mes identifiants
+              {/* <label htmlFor="remindMe">Retenir mes identifiants
                 <input
                   type="checkbox"
                   onChange={handleClickCheck}
                   id="remindMe"
                   className="events__main__items--icon"
                 />
-              </label>
+              </label> */}
             </div>
           </div>
           <div className="form__login-connect">
