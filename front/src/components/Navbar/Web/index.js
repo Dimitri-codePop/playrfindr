@@ -59,7 +59,6 @@ export default function Web({
   const classname = (active.pathname =='/jeux') ? "navbar__web__button-active" : "navbar__web__buttons"
   const classname2 = (active.pathname =='/events') ? "navbar__web__button-active" : "navbar__web__buttons"
 
-
   tympanus2(window);
 
   return (
@@ -101,9 +100,11 @@ export default function Web({
           </Link>
           {isLogged && (
             <>
-              {isAdmin && (<Link to="/admin/home">
-                <button type="button" className={classname2}><FontAwesomeIcon icon={faTools} />  Admin</button>
-              </Link>)}
+              {isAdmin && (
+              <Link to="/admin/home">
+                <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faTools} />  Admin</button>
+              </Link>
+              )}
               <Link to="/events">
                 <button type="button" className={classname2}><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>
