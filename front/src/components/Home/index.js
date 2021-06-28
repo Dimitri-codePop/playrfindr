@@ -62,7 +62,7 @@ export default function Home({
             jouers afin qu'ils se retrouvent autour d'un jeu de société
           </span>
           {(isLogged) &&
-          <span className="home__title--name">Bonjour {firstname}</span>
+          <span className="home__title--name">Bienvenue {firstname}</span>
           }
           {!(isLogged) &&
           <div>
