@@ -159,7 +159,7 @@
 
   .events__main__items--linkprofil{
     width: 100%;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   .events__main__nav{
     display: none;
@@ -168,5 +168,9 @@
   .events__main__items--setup{
     width: 100%;
     margin-top: 0.8rem;
+  }
+
+  .events__main__items form{
+    width: 100%;
   }
 }
