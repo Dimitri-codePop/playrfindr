@@ -261,6 +261,7 @@
         top: 30%;
         left: 5%;
       }
+
     }
   }
 }
@@ -300,6 +301,16 @@
     }
     &--themes {
       margin-bottom: 4rem;
+    }
+  }
+
+  .home {
+    &__top {
+      &-cards {
+        display: flex;
+        justify-content: center;
+
+      }
     }
   }
 }
