@@ -12,8 +12,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeValueLogin(value, field);
     dispatch(action);
   },
-  handleLogin: () => {
-    dispatch(login());
+  handleLogin: (remindMe) => {
+    dispatch(login(remindMe));
   },
 });
 
