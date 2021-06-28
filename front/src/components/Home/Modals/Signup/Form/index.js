@@ -99,8 +99,6 @@ export default function Form({
     )
   })
 
-  console.log(`selectCatLabels`, selectCatLabels)
-  console.log(`selectCat`, selectCat)
 
 
 

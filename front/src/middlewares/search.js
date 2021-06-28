@@ -24,8 +24,6 @@ const search = (store) => (next) => (action) => {
       axios.all([requestUsers, requestGames]).then(axios.spread((...responses) => {
         const responseUsers = responses[0].data.data
         const responseGames = responses[1].data.data
-        console.log(`responsesU`, responseUsers)
-        console.log(`responsesG`, responseGames)
 
         const allSearch = saveSearch(responseUsers, responseGames);
         store.dispatch(allSearch);

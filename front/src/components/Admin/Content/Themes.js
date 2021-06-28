@@ -21,7 +21,6 @@ export default function Themes({
   }
   const onClickDelete = (event) => {
     const name = 'theme';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   function openEditModal(event) {

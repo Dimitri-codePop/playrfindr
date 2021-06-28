@@ -14,7 +14,6 @@ const mapDispatchToProps = (dispatch) => ({
   // exemple de fonction pour dispatch
   changefieldEdit: (value, field) => {
     const action = changeValueEditUser(value, field);
-    //console.log('ici je lance ma nouvelle fonction', action);
     dispatch(action);
   },
   handleEdit: () => {

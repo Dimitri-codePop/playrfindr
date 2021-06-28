@@ -76,25 +76,45 @@
   z-index: 1;
   width: 130px;
   height: 2rem;
-  font-size: 1.5rem;;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .btn-login {
   background-color: v.$light;
   margin-bottom: 2rem;
+  border-radius: 30px;
+  transition: all ease 0.5s;
+  &:hover{
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    transition: all ease 0.5s;
+  }
 }
 .btn-signup {
   background-color: v.$primary;
   color: v.$light;
+  border-radius: 30px;
+  transition: all ease 0.5s;
+  &:hover{
+    background-color: #da5e57;
+    color: white;
+    box-shadow: 0 0 10px black;
+    transition: all ease 0.5s;
+  }
 }
 
 
 .modal_signup {
   display: flex;
   height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   &--part1 {
     width: 30%;
     background-color: v.$primary;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
   &--part2 {
     padding: 2rem 7rem 1rem 7rem;
@@ -102,11 +122,15 @@
     box-shadow: 0 0 10px v.$grey;
     display: flex;
     flex-direction: column;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   &--img {
     width: 100%;
     height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
   &--close {
     position: absolute;
@@ -237,6 +261,45 @@
         top: 30%;
         left: 5%;
       }
+    }
+  }
+}
+
+@media screen and(max-width: 960px) {
+  .modal_signup {
+    &--part1 {
+      display: none;
+    }
+    &--part2 {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 20px;
+      overflow-y: auto;
+    }
+    &--titleconnect {
+      width: 100%;
+    }
+    &--pw {
+      flex-direction: column;
+    }
+    &--name {
+      flex-direction: column;
+      width: 65%;
+    }
+    &--pwdate {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+    }
+    &--types {
+      flex-direction: column;
+      height: auto;
+    }
+    &--cat {
+      margin-bottom: 1rem;
+    }
+    &--themes {
+      margin-bottom: 4rem;
     }
   }
 }

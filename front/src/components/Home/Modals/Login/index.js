@@ -14,7 +14,8 @@ export default function Login({
 }) {
   Modal.setAppElement('#root')
   
-  const customStyles = {
+console.log(`window.innerWidth`, window.innerWidth)
+  let customStyles = { 
     content : {
       top                   : '50%',
       left                  : '50%',
@@ -25,6 +26,34 @@ export default function Login({
       transform             : 'translate(-50%, -50%)',
     },
   };
+
+  if (window.innerWidth > 960) {
+  customStyles = { 
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      height                : '50%',
+      transform             : 'translate(-50%, -50%)',
+    },
+  };
+  } 
+  if (window.innerWidth < 960) {
+    customStyles = { 
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        height                : '90%',
+        width                 : '90%',
+        transform             : 'translate(-50%, -50%)',
+      },
+    };
+    } 
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -41,7 +70,8 @@ export default function Login({
         isOpen={loginIsHidden}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
+        style="customStyles"
+        className="customStyles"
         contentLabel="Connexion"
         closeTimeoutMS={500}
       >
