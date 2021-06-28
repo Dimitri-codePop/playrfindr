@@ -31,10 +31,12 @@ const login = (store) => (next) => (action) => {
             department_number,
             department_label,
           } = response.data;
-          console.log(response.data);
           const { isLogged } = response.data;
-          // localStorage.setItem('isLogged', isLogged);
           const dataUser = response.data;
+          const tokenexpiration = new Date();
+          tokenexpiration.setSeconds(new Date().getSeconds() + 3600);
+          console.log(tokenexpiration);
+          localStorage.setItem('tokenLimits', JSON.stringify(tokenexpiration));
           localStorage.setItem('UserKeysUsed', JSON.stringify(dataUser));
           const saveUserAction = saveUser(id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
           store.dispatch(saveUserAction);
