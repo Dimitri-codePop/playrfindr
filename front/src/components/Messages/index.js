@@ -64,7 +64,6 @@ export default function Messages({
   };
 
   const allMessages = messages.map((message) => {
-    console.log(`message.user_id`, message.user_id)
     const pathname = `/profil/${message.user_id}`;
     return (
     <div className="messages-item" key={message.date}> 
@@ -103,10 +102,9 @@ export default function Messages({
       {allMessages}
       </div>
       <Modal 
-        className="messages-modal" 
+        className="customStylesMsg" 
         isOpen={modalMessage} 
         onRequestClose={handleEndModal}
-        style={customStyles}
       >
         <div className="eventModal">
           <div className="eventModal-part1">

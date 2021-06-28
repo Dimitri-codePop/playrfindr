@@ -16,7 +16,6 @@ const mapStateToProps = (state, ownprops) => ({
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
   loadProfil: () => {
-    console.log('je passe ici');
     const action = fetchProfil(ownprops.match.params.id);
     dispatch(action);
   },

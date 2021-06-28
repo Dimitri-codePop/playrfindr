@@ -14,7 +14,6 @@ const onegame = (store) => (next) => (action) => {
         "Content-Type": "application/json"
       }})
         .then((response) => {
-          console.log(`game`, response.data.data)
           
           const theGame = saveGame(response.data.data);
           store.dispatch(theGame);

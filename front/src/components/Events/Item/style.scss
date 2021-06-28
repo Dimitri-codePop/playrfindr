@@ -75,6 +75,7 @@
     font-size: 2.5rem;
     font-weight: bold;
     display: flex;
+    text-align: center;
   }
   &-date {
     color: v.$primary;
@@ -105,4 +106,43 @@
       text-decoration: underline;
     }
   }
+}
+
+@media screen and (max-width: 960px) {
+  .eventModal{
+    &-part2 {
+      width: 100%
+    }
+    &-head {
+      padding: 1rem;
+    }
+    &-title {
+      font-size: 1.5rem;
+    }
+    &-players {
+      width: 100px;
+      top: 1rem;
+      left: 2%;
+      font-size: 0.8rem;
+      padding: 1px;
+      &--title {
+        text-align: center;
+      }
+      &--content {
+        font-size: .8rem;
+      }
+    }
+    &-date {
+      margin-left: 120px;
+    }
+    &-creator {
+      margin-left: 120px;
+    }
+  }
+  
+  .leaflet-container {
+    text-align: center;
+    width: 90%;
+  }
+
 }

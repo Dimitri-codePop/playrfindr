@@ -23,33 +23,10 @@ const types = (store) => (next) => (action) => {
 
           const allTypes = saveTypes(responseGames, responseCategories, responseThemes);
           store.dispatch(allTypes);
-        /*headers: {
-            'authorization': state.user.token,
-            'Accept' : 'application/json',
-            'Content-Type': 'application/json'
-        }
-        })
-        .then((response) => {
-          saveCategories = response.data.data;
-        })
-        */
         })).catch(errors => {
           console.log(errors);
         });
 
-      /*axios.get('https://playrfindr.herokuapp.com/api/themes')
-        .then((response) => {
-          saveThemes = response.data.data;
-        })       
-        .catch((error) => console.log(`error`, error));
-      
-      axios.get('https://playrfindr.herokuapp.com/api/jeux')
-        .then((response) => {
-          const saveType = saveTypes(response.data.data, saveCategories, saveThemes);
-          store.dispatch(saveType);
-        })
-        .catch((error) => console.log(`error`, error));
-      */
       break;
     }
     case FETCH_DEPARTEMENTS: {

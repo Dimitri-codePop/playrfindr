@@ -76,9 +76,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     case SAVE_AFTER_DELETE: {
       const tab = state[action.key];
-      console.log(`tab`, tab);
       const newTab = tab.filter((entry) => Number(entry.id) !== Number(action.value));
-      console.log(`newTab`, newTab);
       return {
         ...state,
         [action.key]: [...newTab],

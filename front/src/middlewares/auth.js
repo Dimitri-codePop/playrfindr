@@ -71,7 +71,6 @@ const login = (store) => (next) => (action) => {
         picture: 'https://t3.ftcdn.net/jpg/00/85/06/44/360_F_85064489_TfbAnASPyjxyaUCZL0dQEeStLHZqKKle.jpg',
       })
         .then((response) => {
-          console.log(response);
           const { data } = response;
           const saveUserAction = saveUser(data);
           store.dispatch(saveUserAction);

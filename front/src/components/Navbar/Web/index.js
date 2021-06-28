@@ -47,7 +47,6 @@ export default function Web({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(search[0])
     handleNavBarSearch(search[0]);
     history.push('/recherche');
   };
@@ -76,26 +75,25 @@ export default function Web({
             <span> FindR </span>
           </h1>
         </Link>
-        {isLogged
-        && (
-          <form onSubmit={handleSubmit}>
-            <span className="input input--madoka skin-search">
-              <label className="input__label input__label--madoka" htmlFor="input-32">
-                <input
-                  className="input__field input__field--madoka"
-                  type="text"
-                  id="input-32"
-                  value={search}
-                  onChange={changeField}
-                />
-                <svg className="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                  <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-                </svg>
-                <span className="input__label-content input__label-content--madoka">Recherche</span>
-              </label>
-            </span>
-          </form>
-        )}
+        {isLogged && 
+        <form onSubmit={handleSubmit}>
+          <span className="input input--madoka skin-search">
+            <input 
+              className="input__field input__field--madoka"
+              type="text" 
+              id="input-32"
+              value={search}
+              onChange={changeField}
+            />
+            <label className="input__label input__label--madoka" htmlFor="input-32">
+            <svg className="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+              <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
+            </svg>
+            <span className="input__label-content input__label-content--madoka">Recherche</span>
+            </label>
+          </span>
+        </form>
+        }
         <div className="navbar__web__button-container">
           <Link to="/jeux">
             <button type="button" className={classname}><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>

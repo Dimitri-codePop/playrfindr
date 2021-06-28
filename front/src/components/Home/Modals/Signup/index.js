@@ -32,7 +32,7 @@ export default function Signup({ signupIsHidden, setSignupIsHidden, setLoginIsHi
         bodyOpenClassName={"signup"}
         isOpen={signupIsHidden}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="customStylesSignup"
         contentLabel="Inscription"
       >
         <Form

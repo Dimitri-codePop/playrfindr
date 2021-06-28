@@ -69,7 +69,6 @@ const reducer = (state = initialState, action = {}) => {
         trigger: !(state.trigger)
       };
     case SAVE_EDIT_EVENT:
-      console.log(`action`, action)
       return {
         ...state,
         label: '',

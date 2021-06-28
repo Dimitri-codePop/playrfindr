@@ -142,7 +142,6 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
     case SHOW_PROFIL: {
-      console.log(action.value);
       return {
         ...state,
         profil: action.value,
@@ -160,11 +159,9 @@ const reducer = (state = initialState, action = {}) => {
     }
     case DELETE_SELECT_FIELD_SIGNUP_USER: {
       let tab = [...state[action.key]];
-      console.log('tab', tab)
-      console.log(action.value);
+
       tab = tab.filter((obj) => obj != action.value);
-      console.log('tab', tab)
-      console.log(action.key);
+
       let newState = {
         ...state,
         [action.key]: [...tab],

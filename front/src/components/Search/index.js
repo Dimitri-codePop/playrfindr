@@ -16,9 +16,6 @@ export default function Search({
   if (loading) {
     return <Loading />;
   }
-  console.log(`resultsGames`, resultsGames[0][0])
-  console.log(`resultsUsers`, resultsUsers[0][0])
-  console.log(`resultsSearch`, resultsSearch)
 
   const users = resultsUsers[0].map((user) => (
     <Link

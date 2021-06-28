@@ -21,7 +21,6 @@ export default function Events({
   reiniFormEvent,
 }) {
 
-  console.log(`trigger1`, trigger)
   useEffect(() => {
     loadEvents();
   }, []);
@@ -53,7 +52,6 @@ export default function Events({
     },
   };
 
-  console.log(`trigger2`, trigger)
   if (loading) {
     return <Loading />;
   }
@@ -81,7 +79,7 @@ export default function Events({
         events={events}
         reiniFormEvent={reiniFormEvent}
       />
-      <Modal isOpen={modal} style={customStyles} onRequestClose={handleEndModal}>
+      <Modal isOpen={modal} className="customStylesEvent" onRequestClose={handleEndModal}>
         < FormEvent 
           handleEndModal={handleEndModal} 
           

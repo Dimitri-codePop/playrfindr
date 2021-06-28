@@ -38,11 +38,9 @@ export default function Ludo({
   }
 
   const filters = filterGames();
-  console.log(`filters`, filters)
   useEffect(() => {
     if (game) {
       const gameList = filters.map((obj) => {
-        console.log(`obj`, obj)
         const oneGame = FindGoodGameByName(games, obj);
 
         const path = `/jeu/${oneGame.id}`;
@@ -65,7 +63,6 @@ export default function Ludo({
   }, [game, search]);
 
   const handleOnChange = (event) => {
-    console.log('handleOnChange', event.target.value);
     onChangeInputValue(event.target.value);
   };
 
