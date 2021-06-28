@@ -102,10 +102,9 @@ export default function Messages({
       {allMessages}
       </div>
       <Modal 
-        className="messages-modal" 
+        className="customStylesMsg" 
         isOpen={modalMessage} 
         onRequestClose={handleEndModal}
-        style={customStyles}
       >
         <div className="eventModal">
           <div className="eventModal-part1">

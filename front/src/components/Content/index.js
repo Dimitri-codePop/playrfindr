@@ -153,30 +153,32 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} style={customStyles}>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} className="customStylesMsg">
         <div className="eventModal">
           <div className="eventModal-part1">
             <img className="eventModal-img" src={imageModale} alt=""/>
           </div>
           <div className="eventModal-part3">
-          <h1 className="messages-titlemodal">Ecrire un message</h1>
-          <form className="messages-form" onSubmit={handleSubmitMessage}>
-          <div className="messages-textmodal">
-          <TextField 
-                  fullWidth={true}
-                  multiline
-                  rows={5}
-                  rowsMax={5}
-                  type="text"
-                  name="contentMessage"
-                  placeholder="Votre message..."
-                  onChange={handleOnChange}
-                  value={contentMessage}
-                />
-            </div>
-            <button className="messages-btn" type="submit">Envoyer</button>
-            <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
-          </form>
+          <div className="messages-head"> 
+            <h1 className="messages-titlemodal">Ecrire un message</h1>
+            <form className="messages-form" onSubmit={handleSubmitMessage}>
+            <div className="messages-textmodal">
+            <TextField 
+                    fullWidth={true}
+                    multiline
+                    rows={5}
+                    rowsMax={5}
+                    type="text"
+                    name="contentMessage"
+                    placeholder="Votre message..."
+                    onChange={handleOnChange}
+                    value={contentMessage}
+                  />
+              </div>
+              <button className="messages-btn" type="submit">Envoyer</button>
+              <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
+            </form>
+          </div>
           </div>
         </div>
       </Modal>

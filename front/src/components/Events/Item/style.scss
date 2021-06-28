@@ -121,10 +121,15 @@
     }
     &-players {
       width: 100px;
-      top: 3rem;
+      top: 1rem;
       left: 2%;
+      font-size: 0.8rem;
+      padding: 1px;
       &--title {
         text-align: center;
+      }
+      &--content {
+        font-size: .8rem;
       }
     }
     &-date {
