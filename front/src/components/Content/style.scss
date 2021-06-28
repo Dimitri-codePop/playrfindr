@@ -103,7 +103,7 @@
     }
   }
 }
-@media (max-width: 960px) {
+@media screen and (max-width: 960px) {
   .profil {
     overflow-y: auto;
     margin: auto;
@@ -111,6 +111,16 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
+    &__cat {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__themes {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
     &__btn {
       width: 100%;
       color: vars.$primary;
@@ -128,6 +138,7 @@
       height: 150px;
       width: 150px;
       box-shadow: 0 0 5px black;
+      margin-bottom: 1rem;
     }
     
 

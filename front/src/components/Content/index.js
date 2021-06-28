@@ -77,18 +77,6 @@ export default function Content({
     changefieldMessage(event.target.value, event.target.name)
   };
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  
   // END GESTION EDIT
   return (
     <>
@@ -127,10 +115,10 @@ export default function Content({
           )}
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">
-            <div>
+            <div className="profil__cat">
               {categories}
             </div>
-            <div>
+            <div className="profil__themes">
               {themes}
             </div>
           </div>

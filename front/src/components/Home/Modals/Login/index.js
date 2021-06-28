@@ -14,33 +14,6 @@ export default function Login({
 }) {
   Modal.setAppElement('#root')
   
-  if (window.innerWidth > 960) {
-  customStyles = { 
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  } 
-  if (window.innerWidth < 960) {
-    customStyles = { 
-      content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        height                : '90%',
-        width                 : '90%',
-        transform             : 'translate(-50%, -50%)',
-      },
-    };
-    } 
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
