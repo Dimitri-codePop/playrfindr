@@ -143,13 +143,14 @@
     &-btn {
       margin-top: 2rem;
     }
+    &-content {
+      width: 100%;
+    }
+    &-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 
-
-
-@media screen and(max-width: 960px){
-  .iconSend{
-    margin-right: 1rem;
-    }
-}

@@ -57,7 +57,7 @@ const handleOnClick = () => {
         <div className="game__content">
           <div className="game__name">
             <p className="game__name__content">{label}</p>
-            <div>
+            <div className="game__name__editors">
             <p className="game__name__content-subtitle">{editor}</p>
             <p className="game__name__content-subtitle">{firstname[0]} {lastname[0]}</p>
             </div>

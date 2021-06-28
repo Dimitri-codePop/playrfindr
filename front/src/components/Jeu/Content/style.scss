@@ -158,10 +158,10 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      margin: 2rem 4rem 0 4rem;
       height: fit-content;
     }
     &__image {
+      margin-top: 2rem;
       height: 150px;
       width: 150px;
     }
@@ -190,15 +190,22 @@
         font-size: 30px;
         text-shadow: 0 0 2px vars.$primary;
       }
+      &__editors {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       &__add {
         display: flex;
         align-items: center;
+        justify-content: center;
         &--text {
           font-size: .8rem;
           text-decoration: underline;
           color: vars.$alternate;
-          margin-right: 1rem;
+          margin-right: 0;
           margin-top: 1rem;
+          text-align: center;
         }
         &--icon {
           color: vars.$grey;
@@ -206,6 +213,34 @@
         }
       }
     }
+    &__carac {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+    &__duration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &--icon {
+        color: vars.$alternate;
+      }
+    }
+    &__nb {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &--icon {
+        color: vars.$primary;
+      }
+    }
+    &__age {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+
 
     &__email {
       color: vars.$grey;
