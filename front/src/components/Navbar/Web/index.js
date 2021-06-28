@@ -60,7 +60,6 @@ export default function Web({
   const classname = (active.pathname =='/jeux') ? "navbar__web__button-active" : "navbar__web__buttons"
   const classname2 = (active.pathname =='/events') ? "navbar__web__button-active" : "navbar__web__buttons"
 
-
   tympanus2(window);
 
   return (
@@ -77,48 +76,37 @@ export default function Web({
             <span> FindR </span>
           </h1>
         </Link>
-        {isLogged && 
-        <form onSubmit={handleSubmit}>
-          <span className="input input--madoka skin-search">
-            <input 
-              className="input__field input__field--madoka"
-              type="text" 
-              id="input-32"
-              value={search}
-              onChange={changeField}
-            />
-            <label className="input__label input__label--madoka" htmlFor="input-32">
-            <svg className="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-              <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-            </svg>
-            <span className="input__label-content input__label-content--madoka">Recherche</span>
-            </label>
-          </span>
-        </form>
-        }
-        {/*<form onSubmit={handleSubmit} className="navbar__search-form">
-          <fieldset>
-            <legend>Rechercher</legend>
-            <input
-              type="text"
-              name="search"
-              className="navbar__search-form--input"
-              placeholder="Entrez votre recherche"
-              onChange={changeField}
-              value={search}
-            />
-              <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch}/> </button>
-          </fieldset>
-  </form>*/}
+        {isLogged
+        && (
+          <form onSubmit={handleSubmit}>
+            <span className="input input--madoka skin-search">
+              <label className="input__label input__label--madoka" htmlFor="input-32">
+                <input
+                  className="input__field input__field--madoka"
+                  type="text"
+                  id="input-32"
+                  value={search}
+                  onChange={changeField}
+                />
+                <svg className="graphic graphic--madoka" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+                  <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
+                </svg>
+                <span className="input__label-content input__label-content--madoka">Recherche</span>
+              </label>
+            </span>
+          </form>
+        )}
         <div className="navbar__web__button-container">
           <Link to="/jeux">
             <button type="button" className={classname}><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>
           </Link>
           {isLogged && (
             <>
-              {isAdmin && (<Link to="/admin/home">
-                <button type="button" className={classname2}><FontAwesomeIcon icon={faTools} />  Admin</button>
-              </Link>)}
+              {isAdmin && (
+              <Link to="/admin/home">
+                <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faTools} />  Admin</button>
+              </Link>
+              )}
               <Link to="/events">
                 <button type="button" className={classname2}><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>
