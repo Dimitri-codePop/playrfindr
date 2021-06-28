@@ -5,7 +5,7 @@ import Form from 'src/containers/Home/Modals/Signup/Form';
 
 import './style.scss';
 
-export default function Signup({ signupIsHidden, setSignupIsHidden }) {
+export default function Signup({ signupIsHidden, setSignupIsHidden, setLoginIsHidden }) {
   Modal.setAppElement('#root');
 
   const customStyles = {
@@ -39,6 +39,7 @@ export default function Signup({ signupIsHidden, setSignupIsHidden }) {
           closeModal={closeModal}
           setSignupIsHidden={setSignupIsHidden}
           signupIsHidden={signupIsHidden}
+          setLoginIsHidden={setLoginIsHidden}
         />
       </Modal>
     </div>

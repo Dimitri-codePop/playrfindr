@@ -38,6 +38,10 @@
       cursor: pointer;
     }
   }
+  &-cgu {
+    color: v.$primary;
+    text-decoration: underline;
+  }
 
 
 }

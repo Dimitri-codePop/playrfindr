@@ -15,6 +15,7 @@ export default function Form({
   changeField,
   email,
   password,
+  setSignupIsHidden,
 }) {
   
   const handleSubmit = (event) => {
@@ -23,6 +24,12 @@ export default function Form({
     closeModal();
     //setLoginIsHidden(!loginIsHidden)
   };
+
+  const handleOnSignup = () => {
+    setSignupIsHidden(true);
+    closeModal();
+  };
+  
 
   return (
     <div className="modal_signup">
@@ -60,7 +67,7 @@ export default function Form({
             </div>
           </div>
           <div className="form__login-connect">
-            <p>Je n'ai pas de compte? <span>Je m'inscris</span></p>
+            <p>Je n'ai pas de compte? <span onClick={handleOnSignup}>Je m'inscris</span></p>
             <button type="submit" className="form__login-buttonconnect">Se connecter</button>
           </div>
         </form>

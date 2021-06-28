@@ -26,6 +26,7 @@ export default function Form({
   changeSelectField,
   closeModal,
   deleteSelectField,
+  setLoginIsHidden,
 }) {
 
   const handleSubmit = (event) => {
@@ -67,12 +68,18 @@ export default function Form({
   const deleteElementClickTheme = (event) => {
     const idType = FindGoodTypeId(themes, event.target.id);
     deleteSelectField(idType, "themes")
-  }
+  };
 
+  const handleOnLogin = () => {
+    setLoginIsHidden(true);
+    closeModal();
+  };
+  
+  
   const displayCat = selectCatLabels.map((label) => {
     return (
       <div className="modal_signup--typesresultscat" key={label} onClick={deleteElementClickCat} id={label}>
-        <FontAwesomeIcon icon={faTimes} className="delete"  />
+        <FontAwesomeIcon icon={faTimes} className="delete" />
         <p className="modal_signup--typesresultscat__label">{label}</p>
       </div>
     )
@@ -91,6 +98,9 @@ export default function Form({
       </div>
     )
   })
+
+  console.log(`selectCatLabels`, selectCatLabels)
+  console.log(`selectCat`, selectCat)
 
 
 
@@ -157,28 +167,34 @@ export default function Form({
           </div>
 
           <div className="modal_signup--types">
+            
             <div className="modal_signup--cat">
               <label htmlFor="categories" className="field__input--cattitle"> Vos catégories préférés :</label>
+              {(selectCatLabels.length < 3) &&
               <select name="categories" id="categories" onChange={handlechangeSelect} className="field__input--type">
                   <option value="">Choisissez vos catégories</option>
                   {listCategories}
               </select>
+              }
               <p className="modal_signup--maxtypes">(max. 3)</p>
               {displayCat}
             </div>
             <div className="modal_signup--themes">
               <label htmlFor="themes" className="field__input--themestitle"> Vos thèmes préférés :</label>
+              {(selectThemesLabels.length < 3) &&
               <select name="themes" id="theme" onChange={handlechangeSelect} className="field__input--type">
                   <option value="">Choisissez vos thèmes</option>
                   {listThemes}
               </select>
+              }
               <p className="modal_signup--maxtypes">(max. 3)</p>
               {displayThemes}
             </div>
           </div>
           <div className="form__login-inscript">
+            <p>J'ai déjà un compte? <span onClick={handleOnLogin}>Je me connecte</span></p>   
             <button type="submit" className="form__login-button">Créer un compte</button>
-            <p>J'ai déjà un compte? <span>Je me connecte</span></p>
+            <p>En continuant vous accepter les <a href="/cgu" className="form__login-cgu">condition d'utilisation</a> de Playr Findr</p>   
           </div>
         </form>
       </div>
