@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import './style.scss';
 import Form from 'src/containers/Home/Modals/Login/Form';
 
-export default function Login({ 
+export default function Login({
   loginIsHidden,
   setLoginIsHidden,
   showMessage,
@@ -12,10 +12,10 @@ export default function Login({
   signupIsHidden,
   setSignupIsHidden,
 }) {
-  Modal.setAppElement('#root')
-  
+  Modal.setAppElement('#root');
+
   const customStyles = {
-    content : {
+    content: {
       top                   : '50%',
       left                  : '50%',
       right                 : 'auto',
@@ -30,7 +30,7 @@ export default function Login({
     // references are now sync'd and can be accessed.
   }
 
-  function closeModal(){
+  function closeModal() {
     setLoginIsHidden(!loginIsHidden);
   }
 
@@ -45,11 +45,12 @@ export default function Login({
         contentLabel="Connexion"
         closeTimeoutMS={500}
       >
-        <Form 
-        closeModal={closeModal}
-        showMessage={showMessage}
-        setShowMessage={setShowMessage}
-        setSignupIsHidden={setSignupIsHidden}
+        <Form
+          closeModal={closeModal}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
+          signupIsHidden={signupIsHidden}
+          setSignupIsHidden={setSignupIsHidden}
         />
       </Modal>
     </div>
@@ -57,5 +58,10 @@ export default function Login({
 }
 
 Login.propTypes = {
-
+  loginIsHidden: PropTypes.bool.isRequired,
+  setLoginIsHidden: PropTypes.func.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+  signupIsHidden: PropTypes.bool.isRequired,
+  setSignupIsHidden: PropTypes.func.isRequired,
 };
