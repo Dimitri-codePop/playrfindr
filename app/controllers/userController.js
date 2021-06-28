@@ -71,14 +71,13 @@ module.exports = {
             }
 
             const user = await UserModel.findOne(email);
-            console.log(user);
             if(!user){
             
                 return res.status(400).json({error : 'This resource doesn"t exists.'});
             }
 
             const validPwd = await bcrypt.compare(password, user.password);
-
+            
 
             if (!validPwd) {
                 return res.status(400).json({
@@ -101,8 +100,7 @@ module.exports = {
                 department_label: user.label,
                 token: jwt.generateTokenForUser(user),
                 isLogged,
-                is_admin: user.is_admin,
-                message_id: user.message_id
+                is_admin: user.is_admin
             });
         }
         } catch (error) {
