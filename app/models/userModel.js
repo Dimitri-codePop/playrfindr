@@ -56,7 +56,7 @@ class UserModel extends CoreModel {
     }
 
     static async findOne(email){
-        const result = await client.query(`SELECT "user".*, "department"."label", "department"."number" FROM "user" join department on "user"."department_id" = "department"."id" WHERE email = $1`, [email]);
+        const result = await client.query(`SELECT "user".*, "department"."label", "department"."number", array_remove(array_agg("message"."id"), NULL) AS message_id FROM "user" LEFT join department on "user"."department_id" = "department"."id" LEFT JOIN "message" ON "message"."user_id" = "user"."id" WHERE "email" = $1 group by "user"."id","department"."label", "department"."number";`, [email]);
         return result.rows[0];
     }
 

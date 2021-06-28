@@ -71,7 +71,7 @@ module.exports = {
             }
 
             const user = await UserModel.findOne(email);
-            
+            console.log(user);
             if(!user){
             
                 return res.status(400).json({error : 'This resource doesn"t exists.'});
@@ -101,7 +101,8 @@ module.exports = {
                 department_label: user.label,
                 token: jwt.generateTokenForUser(user),
                 isLogged,
-                is_admin: user.is_admin
+                is_admin: user.is_admin,
+                message_id: user.message_id
             });
         }
         } catch (error) {
