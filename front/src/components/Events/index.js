@@ -40,18 +40,6 @@ export default function Events({
     setModal(false);
   };
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '80%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-
   if (loading) {
     return <Loading />;
   }
