@@ -177,4 +177,10 @@ export default function Content({
 Content.propTypes = {
   user: PropTypes.object.isRequired,
   paramsId: PropTypes.number.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+  idCurrent: PropTypes.number.isRequired,
+  changefieldMessage: PropTypes.func.isRequired,
+  contentMessage: PropTypes.string.isRequired,
+  sendMessageContent: PropTypes.func.isRequired,
 };

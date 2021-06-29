@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { visitorsInEvent } from 'src/selectors/find';
 
 import './style.scss';
@@ -77,4 +77,11 @@ export default function Check({
   );
 }
 
-Check.propTypes = {};
+Check.propTypes = {
+  handleClick: PropTypes.func.isRequired, 
+  name: PropTypes.number.isRequired, 
+  event: PropTypes.object.isRequired, 
+  id: PropTypes.number.isRequired,
+  handleRemoveFromEvent: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+};
