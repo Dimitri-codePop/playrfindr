@@ -73,9 +73,19 @@ const login = (store) => (next) => (action) => {
         .then((response) => {
           const { data } = response;
           const saveUserAction = saveUser(data);
+          const message = "Votre inscription s'est bien passée";
+          const isOk = true;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
           store.dispatch(saveUserAction);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(`error`, error);
+          const message = "Une erreur s'est produite, recommencez plus tard";
+          const isOk = false;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
+        });
       break;
     }
     case FETCH_USER: {
