@@ -11,7 +11,7 @@ import events from 'src/middlewares/events';
 import search from 'src/middlewares/search';
 import messages from 'src/middlewares/messages';
 import admin from 'src/middlewares/admin';
-import checkTokenExpirationMiddleware from 'src/middlewares/checkTokenExpirationMiddleware';
+// import checkTokenExpirationMiddleware from 'src/middlewares/checkTokenExpirationMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -23,8 +23,7 @@ const enhancers = composeEnhancers(
     profil,
     search,
     messages,
-    admin,
-    checkTokenExpirationMiddleware),
+    admin),
 );
 
 const store = createStore(reducer, enhancers);

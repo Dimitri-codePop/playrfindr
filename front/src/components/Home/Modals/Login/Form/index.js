@@ -90,6 +90,8 @@ Form.propTypes = {
   changeField: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
   setSignupIsHidden: PropTypes.func.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
 };
 
 Form.defaultProps = {
