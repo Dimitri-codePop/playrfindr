@@ -27,12 +27,15 @@ export default function Form({
   closeModal,
   deleteSelectField,
   setLoginIsHidden,
+  showMessage,
+  setShowMessage,
 }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSignup();
     closeModal();
+    setShowMessage(!showMessage);
   };
   const listDepartements = departements.map((departement, i) => {
     return (

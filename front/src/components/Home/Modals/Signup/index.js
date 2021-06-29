@@ -5,7 +5,13 @@ import Form from 'src/containers/Home/Modals/Signup/Form';
 
 import './style.scss';
 
-export default function Signup({ signupIsHidden, setSignupIsHidden, setLoginIsHidden }) {
+export default function Signup({ 
+  signupIsHidden,
+  setSignupIsHidden,
+  setLoginIsHidden,
+  setShowMessage,
+  showMessage,
+}) {
   Modal.setAppElement('#root');
 
   const customStyles = {
@@ -40,6 +46,8 @@ export default function Signup({ signupIsHidden, setSignupIsHidden, setLoginIsHi
           setSignupIsHidden={setSignupIsHidden}
           signupIsHidden={signupIsHidden}
           setLoginIsHidden={setLoginIsHidden}
+          showMessage={showMessage}
+          setShowMessage={setShowMessage}
         />
       </Modal>
     </div>

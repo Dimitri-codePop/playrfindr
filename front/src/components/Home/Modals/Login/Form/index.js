@@ -12,6 +12,8 @@ import './style.scss';
 export default function Form({
   handleLogin,
   closeModal,
+  showMessage,
+  setShowMessage,
   changeField,
   email,
   password,
@@ -21,6 +23,7 @@ export default function Form({
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
+    setShowMessage(!showMessage);
     closeModal();
   };
 
