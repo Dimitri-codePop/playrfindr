@@ -24,8 +24,6 @@ const initialState = {
   town:'',
   content: '',
   max_player: '',
-  lat: '',
-  long: '',
   trigger: true,
 };
 

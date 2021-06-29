@@ -109,8 +109,8 @@ export default function Content({
           </div>
           {currentUser && (
             <div className="profil__btn">
-              <button type="button" onClick={handleModalEdit} className="btn profil__btn" id="modal_login">Edit</button>
-              <button type="button" onClick={handleModalEditPassword} className="btn profil__btn" id="modal_login">Changer mot de passe</button>
+              <button type="button" onClick={handleModalEdit} className="btn btn-login" id="modal_login">Edit</button>
+              <button type="button" onClick={handleModalEditPassword} className="btn btn-signup" id="modal_login">Changer mot de passe</button>
             </div>
           )}
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
@@ -177,4 +177,10 @@ export default function Content({
 Content.propTypes = {
   user: PropTypes.object.isRequired,
   paramsId: PropTypes.number.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+  idCurrent: PropTypes.number.isRequired,
+  changefieldMessage: PropTypes.func.isRequired,
+  contentMessage: PropTypes.string.isRequired,
+  sendMessageContent: PropTypes.func.isRequired,
 };

@@ -4,7 +4,9 @@ import Modal from 'react-modal';
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import imageModale from 'src/assets/Imagemodale.png'
 import './style.scss';
+import moment from 'moment';
 
 export default function Edit({
   modalEditOpen,
@@ -77,13 +79,13 @@ export default function Edit({
     )
   });
   const themesChoosen = selectThemes.map((obj) => (
-    <div key={obj} id="theme" className="profil__tag__theme" onClick={handleSelectDelete}>
+    <div key={obj} id="theme" className="modal_signup--typesresultsthemes" onClick={handleSelectDelete}>
       {obj}
       <FontAwesomeIcon className="no-pointer" icon={faTimes} />
     </div>
   ));
   const catChoosen = selectCat.map((cat) => (
-    <div key={cat} id="category" className="profil__tag__cat" onClick={handleSelectDelete}>
+    <div key={cat} id="category" className="modal_signup--typesresultscat" onClick={handleSelectDelete}>
       {cat}
       <FontAwesomeIcon className="no-pointer" icon={faTimes} />
     </div>
@@ -92,67 +94,83 @@ export default function Edit({
   const refreshPage = () => {
     window.location.reload();
   };
+  const dateSetUp = moment(birthdate).format("yyyy-MM-DD");
   return (
     <Modal
-      bodyOpenClassName={"Edit Profil"}
       isOpen={modalEditOpen}
-      style={customStyles}
+      className="customStyleEditProfil"
       contentLabel="Inscription"
     >
-      <button onClick={refreshPage} type="button">
-        <FontAwesomeIcon className="no-pointer" icon={faTimes} />
-      </button>
-      <form className="form__login" onSubmit={handleSubmit}>
-        <Field
-          type="email"
-          name="email"
-          placeholder={email}
-          onChange={changefieldEdit}
-          value={email}
-        />
+      <div className="modal_signup">
+      <div className="modal_signup--part1">
+      <img className="modal_signup--img" src={imageModale} alt=""/>
+      <FontAwesomeIcon onClick={refreshPage} className="modal_signup--close" icon={faTimes} />
+      </div>
+      <div className="modal_signup--part2">
+      <form className="modal_signup--form" onSubmit={handleSubmit}>
+      <h1 className="modal_signup--title">Modifier son profil</h1>
+      <div className="modal_signup--name">
         <Field
           type="text"
           name="firstname"
-          placeholder={firstname}
+          placeholder="Prénom"
           onChange={changefieldEdit}
           value={firstname}
         />
         <Field
           type="text"
           name="lastname"
-          placeholder={lastname}
+          placeholder="Nom"
           onChange={changefieldEdit}
           value={lastname}
         />
+        </div>
+        <Field
+          type="email"
+          name="email"
+          placeholder="email"
+          onChange={changefieldEdit}
+          value={email}
+        />
+        <div className="modal_signup--pwdate">
         <Field
           type="date"
           name="birthdate"
-          placeholder={birthdate}
           onChange={changefieldEdit}
-          value={birthdate}
+          value={dateSetUp}
         />
-        <select name="department" id="department" onChange={handlechangeSelect} className="field__input">
-          <option value="">--Modifier votre département--</option>
+        
+        <select name="department" id="department" onChange={handlechangeSelect} className="field__input--dpt">
+          <option value={department}>{department}</option>
           {listDepartements}
         </select>
-        <label htmlFor="category"> Modifiez vos catégories préférés :</label>
-        <select name="category" id="category" onChange={handlechangeSelect} className="field__input">
-          <option value="">--Ajouter une catégorie--</option>
-          {listCategories}
-        </select>
-        {catChoosen}
-        <label htmlFor="theme"> Modifiez vos thèmes préférés :</label>
-        <select name="theme" id="theme" onChange={handlechangeSelect} className="field__input">
-          <option value="">--Choisissez vos thèmes--</option>
-          {listThemes}
-        </select>
-        {themesChoosen}
-        <button onClick={refreshPage} type="button">
-          Annuler
-          <FontAwesomeIcon className="no-pointer" icon={faTimes} />
-        </button>
-        <button type="submit" className="form__login-button">Envoyer</button>
+        </div>
+        <div className="modal_signup--types">
+          <div className="modal_signup--cat">
+            <label htmlFor="category" className="field__input--cattitle"> Modifiez vos catégories préférés :</label>
+            <select name="category" id="category" onChange={handlechangeSelect} className="field__input--type">
+              <option value="">Choisissez vos catégories</option>
+              {listCategories}
+            </select>
+            <p className="modal_signup--maxtypes">(max. 3)</p>
+            {catChoosen}
+            </div>
+            <div className="modal_signup--themes">
+              <label htmlFor="theme" className="field__input--themestitle"> Modifiez vos thèmes préférés :</label>
+              <select name="theme" id="theme" onChange={handlechangeSelect} className="field__input--type">
+                <option value="">Choisissez vos thèmes</option>
+              {listThemes}
+              </select>
+              <p className="modal_signup--maxtypes">(max. 3)</p>
+              {themesChoosen}
+            </div>
+          </div>
+          <div className="form__login-inscript">
+            <button type="submit" className="form__login-button">Envoyer</button>
+          </div>
       </form>
+      </div>
+      </div>
     </Modal>
 
   );

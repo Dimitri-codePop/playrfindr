@@ -7,7 +7,7 @@ export default function About({
 
   return (
       <main className="about">
-        <h1 className="about-title">A propos de nous</h1>
+        <h1 className="about-title">La Team</h1>
         <div className="about-items"> 
           <h2>
             Antoine Noix

@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -115,6 +115,21 @@ export default function FormEvent({
   );
 }
 
-FormEvent.propTypes = {};
+FormEvent.propTypes = {
+  handleEndModal: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  number_address: PropTypes.string,
+  town: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  max_player: PropTypes.string.isRequired,
+  changefieldEvent: PropTypes.func.isRequired,
+  handleNewEvent: PropTypes.func.isRequired,
+};
+
+FormEvent.defaultProps = {
+  number_address: "1",
+};
 
         

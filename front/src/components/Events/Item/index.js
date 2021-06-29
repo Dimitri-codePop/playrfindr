@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
@@ -66,19 +66,7 @@ export default function Item({
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '70%',
-      width                 : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  
+
 
   const event = events.map((element) => {
     const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
@@ -121,7 +109,7 @@ export default function Item({
   });
 
 
-  const position = [goodModal.latitude, goodModal.longitude];
+  const position = [43.605450, 1.442740];
 
   return(
         <div>
@@ -146,7 +134,7 @@ export default function Item({
                   </div>
                 }
                   </h2>
-                  <p className="eventModal-date">{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
+                  <p className="eventModal-date">{moment(goodModal.date).tz(timeZone).format("dddd DD MMM YYYY à HH:mm")}</p>
                   <p className="eventModal-creator">Evènement créée par {goodModal.creator_firstname} {goodModal.creator_lastname}</p>
                   <p className="eventModal-content">{goodModal.content}</p>
                   {(goodModal) && 
@@ -189,4 +177,11 @@ export default function Item({
   );
 }
 
-Item.propTypes = {};
+Item.propTypes = {
+  events: PropTypes.array.isRequired,
+  handleAddToEvent: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  handleDeleteEvent: PropTypes.func.isRequired,
+  setUpEvent: PropTypes.func.isRequired,
+  reiniFormEvent: PropTypes.func.isRequired,
+};
