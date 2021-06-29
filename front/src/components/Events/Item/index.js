@@ -109,7 +109,8 @@ export default function Item({
   });
 
 
-  const position = [43.605450, 1.442740];
+//const position = [43.605450, 1.442740];
+const position = [goodModal.latitude, goodModal.longitude]
 
   return(
         <div>

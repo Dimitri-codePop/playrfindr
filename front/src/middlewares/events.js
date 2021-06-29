@@ -19,7 +19,7 @@ const events = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_EVENTS: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      axios.get(`https://playrfindr.herokuapp.com/api/events`, { headers: {
+      axios.get(`https://playrfindr.herokuapp.com/api/event`, { headers: {
         "Authorization": `${token}`,
         "Accept": "application/json",
         "Content-Type": "application/json"
