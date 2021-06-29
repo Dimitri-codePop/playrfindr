@@ -24,8 +24,7 @@ export default function Users({ users, deleteElement }) {
     )
   });
   return (
-    <div className="admin__content">App
-ADD
+    <div className="admin__content">
       <table className="admin__games_table">
         <thead>
           <tr>
