@@ -5,6 +5,7 @@ import Field from 'src/components/Home/Modals/Signup/Form/Field';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
+import imageModale from 'src/assets/Imagemodale.png'
 
 export default function EditPassword({
   password,
@@ -48,42 +49,46 @@ export default function EditPassword({
   return (
     <Modal
       onRequestClose={closeModal}
-      bodyOpenClassName="Edit Password"
       isOpen={isOpen}
-      style={customStyles}
+      className="customStyles"
       contentLabel="Inscription"
     >
-      <button onClick={refreshPage} type="button">
-        <FontAwesomeIcon className="no-pointer" icon={faTimes} />
-      </button>
-      <form className="form__login" onSubmit={handleSubmit}>
-        <Field
-          type="password"
-          name="password"
-          placeholder="Nouveau Mot de Passe"
-          onChange={changeField}
-          value={password}
-        />
-        <Field
-          type="password"
-          name="passwordConfirm"
-          placeholder="Confirmez le nouveau Mot de Passe"
-          onChange={changeField}
-          value={passwordConfirm}
-        />
-        <Field
-          type="password"
-          name="oldPassword"
-          placeholder="Entrez votre Ancien Mot de Passe"
-          onChange={changeField}
-          value={oldPassword}
-        />
-        <button type="submit" className="form__login-button">Envoyer</button>
-        <button onClick={refreshPage} type="button">
-          Annuler
-          <FontAwesomeIcon className="no-pointer" icon={faTimes} />
-        </button>
-      </form>
+    <div className="modal_signup">
+      <div className="modal_signup--part1">
+        <FontAwesomeIcon onClick={refreshPage} className="modal_signup--close" icon={faTimes} />
+        <img className="modal_signup--img" src={imageModale} alt="" />
+      </div>
+      <div className="modal_signup--part2">
+        <form className="modal_signup--form" onSubmit={handleSubmit}>
+        <h1 className="modal_signup--titleconnect">Changer le mot de passe</h1>
+          <Field
+            type="password"
+            name="oldPassword"
+            placeholder="Entrez votre Ancien Mot de Passe"
+            onChange={changeField}
+            value={oldPassword}
+          />
+          <Field
+            type="password"
+            name="password"
+            placeholder="Nouveau Mot de Passe"
+            onChange={changeField}
+            value={password}
+          />
+          <Field
+            type="password"
+            name="passwordConfirm"
+            placeholder="Confirmez le nouveau Mot de Passe"
+            onChange={changeField}
+            value={passwordConfirm}
+          />
+          
+          <div className="form__login-connect">
+            <button type="submit" className="form__login-button">Envoyer</button>
+          </div>
+        </form>
+        </div>
+      </div>
     </Modal>
   );
 }

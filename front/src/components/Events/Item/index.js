@@ -66,19 +66,7 @@ export default function Item({
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      height                : '70%',
-      width                 : '50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  
+
 
   const event = events.map((element) => {
     const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
@@ -121,7 +109,7 @@ export default function Item({
   });
 
 
-  const position = [goodModal.latitude, goodModal.longitude];
+  const position = [43.605450, 1.442740];
 
   return(
         <div>
