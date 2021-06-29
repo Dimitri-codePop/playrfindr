@@ -101,7 +101,6 @@ export default function Ludo({
         <div className="profil__ludo__games">
           {profilGames}
         </div>
-        <FontAwesomeIcon className="profil__plus" icon={faPlus} />
       </div>
     </>
   );
