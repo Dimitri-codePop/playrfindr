@@ -36,13 +36,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         message: action.value,
         isOk: action.key,
-      }
+      };
     case SHOW_SEND_MESSAGE:
       return {
         ...state,
         message: action.value,
         isOk: action.key,
-      }
+      };
     default:
       return state;
   }
