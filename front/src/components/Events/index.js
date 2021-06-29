@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -90,4 +90,10 @@ export default function Events({
   );
 }
 
-Events.propTypes = {};
+Events.propTypes = {
+  events: PropTypes.array.isRequired, 
+  loadEvents: PropTypes.func.isRequired, 
+  loading: PropTypes.bool.isRequired,
+  trigger: PropTypes.bool.isRequired,
+  reiniFormEvent: PropTypes.func.isRequired,
+};
