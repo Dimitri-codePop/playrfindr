@@ -27,11 +27,11 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDk3MTI3MiwiZXhwIjoxNjI0OTc0ODcyfQ.j7PCP5vW3bKTF61A8RYya_6HrsAC_QcH-tjplSL6_Ic
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDYwNDc3MCwiZXhwIjoxNjI0NjA4MzcwfQ.4mlNhI5wnqObq01oXSxHNGRtxKh0RoEH1Z_A8yElCrk
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTUyMjMsImV4cCI6MTYyNDQ1ODgyM30.cxzhs9EGGWaK2sfB1Ao7FACWaxHYg4pXpwqnxwhafe0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ2MDYzMjIsImV4cCI6MTYyNDYwOTkyMn0.DDmnqjavhMj2QxXAKvKENp7pxBKeo-7MKKLM1lqkU5c
 
 ### Récupération des messages
 GET http://localhost:4000/api/messagerie
@@ -114,34 +114,34 @@ Content-Type: application/json
 
 ### Ajout d'un evenement
 POST http://localhost:4000/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ0NTY0MjEsImV4cCI6MTYyNDQ2MDAyMX0.1I3RCdIIykTtz-ySsfPbtSIQ52pApHLyMWqKlESxXag
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQ2MDYzMjIsImV4cCI6MTYyNDYwOTkyMn0.DDmnqjavhMj2QxXAKvKENp7pxBKeo-7MKKLM1lqkU5c
 Content-Type: application/json
 
 {
-    "label": "Partie de Cyclades",
-    "content": "Petite partie de Cyclades",
+   "label": "Partie de Master Words",
+    "content": "Petite partie de Master Words",
     "date": "2021-09-15",
-    "number_address": 69,
-    "address": "rue de moncul",
-    "town": "Momo",
+    "number_address": 94360,
+    "address": "15 Bis rue Leopold Bellan",
+    "town": "Bry-sur-Marne",
     "max_player": 7,
     "user_id": 29
 }
 
 ### Ajout d'un evenement
 POST https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ1MTkyNiwiZXhwIjoxNjI0NDU1NTI2fQ.QMmk_c3QwyEPJ3C_ZlPQTpqPdkvOPCh0w1zr_rIl2CU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDYwNDc3MCwiZXhwIjoxNjI0NjA4MzcwfQ.4mlNhI5wnqObq01oXSxHNGRtxKh0RoEH1Z_A8yElCrk
 Content-Type: application/json
 
 {
-   "label": "Partie de Cyclades",
-    "content": "Petite partie de Cyclades",
+    "label": "Partie de Master Words",
+    "content": "Petite partie de Master Words",
     "date": "2021-09-15",
-    "number_address": 84,
-    "address": "avenue du peuple belge",
-    "town": "Lille",
+    "number_address": 94360,
+    "address": "15 Bis rue Leopold Bellan",
+    "town": "Bry-sur-Marne",
     "max_player": 7,
-    "user_id": 2
+    "user_id": 1
 }
 
 
@@ -150,8 +150,13 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
     "email": "yann@yann.io",
     "password": "1234567"
+=======
+    "email": "oclock@oclock.io",
+    "password": "123456"
+>>>>>>> 54bec6a85b1903084ec0cfbdbe8d4f5676475fa2
  
 }
 

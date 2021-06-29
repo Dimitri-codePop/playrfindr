@@ -3,6 +3,21 @@ const fetch = require('node-fetch');
 
 
 module.exports = {
+    async findEvents(_, res, next){
+        try {
+            const events = await EventModel.findEvent();
+
+            if(!events){
+                return res.status(401).json({error: `Ces événements n'existe pas`})
+            }
+
+            res.status(200).json({data: events})
+
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
 
     async getAll(_, res) {
         try {
@@ -67,7 +82,7 @@ module.exports = {
             
             for(let event of events){
                 const apiUrl = process.env.API_URL;
-                const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.number_address} ${event.address} , ${event.town}`);            
+                const newUrl = new URL(`${apiUrl}forward?access_key=${process.env.API_KEY}&query=${event.address} , ${event.town}, ${event.number_address} `);
                 const result = await fetch(newUrl);
                 const body = await result.json();    
                 

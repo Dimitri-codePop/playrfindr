@@ -71,14 +71,13 @@ module.exports = {
             }
 
             const user = await UserModel.findOne(email);
-            
             if(!user){
             
                 return res.status(400).json({error : 'This resource doesn"t exists.'});
             }
 
             const validPwd = await bcrypt.compare(password, user.password);
-
+            
 
             if (!validPwd) {
                 return res.status(400).json({

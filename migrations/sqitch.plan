@@ -20,3 +20,4 @@ add_author 2021-06-19T19:09:10Z Dimitri Martin <dimmartin32@gmail.com> # Ajout d
 update_editor 2021-06-20T10:56:29Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de le fonction update d un editor
 add_game 2021-06-20T11:06:32Z Dimitri Martin <dimmartin32@gmail.com> # Amélioration de la fonction add_game
 update_author 2021-06-23T16:38:57Z Dimitri Martin <dimmartin32@gmail.com> # Update d'un auteur
+pinttoint 2021-06-25T07:10:16Z Dimitri Martin <dimmartin32@gmail.com> # Patch probleme d event
