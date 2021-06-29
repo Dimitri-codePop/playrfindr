@@ -132,7 +132,7 @@ router.route('/profil/:user_id(\\d+)/collection/:game_id(\\d+)')
     */
     .delete(authorisation, userController.deleteGames); 
     
-
+router.get('/events', authorisation, eventController.findEvents)
 
 router.route('/event')
     /**

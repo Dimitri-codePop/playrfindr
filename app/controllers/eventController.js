@@ -3,6 +3,21 @@ const fetch = require('node-fetch');
 
 
 module.exports = {
+    async findEvents(_, res, next){
+        try {
+            const events = await EventModel.findEvent();
+
+            if(!events){
+                return res.status(401).json({error: `Ces événements n'existe pas`})
+            }
+
+            res.status(200).json({data: events})
+
+        } catch (error) {
+            console.trace(error);
+            res.json({ error });
+        }
+    },
 
     async getAll(_, res) {
         try {
