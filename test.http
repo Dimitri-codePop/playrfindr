@@ -55,8 +55,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
+GET https://playrfindr.herokuapp.com/api/profil/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDk1MTcxOSwiZXhwIjoxNjI0OTU1MzE5fQ.2YDz8FISPMUGxtijMzQSM1UwLQ7QFy3apLGI3jVgbDM
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/2
@@ -150,8 +150,8 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
-    "email": "a@a.com",
-    "password": "coucou"
+    "email": "yann@yann.io",
+    "password": "123456"
  
 }
 

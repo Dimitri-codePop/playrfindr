@@ -59,7 +59,7 @@ export default function Home({
           <span className="home__title--content">Retrouvez-vous et jouer à vos jeux favoris !</span>
           <span className="home__subtitle">
             PlayRfindR est une plateforme qui facilite la mise en relation de plusieurs 
-            jouers afin qu'ils se retrouvent autour d'un jeu de société
+            joueurs afin qu'ils se retrouvent autour d'un jeu de société
           </span>
           {(isLogged) &&
           <span className="home__title--name">Bienvenue {firstname}</span>
