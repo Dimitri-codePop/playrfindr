@@ -27,7 +27,7 @@ GET https://playrfindr.herokuapp.com/api/categories
 
 ### Récupération de tout les evenements
 GET https://playrfindr.herokuapp.com/api/event
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNDQ1NzM4NywiZXhwIjoxNjI0NDYwOTg3fQ.k2d7QPH8K_VmAf9ujRZokmHPD55Mgog1MSQJDTKuX00
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDk2NzQ4NiwiZXhwIjoxNjI0OTcxMDg2fQ.v4deF4Iyki85sJJWjL8ETuAdvs7VUTBdkz10QS05qMA
 
 ### Récupération des événements
 GET http://localhost:4000/api/event
@@ -151,7 +151,7 @@ Content-Type: application/json
 
 {
     "email": "yann@yann.io",
-    "password": "123456"
+    "password": "1234567"
  
 }
 
