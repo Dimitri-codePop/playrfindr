@@ -43,7 +43,7 @@ export default function Form({
       </div>
       <div className="modal_signup--part2">
         <form className="modal_signup--form" noValidate autoComplete="off" onSubmit={handleSubmit}>
-          <h1 className="modal_signup--titleconnect">Connection</h1>
+          <h1 className="modal_signup--titleconnect">Connexion</h1>
           <Field
             type="email"
             name="email"
