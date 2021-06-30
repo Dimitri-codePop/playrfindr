@@ -11,11 +11,19 @@ import events from 'src/middlewares/events';
 import search from 'src/middlewares/search';
 import messages from 'src/middlewares/messages';
 import admin from 'src/middlewares/admin';
+// import checkTokenExpirationMiddleware from 'src/middlewares/checkTokenExpirationMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
-  applyMiddleware(auth, types, games, onegame, events, profil, search, messages, admin),
+  applyMiddleware(auth,
+    types,
+    games,
+    onegame, events,
+    profil,
+    search,
+    messages,
+    admin),
 );
 
 const store = createStore(reducer, enhancers);

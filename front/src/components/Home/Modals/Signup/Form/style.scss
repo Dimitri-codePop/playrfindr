@@ -38,9 +38,23 @@
       cursor: pointer;
     }
   }
+  &-cgu {
+    color: v.$primary;
+    text-decoration: underline;
+  }
 
 
 }
 .delete {
   pointer-events: none;
+}
+
+@media screen and (max-width: 960px) {
+.form__login {
+  &-inscript{
+    & p {
+      text-align: center;
+    }
+  }
+}
 }

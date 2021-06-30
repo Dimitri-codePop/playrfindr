@@ -6,10 +6,8 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export default function Events({ events, deleteElement }) {
   const handleOnClick = (event) => {
     const name = 'event';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
-  console.log(events);
   const tr = events.map(obj => {
     return(
       <tr key={obj.label}>
@@ -27,8 +25,7 @@ export default function Events({ events, deleteElement }) {
     )
   });
   return (
-    <div className="admin__content">App
-
+    <div className="admin__content">
       <table className="admin__games_table">
         <thead>
           <tr>

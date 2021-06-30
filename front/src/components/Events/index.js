@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,6 @@ export default function Events({
   reiniFormEvent,
 }) {
 
-  console.log(`trigger1`, trigger)
   useEffect(() => {
     loadEvents();
   }, []);
@@ -41,18 +40,6 @@ export default function Events({
     setModal(false);
   };
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-
-  console.log(`trigger2`, trigger)
   if (loading) {
     return <Loading />;
   }
@@ -80,7 +67,7 @@ export default function Events({
         events={events}
         reiniFormEvent={reiniFormEvent}
       />
-      <Modal isOpen={modal} style={customStyles} onRequestClose={handleEndModal}>
+      <Modal isOpen={modal} className="customStylesEvent" onRequestClose={handleEndModal}>
         < FormEvent 
           handleEndModal={handleEndModal} 
           
@@ -91,4 +78,10 @@ export default function Events({
   );
 }
 
-Events.propTypes = {};
+Events.propTypes = {
+  events: PropTypes.array.isRequired, 
+  loadEvents: PropTypes.func.isRequired, 
+  loading: PropTypes.bool.isRequired,
+  trigger: PropTypes.bool.isRequired,
+  reiniFormEvent: PropTypes.func.isRequired,
+};

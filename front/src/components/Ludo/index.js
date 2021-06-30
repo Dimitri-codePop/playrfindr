@@ -17,7 +17,10 @@ export default function Ludo({
   setShowMessage,
   onChangeInputValue,
   search,
+  paramsId,
+  idCurrent,
 }) {
+  const [currentUser, setCurrentUser] = useState(false);
   const [profilGames, setProfilGames] = useState([]);
 
   const handleOnClick = (event) => {
@@ -26,34 +29,42 @@ export default function Ludo({
   };
 
   const filterGames = () => {
-    const filteredGames = game.filter((game) => {
+    if (game) {
+      const filteredGames = game.filter((game) => {
+        const loweredGameLabel = game.toLowerCase();
+        const loweredSearch = search.toLowerCase();
 
-      const loweredGameLabel = game.toLowerCase();
-      const loweredSearch = search.toLowerCase();
+        return loweredGameLabel.includes(loweredSearch);
+      });
 
-      return loweredGameLabel.includes(loweredSearch);
-    });
-
-    return filteredGames;
-  }
+      return filteredGames;
+    }
+  };
+  useEffect(() => {
+    if (idCurrent === paramsId) {
+      setCurrentUser(true);
+    }
+    else {
+      setCurrentUser(false);
+    }
+  }, [paramsId]);
 
   const filters = filterGames();
-  console.log(`filters`, filters)
   useEffect(() => {
+    setProfilGames([]);
     if (game) {
       const gameList = filters.map((obj) => {
-        console.log(`obj`, obj)
         const oneGame = FindGoodGameByName(games, obj);
 
         const path = `/jeu/${oneGame.id}`;
         return (
           <div className="profil__ludo__games__content" key={oneGame.id}>
-            <Link to={path} >
+            <Link to={path}>
               <img className="profil__ludo__games__pic" src={oneGame.picture} alt="Game" />
             </Link>
             <div className="profil__ludo__games__name">
               <button type="button" id={oneGame.id} onClick={handleOnClick} className="profil__delete-btn">
-                <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />
+                {currentUser && <FontAwesomeIcon className="profil__delete no-pointer" icon={faTimes} />}
               </button>
               <p className="profil__ludo__games__name-title">{oneGame.label}</p>
             </div>
@@ -62,10 +73,9 @@ export default function Ludo({
       });
       setProfilGames(gameList);
     }
-  }, [game, search]);
+  }, [game, search, paramsId]);
 
   const handleOnChange = (event) => {
-    console.log('handleOnChange', event.target.value);
     onChangeInputValue(event.target.value);
   };
 
@@ -91,7 +101,6 @@ export default function Ludo({
         <div className="profil__ludo__games">
           {profilGames}
         </div>
-        <FontAwesomeIcon className="profil__plus" icon={faPlus} />
       </div>
     </>
   );

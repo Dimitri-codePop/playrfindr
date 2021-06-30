@@ -47,7 +47,6 @@ export default function Web({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(search[0])
     handleNavBarSearch(search[0]);
     history.push('/recherche');
   };
@@ -59,7 +58,6 @@ export default function Web({
   const active = useLocation()
   const classname = (active.pathname =='/jeux') ? "navbar__web__button-active" : "navbar__web__buttons"
   const classname2 = (active.pathname =='/events') ? "navbar__web__button-active" : "navbar__web__buttons"
-
 
   tympanus2(window);
 
@@ -96,29 +94,17 @@ export default function Web({
           </span>
         </form>
         }
-        {/*<form onSubmit={handleSubmit} className="navbar__search-form">
-          <fieldset>
-            <legend>Rechercher</legend>
-            <input
-              type="text"
-              name="search"
-              className="navbar__search-form--input"
-              placeholder="Entrez votre recherche"
-              onChange={changeField}
-              value={search}
-            />
-              <button type="submit" className="navbar__search-form-button"><FontAwesomeIcon icon={faSearch}/> </button>
-          </fieldset>
-  </form>*/}
         <div className="navbar__web__button-container">
           <Link to="/jeux">
             <button type="button" className={classname}><FontAwesomeIcon icon={faChessKnight} />  Tous les jeux</button>
           </Link>
           {isLogged && (
             <>
-              {isAdmin && (<Link to="/admin/home">
-                <button type="button" className={classname2}><FontAwesomeIcon icon={faTools} />  Admin</button>
-              </Link>)}
+              {isAdmin && (
+              <Link to="/admin/home">
+                <button type="button" className="navbar__web__buttons"><FontAwesomeIcon icon={faTools} />  Admin</button>
+              </Link>
+              )}
               <Link to="/events">
                 <button type="button" className={classname2}><FontAwesomeIcon icon={faCalendarDay} />  Evènements</button>
               </Link>

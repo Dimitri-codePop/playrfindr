@@ -21,7 +21,6 @@ export default function Categories({
   }
   const onClickDelete = (event) => {
     const name = 'category';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   function openEditModal(event) {

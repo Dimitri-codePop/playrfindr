@@ -25,7 +25,6 @@ export default function Authors({
   }
   const onClickDelete = (event) => {
     const name = 'author';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   const tr = authors.map(obj => {

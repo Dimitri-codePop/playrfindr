@@ -25,7 +25,6 @@ const events = (store) => (next) => (action) => {
         "Content-Type": "application/json"
       }})
         .then((res) => {
-          console.log(`eventsMW`, res.data.data)
           const actionFetchEvents = saveEvents(res.data.data);
           store.dispatch(actionFetchEvents);
         })
@@ -70,7 +69,6 @@ const events = (store) => (next) => (action) => {
       }}
       )
         .then((response) => {
-          console.log(response);
           const event = response.data.data;
           const saveAddToEventAction = saveAddToEvent(event);
           store.dispatch(saveAddToEventAction);
@@ -90,7 +88,6 @@ const events = (store) => (next) => (action) => {
         "Content-Type": "application/json"
       }})
         .then((response) => {
-          console.log(response);
           const event = response.data.data;
           const saveRemoveFromEventAction = saveRemoveFromEvent(event);
           store.dispatch(saveRemoveFromEventAction);

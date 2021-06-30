@@ -9,7 +9,9 @@ import { faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { getAge } from 'src/selectors/date';
 import Modal from 'react-modal';
+import imageModale from 'src/assets/Imageevent.png'
 import './style.scss';
+import TextField from '@material-ui/core/TextField';
 
 export default function Content({
   user,
@@ -69,10 +71,12 @@ export default function Content({
   const handleSubmitMessage = (event) => {
     event.preventDefault();
     sendMessageContent(contentMessage, paramsId);
-    setShowMessage(!showMessage);
     setModalMessage(false);
-  }
-  
+  };
+  const handleOnChange = (event) => {
+    changefieldMessage(event.target.value, event.target.name)
+  };
+
   // END GESTION EDIT
   return (
     <>
@@ -105,16 +109,16 @@ export default function Content({
           </div>
           {currentUser && (
             <div className="profil__btn">
-              <button type="button" onClick={handleModalEdit} className="btn profil__btn" id="modal_login">Edit</button>
-              <button type="button" onClick={handleModalEditPassword} className="btn profil__btn" id="modal_login">Changer mot de passe</button>
+              <button type="button" onClick={handleModalEdit} className="btn btn-login" id="modal_login">Edit</button>
+              <button type="button" onClick={handleModalEditPassword} className="btn btn-signup" id="modal_login">Changer mot de passe</button>
             </div>
           )}
           <h2 className="profil__themetitle">Thèmes et catégories préférés</h2>
           <div className="profil__tag">
-            <div>
+            <div className="profil__cat">
               {categories}
             </div>
-            <div>
+            <div className="profil__themes">
               {themes}
             </div>
           </div>
@@ -137,18 +141,34 @@ export default function Content({
           setShowMessage={setShowMessage}
         />
       )}
-      <Modal isOpen={modalMessage} onRequestClose={handleEndModal}>
-        <form onSubmit={handleSubmitMessage}>
-        <Field
-            type="text"
-            name="contentMessage"
-            placeholder="Votre message..."
-            onChange={changefieldMessage}
-            value={contentMessage}
-          />
-          <button type="submit">Envoyer</button>
-          <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
-        </form>
+      <Modal isOpen={modalMessage} onRequestClose={handleEndModal} className="customStylesMsg">
+        <div className="eventModal">
+          <div className="eventModal-part1">
+            <img className="eventModal-img" src={imageModale} alt=""/>
+          </div>
+          <div className="eventModal-part3">
+          <div className="messages-head"> 
+            <h1 className="messages-titlemodal">Ecrire un message</h1>
+            <form className="messages-form" onSubmit={handleSubmitMessage}>
+            <div className="messages-textmodal">
+            <TextField 
+                    fullWidth={true}
+                    multiline
+                    rows={5}
+                    rowsMax={5}
+                    type="text"
+                    name="contentMessage"
+                    placeholder="Votre message..."
+                    onChange={handleOnChange}
+                    value={contentMessage}
+                  />
+              </div>
+              <button className="messages-btn" type="submit">Envoyer</button>
+              <FontAwesomeIcon onClick={handleEndModal} className="close_modal" icon={faTimes} />
+            </form>
+          </div>
+          </div>
+        </div>
       </Modal>
     </>
   );
@@ -157,4 +177,10 @@ export default function Content({
 Content.propTypes = {
   user: PropTypes.object.isRequired,
   paramsId: PropTypes.number.isRequired,
+  showMessage: PropTypes.bool.isRequired,
+  setShowMessage: PropTypes.func.isRequired,
+  idCurrent: PropTypes.number.isRequired,
+  changefieldMessage: PropTypes.func.isRequired,
+  contentMessage: PropTypes.string.isRequired,
+  sendMessageContent: PropTypes.func.isRequired,
 };

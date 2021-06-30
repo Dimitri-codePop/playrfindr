@@ -4,10 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function Users({ users, deleteElement }) {
-  console.log(users);
   const handleOnClick = (event) => {
     const name = 'users';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   const tr = users.map(obj => {
@@ -26,8 +24,7 @@ export default function Users({ users, deleteElement }) {
     )
   });
   return (
-    <div className="admin__content">App
-ADD
+    <div className="admin__content">
       <table className="admin__games_table">
         <thead>
           <tr>

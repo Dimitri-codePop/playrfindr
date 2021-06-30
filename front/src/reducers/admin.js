@@ -12,6 +12,8 @@ import {
   SAVE_ADD_AUTHOR,
   CHANGE_ADD_GAME_FIELD,
   CHANGE_ADD_GAME_FIELD_SELECT,
+  CHANGE_ADD_GAME_FIELD_SELECT_UNIQUE,
+  SAVE_ELEMENT_GAME,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -35,7 +37,7 @@ const initialState = {
       year: 2000,
       describe: '',
       author: [],
-      editor: [],
+      editor: 0,
       theme: [],
       category: [],
     },
@@ -74,9 +76,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     case SAVE_AFTER_DELETE: {
       const tab = state[action.key];
-      console.log(`tab`, tab);
       const newTab = tab.filter((entry) => Number(entry.id) !== Number(action.value));
-      console.log(`newTab`, newTab);
       return {
         ...state,
         [action.key]: [...newTab],
@@ -158,28 +158,44 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     }
-case CHANGE_ADD_GAME_FIELD: 
-return {
-  ...state,
-  new: {
-    ...state.new,
-    jeu: {
-      ...state.new.jeu,
-      [action.key]: action.value,
-    }
-  }
-}
-    case CHANGE_ADD_GAME_FIELD_SELECT: 
-    return {
-      ...state,
-      new: {
-        ...state.new,
-        jeu: {
-          ...state.new.jeu,
-          [action.key]: [...action.value],
+    case CHANGE_ADD_GAME_FIELD_SELECT_UNIQUE:
+      return {
+        ...state,
+        new: {
+          ...state.new,
+          jeu: {
+            ...state.new.jeu,
+            [action.key]: action.value,
+          },
         },
-      },
-    };
+      };
+    case CHANGE_ADD_GAME_FIELD:
+      return {
+        ...state,
+        new: {
+          ...state.new,
+          jeu: {
+            ...state.new.jeu,
+            [action.key]: action.value,
+          },
+        },
+      };
+    case CHANGE_ADD_GAME_FIELD_SELECT:
+      return {
+        ...state,
+        new: {
+          ...state.new,
+          jeu: {
+            ...state.new.jeu,
+            [action.key]: [...action.value],
+          },
+        },
+      };
+    case SAVE_ELEMENT_GAME:
+      return {
+        ...state,
+        jeux: [...state.jeux, action.jeux],
+      };
     default:
       return state;
   }

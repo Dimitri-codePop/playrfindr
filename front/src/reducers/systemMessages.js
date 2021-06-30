@@ -32,18 +32,17 @@ const reducer = (state = initialState, action = {}) => {
         isOk: action.key,
       };
     case SHOW_ADD_GAME_TO_LIB_MESSAGE:
-      console.log("log reducers", action.value, action.key);
       return {
         ...state,
         message: action.value,
         isOk: action.key,
-      }
+      };
     case SHOW_SEND_MESSAGE:
       return {
         ...state,
         message: action.value,
         isOk: action.key,
-      }
+      };
     default:
       return state;
   }

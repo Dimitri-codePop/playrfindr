@@ -11,7 +11,6 @@ import {
   messageLogOut,
 } from 'src/actions/systemMessages';
 import axios from 'axios';
-import profil_picture from 'src/assets/default_profile_picture.jpg';
 
 const login = (store) => (next) => (action) => {
   switch (action.type) {
@@ -32,10 +31,14 @@ const login = (store) => (next) => (action) => {
             department_number,
             department_label,
           } = response.data;
-          console.log(response.data);
           const { isLogged } = response.data;
-          // localStorage.setItem('isLogged', isLogged);
           const dataUser = response.data;
+          dataUser.remindMe = action.remindMe;
+          const tokenexpiration = new Date();
+          tokenexpiration.setSeconds(new Date().getSeconds() + 3600);
+          console.log(tokenexpiration);
+          console.log(dataUser);
+          localStorage.setItem('tokenLimits', JSON.stringify(tokenexpiration));
           localStorage.setItem('UserKeysUsed', JSON.stringify(dataUser));
           const saveUserAction = saveUser(id, token, email, department_number, department_label, isLogged, firstname, lastname, birthdate);
           store.dispatch(saveUserAction);
@@ -65,19 +68,27 @@ const login = (store) => (next) => (action) => {
         department_id: state.user.departement[0],
         theme_id: state.user.themes,
         category_id: state.user.categories,
-        picture: "https://t3.ftcdn.net/jpg/00/85/06/44/360_F_85064489_TfbAnASPyjxyaUCZL0dQEeStLHZqKKle.jpg",
+        picture: 'https://t3.ftcdn.net/jpg/00/85/06/44/360_F_85064489_TfbAnASPyjxyaUCZL0dQEeStLHZqKKle.jpg',
       })
         .then((response) => {
-          console.log(response);
           const { data } = response;
           const saveUserAction = saveUser(data);
+          const message = "Votre inscription s'est bien passée";
+          const isOk = true;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
           store.dispatch(saveUserAction);
         })
-        .catch((error) => console.log( error ) );
+        .catch((error) => {
+          console.log(`error`, error);
+          const message = "Une erreur s'est produite, recommencez plus tard";
+          const isOk = false;
+          const actionLoginMessage = messageLogin(message, isOk);
+          store.dispatch(actionLoginMessage);
+        });
       break;
     }
     case FETCH_USER: {
-      console.log(localStorage);
       let fetchUser = localStorage.getItem('UserKeysUsed');
       fetchUser = JSON.parse(fetchUser);
       if (fetchUser) {
@@ -92,7 +103,17 @@ const login = (store) => (next) => (action) => {
           department_label,
           isLogged,
         } = fetchUser;
-        store.dispatch(saveUser(Number(id),token, email, Number(department_number), department_label, isLogged, firstname, lastname, birthdate));
+        store.dispatch(saveUser(
+          Number(id),
+          token,
+          email,
+          Number(department_number),
+          department_label,
+          isLogged,
+          firstname,
+          lastname,
+          birthdate,
+        ));
       }
       break;
     }

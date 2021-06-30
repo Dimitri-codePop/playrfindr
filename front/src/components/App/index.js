@@ -10,6 +10,7 @@ import Profil from 'src/containers/Profil';
 import Events from 'src/containers/Events';
 import Search from 'src/containers/Search';
 import Messages from 'src/containers/Messages';
+import Error404 from 'src/components/Error404';
 import PropTypes from 'prop-types';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -19,7 +20,8 @@ import './style.scss';
 import Loading from './Loading';
 import About from '../About';
 import Cgu from '../CGU';
-// == Composant
+import Faq from '../Faq';
+
 export default function App({
   topConnect,
   loadTypes,
@@ -30,7 +32,9 @@ export default function App({
 }) {
   const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
-    loadUser();
+    if (!isLogged) {
+      loadUser();
+    }
     topConnect();
     loadTypes();
     loadDepartements();
@@ -85,10 +89,16 @@ export default function App({
           <Messages />
         </Route>
         <Route path="/about">
-          <About/>
+          <About />
         </Route>
         <Route path="/cgu">
-          <Cgu/>
+          <Cgu />
+        </Route>
+        <Route path="/faq">
+          <Faq />
+        </Route>
+        <Route path="">
+          <Error404 />
         </Route>
       </Switch>
       <Footer />

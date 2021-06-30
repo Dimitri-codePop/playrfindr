@@ -21,7 +21,6 @@ export default function Editors({
   }
   const onClickDelete = (event) => {
     const name = 'editor';
-    console.log(event.target.id, name);
     deleteElement(event.target.id, name);
   };
   function openEditModal(event) {

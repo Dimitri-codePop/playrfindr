@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import Ludo from 'src/components/Ludo';
 import { withRouter } from 'react-router-dom';
 import { deleteGameFromLib, changeSearchGame } from 'src/actions/games';
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   user: state.user.profil,
+  idCurrent: state.user.id,
+  paramsId: Number(ownProps.match.params.id),
   games: state.games.gamesInit,
   game: state.user.profil.game,
   message: state.systemMessages.message,
@@ -11,12 +13,12 @@ const mapStateToProps = (state) => ({
   search: state.games.search,
 });
 
-const mapDispatchToProps = (dispatch, ownprops) => ({
+const mapDispatchToProps = (dispatch) => ({
   deleteGameFromLib: (value, name) => {
-    dispatch(deleteGameFromLib(value, name))
+    dispatch(deleteGameFromLib(value, name));
   },
   onChangeInputValue: (value) => {
-    dispatch(changeSearchGame(value))
+    dispatch(changeSearchGame(value));
   },
 });
 

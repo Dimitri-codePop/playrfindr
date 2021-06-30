@@ -1,3 +1,35 @@
 .form-log {
   z-index: 200;
 }
+
+.customStyles { 
+  position: absolute;
+  top                   : 50%;
+  left                  : 50%;
+  right                 : auto;
+  bottom                : auto;
+  margin-right           : -50%;
+  height                : 50%;
+  width                 : 50%;
+  transform             : translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  outline: none;
+};
+
+@media screen and (max-width: 960px) {
+  .customStyles { 
+    position: absolute;
+    top                   : 50%;
+    left                  : 50%;
+    right                 : auto;
+    bottom                : auto;
+    margin-right           : -50%;
+    height                : 70%;
+    width                 : 90%;
+    transform             : translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    outline: none;
+  };
+}

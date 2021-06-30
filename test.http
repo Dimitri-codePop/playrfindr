@@ -55,8 +55,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4i
 GET http://localhost:4000/api/jeu/6
 
 ### Récupération d'un utilisateur
-GET https://playrfindr.herokuapp.com/api/profil/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQwMTUwMDUsImV4cCI6MTYyNDAxODYwNX0.oWKtrTucgPRhZUhPtEsx4BoRpMRql1_taQOHA4nElK4
+GET https://playrfindr.herokuapp.com/api/profil/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDk1MTcxOSwiZXhwIjoxNjI0OTU1MzE5fQ.2YDz8FISPMUGxtijMzQSM1UwLQ7QFy3apLGI3jVgbDM
 
 ### Récupération d'un utilisateur
 GET http://localhost:4000/api/profil/2
@@ -150,8 +150,13 @@ POST https://playrfindr.herokuapp.com/api/connexion
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
+    "email": "yann@yann.io",
+    "password": "1234567"
+=======
     "email": "oclock@oclock.io",
     "password": "123456"
+>>>>>>> 54bec6a85b1903084ec0cfbdbe8d4f5676475fa2
  
 }
 
@@ -184,8 +189,8 @@ POST https://playrfindr.herokuapp.com/api/event/18
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJpc0FkbWluIjpudWxsLCJpYXQiOjE2MjQyNjYwNzUsImV4cCI6MTYyNDI2OTY3NX0.thqNfvZsojMNgdpPrzUCpBf8vhSm88Q2rSefTK-kAjI
 
 ### Update d'un utilisateur
-PATCH https://playrfindr.herokuapp.com/api/profil/8
-Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MjQyNTkyOTUsImV4cCI6MTYyNDI2Mjg5NX0.RIdRPcJiKqurE1V7QG7WsmVnL2GRYMPx-h1veLWa1Ns
+PATCH https://playrfindr.herokuapp.com/api/profil/7
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlzQWRtaW4iOm51bGwsImlhdCI6MTYyNDk3MDE2OSwiZXhwIjoxNjI0OTczNzY5fQ.WBYLrR8B_VEEOD8BJwOcQVNvL5v4Vqiod94IGKKfzN8
 Content-Type: application/json
 
 {

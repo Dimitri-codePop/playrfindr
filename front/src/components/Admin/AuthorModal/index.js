@@ -37,7 +37,6 @@ export default function AuthorModal({
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(authorId);
     addElementAuthor(authorId);
     closeModal();
     // setShowMessage(!showMessage);

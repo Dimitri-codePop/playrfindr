@@ -3,3 +3,35 @@
 .no-pointer {
   pointer-events: none;
 }
+
+.customStyleEditProfil {
+  position: absolute;
+  top                   : 50%;
+  left                  : 50%;
+  right                 : auto;
+  bottom                : auto;
+  margin-right           : -50%;
+  height                : 85%;
+  width                 : 75%;
+  transform             : translate(-50%, -50%);
+  background-color: white;
+  border-radius: 20px;
+  outline: none;
+}
+
+@media screen and (max-width: 960px) {
+  .customStylesEdit { 
+    position: absolute;
+    top                   : 50%;
+    left                  : 50%;
+    right                 : auto;
+    bottom                : auto;
+    margin-right           : -50%;
+    height                : 90%;
+    width                 : 90%;
+    transform             : translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    outline: none;
+  };
+}

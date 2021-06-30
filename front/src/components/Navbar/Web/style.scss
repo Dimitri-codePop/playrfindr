@@ -62,6 +62,13 @@
       transition: all ease 0.5s;
     }
   }
+  &__profil-notif {
+    color: v.$alternate;
+    font-size: 1rem;
+    position: absolute;
+    top: 30px;
+    right: 170px;
+  }
 }
 
 .navbar__web__button-container {

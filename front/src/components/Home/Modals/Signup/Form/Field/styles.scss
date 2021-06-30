@@ -38,3 +38,12 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+.field {
+  &__input {
+    &--dpt {
+      width: 100%;
+    }
+  }
+}
+}

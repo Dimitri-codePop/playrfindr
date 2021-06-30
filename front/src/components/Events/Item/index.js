@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
@@ -9,8 +9,8 @@ import Check from 'src/containers/Events/Item/Check';
 import EditEvent from 'src/containers/Events/Item/EditEvent';
 import moment from 'moment';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import momentTz from 'moment-timezone';
-import imageModale from 'src/assets/Imageevent.png'
+ import momentTz from 'moment-timezone';
+ import imageModale from 'src/assets/Imageevent.png'
 
 
 Modal.setAppElement('#root');
@@ -43,7 +43,6 @@ export default function Item({
   const handleClickModal = (event) => {
     setModalIdOpen(true);
     setGoodModal(FindGoodGame(events, event.target.id))
-
   };
   const handleClickEndModal = () => {
     reiniFormEvent();
@@ -57,7 +56,6 @@ export default function Item({
     setUpEvent(goodModal);
  
     setModalEditOpen(true);
-    console.log(event.target.value);
   };
   const handleClickEndEditModal = () => {
     reiniFormEvent();
@@ -68,17 +66,7 @@ export default function Item({
   moment.locale('fr')
   const timeZone = 'Atlantic/Azores'
 
-  const customStyles = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-    },
-  };
-  
+
 
   const event = events.map((element) => {
     const momentDate = moment(element.date).tz(timeZone).format("dddd DD MMM YYYY")
@@ -121,12 +109,13 @@ export default function Item({
   });
 
 
-  const position = [goodModal.latitude, goodModal.longitude];
-  console.log(`position`, position)
+//const position = [43.605450, 1.442740];
+const position = [goodModal.latitude, goodModal.longitude]
+
   return(
         <div>
           {event}
-          <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={handleClickEndModal}>
+          <Modal isOpen={modalIsOpen} className="customStylesEvent" onRequestClose={handleClickEndModal}>
             <div className="eventModal">
               <div className="eventModal-part1">
               <img className="eventModal-img" src={imageModale} alt=""/>
@@ -146,9 +135,19 @@ export default function Item({
                   </div>
                 }
                   </h2>
-                  <p className="eventModal-date">{moment(goodModal.date).format("dddd MM YYYY à HH:mm")}</p>
+                  <p className="eventModal-date">{moment(goodModal.date).tz(timeZone).format("dddd DD MMM YYYY à HH:mm")}</p>
                   <p className="eventModal-creator">Evènement créée par {goodModal.creator_firstname} {goodModal.creator_lastname}</p>
                   <p className="eventModal-content">{goodModal.content}</p>
+                  {(goodModal) && 
+                  <div className="eventModal-players">
+                  <p className="eventModal-players--title">Participants inscrits</p>
+                  {goodModal.visitors.map((visitor) => {
+                    const pathname = `profil/${visitor.f1}`
+                    return (
+                      <a key={visitor.f1} href={pathname} className="eventModal-players--content">{visitor.f2} {visitor.f3}</a>
+                  )})}
+                  </div>
+                  }
                   <FontAwesomeIcon onClick={handleClickEndModal} className="close_modal" icon={faTimes} />
                 </div>            
                 
@@ -168,7 +167,7 @@ export default function Item({
               </div>
             </div>
           </Modal>
-          <Modal isOpen={modalEditOpen} style={customStyles} onRequestClose={handleClickEndEditModal}>
+          <Modal isOpen={modalEditOpen} className="customStylesEvent" onRequestClose={handleClickEndEditModal}>
             <EditEvent 
               handleClickEndEditModal={handleClickEndEditModal}
               {...goodModal}
@@ -179,4 +178,11 @@ export default function Item({
   );
 }
 
-Item.propTypes = {};
+Item.propTypes = {
+  events: PropTypes.array.isRequired,
+  handleAddToEvent: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  handleDeleteEvent: PropTypes.func.isRequired,
+  setUpEvent: PropTypes.func.isRequired,
+  reiniFormEvent: PropTypes.func.isRequired,
+};

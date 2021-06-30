@@ -17,6 +17,8 @@ import {
   saveAddAuthor,
   EDIT_AUTHOR,
   saveEditAuthor,
+  ADD_ELEMENT_GAME,
+  saveElementGame,
 } from 'src/actions/admin';
 import axios from 'axios';
 
@@ -116,7 +118,6 @@ const admin = (store) => (next) => (action) => {
       break;
     }
     case DELETE_ONE_ENTRY: {
-      console.log('MDW ', action.key, action.value);
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
       axios.delete(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.value}`, {
         headers: {
@@ -126,7 +127,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           const data = saveAfterDelete(action.value, action.key);
           store.dispatch(data);
         })
@@ -135,7 +135,6 @@ const admin = (store) => (next) => (action) => {
     }
     case ADD_ELEMENTS_TYPE: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value);
       axios.post(`https://playrfindr.herokuapp.com/admin/${action.key}`, {
         label: action.value,
       }, {
@@ -146,7 +145,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.data);
           const data = saveElementsType(response.data.data, action.key);
           store.dispatch(data);
         })
@@ -155,7 +153,6 @@ const admin = (store) => (next) => (action) => {
     }
     case EDIT_TYPE_FIELD: {
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value, action.id);
       axios.patch(`https://playrfindr.herokuapp.com/admin/${action.key}/${action.id}`,{
         label: action.value,
       }, {
@@ -166,7 +163,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           const data = saveEditElementType(response.data.data, action.key);
           store.dispatch(data);
         })
@@ -176,7 +172,6 @@ const admin = (store) => (next) => (action) => {
     case ADD_AUTHOR: {
       const state = store.getState();
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log('MDW ', action.key, action.value);
       axios.post(`https://playrfindr.herokuapp.com/admin/author`, {
         ...state.admin.new.author,
       }, {
@@ -187,7 +182,6 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.author.dataValues);
           const data = saveAddAuthor(response.data.author.dataValues);
           store.dispatch(data);
         })
@@ -197,7 +191,6 @@ const admin = (store) => (next) => (action) => {
     case EDIT_AUTHOR: {
       const state = store.getState();
       const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
-      console.log(action.id);
       axios.patch(`https://playrfindr.herokuapp.com/admin/author/${action.id}`, {
         ...state.admin.new.author,
       }, {
@@ -208,8 +201,44 @@ const admin = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data.data);
           const data = saveEditAuthor(response.data.data, action.key);
+          store.dispatch(data);
+        })
+        .catch((error) => console.log(`error`, error));
+      break;
+    }
+    case ADD_ELEMENT_GAME: {
+      const state = store.getState();
+      let describe;
+      if (state.admin.new.jeu.describe) {
+        describe = state.admin.new.jeu.describe;
+      }
+      else {
+        describe = 'La description de ce jeux arrivera prochainement.';
+      }
+      const { token } = JSON.parse(localStorage.getItem('UserKeysUsed'));
+      axios.post(`https://playrfindr.herokuapp.com/admin/jeux`, {
+        label: state.admin.new.jeu.label,
+        duration: Number(state.admin.new.jeu.duration),
+        player_min: Number(state.admin.new.jeu.player_min),
+        player_max: Number(state.admin.new.jeu.player_max),
+        age_min: Number(state.admin.new.jeu.age_min),
+        year: Number(state.admin.new.jeu.year),
+        describe: describe,
+        editor_id: state.admin.new.jeu.editor,
+        theme_id: state.admin.new.jeu.theme,
+        author_id: state.admin.new.jeu.author,
+        category_id: state.admin.new.jeu.category,
+        picture: 'https://www.clipartmax.com/png/middle/159-1598074_board-game-free-icon-game.png',
+      }, {
+        headers: {
+          "Authorization": `${token}`,
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+      })
+        .then((response) => {
+          const data = saveElementGame(response.data.data);
           store.dispatch(data);
         })
         .catch((error) => console.log(`error`, error));

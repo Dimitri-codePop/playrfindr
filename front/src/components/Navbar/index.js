@@ -42,7 +42,6 @@ export default function Navbar({
 
 
   const handleChangeSearchValue = (value) => {
-    console.log(value);
     handleNavBarSearchValue(value);
   }
 

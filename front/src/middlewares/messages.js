@@ -15,7 +15,6 @@ const messages = (store) => (next) => (action) => {
   const state = store.getState();
   switch (action.type) {
     case FETCH_MESSAGES: {
-      console.log("hello")
       axios.get(`https://playrfindr.herokuapp.com/api/messagerie`,
       { headers: {
         "Authorization": `${state.user.token}`,
@@ -24,7 +23,6 @@ const messages = (store) => (next) => (action) => {
       }}
       )
         .then((res) => {
-          console.log(`messageMW`, res.data.data)
           const actionFetchMessages = saveMessages(res.data.data);
           store.dispatch(actionFetchMessages);
         })
@@ -43,7 +41,6 @@ const messages = (store) => (next) => (action) => {
       }}
       )
         .then((res) => {
-          console.log('Ici ?', res);
           const message = 'Le message a bin été envoyé.';
           const isOk = true;
           const actionmessageSend = messageSend(message, isOk);
@@ -51,7 +48,6 @@ const messages = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('error :', error)
-          console.log('errot', error);
           const message = "Une erreur s'est produite, veuillez réessayer plus tard !";
           const isOk = false;
           const actionmessageSend = messageSend(message, isOk);
